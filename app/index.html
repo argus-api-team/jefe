@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Jefe</title>
-    <meta name="description" content="">
+    <meta name="author" content="supportapi@largus.fr">
+    <meta name="description" content="Jefe - Argus API Showcase">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for "head"}}
@@ -13,9 +19,16 @@
     <link rel="stylesheet" href="{{rootURL}}assets/jefe.css">
 
     {{content-for "head-footer"}}
+    <link rel="shortcut icon" href="favicon.ico">
   </head>
   <body>
     {{content-for "body"}}
+
+    <!--[if lt IE 9]>
+    <script src="{{rootURL}}assets/metronic/global/plugins/respond.min.js"></script>
+    <script src="{{rootURL}}assets/metronic/global/plugins/excanvas.min.js"></script>
+    <script src="{{rootURL}}assets/metronic/global/plugins/ie8.fix.min.js"></script>
+    <![endif]-->
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/jefe.js"></script>
