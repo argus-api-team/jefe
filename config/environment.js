@@ -26,6 +26,11 @@ module.exports = function(environment) {
       'style-src': "'self' fonts.googleapis.com"
     },
 
+    i18n: {
+      defaultLocale: 'en',
+      allowedLocales: ['en', 'fr']
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

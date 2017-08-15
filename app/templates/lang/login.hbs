@@ -1,0 +1,32 @@
+<div class="logo">
+<img src="/assets/logos/Jeff_logo_small.png">
+</div>
+<div class="content">
+  <form class="login-form" {{action "authenticate" on='submit'}}>
+    <h3 class="form-title font-green">{{t "login.title.signIn"}}</h3>
+    {{#if errorMessage}}
+      <div class="alert alert-danger">
+        <span>{{errorMessage}}</span>
+      </div>
+    {{/if}}
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">{{t "login.form.applicationId"}}</label>
+      {{input value=applicationId class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.applicationId") name="applicationId"}}
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">{{t "login.form.applicationSecret"}}</label>
+      {{input value=applicationSecret class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.applicationSecret") name="applicationSecret" type="password"}}
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">{{t "login.form.username"}}</label>
+      {{input value=username class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.username") name="username"}}
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9">{{t "login.form.password"}}</label>
+      {{input value=password class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.password") name="password" type="password"}}
+    </div>
+    <div class="form-actions">
+      <button type="sumbit" class="btn green uppercase">{{t "login.button.signIn"}}</button>
+    </div>
+  </form>
+</div>
