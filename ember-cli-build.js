@@ -32,8 +32,8 @@ module.exports = function(defaults) {
   app.import('vendor/metronic/global/plugins/select2/css/select2-bootstrap.min.css');
 
   // METRONIC THEME GLOBAL STYLES
-  app.import('vendor/metronic/global/css/components.min.css');
-  app.import('vendor/metronic/global/css/plugins.min.css');
+  app.import('vendor/metronic/global/css/components-md.min.css');
+  app.import('vendor/metronic/global/css/plugins-md.min.css');
 
   // METRONIC PAGE LEVEL STYLES
   app.import('vendor/metronic/pages/css/login.min.css');

@@ -7,10 +7,11 @@ export default {
       'applicationId': 'Application Key',
       'applicationSecret': 'Application Secret Key',
       'username': 'Username',
-      'password': 'Password'
+      'password': 'Password',
+      'isRemembered': 'Remember me?'
     },
     'button': {
-      'signIn': 'Sign in'
+      'signIn': 'Login'
     }
   }
 };

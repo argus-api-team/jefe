@@ -27,6 +27,11 @@
     </div>
     <div class="form-actions">
       <button type="sumbit" class="btn green uppercase">{{t "login.button.signIn"}}</button>
+      <label class="rememberme check mt-checkbox mt-checkbox-outline">
+        {{input type="checkbox" name="isRemembered" checked=isRemembered}}{{t "login.form.isRemembered"}}
+        <span></span>
+      </label>
     </div>
   </form>
 </div>
+<div class="copyright"> Copyright © {{moment-format (now) 'YYYY'}} Groupe Argus </div>
