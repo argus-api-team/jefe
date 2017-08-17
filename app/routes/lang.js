@@ -3,6 +3,7 @@ import config from '../config/environment';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
+  classNames: ['page-header-fixed','page-sidebar-closed-hide-logo', 'page-content-white', 'page-boxed', 'page-md'],
   authenticationRoute: 'lang.login',
 
   afterModel: function(params) {

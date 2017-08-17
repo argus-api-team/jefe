@@ -1,0 +1,6 @@
+{
+  "name": "jefe",
+  "dependencies": {
+    "spin.js": "^2.3.2"
+  }
+}

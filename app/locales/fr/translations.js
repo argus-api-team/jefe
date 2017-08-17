@@ -13,5 +13,9 @@ export default {
     'button': {
       'signIn': 'Me connecter'
     }
+  },
+  'pageHeader': {
+    'myProfile': 'Mon Profil',
+    'signOut': 'Se déconnecter'
   }
 };

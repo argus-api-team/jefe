@@ -13,5 +13,9 @@ export default {
     'button': {
       'signIn': 'Login'
     }
+  },
+  'pageHeader': {
+    'myProfile': 'My Profile',
+    'signOut': 'Sign out'
   }
 };

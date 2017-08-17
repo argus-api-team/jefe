@@ -22,8 +22,6 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   // METRONIC GLOBAL MANDATORY STYLES
-  app.import('vendor/metronic/global/plugins/font-awesome/css/font-awesome.min.css');
-  app.import('vendor/metronic/global/plugins/simple-line-icons/simple-line-icons.min.css');
   app.import('vendor/metronic/global/plugins/bootstrap/css/bootstrap.min.css');
   app.import('vendor/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css');
 
@@ -38,12 +36,25 @@ module.exports = function(defaults) {
   // METRONIC PAGE LEVEL STYLES
   app.import('vendor/metronic/pages/css/login.min.css');
 
+  // METRONIC THEME LAYOUT STYLES
+  app.import('vendor/metronic/layouts/layout/css/themes/darkblue.min.css');
+  app.import('vendor/metronic/layouts/layout/css/layout.css');
+  app.import('vendor/metronic/layouts/layout/css/custom.css');
+
   // METRONIC CORE PLUGINS
   app.import('vendor/metronic/global/plugins/bootstrap/js/bootstrap.min.js');
   app.import('vendor/metronic/global/plugins/js.cookie.min.js');
   app.import('vendor/metronic/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js');
   app.import('vendor/metronic/global/plugins/jquery.blockui.min.js');
   app.import('vendor/metronic/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js');
+
+  // METRONIC THEME GLOBAL SCRIPTS
+  app.import('vendor/metronic/global/scripts/app.min.js');
+
+  // METRONIC THEME LAYOUT SCRIPTS
+  app.import('vendor/metronic/layouts/layout/scripts/layout.js');
+  app.import('vendor/metronic/layouts/global/scripts/quick-sidebar.min.js');
+  app.import('vendor/metronic/layouts/global/scripts/quick-nav.min.js');
 
   // METRONIC PAGE LEVEL PLUGINS
   app.import('vendor/metronic/global/plugins/jquery-validation/js/jquery.validate.min.js');
