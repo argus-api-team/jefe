@@ -17,5 +17,12 @@ export default {
   'pageHeader': {
     'myProfile': 'My Profile',
     'signOut': 'Sign out'
-  }
+  },
+  'makeList': {
+    'title': 'Make List',
+    'displayDateSince': 'Since {{startDate}}',
+    'displayDateWithEnd': 'From {{startDate}} to {{endDate}}',
+    'infinityLoader': 'Loading more makes...'
+  },
+  'infinityLoader': 'Loading...'
 };

@@ -31,6 +31,11 @@ module.exports = function(environment) {
       allowedLocales: ['en', 'fr']
     },
 
+    moment: {
+      // Full list of locales: https://github.com/moment/moment/tree/2.10.3/locale
+      includeLocales: ['en', 'fr']
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

@@ -1,0 +1,27 @@
+<div class="mt-element-list">
+  <div class="mt-list-head list-simple font-white bg-red-mint">
+    <div class="list-head-title-container">
+      <div class="list-date">{{moment-format (now) 'DD-MM-YYYY'}}</div>
+      <h3 class="list-title">{{t "makeList.title"}}</h3>
+    </div>
+  </div>
+  <div class="mt-list-container list-news ext-1">
+    <ul>
+      {{#each model as |model|}}
+      <li class="mt-list-item">
+        <div class="list-icon-container">
+          <i class="fa fa-angle-right"></i>
+        </div>
+        <div class="list-thumb">
+          <img src="{{model.logoURL}}" onerror="this.src='assets/logos/nologo.png'">
+        </div>
+        <div class="list-item-content">
+          <h3 class="uppercase">{{model.name}}</h3>
+        </div>
+        <div class="list-datetime font-grey-mint">{{model.displayDate}}</div>
+      </li>
+      {{/each}}
+      {{infinity-loader infinityModel=model loadingText=(t 'makeList.infinityLoader')}}
+    </ul>
+  </div>
+</div>

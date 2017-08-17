@@ -3,7 +3,7 @@ import config from '../config/environment';
 
 export default Ember.Route.extend({
   beforeModel: function () {
-    this.transitionTo('lang.index', { lang: this._selectLang() });
+    this.transitionTo('lang', { lang: this._selectLang() });
   },
 
   _selectLang: function() {

@@ -1,0 +1,12 @@
+<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="false">
+  <img src="/assets/flags/{{locale}}_small.png" class="flag">
+</a>
+<ul class="dropdown-menu" id="flag-list">
+  {{#each locales as |lang|}}
+    <li>
+      {{#link-to 'lang' lang }}
+        <img src="/assets/flags/{{lang}}_small.png" class="flag">
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

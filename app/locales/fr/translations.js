@@ -17,5 +17,12 @@ export default {
   'pageHeader': {
     'myProfile': 'Mon Profil',
     'signOut': 'Se déconnecter'
-  }
+  },
+  'makeList': {
+    'title': 'Liste des constructeurs',
+    'displayDateSince': 'Depuis {{startDate}}',
+    'displayDateWithEnd': 'De {{startDate}} à {{endDate}}',
+    'infinityLoader': 'Chargement de plus constructeurs...'
+  },
+  'infinityLoader': 'Chargement...'
 };
