@@ -24,6 +24,7 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import(app.bowerDirectory + '/jquery-listnav/jquery-listnav.js');
+  app.import(app.bowerDirectory + '/jquery-listnav/css/listnav.css');
 
   // METRONIC GLOBAL MANDATORY STYLES
   app.import('vendor/metronic/global/plugins/bootstrap/css/bootstrap.min.css');
