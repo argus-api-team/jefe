@@ -1,12 +1,11 @@
 <div class="mt-element-list">
   <div class="mt-list-head list-simple font-white bg-red-mint">
     <div class="list-head-title-container">
-      <div class="list-date">{{moment-format (now) 'DD-MM-YYYY'}}</div>
       <h3 class="list-title">{{t "makeList.title"}}</h3>
     </div>
   </div>
   <div class="mt-list-container list-news ext-1">
-    <ul>
+    <ul id="make-list">
       {{#each model as |model|}}
       <li class="mt-list-item">
         <div class="list-icon-container">
@@ -16,16 +15,11 @@
           <img src="{{model.logoURL}}">
         </div>
         <div class="list-item-content">
-          <h3 class="uppercase">{{model.name}}</h3>
+          <h3 class="uppercase font-lg bold font-blue-ebonyclay" data-role="name">{{model.name}}</h3>
         </div>
         <div class="list-datetime font-grey-mint small">{{model.displayDate}}</div>
       </li>
       {{/each}}
-      <li class="mt-list-item">
-        <div class="list-item-content">
-          {{infinity-loader infinityModel=model loadingText=(t 'makeList.infinityLoader')}}
-        </div>
-      </li>
     </ul>
   </div>
 </div>

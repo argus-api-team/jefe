@@ -8,11 +8,8 @@ export default Ember.Route.extend(InfinityRoute, {
   totalPagesParam: "meta.record-count",
 
   model() {
-    return this.infinityModel('make', {
-      perPage: 20,
-      startingPage: 1,
-      sort: 'name',
-      'links': false
+    return this.store.query('make', {
+      page: { size: 500 }
     })
   }
 });

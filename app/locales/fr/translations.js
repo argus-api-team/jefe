@@ -38,7 +38,7 @@ export default {
     'title': 'Liste des constructeurs',
     'displayDateSince': 'Depuis {{startDate}}',
     'displayDateWithEnd': 'De {{startDate}} à {{endDate}}',
-    'infinityLoader': 'Chargement de plus constructeurs...'
+    'noMatching': 'Aucun élément trouvé pour cette lettre.'
   },
   'infinityLoader': 'Chargement...'
 };

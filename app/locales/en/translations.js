@@ -38,7 +38,7 @@ export default {
     'title': 'Make List',
     'displayDateSince': 'Since {{startDate}}',
     'displayDateWithEnd': 'From {{startDate}} to {{endDate}}',
-    'infinityLoader': 'Loading more makes...'
+    'noMatching': 'No matching entries for this letter.'
   },
   'infinityLoader': 'Loading...'
 };
