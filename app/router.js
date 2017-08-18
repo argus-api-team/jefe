@@ -9,6 +9,8 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('lang', { path: '/:lang' }, function () {
     this.route('login');
+    this.route('search');
+    this.route('quote');
   });
 });
 

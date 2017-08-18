@@ -6,7 +6,7 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     fingerprint: {
-      exclude: ['assets/flags']
+      exclude: ['assets/flags', 'assets/logos']
     }
   });
 
@@ -36,11 +36,12 @@ module.exports = function(defaults) {
   app.import('vendor/metronic/global/css/plugins-md.min.css');
 
   // METRONIC PAGE LEVEL STYLES
-  app.import('vendor/metronic/pages/css/login.min.css');
+  app.import('vendor/metronic/pages/css/about.css');
+  app.import('vendor/metronic/pages/css/login.css');
 
   // METRONIC THEME LAYOUT STYLES
-  app.import('vendor/metronic/layouts/layout/css/themes/darkblue.min.css');
   app.import('vendor/metronic/layouts/layout/css/layout.css');
+  app.import('vendor/metronic/layouts/layout/css/themes/darkblue.css');
   app.import('vendor/metronic/layouts/layout/css/custom.css');
 
   // METRONIC CORE PLUGINS

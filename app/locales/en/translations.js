@@ -1,4 +1,20 @@
 export default {
+  'application': {
+    'home': 'Home',
+    'moreInfo': 'More details'
+  },
+  'index': {
+    'header': 'API features',
+    'subheader': 'showcase',
+    'search': {
+      'title': 'Vehicle Search',
+      'description': 'Find a vehicule in Argus database.'
+    },
+    'quote': {
+      'title': 'Argus Quote',
+      'description': 'Argus quote and others maket values.'
+    }
+  },
   'login': {
     'title': {
       'signIn': 'Sign in'

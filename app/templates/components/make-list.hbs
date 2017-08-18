@@ -13,15 +13,19 @@
           <i class="fa fa-angle-right"></i>
         </div>
         <div class="list-thumb">
-          <img src="{{model.logoURL}}" onerror="this.src='assets/logos/nologo.png'">
+          <img src="{{model.logoURL}}">
         </div>
         <div class="list-item-content">
           <h3 class="uppercase">{{model.name}}</h3>
         </div>
-        <div class="list-datetime font-grey-mint">{{model.displayDate}}</div>
+        <div class="list-datetime font-grey-mint small">{{model.displayDate}}</div>
       </li>
       {{/each}}
-      {{infinity-loader infinityModel=model loadingText=(t 'makeList.infinityLoader')}}
+      <li class="mt-list-item">
+        <div class="list-item-content">
+          {{infinity-loader infinityModel=model loadingText=(t 'makeList.infinityLoader')}}
+        </div>
+      </li>
     </ul>
   </div>
 </div>

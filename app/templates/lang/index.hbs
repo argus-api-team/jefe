@@ -5,53 +5,61 @@
     <div class="page-container">
       {{page-sidebar}}
       <div class="page-content-wrapper">
-        <!-- BEGIN CONTENT BODY -->
         <div class="page-content">
           <div class="page-bar">
             <ul class="page-breadcrumb">
               <li>
-                <span>Home</span>
+                <span>{{t 'application.home'}}</span>
               </li>
             </ul>
-            <div class="page-toolbar">
-              <div class="btn-group pull-right">
-                <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown"> Actions
-                <i class="fa fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu pull-right" role="menu">
-                  <li>
-                    <a href="#">
-                    <i class="icon-bell"></i> Action</a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    <i class="icon-shield"></i> Another action</a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    <i class="icon-user"></i> Something else here</a>
-                  </li>
-                  <li class="divider"> </li>
-                  <li>
-                    <a href="#">
-                    <i class="icon-bag"></i> Separated link</a>
-                  </li>
-                </ul>
+          </div>
+          <h1 class="page-title">
+            {{t 'index.header'}}
+            <small>{{t 'index.subheader'}}</small>
+          </h1>
+          <div class="row margin-bottom-20">
+            <div class="col-md-6">
+              <div class="portlet light">
+                <div class="card-icon">
+                  <i class="fa fa-car font-red-mint theme-font"></i>
+                </div>
+                <div class="card-title">
+                  <span>{{t 'index.search.title'}}</span>
+                </div>
+                <div class="card-desc">
+                  {{t 'index.search.description'}}
+                  <hr>
+                  {{#link-to 'lang.search'}}
+                  <button type="button" class="btn blue-hoki">
+                    {{t 'application.moreInfo'}}
+                    <i class="fa fa-angle-right"></i>
+                  </button>
+                  {{/link-to}}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="portlet light">
+                <div class="card-icon">
+                  <i class="fa fa-line-chart font-green-haze theme-font"></i>
+                </div>
+                <div class="card-title">
+                  <span>{{t 'index.quote.title'}}</span>
+                </div>
+                <div class="card-desc">
+                  {{t 'index.quote.description'}}
+                  <hr>
+                  {{#link-to 'lang.quote'}}
+                    <button type="button" class="btn blue-hoki">
+                      {{t 'application.moreInfo'}}
+                      <i class="fa fa-angle-right"></i>
+                    </button>
+                  {{/link-to}}
+                </div>
               </div>
             </div>
           </div>
-          <!-- END PAGE BAR -->
-          <!-- BEGIN PAGE TITLE-->
-          <h1 class="page-title"> Sample page
-          <small>blank page layout</small>
-          </h1>
-          <!-- END PAGE TITLE-->
-          <!-- END PAGE HEADER-->
-          <div class="note note-info">
-            <p>{{make-list model=model}}</p>
-          </div>
         </div>
-        <!-- END CONTENT BODY -->
       </div>
     </div>
   </div>

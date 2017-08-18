@@ -119,7 +119,7 @@ var Layout = function () {
                 if (match === true) {
                     return;
                 }
-                debugger
+
                 $(this).removeClass('open');
                 $(this).find('> a > .arrow.open').removeClass('open');
                 $(this).find('> .sub-menu').slideUp();
