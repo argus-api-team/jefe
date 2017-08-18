@@ -23,7 +23,7 @@ export default Ember.Component.extend({
     var context = this;
 
     Ember.$('.list-thumb img').on('error', function() {
-      Ember.$('this').attr('src', context.get('noLogoUrl'));
+      Ember.$(this).attr('src', context.get('noLogoUrl'));
     })
   }
 });
