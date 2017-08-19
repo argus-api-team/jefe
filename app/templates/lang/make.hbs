@@ -15,14 +15,19 @@
                 <i class="fa fa-circle"></i>
               </li>
               <li>
-                <span>{{t 'index.search.title'}}</span>
+                {{#link-to 'lang.search' class="nav-link"}}
+                  <span class="title">{{t 'index.search.title'}}</span>
+                {{/link-to}}
+                <i class="fa fa-circle"></i>
+              </li>
+              <li>
+                <span>{{model.name}}</span>
               </li>
             </ul>
           </div>
           <h1 class="page-title">
-            {{t 'index.search.title'}}
+            {{logo-img url=model.logoURL}}
             <hr>
-            {{make-list model=model viewMake=(action 'viewMake')}}
           </h1>
         </div>
       </div>

@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('login');
     this.route('search');
     this.route('quote');
+    this.route('make', { path: '/make/:id' });
   });
 });
 

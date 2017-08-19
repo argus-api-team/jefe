@@ -1,15 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  i18n: Ember.inject.service(),
-  locale: Ember.computed.alias('i18n.locale'),
-  noLogoUrl: Ember.computed('i18n.locale', function() {
-    return `/assets/logos/no_logo_${this.get('locale')}.png`;
-  }),
-
   didRender() {
     var context = this;
-    this._detectMissingImg();
     this.$('ul').listnav({
       filterSelector: '[data-role=name]',
       initLetter: 'a',
@@ -20,11 +13,9 @@ export default Ember.Component.extend({
     this.$('.ln-no-match').addClass('mt-list-item')
   },
 
-  _detectMissingImg: function() {
-    var context = this;
-
-    Ember.$('.list-thumb img').on('error', function() {
-      Ember.$(this).attr('src', context.get('noLogoUrl'));
-    })
+  actions: {
+    viewMake(make) {
+      this.sendAction('viewMake', make)
+    }
   }
 });

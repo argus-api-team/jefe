@@ -1,3 +1,22 @@
+.mt-element-list
+  background-color: white
+
+#make-list
+  display: grid
+
+  @media (max-width: 767px)
+    grid-template-columns: 1fr
+
+  @media(min-width:768px)
+    grid-template-columns: 1fr 1fr
+
+  @media (min-width: 1200px)
+    grid-template-columns: 1fr 1fr 1fr
+
+  .mt-list-item
+    cursor: pointer
+
+
 .mt-list-container
   .make-logo
     height: 20px
