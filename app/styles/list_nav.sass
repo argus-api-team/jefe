@@ -2,10 +2,22 @@
   margin: 28px 0
 
   .ln-letters
+    display: grid
+    grid-row-gap: 1em
+
+    @media (max-width: 768px)
+      grid-template-columns: repeat(9, 1fr)
+    
+    grid-template-columns: repeat(27, 1fr)
+
     a
-      border: none;
-      border-top: 2px solid pink;
+      text-align: center
+      border: none
+      border-top: 2px solid pink
       color: red
+
+      &:hover
+        text-decoration: none
 
       &.ln-disabled
         color: pink
