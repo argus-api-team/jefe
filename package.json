@@ -49,6 +49,7 @@
     "ember-simple-auth": "^1.4.0",
     "ember-source": "~2.14.1",
     "ember-spin-button": "^0.3.0",
+    "liquid-fire": "^0.28.0",
     "loader.js": "^4.2.3",
     "select2": "^4.0.3"
   },
