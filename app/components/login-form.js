@@ -4,7 +4,6 @@ import Cookies from 'ember-cli-js-cookie';
 export default Ember.Component.extend({
   session: Ember.inject.service('session'),
   config: Ember.inject.service(),
-
   credentialProperties: [
     'applicationId','applicationSecret',
     'username', 'password', 'isRemembered'

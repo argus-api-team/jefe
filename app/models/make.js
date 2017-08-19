@@ -17,11 +17,16 @@ export default DS.Model.extend({
     var formatedStartDate = moment(this.get('startDate')).format(format);
 
     if (Ember.isEmpty(this.get('endDate'))) {
-      return this.get('i18n').t('makeList.displayDateSince', { 'startDate': formatedStartDate.toLowerCase() });
+      return this.get('i18n').t('makeList.displayDateSince', {
+        'startDate': formatedStartDate.toLowerCase()
+      });
     } else {
       var formatedEndDate = moment(this.get('endDate')).format(format);
 
-      return this.get('i18n').t('makeList.displayDateWithEnd', { 'startDate':formatedStartDate.toLowerCase(), 'endDate': formatedEndDate.toLowerCase() });
+      return this.get('i18n').t('makeList.displayDateWithEnd', {
+        'startDate': formatedStartDate.toLowerCase(),
+        'endDate': formatedEndDate.toLowerCase()
+      });
     }
   }),
 

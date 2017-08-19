@@ -3,6 +3,7 @@ export default {
     'home': 'Home',
     'moreInfo': 'More details'
   },
+
   'index': {
     'header': 'API features',
     'subheader': 'showcase',
@@ -15,6 +16,7 @@ export default {
       'description': 'Argus quote and others maket values.'
     }
   },
+
   'login': {
     'title': {
       'signIn': 'Sign in'
@@ -30,15 +32,16 @@ export default {
       'signIn': 'Login'
     }
   },
+
   'pageHeader': {
     'myProfile': 'My Profile',
     'signOut': 'Sign out'
   },
+
   'makeList': {
     'title': 'Make List',
     'displayDateSince': 'Since {{startDate}}',
     'displayDateWithEnd': 'From {{startDate}} to {{endDate}}',
     'noMatching': 'No matching entries for this letter.'
-  },
-  'infinityLoader': 'Loading...'
+  }
 };

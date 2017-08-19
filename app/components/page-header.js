@@ -9,12 +9,5 @@ export default Ember.Component.extend({
     invalidateSession() {
       this.get('session').invalidate();
     }
-  },
-
-  didRender() {
-    this._super(...arguments);
-    App.init(); // init metronic core componets
-    Layout.init(); // init layout
-    QuickSidebar.init()
   }
 });

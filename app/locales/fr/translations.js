@@ -3,6 +3,7 @@ export default {
     'home': 'Accueil',
     'moreInfo': 'En savoir plus'
   },
+
   'index': {
     'header': "Les possibilités de l'API",
     'subheader': 'présentation',
@@ -15,6 +16,7 @@ export default {
       'description': 'La Cote Argus® et les Valeurs Argus de marché.'
     }
   },
+
   'login': {
     'title': {
       'signIn': 'Identifiez-vous'
@@ -30,15 +32,16 @@ export default {
       'signIn': 'Me connecter'
     }
   },
+
   'pageHeader': {
     'myProfile': 'Mon Profil',
     'signOut': 'Se déconnecter'
   },
+
   'makeList': {
     'title': 'Liste des constructeurs',
     'displayDateSince': 'Depuis {{startDate}}',
     'displayDateWithEnd': 'De {{startDate}} à {{endDate}}',
     'noMatching': 'Aucun élément trouvé pour cette lettre.'
-  },
-  'infinityLoader': 'Chargement...'
+  }
 };

@@ -27,11 +27,11 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/jquery-listnav/css/listnav.css');
 
   // METRONIC GLOBAL MANDATORY STYLES
-  app.import('vendor/metronic/global/plugins/bootstrap/css/bootstrap.min.css');
-  app.import('vendor/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css');
+  app.import('vendor/metronic/global/plugins/bootstrap/css/bootstrap.css');
+  app.import('vendor/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.css');
 
   // METRONIC PAGE LEVEL PLUGINS
-  app.import('vendor/metronic/global/plugins/select2/css/select2.min.css');
+  app.import('vendor/metronic/global/plugins/select2/css/select2.css');
   app.import('vendor/metronic/global/plugins/select2/css/select2-bootstrap.min.css');
 
   // METRONIC THEME GLOBAL STYLES
@@ -55,12 +55,12 @@ module.exports = function(defaults) {
   app.import('vendor/metronic/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js');
 
   // METRONIC THEME GLOBAL SCRIPTS
-  app.import('vendor/metronic/global/scripts/app.min.js');
+  app.import('vendor/metronic/global/scripts/app.js');
 
   // METRONIC THEME LAYOUT SCRIPTS
   app.import('vendor/metronic/layouts/layout/scripts/layout.js');
-  app.import('vendor/metronic/layouts/global/scripts/quick-sidebar.min.js');
-  app.import('vendor/metronic/layouts/global/scripts/quick-nav.min.js');
+  app.import('vendor/metronic/layouts/global/scripts/quick-sidebar.js');
+  app.import('vendor/metronic/layouts/global/scripts/quick-nav.js');
 
   // METRONIC PAGE LEVEL PLUGINS
   app.import('vendor/metronic/global/plugins/jquery-validation/js/jquery.validate.min.js');
