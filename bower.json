@@ -3,5 +3,8 @@
   "dependencies": {
     "spin.js": "^2.3.2",
     "jquery-listnav": "^2.4.9"
+  },
+  "devDependencies": {
+    "lazysizes": "^3.0.0"
   }
 }
