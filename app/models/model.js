@@ -6,6 +6,8 @@ export default DS.Model.extend({
   endDate: DS.attr('date'),
   legacyId: DS.attr('number'),
   positionQuote: DS.attr('number'),
-  make: DS.belongsTo('make', { async: true }),
+
+  make: DS.belongsTo({ async: true }),
   submodels: DS.hasMany({ async: true }),
+  categories: DS.hasMany({ async: true }),
 });

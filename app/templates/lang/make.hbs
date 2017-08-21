@@ -41,5 +41,10 @@
       </div>
     </div>
     <hr>
+    <ul class="list-group">
+    {{#each model.submodels as |submodel|}}
+      <li class="list-group-item">{{submodel.name}}</li>
+    {{/each}}
+    </ul>
   </div>
 </div>

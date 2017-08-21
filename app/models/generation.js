@@ -6,12 +6,16 @@ export default DS.Model.extend({
   fullNicename: DS.attr('string'),
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
+  bodyType: DS.attr('string'),
   legacyId: DS.attr('number'),
+  bodyTypeClassifiedAd: DS.attr('string'),
+  position: DS.attr('number'),
+  segment: DS.attr('string'),
+  segmentReferentiel: DS.attr('string'),
+  segmentEurope: DS.attr('string'),
 
   make: DS.belongsTo({ async: true }),
   model: DS.belongsTo({ async: true }),
-  category: DS.belongsTo({ async: true }),
-  generations: DS.hasMany({ async: true }),
-  versions: DS.hasMany({ async: true }),
-  periods: DS.hasMany({ async: true })
+  submodel: DS.belongsTo({ async: true }),
+  phases: DS.hasMany({ async: true }),
 });

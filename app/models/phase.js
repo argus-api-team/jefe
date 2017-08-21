@@ -7,11 +7,11 @@ export default DS.Model.extend({
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
   legacyId: DS.attr('number'),
+  position: DS.attr('number'),
 
   make: DS.belongsTo({ async: true }),
   model: DS.belongsTo({ async: true }),
-  category: DS.belongsTo({ async: true }),
-  generations: DS.hasMany({ async: true }),
-  versions: DS.hasMany({ async: true }),
-  periods: DS.hasMany({ async: true })
+  submodel: DS.belongsTo({ async: true }),
+  generation: DS.belongsTo({ async: true }),
+  versions: DS.hasMany({ async: true })
 });

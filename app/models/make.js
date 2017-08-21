@@ -9,6 +9,8 @@ export default DS.Model.extend({
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
   positionQuote: DS.attr('number'),
+
+  categories: DS.hasMany({ async: true }),
   models: DS.hasMany({ async: true }),
   submodels: DS.hasMany({ async: true }),
 
