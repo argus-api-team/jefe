@@ -17,7 +17,29 @@
     </li>
   </ul>
 </div>
-<h1 class="page-title">
-{{logo-img url=model.logoURL}}
+<h1 class="page-title">{{model.name}}</h1>
 <hr>
-</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="media">
+      <div class="media-body">
+        <dl class="dl-horizontal">
+          <dt>{{t 'models.base.id'}}</dt>
+          <dd>{{model.id}}</dd>
+          <dt>{{t 'models.base.name'}}</dt>
+          <dd>{{model.name}}</dd>
+          <dt>{{t 'models.base.startDate'}}</dt>
+          <dd>{{format-date model.startDate noDateText=(t 'application.noDate')}}</dd>
+          <dt>{{t 'models.base.endDate'}}</dt>
+          <dd>{{format-date model.endDate noDateText=(t 'application.noDate')}}</dd>
+          <dt>{{t 'models.base.positionQuote'}}</dt>
+          <dd>{{model.positionQuote}}</dd>
+        </dl>
+      </div>
+      <div class="media-right">
+        {{logo-img url=model.logoURL className='thumbnail'}}
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

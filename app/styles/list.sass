@@ -4,19 +4,22 @@
 #make-list
   display: grid
 
-  @media (max-width: 767px)
+  @media (max-width: $mobile-screen)
     grid-template-columns: 1fr
 
-  @media(min-width:768px)
+  @media (min-width: $tablet-screen)
     grid-template-columns: 1fr 1fr
 
-  @media (min-width: 1200px)
+  @media (min-width: $desktop-screen)
     grid-template-columns: 1fr 1fr 1fr
-
-  .mt-list-item
-    cursor: pointer
-
 
 .mt-list-container
   .make-logo
-    height: 20px
+    width: 80px
+    min-height: 55px
+
+    &.no-logo
+      height: 80px
+
+.lazyload
+  background: #f7f7f7 url(/assets/loader.gif) no-repeat center

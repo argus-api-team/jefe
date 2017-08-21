@@ -2,7 +2,8 @@
   "name": "jefe",
   "dependencies": {
     "spin.js": "^2.3.2",
-    "jquery-listnav": "^2.4.9"
+    "jquery-listnav": "^2.4.9",
+    "ember": "release"
   },
   "devDependencies": {
     "lazysizes": "^3.0.0"

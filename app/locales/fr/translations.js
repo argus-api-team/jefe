@@ -1,7 +1,8 @@
 export default {
   'application': {
     'home': 'Accueil',
-    'moreInfo': 'En savoir plus'
+    'moreInfo': 'En savoir plus',
+    'noDate': 'Pas de date disponible.'
   },
 
   'index': {
@@ -43,5 +44,16 @@ export default {
     'displayDateSince': 'Depuis {{startDate}}',
     'displayDateWithEnd': 'De {{startDate}} à {{endDate}}',
     'noMatching': 'Aucun élément trouvé pour cette lettre.'
+  },
+
+  'models': {
+    'base': {
+      'id': 'Identifiant Argus',
+      'name': 'nom',
+      'startDate': 'Date de début',
+      'endDate': 'Date de fin',
+      'positionQuote': 'Position quote',
+      'legacyId': 'Identifiant ID'
+    }
   }
 };

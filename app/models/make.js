@@ -9,19 +9,25 @@ export default DS.Model.extend({
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
   positionQuote: DS.attr('number'),
+  models: DS.hasMany({ async: true }),
+  submodels: DS.hasMany({ async: true }),
+
+  slug: Ember.computed('name', function() {
+    return this.get('name').dasherize();
+  }),
 
   displayDate: Ember.computed('startDate', 'endDate', 'i18n.locale', function() {
-    var format = 'MMMM YYYY'
+    let format = 'MMMM YYYY'
 
     moment.locale(this.get('i18n.locale'));
-    var formatedStartDate = moment(this.get('startDate')).format(format);
+    let formatedStartDate = moment(this.get('startDate')).format(format);
 
     if (Ember.isEmpty(this.get('endDate'))) {
       return this.get('i18n').t('makeList.displayDateSince', {
         'startDate': formatedStartDate.toLowerCase()
       });
     } else {
-      var formatedEndDate = moment(this.get('endDate')).format(format);
+      let formatedEndDate = moment(this.get('endDate')).format(format);
 
       return this.get('i18n').t('makeList.displayDateWithEnd', {
         'startDate': formatedStartDate.toLowerCase(),

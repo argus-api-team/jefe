@@ -1,7 +1,8 @@
 export default {
   'application': {
     'home': 'Home',
-    'moreInfo': 'More details'
+    'moreInfo': 'More details',
+    'noDate': 'No date available'
   },
 
   'index': {
@@ -43,5 +44,16 @@ export default {
     'displayDateSince': 'Since {{startDate}}',
     'displayDateWithEnd': 'From {{startDate}} to {{endDate}}',
     'noMatching': 'No matching entries for this letter.'
+  },
+
+  'models': {
+    'base': {
+      'id': 'Argus ID',
+      'name': 'name',
+      'startDate': 'Start date',
+      'endDate': 'End date',
+      'positionQuote': 'Position quote',
+      'legacyId': 'Argus ID'
+    }
   }
 };

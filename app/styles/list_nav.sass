@@ -4,11 +4,10 @@
   .ln-letters
     display: grid
     grid-row-gap: 1em
-
-    @media (max-width: 768px)
-      grid-template-columns: repeat(9, 1fr)
-    
     grid-template-columns: repeat(27, 1fr)
+
+    @media (max-width: $tablet-screen)
+      grid-template-columns: repeat(9, 1fr)
 
     a
       text-align: center

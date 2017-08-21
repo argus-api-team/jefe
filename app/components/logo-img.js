@@ -15,6 +15,7 @@ export default Ember.Component.extend({
     var context = this;
 
     Ember.$('img').on('error', function() {
+      Ember.$(this).addClass('no-logo')
       Ember.$(this).attr('src', context.get('noLogoUrl'));
     })
   },
