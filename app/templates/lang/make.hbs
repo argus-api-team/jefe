@@ -41,9 +41,9 @@
       </div>
     </div>
     <hr>
-    <ul class="list-group">
+    <ul class="list-group" id="submodel-list">
     {{#each model.submodels as |submodel|}}
-      <li class="list-group-item">{{submodel.name}}</li>
+      <li class="list-group-item" {{action "viewSubmodel" submodel}}>{{submodel.name}}</li>
     {{/each}}
     </ul>
   </div>

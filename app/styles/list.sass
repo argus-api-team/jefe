@@ -1,7 +1,7 @@
 .mt-element-list
   background-color: white
 
-#make-list
+#make-list, #submodel-list
   display: grid
 
   @media (max-width: $mobile-screen)
@@ -12,6 +12,10 @@
 
   @media (min-width: $desktop-screen)
     grid-template-columns: 1fr 1fr 1fr
+
+  &#submodel-list
+    grid-auto-rows: 100px;
+    grid-gap: 1em
 
 .mt-list-container
   .make-logo
