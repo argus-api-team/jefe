@@ -5,7 +5,7 @@ export default DS.Model.extend({
   frontOverhang: DS.attr('number'),
   frontTrack: DS.attr('number'),
   fuelTankCapacity: DS.attr('number'),
-  fuelTankCapacity: DS.attr('number'),
+  height: DS.attr('number'),
   heightIncludingRoofRails: DS.attr('number'),
   length: DS.attr('number'),
   rearOverhang: DS.attr('number'),
