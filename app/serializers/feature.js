@@ -6,6 +6,6 @@ export default DS.JSONAPISerializer.extend({
       element.type = 'features'
     });
 
-    return this._super(...arguments);
+    return this._super(store, primaryModelClass, payload, id, requestType);
   }
 });
