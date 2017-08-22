@@ -49,7 +49,7 @@ export default {
   'models': {
     'base': {
       'id': 'Identifiant Argus',
-      'name': 'nom',
+      'name': 'Nom',
       'startDate': 'Date de début',
       'endDate': 'Date de fin',
       'positionQuote': 'Position quote',

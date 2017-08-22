@@ -20,7 +20,7 @@
 <h1 class="page-title">{{model.name}}</h1>
 <hr>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-8">
     <div class="media">
       <div class="media-body">
         <dl class="dl-horizontal">
@@ -36,10 +36,14 @@
           <dd>{{model.positionQuote}}</dd>
         </dl>
       </div>
-      <div class="media-right">
-        {{logo-img url=model.logoURL className='thumbnail'}}
-      </div>
     </div>
+  </div>
+  <div class="col-xs-4">
+    {{logo-img url=model.logoURL className='thumbnail'}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
     <hr>
     <ul class="list-group" id="submodel-list">
     {{#each sortedSubmodels as |submodel|}}
