@@ -38,7 +38,7 @@ export default DS.Model.extend({
     }
   }),
 
-  logoURL: Ember.computed('name', function() {
-    return `//assets.largus.fr/logos/marques/${this.get('name').dasherize()}.png`
+  logoURL: Ember.computed('slug', function() {
+    return `//assets.largus.fr/logos/marques/${this.get('slug')}.png`
   })
 });
