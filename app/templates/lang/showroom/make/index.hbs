@@ -1,10 +1,11 @@
-<div class="row">
-  <div class="col-xs-12">
-    <hr>
-    <ul class="list-group" id="submodel-list">
-    {{#each model as |submodel|}}
-      <li class="list-group-item" {{action "viewSubmodel" submodel}}>{{submodel.name}}</li>
-    {{/each}}
-    </ul>
-  </div>
-</div>
+<h2>{{t 'index.showroom.models.title'}}</h2>
+<ul class="list-group showroom-flex-list">
+  {{#each sortedModels as |modelRecord|}}
+    <li class="list-group-item showroom-flex-list-item">
+      <h3>{{modelRecord.name}}</h3>
+      <p>{{modelRecord.displayDate}}</p>
+      <p>{{modelRecord.id}}</p>
+      {{#link-to "lang.showroom.make.model" modelRecord}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>

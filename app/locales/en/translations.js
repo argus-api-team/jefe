@@ -19,7 +19,15 @@ export default {
     'showroom': {
       'title': 'Showroom',
       'make': {
+        'title': 'Make',
         'change': 'Change make'
+      },
+      'models': {
+        'title': 'Models'
+      },
+      'model': {
+        'title': 'Model',
+        'change': 'Change model'
       }
     }
   },

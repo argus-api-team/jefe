@@ -19,7 +19,15 @@ export default {
     'showroom': {
       'title': 'Showroom',
       'make': {
+        'title': 'Constructeur',
         'change': 'Changer de constructeur'
+      },
+      'models': {
+        'title': 'Modèles'
+      },
+      'model': {
+        'title': 'Modèle',
+         'change': 'Changer de modèle'
       }
     }
   },
