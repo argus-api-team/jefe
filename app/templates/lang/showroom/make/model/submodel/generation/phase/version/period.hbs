@@ -1,0 +1,251 @@
+<h2>Period</h2>
+<section class="make-infos">
+  <dl class="dl-horizontal">
+    <dt>{{t 'models.base.id'}}</dt>
+    <dd>{{model.id}}</dd>
+    <dt>{{t 'models.base.startDate'}}</dt>
+    <dd>{{format-date model.startDate noDateText=(t 'application.noDate')}}</dd>
+    <dt>{{t 'models.base.endDate'}}</dt>
+    <dd>{{format-date model.endDate noDateText=(t 'application.noDate')}}</dd>
+    <dt>startDateType</dt>
+    <dd>{{format-date model.startDateType noDateText=(t 'application.noDate')}}</dd>
+    <dt>endDateType</dt>
+    <dd>{{format-date model.endDateType noDateText=(t 'application.noDate')}}</dd>
+    <dt>priceExcludingVat</dt>
+    <dd>{{model.priceExcludingVat}}</dd>
+    <dt>priceIncludingVat</dt>
+    <dd>{{model.priceIncludingVat}}</dd>
+    <dt>manufacturerSpec1</dt>
+    <dd>{{model.manufacturerSpec1}}</dd>
+    <dt>manufacturerSpec2</dt>
+    <dd>{{model.manufacturerSpec2}}</dd>
+    <dt>manufacturerSpec3</dt>
+    <dd>{{model.manufacturerSpec3}}</dd>
+  </dl>
+  <div class="actions">
+    {{#link-to "lang.showroom.make.model.submodel" classNames="btn blue"}} Change Period {{/link-to}}
+  </div>
+</section>
+<h3>Weight</h3>
+<dl class="dl-horizontal">
+  <dt>grossCombinedRating</dt>
+  <dd>{{model.weight.grossCombinedRating}}</dd>
+  <dt>grossVehicleRating</dt>
+  <dd>{{model.weight.grossVehicleRating}}</dd>
+  <dt>kerbweight</dt>
+  <dd>{{model.weight.kerbweight}}</dd>
+  <dt>kerbweightIncludingDriver</dt>
+  <dd>{{model.weight.kerbweightIncludingDriver}}</dd>
+  <dt>payload</dt>
+  <dd>{{model.weight.payload}}</dd>
+  <dt>unbrakedTrailer</dt>
+  <dd>{{model.weight.unbrakedTrailer}}</dd>
+</dl>
+<h3>Tyre</h3>
+<dl class="dl-horizontal">
+  <dt>front</dt>
+  <dd>{{model.tyre.front}}</dd>
+  <dt>rear</dt>
+  <dd>{{model.tyre.rear}}</dd>
+  <dt>sparewheelType</dt>
+  <dd>{{model.tyre.sparewheelType}}</dd>
+  <dt>wheelType</dt>
+  <dd>{{model.tyre.wheelType}}</dd>
+  <dt>constructionType</dt>
+  <dd>{{model.tyre.constructionType}}</dd>
+</dl>
+<h3>Transmission</h3>
+<dl class="dl-horizontal">
+  <dt>numberOfGears</dt>
+  <dd>{{model.transmission.numberOfGears}}</dd>
+  <dt>marketingName</dt>
+  <dd>{{model.transmission.marketingName}}</dd>
+  <dt>drivenWheels</dt>
+  <dd>{{model.transmission.drivenWheels}}</dd>
+</dl>
+<h3>Platform</h3>
+<dl class="dl-horizontal">
+  <dt>chassisMaterial</dt>
+  <dd>{{model.platform.chassisMaterial}}</dd>
+  <dt>chassisType</dt>
+  <dd>{{model.platform.chassisType}}</dd>
+  <dt>frontSuspension</dt>
+  <dd>{{model.platform.frontSuspension}}</dd>
+  <dt>powerSteering</dt>
+  <dd>{{model.platform.powerSteering}}</dd>
+  <dt>powerSteeringAssistance</dt>
+  <dd>{{model.platform.powerSteeringAssistance}}</dd>
+  <dt>powerSteeringType</dt>
+  <dd>{{model.platform.powerSteeringType}}</dd>
+  <dt>rearSuspensionType</dt>
+  <dd>{{model.platform.rearSuspensionType}}</dd>
+  <dt>steeringWheelLockToLockTurns</dt>
+  <dd>{{model.platform.steeringWheelLockToLockTurns}}</dd>
+  <dt>turningCircleBetweenKerbs</dt>
+  <dd>{{model.platform.turningCircleBetweenKerbs}}</dd>
+  <dt>turningCircleWallToWall</dt>
+  <dd>{{model.platform.turningCircleWallToWall}}</dd>
+</dl>
+<h3>performance</h3>
+<dl class="dl-horizontal">
+  <dt>da01000m</dt>
+  <dd>{{model.performance.da01000m}}</dd>
+  <dt>da0100kph</dt>
+  <dd>{{model.performance.da0100kph}}</dd>
+  <dt>maximumSpeed</dt>
+  <dd>{{model.performance.maximumSpeed}}</dd>
+</dl>
+<h3>Consumption</h3>
+<dl class="dl-horizontal">
+  <dt>carbonMonoxide</dt>
+  <dd>{{model.consumption.carbonMonoxide}}</dd>
+  <dt>co2EmissionLevel</dt>
+  <dd>{{model.consumption.co2EmissionLevel}}</dd>
+  <dt>combinedFuel</dt>
+  <dd>{{model.consumption.combinedFuel}}</dd>
+  <dt>electricRange</dt>
+  <dd>{{model.consumption.electricRange}}</dd>
+  <dt>extraUrbanFuel</dt>
+  <dd>{{model.consumption.extraUrbanFuel}}</dd>
+  <dt>nitrousOxyde</dt>
+  <dd>{{model.consumption.nitrousOxyde}}</dd>
+  <dt>particulateMatter</dt>
+  <dd>{{model.consumption.particulateMatter}}</dd>
+  <dt>totalHydrocarbons</dt>
+  <dd>{{model.consumption.totalHydrocarbons}}</dd>
+  <dt>totalFuel</dt>
+  <dd>{{model.consumption.totalFuel}}</dd>
+</dl>
+
+<h3>Dimension</h3>
+<dl class="dl-horizontal">
+  <dt>dragCoefficent</dt>
+  <dd>{{model.dimension.dragCoefficent}}</dd>
+  <dt>frontOverhang</dt>
+  <dd>{{model.dimension.frontOverhang}}</dd>
+  <dt>frontTrack</dt>
+  <dd>{{model.dimension.frontTrack}}</dd>
+  <dt>fuelTankCapacity</dt>
+  <dd>{{model.dimension.fuelTankCapacity}}</dd>
+  <dt>height</dt>
+  <dd>{{model.dimension.height}}</dd>
+  <dt>heightIncludingRoofRails</dt>
+  <dd>{{model.dimension.heightIncludingRoofRails}}</dd>
+  <dt>length</dt>
+  <dd>{{model.dimension.length}}</dd>
+  <dt>rearOverhang</dt>
+  <dd>{{model.dimension.rearOverhang}}</dd>
+  <dt>rearTrack</dt>
+  <dd>{{model.dimension.rearTrack}}</dd>
+  <dt>wheelBase</dt>
+  <dd>{{model.dimension.wheelBase}}</dd>
+  <dt>width</dt>
+  <dd>{{model.dimension.width}}</dd>
+</dl>
+
+<h3>boot</h3>
+<dl class="dl-horizontal">
+  <dt>capacity</dt>
+  <dd>{{model.boot.capacity}}</dd>
+  <dt>loadStillHeight</dt>
+  <dd>{{model.boot.loadStillHeight}}</dd>
+  <dt>minimumCapacity</dt>
+  <dd>{{model.boot.minimumCapacity}}</dd>
+  <dt>maximumCapacity</dt>
+  <dd>{{model.boot.maximumCapacity}}</dd>
+  <dt>maximumlength</dt>
+  <dd>{{model.boot.maximumlength}}</dd>
+  <dt>usableWidth</dt>
+  <dd>{{model.boot.usableWidth}}</dd>
+  <dt>usableLength</dt>
+  <dd>{{model.boot.usableLength}}</dd>
+  <dt>thirdRowCapacity</dt>
+  <dd>{{model.boot.thirdRowCapacity}}</dd>
+</dl>
+
+<h3>Engine</h3>
+<dl class="dl-horizontal">
+  <dt>boreAndStroke</dt>
+  <dd>{{model.engine.boreAndStroke}}</dd>
+  <dt>compressionRatio</dt>
+  <dd>{{model.engine.compressionRatio}}</dd>
+  <dt>dinHorsepower</dt>
+  <dd>{{model.engine.dinHorsepower}}</dd>
+  <dt>acronym</dt>
+  <dd>{{model.engine.acronym}}</dd>
+  <dt>configuration</dt>
+  <dd>{{model.engine.configuration}}</dd>
+  <dt>cubicCapacity</dt>
+  <dd>{{model.engine.cubicCapacity}}</dd>
+  <dt>fullNicename</dt>
+  <dd>{{model.engine.fullNicename}}</dd>
+  <dt>layout</dt>
+  <dd>{{model.engine.layout}}</dd>
+  <dt>literCapacity</dt>
+  <dd>{{model.engine.literCapacity}}</dd>
+  <dt>marketName</dt>
+  <dd>{{model.engine.marketName}}</dd>
+  <dt>supply</dt>
+  <dd>{{model.engine.supply}}</dd>
+  <dt>fiscalHorsepower</dt>
+  <dd>{{model.engine.fiscalHorsepower}}</dd>
+  <dt>injectionSystem</dt>
+  <dd>{{model.engine.injectionSystem}}</dd>
+  <dt>kilowatt</dt>
+  <dd>{{model.engine.kilowatt}}</dd>
+  <dt>maxPowerRpm</dt>
+  <dd>{{model.engine.maxPowerRpm}}</dd>
+  <dt>maxTorqueRpm</dt>
+  <dd>{{model.engine.maxTorqueRpm}}</dd>
+  <dt>numberOfValves</dt>
+  <dd>{{model.engine.numberOfValves}}</dd>
+  <dt>powerMarketName</dt>
+  <dd>{{model.engine.powerMarketName}}</dd>
+  <dt>standardEmission</dt>
+  <dd>{{model.engine.standardEmission}}</dd>
+  <dt>torque</dt>
+  <dd>{{model.engine.torque}}</dd>
+</dl>
+<h3>Features</h3>
+<ul class="list-group showroom-flex-list">
+  {{#each model.features as |feature|}}
+    <li class="list-group-item showroom-flex-list-item">
+      <h4>{{feature.name}}</h4>
+      <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{feature.id}}</dd>
+        <dt>legacyId</dt>
+        <dd>{{feature.legacyId}}</dd>
+        <dt>priceExcludingVat</dt>
+        <dd>{{feature.priceExcludingVat}}</dd>
+        <dt>priceIncludingVat</dt>
+        <dd>{{feature.priceIncludingVat}}</dd>
+        <dt>manufacturerSpec</dt>
+        <dd>{{feature.manufacturerSpec}}</dd>
+      </dl>
+      {{!-- {{#link-to "lang.showroom.make.model.submodel.generation.phase.version.period" period}}{{/link-to}} --}}
+    </li>
+  {{/each}}
+</ul>
+<h4>Equipments</h4>
+<ul class="list-group showroom-flex-list">
+  {{#each model.equipments as |equipment|}}
+    <li class="list-group-item showroom-flex-list-item">
+      <h4>{{equipment.name}}</h4>
+      <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{equipment.id}}</dd>
+        <dt>legacyId</dt>
+        <dd>{{equipment.legacyId}}</dd>
+        <dt>priceExcludingVat</dt>
+        <dd>{{equipment.priceExcludingVat}}</dd>
+        <dt>priceIncludingVat</dt>
+        <dd>{{equipment.priceIncludingVat}}</dd>
+        <dt>manufacturerSpec</dt>
+        <dd>{{equipment.manufacturerSpec}}</dd>
+      </dl>
+      {{!-- {{#link-to "lang.showroom.make.model.submodel.generation.phase.version.period" period}}{{/link-to}} --}}
+    </li>
+  {{/each}}
+</ul>
+{{outlet}}

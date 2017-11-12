@@ -18,7 +18,9 @@ Router.map(function() {
           this.route('submodel', { path: 'model/:submodel_id' }, function() {
             this.route('generation', { path: 'generation/:generation_id' }, function() {
               this.route('phase', { path: 'phase/:phase_id' }, function() {
-                this.route('version', { path: 'version/:version_id' }, function() {});
+                this.route('version', { path: 'version/:version_id' }, function() {
+                  this.route('period', { path: 'period/:period_id' },);
+                });
               });
             });
           });
