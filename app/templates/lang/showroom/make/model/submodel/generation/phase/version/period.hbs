@@ -8,9 +8,9 @@
     <dt>{{t 'models.base.endDate'}}</dt>
     <dd>{{format-date model.endDate noDateText=(t 'application.noDate')}}</dd>
     <dt>startDateType</dt>
-    <dd>{{format-date model.startDateType noDateText=(t 'application.noDate')}}</dd>
+    <dd>{{model.startDateType}}</dd>
     <dt>endDateType</dt>
-    <dd>{{format-date model.endDateType noDateText=(t 'application.noDate')}}</dd>
+    <dd>{{model.endDateType}}</dd>
     <dt>priceExcludingVat</dt>
     <dd>{{model.priceExcludingVat}}</dd>
     <dt>priceIncludingVat</dt>
@@ -23,7 +23,7 @@
     <dd>{{model.manufacturerSpec3}}</dd>
   </dl>
   <div class="actions">
-    {{#link-to "lang.showroom.make.model.submodel" classNames="btn blue"}} Change Period {{/link-to}}
+    {{#link-to "lang.showroom.make.model.submodel.generation.phase.version" classNames="btn blue"}} Change Period {{/link-to}}
   </div>
 </section>
 <h3>Weight</h3>
