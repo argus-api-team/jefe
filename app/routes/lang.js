@@ -10,10 +10,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   authenticationRoute: 'lang.login',
 
   afterModel(params) {
-    let lang = this._selectLang(params)
+    let lang = this._selectLang(params);
 
     this.set('i18n.locale', lang);
-    Ember.$('html').attr('lang', lang)
+    Ember.$('html').attr('lang', lang);
   },
 
   _selectLang(params) {

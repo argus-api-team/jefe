@@ -9,7 +9,7 @@ export function formatDate([date], args) {
       `<span class="font-grey-silver">${args.noDateText}</span>`
     );
   } else {
-    return moment(date).format(format)
+    return moment(date).format(format);
   }
 }
 

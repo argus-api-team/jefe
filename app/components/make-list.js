@@ -19,16 +19,16 @@ export default Ember.Component.extend({
         context.updateLetter(letter);
       }
     })
-    this.$('.ln-no-match').addClass('mt-list-item')
+    this.$('.ln-no-match').addClass('mt-list-item');
   },
 
   actions: {
     viewMake(make) {
-      this.sendAction('viewMake', make)
+      this.sendAction('viewMake', make);
     },
 
     updateLetter(letter) {
-      this.sendAction('updateLetter', letter)
+      this.sendAction('updateLetter', letter);
     }
   },
 

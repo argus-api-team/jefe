@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
 
   actions: {
     viewMake(make) {
-      this.transitionToRoute('lang.make', make)
+      this.transitionToRoute('lang.make', make);
     },
 
     updateLetter(letter) {

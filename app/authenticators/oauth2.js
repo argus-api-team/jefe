@@ -10,7 +10,7 @@ export default OAuth2PasswordGrand.extend({
   },
 
   makeRequest(url, data, headers) {
-    data.type = 'pro'
+    data.type = 'pro';
     return this._super(url, data, headers);
   }
 })
