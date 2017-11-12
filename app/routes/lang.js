@@ -9,17 +9,17 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   ],
   authenticationRoute: 'lang.login',
 
-  afterModel: function(params) {
-    var lang = this._selectLang(params)
+  afterModel(params) {
+    let lang = this._selectLang(params)
 
     this.set('i18n.locale', lang);
     Ember.$('html').attr('lang', lang)
   },
 
-  _selectLang: function(params) {
-    var allowedLocales = config.i18n.allowedLocales;
-    var defaultLocale = config.i18n.defaultLocale;
-    var lang = params && params.lang && allowedLocales.indexOf(params.lang) > -1 ? params.lang : defaultLocale;
+  _selectLang(params) {
+    let allowedLocales = config.i18n.allowedLocales;
+    let defaultLocale = config.i18n.defaultLocale;
+    let lang = params && params.lang && allowedLocales.indexOf(params.lang) > -1 ? params.lang : defaultLocale;
 
     return lang;
   }

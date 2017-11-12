@@ -8,7 +8,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   namespace: 'specs/2.0',
   coalesceFindRequests: true,
 
-  pathForType: function(modelName) {
+  pathForType(modelName) {
     if (modelName === 'equipment') {
       return 'equipments';
     } else {

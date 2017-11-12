@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   },
 
   didRender() {
-    var context = this;
+    let context = this;
     this.$('ul').listnav({
       filterSelector: '[data-role=name]',
       initLetter: context.get('letter'),

@@ -3,13 +3,13 @@ import OAuth2PasswordGrand from 'ember-simple-auth/authenticators/oauth2-passwor
 export default OAuth2PasswordGrand.extend({
   serverTokenEndpoint: 'https://oauth.largus.fr/oauth/token',
 
-  authenticate (applicationId, applicationSecret, username, password) {
-    var headers = { 'Authorization':  "Basic " + btoa(applicationId + ":" + applicationSecret) };
+  authenticate(applicationId, applicationSecret, username, password) {
+    let headers = { 'Authorization':  "Basic " + btoa(applicationId + ":" + applicationSecret) };
 
     return this._super(username, password, '', headers);
   },
 
-  makeRequest: function(url, data, headers) {
+  makeRequest(url, data, headers) {
     data.type = 'pro'
     return this._super(url, data, headers);
   }

@@ -11,8 +11,8 @@ export default Ember.Component.extend({
     this._detectMissingImg();
   },
 
-  _detectMissingImg: function() {
-    var context = this;
+  _detectMissingImg() {
+    let context = this;
 
     Ember.$('img').on('error', function() {
       Ember.$(this).addClass('no-logo')
