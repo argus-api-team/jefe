@@ -1,0 +1,11 @@
+<h2>Géneration</h2>
+<ul class="list-group showroom-flex-list">
+  {{#each model.generations as |modelRecord|}}
+    <li class="list-group-item showroom-flex-list-item">
+      <h3>{{modelRecord.shortNicename}}</h3>
+      <p>{{modelRecord.displayDate}}</p>
+      <p>{{modelRecord.id}}</p>
+      {{!-- {{#link-to "lang.showroom.make.model.submodel" modelRecord}}{{/link-to}} --}}
+    </li>
+  {{/each}}
+</ul>

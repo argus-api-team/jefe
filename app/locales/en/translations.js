@@ -31,6 +31,7 @@ export default {
         'submodels': 'Submodels',
         'submodel': {
           'title': 'Submodel',
+          'change': 'Change submodel'
         }
       }
     }

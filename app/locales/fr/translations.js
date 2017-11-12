@@ -31,6 +31,7 @@ export default {
         'submodels': 'Variantes',
         'submodel': {
           'title': 'Variante',
+          'change': 'Changer de variante'
         }
       }
     }
