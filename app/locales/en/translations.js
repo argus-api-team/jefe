@@ -31,7 +31,12 @@ export default {
         'submodels': 'Submodels',
         'submodel': {
           'title': 'Submodel',
-          'change': 'Change submodel'
+          'change': 'Change submodel',
+          'generations': 'Generations',
+           'generation': {
+            'title': 'Generation',
+            'change': 'Change generation'
+          }
         }
       }
     }

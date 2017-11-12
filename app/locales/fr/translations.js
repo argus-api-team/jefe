@@ -31,7 +31,12 @@ export default {
         'submodels': 'Variantes',
         'submodel': {
           'title': 'Variante',
-          'change': 'Changer de variante'
+          'change': 'Changer de variante',
+          'generations': 'Générations',
+          'generation': {
+            'title': 'Génération',
+            'change': 'Changer de génération'
+          }
         }
       }
     }
