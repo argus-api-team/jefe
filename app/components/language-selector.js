@@ -1,9 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 
-export default Ember.Component.extend({
-  i18n: Ember.inject.service(),
+export default Component.extend({
+  i18n: service(),
   classNames: ['dropdown','dropdown-extended', 'language-selector'],
   tagName: 'li',
-  locale: Ember.computed.alias('i18n.locale'),
-  locales: Ember.computed.alias('i18n.locales')
+  locale: computed.alias('i18n.locale'),
+  locales: computed.alias('i18n.locales')
 });

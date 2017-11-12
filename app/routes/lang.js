@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import EmberRoute from '@ember/routing/route';
+import $ from 'jquery';
 import config from '../config/environment';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default EmberRoute.extend(AuthenticatedRouteMixin, {
   classNames: [
     'page-header-fixed','page-sidebar-closed-hide-logo',
     'page-content-white', 'page-boxed', 'page-md'
@@ -13,7 +14,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     let lang = this._selectLang(params);
 
     this.set('i18n.locale', lang);
-    Ember.$('html').attr('lang', lang);
+    $('html').attr('lang', lang);
   },
 
   _selectLang(params) {

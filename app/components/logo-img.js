@@ -1,9 +1,13 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import $ from 'jquery';
 
-export default Ember.Component.extend({
-  i18n: Ember.inject.service(),
-  locale: Ember.computed.alias('i18n.locale'),
-  noLogoUrl: Ember.computed('i18n.locale', function() {
+
+export default Component.extend({
+  i18n: service(),
+  locale: computed.alias('i18n.locale'),
+  noLogoUrl: computed('i18n.locale', function() {
     return `/assets/logos/no_logo_${this.get('locale')}.png`;
   }),
 
@@ -14,9 +18,9 @@ export default Ember.Component.extend({
   _detectMissingImg() {
     let context = this;
 
-    Ember.$('img').on('error', function() {
-      Ember.$(this).addClass('no-logo');
-      Ember.$(this).attr('src', context.get('noLogoUrl'));
+    $('img').on('error', function() {
+      $(this).addClass('no-logo');
+      $(this).attr('src', context.get('noLogoUrl'));
     })
   },
 });
