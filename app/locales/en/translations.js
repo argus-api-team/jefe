@@ -35,7 +35,17 @@ export default {
           'generations': 'Generations',
            'generation': {
             'title': 'Generation',
-            'change': 'Change generation'
+            'change': 'Change generation',
+            'phases': 'Phase',
+            'phase': {
+              'title': 'Phases',
+              'change': 'Change phase',
+              'versions': 'Versions',
+              'version': {
+                'title': 'Version',
+                'change': 'Change version'
+              }
+            }
           }
         }
       }
