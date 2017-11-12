@@ -7,6 +7,7 @@ import $ from 'jquery';
 export default Component.extend({
   i18n: service(),
   locale: computed.alias('i18n.locale'),
+  classNames: ['logo-img'],
   noLogoUrl: computed('i18n.locale', function() {
     return `/assets/logos/no_logo_${this.get('locale')}.png`;
   }),

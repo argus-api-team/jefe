@@ -25,7 +25,7 @@ export default Component.extend({
   actions: {
 
     updateLetter(letter) {
-      this.set('letter', letter)
+      this.sendAction('updateLetter');
     }
   },
 
