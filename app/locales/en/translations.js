@@ -15,6 +15,9 @@ export default {
     'quote': {
       'title': 'Argus Quote',
       'description': 'Argus quote and others maket values.'
+    },
+    'showroom': {
+      'title': 'Showroom'
     }
   },
 

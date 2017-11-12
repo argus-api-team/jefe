@@ -23,12 +23,9 @@ export default Component.extend({
   },
 
   actions: {
-    viewMake(make) {
-      this.sendAction('viewMake', make);
-    },
 
     updateLetter(letter) {
-      this.sendAction('updateLetter', letter);
+      this.set('letter', letter)
     }
   },
 

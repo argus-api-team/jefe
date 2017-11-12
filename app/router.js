@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('search');
     this.route('quote');
     this.route('make', { path: '/make/:id' });
+    this.route('showroom', function() {});
   });
 });
 

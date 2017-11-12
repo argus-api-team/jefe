@@ -1,22 +1,7 @@
-<div class="page-bar">
-  <ul class="page-breadcrumb">
-    <li>
-      {{#link-to 'lang'}}
-      <span>{{t 'application.home'}}</span>
-      {{/link-to}}
-      <i class="fa fa-circle"></i>
-    </li>
-    <li>
-      <span>{{t 'index.search.title'}}</span>
-    </li>
-  </ul>
-</div>
-<h1 class="page-title">
-{{t 'index.search.title'}}
-<hr>
+{{outlet}}
 {{#make-list updateLetter=(action 'updateLetter') letter=letter }}
   {{#each model as |make|}}
-    <li class="mt-list-item" {{action 'viewMake' make}}>
+    <li class="mt-list-item">
       <div class="list-icon-container">
         <i class="fa fa-angle-right visible-xs-block"></i>
       </div>
@@ -30,4 +15,3 @@
     </li>
   {{/each}}
 {{/make-list}}
-</h1>

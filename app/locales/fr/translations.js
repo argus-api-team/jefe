@@ -15,6 +15,9 @@ export default {
     'quote': {
       'title': 'La Cote Argus®',
       'description': 'La Cote Argus® et les Valeurs Argus de marché.'
+    },
+    'showroom': {
+      'title': 'Showroom'
     }
   },
 
