@@ -17,7 +17,10 @@ export default {
       'description': 'Argus quote and others maket values.'
     },
     'showroom': {
-      'title': 'Showroom'
+      'title': 'Showroom',
+      'make': {
+        'change': 'Change make'
+      }
     }
   },
 

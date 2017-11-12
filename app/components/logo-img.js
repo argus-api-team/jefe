@@ -11,6 +11,7 @@ export default Component.extend({
   noLogoUrl: computed('i18n.locale', function() {
     return `/assets/logos/no_logo_${this.get('locale')}.png`;
   }),
+  altText: '',
 
   didRender() {
     this._detectMissingImg();

@@ -17,7 +17,10 @@ export default {
       'description': 'La Cote Argus® et les Valeurs Argus de marché.'
     },
     'showroom': {
-      'title': 'Showroom'
+      'title': 'Showroom',
+      'make': {
+        'change': 'Changer de constructeur'
+      }
     }
   },
 
