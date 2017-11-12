@@ -1,7 +1,7 @@
 import DS from 'ember-data';
-import FeatureModelMixin from '../mixins/display-date'
+import DisplayDateMixin from '../mixins/display-date';
 
-export default DS.Model.extend(FeatureModelMixin, {
+export default DS.Model.extend(DisplayDateMixin, {
 
   name: DS.attr('string'),
   startDate: DS.attr('date'),

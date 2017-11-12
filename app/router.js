@@ -14,7 +14,7 @@ Router.map(function() {
     this.route('make', { path: '/make/:id' });
     this.route('showroom', function() {
       this.route('make', { path: 'make/:id' }, function() {
-        this.route('model', { path: 'model/:model_id' });
+        this.route('model', { path: 'model/:model_id' }, function() {});
       });
     });
   });

@@ -27,7 +27,8 @@ export default {
       },
       'model': {
         'title': 'Modèle',
-         'change': 'Changer de modèle'
+        'change': 'Changer de modèle',
+        'submodels': 'Variantes'
       }
     }
   },
