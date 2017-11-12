@@ -36,10 +36,11 @@ export default {
           'generation': {
             'title': 'Génération',
             'change': 'Changer de génération',
-            'revisions': 'Phases',
+            'phases': 'Phases',
             'phase': {
               'title': 'Phase',
               'change': 'Changer de phase',
+              'versions': 'Versions',
               'version': {
                 'title': 'Version',
                 'change': 'Changer de version'

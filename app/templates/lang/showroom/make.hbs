@@ -10,6 +10,8 @@
     <dd>{{format-date model.startDate noDateText=(t 'application.noDate')}}</dd>
     <dt>{{t 'models.base.endDate'}}</dt>
     <dd>{{format-date model.endDate noDateText=(t 'application.noDate')}}</dd>
+    <dt>{{t 'models.base.positionQuote'}}</dt>
+    <dd>{{model.positionQuote}}</dd>
   </dl>
   <div class="actions">
     {{#link-to "lang.showroom" classNames="btn blue"}} {{t 'index.showroom.make.change'}} {{/link-to}}

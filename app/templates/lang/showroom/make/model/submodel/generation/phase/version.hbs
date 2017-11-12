@@ -42,4 +42,34 @@
     {{#link-to "lang.showroom.make.model.submodel" classNames="btn blue"}} {{t 'index.showroom.model.submodel.generation.phase.version.change'}} {{/link-to}}
   </div>
 </section>
+<h4>energy</h4>
+<dl class="dl-horizontal">
+  <dt>code</dt>
+  <dd>{{model.energy.code}}</dd>
+  <dt>name</dt>
+  <dd>{{model.energy.name}}</dd>
+  <dt>legacyId</dt>
+  <dd>{{model.energy.legacyId}}</dd>
+  <dt>masterId</dt>
+  <dd>{{model.energy.masterId}}</dd>
+  <dt>masterName</dt>
+  <dd>{{model.energy.masterName}}</dd>
+  <dt>masterCode</dt>
+  <dd>{{model.energy.masterCode}}</dd>
+</dl>
+<h4>gearbox</h4>
+<dl class="dl-horizontal">
+  <dt>name</dt>
+  <dd>{{model.gearbox.name}}</dd>
+  <dt>code</dt>
+  <dd>{{model.gearbox.code}}</dd>
+  <dt>subtype</dt>
+  <dd>{{model.gearbox.subtype}}</dd>
+  <dt>legacyId</dt>
+  <dd>{{model.gearbox.legacyId}}</dd>
+  <dt>marketingName</dt>
+  <dd>{{model.gearbox.marketingName}}</dd>
+  <dt>numberOfGears</dt>
+  <dd>{{model.gearbox.numberOfGears}}</dd>
+  </dl>
 {{outlet}}
