@@ -28,7 +28,10 @@ export default {
       'model': {
         'title': 'Model',
         'change': 'Change model',
-        'submodels': 'Submodels'
+        'submodels': 'Submodels',
+        'submodel': {
+          'title': 'Submodel',
+        }
       }
     }
   },
