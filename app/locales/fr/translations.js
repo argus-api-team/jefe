@@ -43,7 +43,25 @@ export default {
               'versions': 'Versions',
               'version': {
                 'title': 'Version',
-                'change': 'Changer de version'
+                'change': 'Changer de version',
+                'energy': 'Energie',
+                'gearbox': 'Boite de vitesse',
+                'period': 'Périodes',
+                'period': {
+                  'title': 'Période',
+                  'change': 'Changer de période',
+                  'weight': 'Poids',
+                  'tyres': 'Pneus',
+                  'transmission': 'Transmission',
+                  'platform': 'Chassis',
+                  'performances': 'Performances',
+                  'consumption': 'Consommation',
+                  'dimensions': 'Dimensions',
+                  'boot': 'Coffre',
+                  'engine': 'Moteur',
+                  'feature': 'Options',
+                  'equipments': 'Equipements',
+                }
               }
             }
           }

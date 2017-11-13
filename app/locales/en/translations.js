@@ -43,7 +43,25 @@ export default {
               'versions': 'Versions',
               'version': {
                 'title': 'Version',
-                'change': 'Change version'
+                'change': 'Change version',
+                'energy': 'Energy',
+                'gearbox': 'Gearbox',
+                'period': 'Periods',
+                'period': {
+                  'title': 'Period',
+                  'change': 'Change périod',
+                  'weight': 'Weight',
+                  'tyres': 'Tyres',
+                  'transmission': 'Transmission',
+                  'platform': 'Platform',
+                  'performances': 'Performances',
+                  'consumption': 'Consumption',
+                  'dimensions': 'Dimensions',
+                  'boot': 'Boot',
+                  'engine': 'Engine',
+                  'feature': 'Options',
+                  'equipments': 'Equipments',
+                }
               }
             }
           }
