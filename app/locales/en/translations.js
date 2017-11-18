@@ -46,7 +46,7 @@ export default {
                 'change': 'Change version',
                 'energy': 'Energy',
                 'gearbox': 'Gearbox',
-                'period': 'Periods',
+                'periods': 'Periods',
                 'period': {
                   'title': 'Period',
                   'change': 'Change périod',

@@ -46,7 +46,7 @@ export default {
                 'change': 'Changer de version',
                 'energy': 'Energie',
                 'gearbox': 'Boite de vitesse',
-                'period': 'Périodes',
+                'periods': 'Périodes',
                 'period': {
                   'title': 'Période',
                   'change': 'Changer de période',
