@@ -1,10 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   didRender() {
     this._super(...arguments);
     App.init(); // init metronic core componets
     Layout.init(); // init layout
-    QuickSidebar.init()
+    QuickSidebar.init();
   }
 });

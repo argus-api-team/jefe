@@ -1,16 +1,20 @@
-import Ember from 'ember';
+import Helper from '@ember/component/helper';
+import { htmlSafe } from '@ember/string';
+import { isEmpty } from '@ember/utils';
+import $ from 'jquery';
+
 
 export function formatDate([date], args) {
-  let format = 'MMMM YYYY'
-  moment.locale(Ember.$('html').attr('lang'));
+  let format = 'MMMM YYYY';
+  moment.locale($('html').attr('lang'));
 
-  if (Ember.isEmpty(date)) {
-    return Ember.String.htmlSafe(
+  if (isEmpty(date)) {
+    return htmlSafe(
       `<span class="font-grey-silver">${args.noDateText}</span>`
     );
   } else {
-    return moment(date).format(format)
+    return moment(date).format(format);
   }
 }
 
-export default Ember.Helper.helper(formatDate);
+export default Helper.helper(formatDate);

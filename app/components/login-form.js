@@ -1,9 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 import Cookies from 'ember-cli-js-cookie';
 
-export default Ember.Component.extend({
-  session: Ember.inject.service('session'),
-  config: Ember.inject.service(),
+export default Component.extend({
+  session: service('session'),
+  config: service(),
   credentialProperties: [
     'applicationId','applicationSecret',
     'username', 'password', 'isRemembered'
@@ -14,7 +16,7 @@ export default Ember.Component.extend({
   password: Cookies.get('password'),
   isRemembered: Cookies.get('isRemembered'),
   expiresLength: 15,
-  isSecureCookie: Ember.computed.alias('config.APP.isSecureCookie'),
+  isSecureCookie: computed.alias('config.APP.isSecureCookie'),
 
   actions: {
     authenticate() {

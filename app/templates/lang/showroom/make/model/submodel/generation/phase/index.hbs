@@ -1,0 +1,11 @@
+<h2>{{t 'index.showroom.model.submodel.generation.phase.versions'}}</h2>
+<ul class="list-group showroom-flex-list">
+  {{#each model.versions as |version|}}
+    <li class="list-group-item showroom-flex-list-item">
+      <h3>{{version.fullNicename}}</h3>
+      <p>{{version.displayDate}}</p>
+      <p>{{version.id}}</p>
+      {{#link-to "lang.showroom.make.model.submodel.generation.phase.version" version}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>

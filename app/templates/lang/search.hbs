@@ -14,5 +14,20 @@
 <h1 class="page-title">
 {{t 'index.search.title'}}
 <hr>
-{{make-list updateLetter=(action 'updateLetter') letter=letter model=model viewMake=(action 'viewMake')}}
+{{#make-list updateLetter=(action 'updateLetter') letter=letter }}
+  {{#each model as |make|}}
+    <li class="mt-list-item" {{action 'viewMake' make}}>
+      <div class="list-icon-container">
+        <i class="fa fa-angle-right visible-xs-block"></i>
+      </div>
+      <div class="list-thumb">
+        {{logo-img url=make.logoURL className='thumbnail make-logo'}}
+      </div>
+      <div class="list-item-content">
+        <h3 class="uppercase font-lg bold font-blue-ebonyclay" data-role="name">{{make.name}}</h3>
+      </div>
+      <div class="list-datetime font-grey-mint small">{{make.displayDate}}</div>
+    </li>
+  {{/each}}
+{{/make-list}}
 </h1>

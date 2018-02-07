@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   letter: 'a',
 
   didUpdateAttrs() {
@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   },
 
   didRender() {
-    var context = this;
+    let context = this;
     this.$('ul').listnav({
       filterSelector: '[data-role=name]',
       initLetter: context.get('letter'),
@@ -19,16 +19,13 @@ export default Ember.Component.extend({
         context.updateLetter(letter);
       }
     })
-    this.$('.ln-no-match').addClass('mt-list-item')
+    this.$('.ln-no-match').addClass('mt-list-item');
   },
 
   actions: {
-    viewMake(make) {
-      this.sendAction('viewMake', make)
-    },
 
     updateLetter(letter) {
-      this.sendAction('updateLetter', letter)
+      this.sendAction('updateLetter', letter);
     }
   },
 

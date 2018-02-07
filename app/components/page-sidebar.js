@@ -1,10 +1,10 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNames: ['page-sidebar-wrapper'],
 
   didRender() {
-    this.$('.active').closest('.nav-item').removeClass('active')
+    this.$('.active').closest('.nav-item').removeClass('active');
     this.$('.active').closest('.top-level').removeClass('active');
 
     this.$('.active').closest('.nav-item').addClass('active');

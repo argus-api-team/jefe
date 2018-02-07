@@ -1,6 +1,8 @@
 import DS from 'ember-data';
+import DisplayDateMixin from '../mixins/display-date';
 
-export default DS.Model.extend({
+export default DS.Model.extend(DisplayDateMixin, {
+
   name: DS.attr('string'),
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
@@ -10,4 +12,5 @@ export default DS.Model.extend({
   make: DS.belongsTo({ async: true }),
   submodels: DS.hasMany({ async: true }),
   categories: DS.hasMany({ async: true }),
+
 });

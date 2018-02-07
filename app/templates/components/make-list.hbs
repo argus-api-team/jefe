@@ -6,20 +6,7 @@
   </div>
   <div class="mt-list-container list-news ext-1">
     <ul id="make-list">
-      {{#each model as |model|}}
-      <li class="mt-list-item" {{action 'viewMake' model}}>
-        <div class="list-icon-container">
-          <i class="fa fa-angle-right visible-xs-block"></i>
-        </div>
-        <div class="list-thumb">
-          {{logo-img url=model.logoURL className='thumbnail make-logo'}}
-        </div>
-        <div class="list-item-content">
-          <h3 class="uppercase font-lg bold font-blue-ebonyclay" data-role="name">{{model.name}}</h3>
-        </div>
-        <div class="list-datetime font-grey-mint small">{{model.displayDate}}</div>
-      </li>
-      {{/each}}
+      {{yield}}
     </ul>
   </div>
 </div>

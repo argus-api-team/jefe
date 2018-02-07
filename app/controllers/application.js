@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
-  isLogin: Ember.computed('currentPath', function() {
+export default Controller.extend({
+  isLogin: computed('currentPath', function() {
     return this.get('currentPath') === 'lang.login';
   }) 
 });

@@ -1,6 +1,7 @@
 import DS from 'ember-data';
+import DisplayDateMixin from '../mixins/display-date';
 
-export default DS.Model.extend({
+export default DS.Model.extend(DisplayDateMixin, {
   priceExcludingVat: DS.attr('number'),
   priceIncludingVat: DS.attr('number'),
   startDate: DS.attr('date'),

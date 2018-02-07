@@ -1,12 +1,12 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   letter: 'a',
   queryParams: ['letter'],
 
   actions: {
     viewMake(make) {
-      this.transitionToRoute('lang.make', make)
+      this.transitionToRoute('lang.make', make);
     },
 
     updateLetter(letter) {

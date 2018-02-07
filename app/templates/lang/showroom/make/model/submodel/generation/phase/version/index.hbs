@@ -1,0 +1,11 @@
+<h2>{{t "index.showroom.model.submodel.generation.phase.version.title"}}</h2>
+<ul class="list-group showroom-flex-list">
+  {{#each model.periods as |period|}}
+    <li class="list-group-item showroom-flex-list-item">
+      <h3>{{period.fullNicename}}</h3>
+      <p>{{period.displayDate}}</p>
+      <p>{{period.id}}</p>
+      {{#link-to "lang.showroom.make.model.submodel.generation.phase.version.period" period}}{{/link-to}}
+    </li>
+  {{/each}}
+</ul>

@@ -15,6 +15,58 @@ export default {
     'quote': {
       'title': 'Argus Quote',
       'description': 'Argus quote and others maket values.'
+    },
+    'showroom': {
+      'title': 'Showroom',
+      'make': {
+        'title': 'Make',
+        'change': 'Change make'
+      },
+      'models': {
+        'title': 'Models'
+      },
+      'model': {
+        'title': 'Model',
+        'change': 'Change model',
+        'submodels': 'Submodels',
+        'submodel': {
+          'title': 'Submodel',
+          'change': 'Change submodel',
+          'generations': 'Generations',
+           'generation': {
+            'title': 'Generation',
+            'change': 'Change generation',
+            'phases': 'Phase',
+            'phase': {
+              'title': 'Phases',
+              'change': 'Change phase',
+              'versions': 'Versions',
+              'version': {
+                'title': 'Version',
+                'change': 'Change version',
+                'energy': 'Energy',
+                'gearbox': 'Gearbox',
+                'periods': 'Periods',
+                'period': {
+                  'title': 'Period',
+                  'change': 'Change périod',
+                  'weight': 'Weight',
+                  'tyres': 'Tyres',
+                  'transmission': 'Transmission',
+                  'platform': 'Platform',
+                  'performances': 'Performances',
+                  'consumption': 'Consumption',
+                  'dimensions': 'Dimensions',
+                  'boot': 'Boot',
+                  'engine': 'Engine',
+                  'feature': 'Options',
+                  'equipments': 'Equipments',
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
 
