@@ -1,5 +1,6 @@
-[data-ember-action]:not(:disabled)
-  cursor: pointer
+[data-ember-action]:not(:disabled) {
+  cursor: pointer;
+}
 
 // Large desktops and laptops
 // @media (min-width: 1200px)
@@ -16,6 +17,6 @@
 // Portrait phones and smaller
 // @media (max-width: 480px)
 
-$mobile-screen: 767px
-$tablet-screen: 768px
-$desktop-screen: 1200px
+$mobile-screen: 767px;
+$tablet-screen: 768px;
+$desktop-screen: 1200px;
