@@ -6,10 +6,7 @@ import Cookies from 'ember-cli-js-cookie';
 export default Component.extend({
   session: service('session'),
   config: service(),
-  credentialProperties: [
-    'applicationId','applicationSecret',
-    'username', 'password', 'isRemembered'
-  ],
+  
   applicationId: Cookies.get('applicationId'),
   applicationSecret: Cookies.get('applicationSecret'),
   username: Cookies.get('username'),
@@ -17,6 +14,14 @@ export default Component.extend({
   isRemembered: Cookies.get('isRemembered'),
   expiresLength: 15,
   isSecureCookie: computed.alias('config.APP.isSecureCookie'),
+
+  init() {
+    this._super(...arguments);
+    this.credentialProperties = [
+      'applicationId','applicationSecret',
+      'username', 'password', 'isRemembered'
+    ];
+  },
 
   actions: {
     authenticate() {
