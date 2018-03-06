@@ -9,12 +9,20 @@ module.exports = {
   ],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+    'airbnb-base'
   ],  
   env: {
-    browser: true
+    browser: true,
+    es6: true
   },
   rules: {
+    "func-names": 0,
+    "no-use-before-define": [2, "nofunc"],
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-underscore-dangle": 0,
   },
   globals: {
     "moment": true,
