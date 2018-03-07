@@ -8,7 +8,7 @@ export default Component.extend({
   i18n: service(),
   locale: computed.alias('i18n.locale'),
   classNames: ['logo-img'],
-  noLogoUrl: computed('i18n.locale', function() {
+  noLogoUrl: computed('i18n.locale', function () {
     return `/assets/logos/no_logo_${this.get('locale')}.png`;
   }),
   altText: '',
@@ -18,11 +18,10 @@ export default Component.extend({
   },
 
   _detectMissingImg() {
-    let context = this;
-
-    $('img').on('error', function() {
+    const context = this;
+    $('img').on('error', function () {
       $(this).addClass('no-logo');
       $(this).attr('src', context.get('noLogoUrl'));
-    })
+    });
   },
 });

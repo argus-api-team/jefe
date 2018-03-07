@@ -4,7 +4,8 @@ export default OAuth2PasswordGrand.extend({
   serverTokenEndpoint: 'https://oauth.largus.fr/oauth/token',
 
   authenticate(applicationId, applicationSecret, username, password) {
-    let headers = { 'Authorization':  "Basic " + btoa(applicationId + ":" + applicationSecret) };
+    const applicationAuth = btoa(`${applicationId} : ${applicationSecret}`);
+    const headers = { Authorization: `Basic ${applicationAuth}` };
 
     return this._super(username, password, '', headers);
   },
@@ -12,5 +13,5 @@ export default OAuth2PasswordGrand.extend({
   makeRequest(url, data, headers) {
     data.type = 'pro';
     return this._super(url, data, headers);
-  }
-})
+  },
+});

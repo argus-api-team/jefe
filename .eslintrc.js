@@ -19,10 +19,14 @@ module.exports = {
   rules: {
     "func-names": 0,
     "no-use-before-define": [2, "nofunc"],
+    "no-param-reassign": [2, { "props": false }],
     "import/no-unresolved": 0,
     "import/extensions": 0,
+    "import/no-named-as-default": 0,
+    "import/no-named-as-default-member": 0,
     "import/no-extraneous-dependencies": 0,
     "no-underscore-dangle": 0,
+    "prefer-rest-params": 0,
   },
   globals: {
     "moment": true,

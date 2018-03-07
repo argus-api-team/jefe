@@ -1,6 +1,5 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  // Todo: change this class 
-  classNames: ['container']
+  classNames: ['container'], // Todo: change this class
 });

@@ -4,5 +4,5 @@ import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-
 export default EmberRoute.extend(UnauthenticatedRouteMixin, {
   setupController(controller, model) {
     controller.set('lang', model.lang);
-  }
+  },
 });

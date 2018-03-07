@@ -6,5 +6,5 @@ export default Component.extend({
     App.init(); // init metronic core componets
     Layout.init(); // init layout
     QuickSidebar.init();
-  }
+  },
 });

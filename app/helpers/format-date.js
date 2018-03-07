@@ -5,16 +5,13 @@ import $ from 'jquery';
 
 
 export function formatDate([date], args) {
-  let format = 'MMMM YYYY';
+  const format = 'MMMM YYYY';
   moment.locale($('html').attr('lang'));
 
   if (isEmpty(date)) {
-    return htmlSafe(
-      `<span class="font-grey-silver">${args.noDateText}</span>`
-    );
-  } else {
-    return moment(date).format(format);
+    return htmlSafe(`<span class="font-grey-silver">${args.noDateText}</span>`);
   }
+  return moment(date).format(format);
 }
 
 export default Helper.helper(formatDate);

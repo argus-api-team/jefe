@@ -9,5 +9,5 @@ export default DS.Model.extend({
   nitrousOxyde: DS.attr('number'),
   particulateMatter: DS.attr('number'),
   totalHydrocarbons: DS.attr('number'),
-  totalFuel: DS.attr('number')
+  totalFuel: DS.attr('number'),
 });

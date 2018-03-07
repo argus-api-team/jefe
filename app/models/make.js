@@ -13,11 +13,11 @@ export default DS.Model.extend(DisplayDateMixin, {
   models: DS.hasMany({ async: true }),
   submodels: DS.hasMany({ async: true }),
 
-  slug: computed('name', function() {
+  slug: computed('name', function () {
     return this.get('name').dasherize();
   }),
 
-  logoURL: computed('slug', function() {
-    return `//assets.largus.fr/logos/marques/${this.get('slug')}.png`
-  })
+  logoURL: computed('slug', function () {
+    return `//assets.largus.fr/logos/marques/${this.get('slug')}.png`;
+  }),
 });

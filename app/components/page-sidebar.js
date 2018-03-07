@@ -9,5 +9,5 @@ export default Component.extend({
 
     this.$('.active').closest('.nav-item').addClass('active');
     this.$('.active').closest('.top-level').addClass('active');
-  }
+  },
 });

@@ -6,7 +6,7 @@ import Cookies from 'ember-cli-js-cookie';
 export default Component.extend({
   session: service('session'),
   config: service(),
-  
+
   applicationId: Cookies.get('applicationId'),
   applicationSecret: Cookies.get('applicationSecret'),
   username: Cookies.get('username'),
@@ -18,8 +18,8 @@ export default Component.extend({
   init() {
     this._super(...arguments);
     this.credentialProperties = [
-      'applicationId','applicationSecret',
-      'username', 'password', 'isRemembered'
+      'applicationId', 'applicationSecret',
+      'username', 'password', 'isRemembered',
     ];
   },
 
@@ -29,14 +29,19 @@ export default Component.extend({
 
       this._rememberCredentials();
 
-      let { applicationId, applicationSecret, username, password } = this.getProperties('applicationId', 'applicationSecret', 'username', 'password');
+      const {
+        applicationId,
+        applicationSecret,
+        username,
+        password,
+      } = this.getProperties('applicationId', 'applicationSecret', 'username', 'password');
 
       this.get('session').authenticate('authenticator:oauth2', applicationId, applicationSecret, username, password).then(() => {
         this.get('controller').transitionToRoute('lang', { lang: this.get('controller.lang') });
       }, (reason) => {
         this.set('errorMessage', reason.error);
       });
-    }
+    },
   },
 
   _saveCredentials() {
@@ -57,5 +62,5 @@ export default Component.extend({
     } else {
       this._clearCredentials();
     }
-  }
+  },
 });

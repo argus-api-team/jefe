@@ -14,5 +14,5 @@ export default DS.Model.extend(DisplayDateMixin, {
   category: DS.belongsTo({ async: true }),
   generations: DS.hasMany({ async: true }),
   versions: DS.hasMany({ async: true }),
-  periods: DS.hasMany({ async: true })
+  periods: DS.hasMany({ async: true }),
 });

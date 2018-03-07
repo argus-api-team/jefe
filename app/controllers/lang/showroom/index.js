@@ -7,6 +7,6 @@ export default Controller.extend({
   actions: {
     updateLetter(letter) {
       this.set('letter', letter);
-    }
-  }
+    },
+  },
 });

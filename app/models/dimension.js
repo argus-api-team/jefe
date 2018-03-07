@@ -11,5 +11,5 @@ export default DS.Model.extend({
   rearOverhang: DS.attr('number'),
   rearTrack: DS.attr('number'),
   wheelBase: DS.attr('number'),
-  width: DS.attr('number')
+  width: DS.attr('number'),
 });

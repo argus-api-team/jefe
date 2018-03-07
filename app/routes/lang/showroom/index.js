@@ -4,7 +4,7 @@ export default Route.extend({
   model() {
     return this.store.query('make', {
       page: { size: 500 },
-      sort: 'name'
+      sort: 'name',
     });
   },
 });

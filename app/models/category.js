@@ -5,5 +5,5 @@ export default DS.Model.extend({
 
   makes: DS.hasMany({ async: true }),
   models: DS.hasMany({ async: true }),
-  submodels: DS.hasMany({ async: true })
+  submodels: DS.hasMany({ async: true }),
 });
