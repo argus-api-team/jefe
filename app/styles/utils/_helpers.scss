@@ -1,0 +1,13 @@
+[data-ember-action] {
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.thumbnail {
+  width: 100%;
+}

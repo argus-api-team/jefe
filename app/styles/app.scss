@@ -1,10 +1,22 @@
-@import 'base';
-@import 'list';
-@import 'list_nav';
-@import 'login';
-@import 'nav';
-@import 'page_header';
-@import 'spin-button';
-@import 'thumbnail';
-@import 'pages/showroom';
+//Reboot & base
+@import 'vendor/reboot';
+@import 'base/typography';
+
+//Utils
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'utils/helpers';
+
+//Layout
+@import 'layout/list-nav';
+@import 'layout/page-header';
+
+//Components
+@import 'components/language-selector';
+@import 'components/list';
+@import 'spin-button'; //Component from ember addon
+
+//Page specific
+@import 'pages/login';
 @import 'pages/make';
+@import 'pages/showroom';

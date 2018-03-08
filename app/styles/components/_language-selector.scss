@@ -1,0 +1,15 @@
+.language-selector {
+
+  .dropdown-toggle {
+    padding: 10px !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+  }
+
+  .flag {
+    height: 30px;
+  }
+
+  .flag-list {
+    min-width: 60px !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+    max-width: 64px !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+  }
+}

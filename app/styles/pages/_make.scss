@@ -1,10 +1,13 @@
 .make-infos {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+
+
   .logo-img {
     margin: 0;
   }
+
   .actions {
     align-self: flex-start;
   }
@@ -13,12 +16,16 @@
 .showroom-flex-list {
   display: flex;
   flex-wrap: wrap;
+
   .showroom-flex-list-item {
-    width: 50%;
     position: relative;
+    width: 50%;
+
+
     &:hover {
-      background: #e5e5e5;
+      background: $light-grey;
     }
+
     a {
       position: absolute;
       top: 0;

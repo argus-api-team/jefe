@@ -1,0 +1,38 @@
+.listNav { // sass-lint:disable-line class-name-format  : ClassName from metronic
+  margin: 28px 0;
+
+  .ln-letters {
+    display: grid;
+    grid-row-gap: 1em; // sass-lint:disable-line no-misspelled-properties  : Scss linter don't reconize grid-row-gap
+    grid-template-columns: repeat(27, 1fr);
+
+    @media (max-width: $tablet-screen) {
+      grid-template-columns: repeat(9, 1fr);
+    }
+
+    a {
+      border: 0;
+      border-top: 2px solid $pink;
+      color: $red;
+      text-align: center;
+
+      // sass-lint:disable nesting-depth :disable nesting depht rule to override metronic style
+      &:hover {
+        text-decoration: none;
+      }
+
+      &.ln-disabled {
+        color: $pink;
+      }
+
+      &.ln-selected {
+        border-top: 2px solid $red;
+      }
+      // sass-lint:enable nesting-depth
+    }
+  }
+
+  .ln-letter-count {
+    color: $red;
+  }
+}

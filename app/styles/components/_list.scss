@@ -1,8 +1,9 @@
 .mt-element-list {
-  background-color: white;
+  background-color: $white;
 }
 
-#make-list, #submodel-list {
+.make-list,
+.submodel-list {
   display: grid;
 
   @media (max-width: $mobile-screen) {
@@ -17,11 +18,12 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  &#submodel-list {
+  &.submodel-list {
     grid-auto-rows: 100px;
-    grid-gap: 1em;
+    grid-gap: 1em; // sass-lint:disable-line no-misspelled-properties  : Scss linter don't reconize grid-gap
   }
 }
+
 .mt-list-container {
   .make-logo {
     width: 80px;
@@ -34,5 +36,5 @@
 }
 
 .lazyload {
-  background: #f7f7f7 url(/assets/loader.gif) no-repeat center;
+  background: $lighter-grey url('/assets/loader.gif') no-repeat center;
 }

@@ -1,0 +1,12 @@
+.page-header {
+  &.navbar {
+    .page-logo {
+      // sass-lint:disable nesting-depth :disable nesting depht rule to override metronic style
+      .logo-default {
+        height: 50px;
+        margin: 0;
+      }
+      // sass-lint:enable nesting-depth
+    }
+  }
+}

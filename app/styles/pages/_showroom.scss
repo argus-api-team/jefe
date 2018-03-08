@@ -3,25 +3,28 @@
   position: relative;
   align-items: center;
   padding: 10px;
+
   &:hover {
-    background: #e5e5e5;
+    background: $light-grey;
   }
-  &.listNavHide {
-    display: none;
-  }
+
   .infos {
     order: 2;
+
     p {
       margin: 10px 0;
     }
   }
+
   .logo-img {
     order: 1;
     margin-right: 10px;
+
     img {
       margin-bottom: 0;
     }
   }
+
   a {
     position: absolute;
     top: 0;
