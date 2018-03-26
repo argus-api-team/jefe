@@ -2,6 +2,7 @@ files:
   include: 'styles/**/*.scss'
   ignore:
     - 'styles/vendor/**/*.scss'
+    - 'styles/metronic-config/**/*.scss'
 
 options:
   formatter: stylish

@@ -7,7 +7,12 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     fingerprint: {
       exclude: ['assets/flags', 'assets/logos']
-    }
+    },
+    sassOptions: {
+      includePaths: [
+        'node_modules/bootstrap/scss'
+      ]
+  }
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -26,47 +31,6 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/lazysizes/lazysizes.js');
   app.import(app.bowerDirectory + '/jquery-listnav/jquery-listnav.js');
   app.import(app.bowerDirectory + '/jquery-listnav/css/listnav.css');
-
-  // METRONIC GLOBAL MANDATORY STYLES
-  app.import('vendor/metronic/global/plugins/bootstrap/css/bootstrap.css');
-  app.import('vendor/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.css');
-
-  // METRONIC PAGE LEVEL PLUGINS
-  app.import('vendor/metronic/global/plugins/select2/css/select2.css');
-  app.import('vendor/metronic/global/plugins/select2/css/select2-bootstrap.min.css');
-
-  // METRONIC THEME GLOBAL STYLES
-  app.import('vendor/metronic/global/css/components-md.min.css');
-  app.import('vendor/metronic/global/css/plugins-md.min.css');
-
-  // METRONIC PAGE LEVEL STYLES
-  app.import('vendor/metronic/pages/css/about.css');
-  app.import('vendor/metronic/pages/css/login.css');
-
-  // METRONIC THEME LAYOUT STYLES
-  app.import('vendor/metronic/layouts/layout/css/layout.css');
-  app.import('vendor/metronic/layouts/layout/css/themes/darkblue.css');
-  app.import('vendor/metronic/layouts/layout/css/custom.css');
-
-  // METRONIC CORE PLUGINS
-  app.import('vendor/metronic/global/plugins/bootstrap/js/bootstrap.min.js');
-  app.import('vendor/metronic/global/plugins/js.cookie.min.js');
-  app.import('vendor/metronic/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js');
-  app.import('vendor/metronic/global/plugins/jquery.blockui.min.js');
-  app.import('vendor/metronic/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js');
-
-  // METRONIC THEME GLOBAL SCRIPTS
-  app.import('vendor/metronic/global/scripts/app.js');
-
-  // METRONIC THEME LAYOUT SCRIPTS
-  app.import('vendor/metronic/layouts/layout/scripts/layout.js');
-  app.import('vendor/metronic/layouts/global/scripts/quick-sidebar.js');
-  app.import('vendor/metronic/layouts/global/scripts/quick-nav.js');
-
-  // METRONIC PAGE LEVEL PLUGINS
-  app.import('vendor/metronic/global/plugins/jquery-validation/js/jquery.validate.min.js');
-  app.import('vendor/metronic/global/plugins/jquery-validation/js/additional-methods.min.js');
-  app.import('vendor/metronic/global/plugins/select2/js/select2.full.min.js');
 
   return app.toTree();
 };
