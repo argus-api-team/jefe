@@ -1,5 +1,11 @@
-<form class="login-form">
-  <h3 class="form-title font-green">{{t "login.title.signIn"}}</h3>
+<div class="m-portlet__head">
+  <div class="m-portlet__head-caption">
+    <div class="m-portlet__head-title">
+      <h3 class="form-title font-green m-portlet__head-text">{{t "login.title.signIn"}}</h3>
+    </div>
+  </div>
+</div>
+<div class="m-portlet__body">
   {{#if errorMessage}}
   <div class="alert alert-danger">
     <span>{{errorMessage}}</span>
@@ -22,10 +28,10 @@
     {{input value=password class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.password") name="password" type="password"}}
   </div>
   <div class="form-actions">
-    {{#spin-button action=(action "authenticate") buttonStyle="expand-right"}}{{t "login.button.signIn"}}{{/spin-button}}
-    <label class="rememberme check mt-checkbox mt-checkbox-outline">
+    {{#spin-button action=(action "authenticate") buttonStyle="expand-right" class="m--margin-right-30"}}{{t "login.button.signIn"}}{{/spin-button}}
+    <label class="rememberme check m-checkbox m-checkbox-outline m--margin-top-10">
       {{input type="checkbox" name="isRemembered" checked=isRemembered}}{{t "login.form.isRemembered"}}
       <span></span>
     </label>
   </div>
-</form>
+</div>

@@ -1,7 +1,9 @@
-<div class="logo">
-  <img src="/assets/logos/Jefe_logo_with_tagline_small.png">
+<div class="login-page m-body">
+  <div class="logo m-content">
+    <img src="/assets/logos/Jefe_logo_with_tagline_small.png">
+  </div>
+{{!--   <div class="content m-content"> --}}
+    {{login-form controller=this}}
+{{!--   </div> --}}
+  <div class="copyright m-content m--font-light"> Copyright © {{moment-format (now) 'YYYY'}} Groupe Argus </div>
 </div>
-<div class="content">
-  {{login-form controller=this}}
-</div>
-<div class="copyright"> Copyright © {{moment-format (now) 'YYYY'}} Groupe Argus </div>

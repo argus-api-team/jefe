@@ -7,6 +7,9 @@ export default Component.extend({
   session: service('session'),
   config: service(),
 
+  tagName: 'form',
+  classNames: ['login-form', 'm-portlet'],
+
   applicationId: Cookies.get('applicationId'),
   applicationSecret: Cookies.get('applicationSecret'),
   username: Cookies.get('username'),
