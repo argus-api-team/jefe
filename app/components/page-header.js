@@ -4,7 +4,8 @@ import { inject as service } from '@ember/service';
 export default Component.extend({
   session: service('session'),
 
-  classNames: ['page-header', 'navbar', 'navbar-fixed-top'],
+  tagName:"header",
+  classNames: ['m-grid__item', ' m-header'],
 
   actions: {
     invalidateSession() {

@@ -1,12 +1,5 @@
-.page-header {
-  &.navbar {
-    .page-logo {
-      // sass-lint:disable nesting-depth :disable nesting depht rule to override metronic style
-      .logo-default {
-        height: 50px;
-        margin: 0;
-      }
-      // sass-lint:enable nesting-depth
-    }
+.m-brand__logo-wrapper { // sass-lint:disable-line class-name-format  : ClassName from metronic
+  img {
+    max-width: 100%;
   }
 }

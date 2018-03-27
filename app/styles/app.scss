@@ -1,4 +1,8 @@
 
+// Import font icons
+@import 'vendor/fonts/flaticon';
+@import 'vendor/fonts/line-awesome';
+@import 'vendor/fonts/metronic';
 
 //
 //** Default Stylesheets
@@ -58,7 +62,6 @@
 @import 'vendor/metronic/footer/default';
 
 
-
 //Reboot & base
 // @import 'vendor/reboot';
 // @import 'base/typography';
@@ -70,8 +73,10 @@
 @import 'utils/helpers';
 
 //Layout
+@import 'layout/page-wrapper';
 @import 'layout/list-nav';
 @import 'layout/page-header';
+@import 'layout/page-footer';
 
 //Components
 @import 'components/language-selector';

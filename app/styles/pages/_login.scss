@@ -10,6 +10,10 @@
   background: url('/assets/images/alpine-bg.jpg') no-repeat center fixed;
   background-size: cover;
 
+  &.m-body {
+    padding: 0 !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+  }
+
   &::before {
     content: '';
     flex: 1;
