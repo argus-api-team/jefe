@@ -224,7 +224,7 @@ define('metronic-layout',
 
             initHeader: function() {
                 initStickyHeader();
-                initHorMenu();
+                // initHorMenu();
                 initTopbar();
                 // initQuicksearch();
                 initScrollTop();

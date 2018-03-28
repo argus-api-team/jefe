@@ -31,18 +31,24 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/lazysizes/lazysizes.js');
   app.import(app.bowerDirectory + '/jquery-listnav/jquery-listnav.js');
   app.import(app.bowerDirectory + '/jquery-listnav/css/listnav.css');
+
+  //Import Custom scroll bar plugin for metronic
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css');
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js');
-  app.import('vendor/metronic/framework/base/util.js');
-  app.import('vendor/metronic/framework/base/app.js');
+
+  //Import base needed component for metronic
   app.import('vendor/metronic/framework/components/general/header.js');
   app.import('vendor/metronic/framework/components/general/offcanvas.js');
   app.import('vendor/metronic/framework/components/general/menu.js');
   app.import('vendor/metronic/framework/components/general/toggle.js');
   app.import('vendor/metronic/framework/components/general/dropdown.js');
   app.import('vendor/metronic/framework/components/general/scroll-top.js');
-  app.import('vendor/metronic/framework/components/general/quicksearch.js');
-  app.import('vendor/metronic/framework/components/general/quicksearch.js');
+
+  //Import base script for metronic
+  app.import('vendor/metronic/framework/base/util.js');
+  app.import('vendor/metronic/framework/base/app.js');
+
+  // Import init script for metronic layout components
   app.import('vendor/metronic/layout.js');
 
   return app.toTree();
