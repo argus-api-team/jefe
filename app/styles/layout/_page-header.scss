@@ -4,3 +4,31 @@
     max-height: 40px;
   }
 }
+
+.flag-list {
+  padding: 5px 0;
+  list-style-type: none;
+
+  a {
+    display: block;
+    padding: 5px 10px;
+    text-align: center;
+  }
+}
+
+.m-dropdown {
+  &.language-choice-dropdown {
+    .m-dropdown__wrapper {  // sass-lint:disable-line class-name-format  : ClassName from metronic
+      width: auto;
+    }
+  }
+
+  .m-nav__link-icon {   // sass-lint:disable-line class-name-format  : ClassName from metronic
+    img {
+      max-height: 30px;
+    }
+  }
+}
+.dropdown-logout {
+  text-align: center;
+}
