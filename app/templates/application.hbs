@@ -7,13 +7,14 @@
       <button class="m-aside-left-close m-aside-left-close--skin-dark" id="m_aside_left_close_btn">
         <i class="la la-close"></i>
       </button>
-      <div id="m_aside_left" class="m-grid__item  m-aside-left  m-aside-left--skin-dark ">
-       {{page-sidebar}}
-      </div>
+        {{page-sidebar}}
       <div class="m-grid__item m-grid__item--fluid m-wrapper">
         {{outlet}}
       </div>
     </div>
-  {{page-footer}}
-</div>
+    {{page-footer}}
+  </div>
+  <div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
+    <i class="la la-arrow-up"></i>
+  </div>
 {{/if}}
