@@ -16,8 +16,8 @@ export default EmberRoute.extend({
         //   quotable: true,
         // },
         meta: {
-          filterable:false,
-        }
+          filterable: false,
+        },
       }),
       latestVehicles: this.get('store').query('version', {
         sort: '-id',
@@ -25,8 +25,8 @@ export default EmberRoute.extend({
         page: { size: 10 },
         meta: {
           filterable: false,
-        }
+        },
       }),
     });
-  }
+  },
 });
