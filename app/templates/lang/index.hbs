@@ -1,9 +1,9 @@
 <div class="m-subheader ">
   <div class="d-flex align-items-center">
     <div class="mr-auto">
-      <h3 class="m-subheader__title m-subheader__title--separator">
+      <h1 class="m-subheader__title m-subheader__title--separator">
         {{t 'application.home'}}
-      </h3>
+      </h1>
     </div>
   </div>
 </div>
@@ -14,12 +14,12 @@
   </h1> --}}
   <div class="row">
     <div class="col-md-6">
-      <div class="m-portlet light card text-center">
+      <div class="m-portlet card text-center">
         <div class="card-icon text-danger">
           <i class="la la-car"></i>
         </div>
         <div class="card-body">
-        <h4 class="card-title">{{t 'index.search.title'}}</h4>
+        <h3 class="card-title">{{t 'index.search.title'}}</h3>
           {{t 'index.search.description'}}
           <hr>
           {{#link-to 'lang.search' class="btn btn-primary"}}
@@ -30,12 +30,12 @@
       </div>
     </div>
     <div class="col-md-6">
-      <div class="m-portlet light card text-center">
+      <div class="m-portlet card text-center">
         <div class="card-icon text-success">
           <i class="la la-bar-chart"></i>
         </div>
         <div class="card-body">
-        <h4 class="card-title">{{t 'index.quote.title'}}</h4>
+        <h3 class="card-title">{{t 'index.quote.title'}}</h3>
           {{t 'index.quote.description'}}
           <hr>
           {{#link-to 'lang.quote' class="btn btn-primary"}}
@@ -46,20 +46,96 @@
       </div>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-12 col-md-4">
-      <div class="m-portlet light">
-        test
+    <div class="col-12 col-lg-4">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Top Make</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="m-widget4">
+            {{#each model.topMakes as |make|}}
+              <div class="m-widget4__item">
+                <div class="m-widget4__img m-widget4__img--logo">
+                  {{logo-img url=make.logoURL altText=make.name className='thumbnail make-logo'}}
+                </div>
+                <div class="m-widget4__info">
+                  <span class="m-widget4__title">{{make.name}}</span>
+                  <br>
+                  <span class="m-widget4__sub">{{make.displayDate}}</span>
+                </div>
+                <div class="m-widget4__img m-widget4__img--logo">
+
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="m-portlet light">
-        test
+    <div class="col-12 col-lg-4">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Top vehicles</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="m-widget4">
+            {{#each model.topVehicles as |vehicle|}}
+              <div class="m-widget4__item">
+                <div class="m-widget4__img m-widget4__img--logo">
+                  {{logo-img url=vehicle.make.logoURL altText=make.name className='thumbnail make-logo'}}
+                </div>
+                <div class="m-widget4__info">
+                  <span class="m-widget4__title">{{vehicle.submodel.name}} {{vehicle.name}}</span>
+                  <br>
+                  <span class="m-widget4__sub">{{vehicle.name}}</span>
+                </div>
+                <div class="m-widget4__img m-widget4__img--logo">
+
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-12 col-md-4">
-      <div class="m-portlet light">
-        test
+    <div class="col-12 col-lg-4">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Latest vehicles</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="m-widget4">
+            {{#each model.latestVehicles as |vehicle|}}
+              <div class="m-widget4__item">
+                <div class="m-widget4__img m-widget4__img--logo">
+                  {{logo-img url=vehicle.make.logoURL altText=make.name className='thumbnail make-logo'}}
+                </div>
+                <div class="m-widget4__info">
+                  <span class="m-widget4__title">{{vehicle.submodel.name}} </span>
+                  <br>
+                  <span class="m-widget4__sub">{{vehicle.name}}</span>
+                </div>
+                <div class="m-widget4__img m-widget4__img--logo">
+
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
