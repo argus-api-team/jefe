@@ -1,0 +1,36 @@
+.card-icon {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+
+  i {
+    margin: 30px 0;
+    padding: 47px;
+    border: 1px solid get-color($m--default-skin, panel);
+    border-radius: 50%;
+    font-size: 50px;
+  }
+}
+
+.card-title {
+  text-align: center;
+
+  span {
+    color: array-get($m--typography-colors, light, regular, base);
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.card-desc {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+
+  span {
+    color: array-get($m--typography-colors, light, regular, lighten3);
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+

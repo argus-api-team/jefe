@@ -8,49 +8,58 @@
   </div>
 </div>
 <div class="m-content">
-  <h1 class="page-title">
-  {{t 'index.header'}}
-  <small>{{t 'index.subheader'}}</small>
-  </h1>
-  <div class="row margin-bottom-20">
+{{!--   <h1 class="page-title">
+    {{t 'index.header'}}
+    <small>{{t 'index.subheader'}}</small>
+  </h1> --}}
+  <div class="row">
     <div class="col-md-6">
-      <div class="portlet light">
-        <div class="card-icon">
-          <i class="fa fa-car font-red-mint theme-font"></i>
+      <div class="m-portlet light card text-center">
+        <div class="card-icon text-danger">
+          <i class="la la-car"></i>
         </div>
-        <div class="card-title">
-          <span>{{t 'index.search.title'}}</span>
-        </div>
-        <div class="card-desc">
+        <div class="card-body">
+        <h4 class="card-title">{{t 'index.search.title'}}</h4>
           {{t 'index.search.description'}}
           <hr>
-          {{#link-to 'lang.search'}}
-          <button type="button" class="btn blue-hoki">
-          {{t 'application.moreInfo'}}
-          <i class="fa fa-angle-right"></i>
-          </button>
+          {{#link-to 'lang.search' class="btn btn-primary"}}
+              {{t 'application.moreInfo'}}
+               <i class="la la-angle-right"></i>
           {{/link-to}}
         </div>
       </div>
     </div>
     <div class="col-md-6">
-      <div class="portlet light">
-        <div class="card-icon">
-          <i class="fa fa-line-chart font-green-haze theme-font"></i>
+      <div class="m-portlet light card text-center">
+        <div class="card-icon text-success">
+          <i class="la la-bar-chart"></i>
         </div>
-        <div class="card-title">
-          <span>{{t 'index.quote.title'}}</span>
-        </div>
-        <div class="card-desc">
+        <div class="card-body">
+        <h4 class="card-title">{{t 'index.quote.title'}}</h4>
           {{t 'index.quote.description'}}
           <hr>
-          {{#link-to 'lang.quote'}}
-          <button type="button" class="btn blue-hoki">
-          {{t 'application.moreInfo'}}
-          <i class="fa fa-angle-right"></i>
-          </button>
+          {{#link-to 'lang.quote' class="btn btn-primary"}}
+            {{t 'application.moreInfo'}}
+             <i class="la la-angle-right"></i>
           {{/link-to}}
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <div class="m-portlet light">
+        test
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="m-portlet light">
+        test
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="m-portlet light">
+        test
       </div>
     </div>
   </div>
