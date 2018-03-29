@@ -13,7 +13,7 @@ export default {
       description: 'Find a vehicule in Argus database.',
     },
     referential: {
-      title: 'Referential'
+      title: 'Referential',
     },
     quote: {
       title: 'Argus Quote',

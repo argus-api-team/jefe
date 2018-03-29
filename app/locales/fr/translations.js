@@ -13,7 +13,7 @@ export default {
       description: 'Rechercher un véhicule dans le Référentiel® Argus.',
     },
     referential: {
-      title: 'Référentiel'
+      title: 'Référentiel',
     },
     quote: {
       title: 'La Cote Argus',

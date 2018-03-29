@@ -58,23 +58,20 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <div class="m-widget4">
+          <ul class="m-widget4">
             {{#each model.topMakes as |make|}}
-              <div class="m-widget4__item">
+              <li class="m-widget4__item">
                 <div class="m-widget4__img m-widget4__img--logo">
-                  {{logo-img url=make.logoURL altText=make.name className='thumbnail make-logo'}}
+                  {{logo-img url=make.logoURL className='thumbnail make-logo'}}
                 </div>
                 <div class="m-widget4__info">
                   <span class="m-widget4__title">{{make.name}}</span>
                   <br>
                   <span class="m-widget4__sub">{{make.displayDate}}</span>
                 </div>
-                <div class="m-widget4__img m-widget4__img--logo">
-
-                </div>
-              </div>
+              </li>
             {{/each}}
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -88,23 +85,20 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <div class="m-widget4">
+          <ul class="m-widget4">
             {{#each model.topVehicles as |vehicle|}}
-              <div class="m-widget4__item">
+              <li class="m-widget4__item">
                 <div class="m-widget4__img m-widget4__img--logo">
-                  {{logo-img url=vehicle.make.logoURL altText=make.name className='thumbnail make-logo'}}
+                  {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
                 </div>
                 <div class="m-widget4__info">
-                  <span class="m-widget4__title">{{vehicle.submodel.name}} {{vehicle.name}}</span>
+                  <span class="m-widget4__title">{{vehicle.submodel.fullNicename}}</span>
                   <br>
                   <span class="m-widget4__sub">{{vehicle.name}}</span>
                 </div>
-                <div class="m-widget4__img m-widget4__img--logo">
-
-                </div>
-              </div>
+              </li>
             {{/each}}
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -118,23 +112,20 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <div class="m-widget4">
+          <ul class="m-widget4">
             {{#each model.latestVehicles as |vehicle|}}
-              <div class="m-widget4__item">
+              <li class="m-widget4__item">
                 <div class="m-widget4__img m-widget4__img--logo">
-                  {{logo-img url=vehicle.make.logoURL altText=make.name className='thumbnail make-logo'}}
+                  {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
                 </div>
                 <div class="m-widget4__info">
-                  <span class="m-widget4__title">{{vehicle.submodel.name}} </span>
+                  <span class="m-widget4__title">{{vehicle.submodel.fullNicename}} </span>
                   <br>
                   <span class="m-widget4__sub">{{vehicle.name}}</span>
                 </div>
-                <div class="m-widget4__img m-widget4__img--logo">
-
-                </div>
-              </div>
+              </li>
             {{/each}}
-          </div>
+          </ul>
         </div>
       </div>
     </div>

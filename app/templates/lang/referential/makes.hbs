@@ -1,0 +1,34 @@
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h1 class="m-subheader__title m-subheader__title--separator">
+        {{t 'index.referential.title'}}
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="m-content">
+  <div class="m-portlet">
+    <div class="m-portlet__head">
+      <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+          <h3 class="m-portlet__head-text">MakesList</h3>
+        </div>
+      </div>
+    </div>
+    <div class="m-portlet__body">
+      {{#make-list updateLetter=(action 'updateLetter') letter=letter }}
+        {{#each model as |make|}}
+          <li class="showroom-make-item mt-list-item">
+            <section class="infos">
+              <h4 class="uppercase font-lg" data-role="name">{{make.name}}</h4>
+              <p class="list-datetime small">{{make.displayDate}}</p>
+            </section>
+            {{logo-img url=make.logoURL className='thumbnail make-logo'}}
+            {{#link-to "lang.showroom.make" make}}{{/link-to}}
+          </li>
+        {{/each}}
+      {{/make-list}}
+    </div>
+  </div>
+</div>

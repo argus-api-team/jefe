@@ -25,7 +25,7 @@ export default Component.extend({
   }),
 
   referentialIsActive: computed('router.currentRouteName', function () {
-    return this.get('router.currentRouteName').indexOf('lang.showroom') === 0;
+    return this.get('router.currentRouteName').indexOf('lang.referential') === 0;
   }),
 
   quoteIsActive: computed('router.currentRouteName', function () {

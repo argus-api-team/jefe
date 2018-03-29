@@ -32,6 +32,10 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/jquery-listnav/jquery-listnav.js');
   app.import(app.bowerDirectory + '/jquery-listnav/css/listnav.css');
 
+  //Import base script for metronic
+  app.import('vendor/metronic/framework/base/util.js');
+  app.import('vendor/metronic/framework/base/app.js');
+
   //Import Custom scroll bar plugin for metronic
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css');
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js');
@@ -43,10 +47,6 @@ module.exports = function(defaults) {
   app.import('vendor/metronic/framework/components/general/toggle.js');
   app.import('vendor/metronic/framework/components/general/dropdown.js');
   app.import('vendor/metronic/framework/components/general/scroll-top.js');
-
-  //Import base script for metronic
-  app.import('vendor/metronic/framework/base/util.js');
-  app.import('vendor/metronic/framework/base/app.js');
 
   // Import init script for metronic layout components
   app.import('vendor/metronic/layout.js');

@@ -27,6 +27,9 @@ Router.map( function () { // eslint-disable-line
         });
       });
     });
+    this.route('referential', function () {
+      this.route('makes', { path: '/' });
+    });
   });
 });
 

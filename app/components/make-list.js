@@ -8,8 +8,9 @@ export default Component.extend({
   },
 
   didRender() {
+    this._removeListNavForReRender();
     const context = this;
-    this.$('ul').listnav({
+    this.$('.make-list').listnav({
       filterSelector: '[data-role=name]',
       initLetter: context.get('letter'),
       allText: 'ALL',
@@ -22,11 +23,8 @@ export default Component.extend({
     this.$('.ln-no-match').addClass('mt-list-item');
   },
 
-  actions: {
-
-    updateLetter(letter) {
-      this.get('updateLetter')(letter);
-    },
+  updateLetter(letter) {
+    this.get('updateLetter')(letter);
   },
 
   _removeListNavForReRender() {

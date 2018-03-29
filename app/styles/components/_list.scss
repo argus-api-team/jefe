@@ -5,6 +5,9 @@
 .make-list,
 .submodel-list {
   display: grid;
+  padding: 0;
+  grid-gap: $gutter;
+  list-style-type: none;
 
   @media (max-width: $mobile-screen) {
     grid-template-columns: 1fr;
@@ -24,17 +27,8 @@
   }
 }
 
-.mt-list-container {
-  .make-logo {
-    width: 80px;
-    min-height: 55px;
-
-    &.no-logo {
-      height: 80px;
-    }
-  }
-}
-
 .lazyload {
-  background: $lighter-grey url('/assets/loader.gif') no-repeat center;
+  width: 100%;
+  min-height: 55px;
+  background: url('/assets/loader.gif') no-repeat center;
 }
