@@ -8,10 +8,6 @@
   </div>
 </div>
 <div class="m-content">
-{{!--   <h1 class="page-title">
-    {{t 'index.header'}}
-    <small>{{t 'index.subheader'}}</small>
-  </h1> --}}
   <div class="row">
     <div class="col-md-6">
       <div class="m-portlet card text-center">
@@ -48,7 +44,8 @@
   </div>
 
   <div class="row">
-    <div class="col-12 col-lg-4">
+
+    <div class="col-12 col-lg-12 col-xl-4">
       <div class="m-portlet">
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
@@ -58,24 +55,26 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <ul class="m-widget4">
+          <ul class="vertical-list">
             {{#each model.topMakes as |make|}}
-              <li class="m-widget4__item">
-                <div class="m-widget4__img m-widget4__img--logo">
-                  {{logo-img url=make.logoURL className='thumbnail make-logo'}}
-                </div>
-                <div class="m-widget4__info">
-                  <span class="m-widget4__title">{{make.name}}</span>
-                  <br>
-                  <span class="m-widget4__sub">{{make.displayDate}}</span>
-                </div>
+              <li class="vertical-list__item">
+                <a href="#" class="list-item-content">
+                  <section class="infos">
+                    <h5>{{make.name}}</h5>
+                    <p class="list-datetime small">{{make.displayDate}}</p>
+                  </section>
+                  <div class="logo-img">
+                    {{logo-img url=make.logoURL className='thumbnail make-logo'}}
+                  </div>
+                </a>
               </li>
             {{/each}}
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-4">
+
+    <div class="col-12 col-lg-6 col-xl-4">
       <div class="m-portlet">
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
@@ -85,24 +84,26 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <ul class="m-widget4">
+          <ul class="vertical-list">
             {{#each model.topVehicles as |vehicle|}}
-              <li class="m-widget4__item">
-                <div class="m-widget4__img m-widget4__img--logo">
-                  {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
-                </div>
-                <div class="m-widget4__info">
-                  <span class="m-widget4__title">{{vehicle.submodel.fullNicename}}</span>
-                  <br>
-                  <span class="m-widget4__sub">{{vehicle.name}}</span>
-                </div>
+              <li class="vertical-list__item">
+                <a href="#" class="list-item-content">
+                  <section class="infos">
+                    <h5>{{vehicle.submodel.fullNicename}}</h5>
+                    <p class="list-datetime small">{{vehicle.name}}</p>
+                  </section>
+                  <div class="logo-img">
+                    {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
+                  </div>
+                </a>
               </li>
             {{/each}}
           </ul>
         </div>
       </div>
     </div>
-    <div class="col-12 col-lg-4">
+
+    <div class="col-12 col-lg-6 col-xl-4">
       <div class="m-portlet">
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
@@ -112,17 +113,18 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <ul class="m-widget4">
+          <ul class="vertical-list">
             {{#each model.latestVehicles as |vehicle|}}
-              <li class="m-widget4__item">
-                <div class="m-widget4__img m-widget4__img--logo">
-                  {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
-                </div>
-                <div class="m-widget4__info">
-                  <span class="m-widget4__title">{{vehicle.submodel.fullNicename}} </span>
-                  <br>
-                  <span class="m-widget4__sub">{{vehicle.name}}</span>
-                </div>
+              <li class="vertical-list__item">
+                <a href="#" class="list-item-content">
+                  <section class="infos">
+                    <h5>{{vehicle.submodel.fullNicename}}</h5>
+                    <p class="list-datetime small">{{vehicle.name}}</p>
+                  </section>
+                  <div class="logo-img">
+                    {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
+                  </div>
+                </a>
               </li>
             {{/each}}
           </ul>

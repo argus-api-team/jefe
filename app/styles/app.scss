@@ -74,18 +74,18 @@
 
 //Layout
 @import 'layout/page-wrapper';
-@import 'layout/list-nav';
+
 @import 'layout/page-header';
 @import 'layout/page-footer';
 
 //Components
+@import 'components/logo-img';
 @import 'components/language-selector';
-@import 'components/list';
+@import 'components/lists';
 @import 'components/card';
-@import 'components/m-widget4';
+@import 'components/list-nav';
 @import 'spin-button'; //Component from ember addon
 
 //Page specific
 @import 'pages/login';
 @import 'pages/make';
-@import 'pages/showroom';
