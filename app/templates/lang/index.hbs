@@ -18,7 +18,7 @@
         <h3 class="card-title">{{t 'index.search.title'}}</h3>
           {{t 'index.search.description'}}
           <hr>
-          {{#link-to 'lang.search' class="btn btn-primary"}}
+          {{#link-to 'lang.referential.makes' class="btn btn-primary"}}
               {{t 'application.moreInfo'}}
                <i class="la la-angle-right"></i>
           {{/link-to}}
@@ -58,15 +58,15 @@
           <ul class="vertical-list">
             {{#each model.topMakes as |make|}}
               <li class="vertical-list__item">
-                <a href="#" class="list-item-content">
+                {{#link-to "lang.referential.make" make.id class="list-item-content"}}
                   <section class="infos">
                     <h5>{{make.name}}</h5>
-                    <p class="list-datetime small">{{make.displayDate}}</p>
+                    <p class="small">{{make.displayDate}}</p>
                   </section>
                   <div class="logo-img">
                     {{logo-img url=make.logoURL className='thumbnail make-logo'}}
                   </div>
-                </a>
+                {{/link-to}}
               </li>
             {{/each}}
           </ul>
@@ -90,7 +90,7 @@
                 <a href="#" class="list-item-content">
                   <section class="infos">
                     <h5>{{vehicle.submodel.fullNicename}}</h5>
-                    <p class="list-datetime small">{{vehicle.name}}</p>
+                    <p class="small">{{vehicle.name}}</p>
                   </section>
                   <div class="logo-img">
                     {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
@@ -119,7 +119,7 @@
                 <a href="#" class="list-item-content">
                   <section class="infos">
                     <h5>{{vehicle.submodel.fullNicename}}</h5>
-                    <p class="list-datetime small">{{vehicle.name}}</p>
+                    <p class="small">{{vehicle.name}}</p>
                   </section>
                   <div class="logo-img">
                     {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}

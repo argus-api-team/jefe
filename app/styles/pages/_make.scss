@@ -35,3 +35,21 @@
     }
   }
 }
+
+.make-informations {
+  .logo-container {
+     margin-bottom: $gutter;
+  }
+
+  .make-logo {
+    max-width: 100%;
+  }
+
+  .make-name {
+    margin-bottom: $gutter / 2;
+  }
+
+  .make-data {
+    margin-bottom: $gutter / 3;
+  }
+}

@@ -1,0 +1,156 @@
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h1 class="m-subheader__title m-subheader__title--separator">
+        Make sheet
+      </h1>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          {{#link-to 'lang' class="m-nav__link m-nav__link--icon"}}
+            <i class="m-nav__link-icon la la-home"></i>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to 'lang.referential' class="m-nav__link m-nav__link--icon"}}
+            <span class="m-nav__link-text">
+              {{t "index.referential.title"}}
+            </span>
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="m-content">
+  <div class="row">
+    <div class="col-4">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Informations</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="make-informations">
+            <div class="logo-container text-center">
+              {{logo-img url=model.make.logoURL className='make-logo'}}
+            </div>
+            <h4 class="make-name">{{model.make.name}}</h4>
+            <p class="make-data">{{model.make.displayDate}}</p>
+            <p class="make-data">Position quote: {{model.make.positionQuote}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Categories</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          {{#each model.make.categories as |category|}}
+            <div class="m-form__group form-group row">
+              <div class="col-3">
+                <span class="m-switch">
+                  <label>
+                    <input id="category-{{category.id}}" type="checkbox" checked="checked" name="{{category.name}}"/>
+                    <span for="category-{{category.id}}"></span>
+                  </label>
+                </span>
+              </div>
+              <label class="col-9 col-form-label" for="category-{{category.id}}">
+                {{category.name}}
+              </label>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col-6">
+          <div class="m-portlet">
+            <div class="m-portlet__head">
+              <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                  <h3 class="m-portlet__head-text">Top vehicles</h3>
+                </div>
+              </div>
+            </div>
+            <div class="m-portlet__body">
+              <ul class="vertical-list">
+                {{#each model.latestVehicles as |vehicle|}}
+                  <li class="vertical-list__item">
+                    <a href="#" class="list-item-content">
+                      <section class="infos">
+                        <h5>{{vehicle.submodel.fullNicename}}</h5>
+                        <p class="list-datetime small">{{vehicle.name}}</p>
+                      </section>
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+              <a href="https://jira.largus.fr/projects/SPECS/issues/SPECS-288" target="_blank">Related to SPECS-288 Ticket</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="m-portlet">
+            <div class="m-portlet__head">
+              <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                  <h3 class="m-portlet__head-text">Latest vehicles</h3>
+                </div>
+              </div>
+            </div>
+            <div class="m-portlet__body">
+              <ul class="vertical-list">
+                {{#each model.latestVehicles as |vehicle|}}
+                  <li class="vertical-list__item">
+                    <a href="#" class="list-item-content">
+                      <section class="infos">
+                        <h5>{{vehicle.submodel.fullNicename}}</h5>
+                        <p class="list-datetime small">{{vehicle.name}}</p>
+                      </section>
+                    </a>
+                  </li>
+                {{/each}}
+              </ul>
+              <a href="https://jira.largus.fr/projects/SPECS/issues/SPECS-288" target="_blank">Related to SPECS-288 Ticket</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Models and submodels</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <ul>
+            {{#each model.make.models as |makeModel|}}
+              <li>
+                <p>{{makeModel.name}}</p>
+                <ul>
+                  {{#each makeModel.submodels as |submodels|}}
+                    <li>{{submodels.name}}</li>
+                  {{/each}}
+                </ul>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
