@@ -25,7 +25,7 @@
   </div>
 </div>
 <div class="m-content">
-  <div class="row">
+  <div class="row align-items-stretch">
     <div class="col-4">
       <div class="m-portlet">
         <div class="m-portlet__head">
@@ -44,32 +44,6 @@
             <p class="make-data">{{model.make.displayDate}}</p>
             <p class="make-data">Position quote: {{model.make.positionQuote}}</p>
           </div>
-        </div>
-      </div>
-      <div class="m-portlet">
-        <div class="m-portlet__head">
-          <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Categories</h3>
-            </div>
-          </div>
-        </div>
-        <div class="m-portlet__body">
-          {{#each model.make.categories as |category|}}
-            <div class="m-form__group form-group row">
-              <div class="col-3">
-                <span class="m-switch">
-                  <label>
-                    <input id="category-{{category.id}}" type="checkbox" checked="checked" name="{{category.name}}"/>
-                    <span for="category-{{category.id}}"></span>
-                  </label>
-                </span>
-              </div>
-              <label class="col-9 col-form-label" for="category-{{category.id}}">
-                {{category.name}}
-              </label>
-            </div>
-          {{/each}}
         </div>
       </div>
     </div>
@@ -128,29 +102,66 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
       <div class="m-portlet">
-        <div class="m-portlet__head">
-          <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Models and submodels</h3>
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Categories</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="m-portlet__body">
-          <ul>
-            {{#each model.make.models as |makeModel|}}
-              <li>
-                <p>{{makeModel.name}}</p>
-                <ul>
-                  {{#each makeModel.submodels as |submodels|}}
-                    <li>{{submodels.name}}</li>
-                  {{/each}}
-                </ul>
-              </li>
+          <div class="m-portlet__body">
+            {{#each model.make.categories as |category|}}
+              <div class="m-form__group form-group row">
+                <div class="col-3">
+                  <span class="m-switch">
+                    <label>
+                      <input id="category-{{category.id}}" type="checkbox" checked="checked" name="{{category.name}}"/>
+                      <span for="category-{{category.id}}"></span>
+                    </label>
+                  </span>
+                </div>
+                <label class="col-9 col-form-label" for="category-{{category.id}}">
+                  {{category.name}}
+                </label>
+              </div>
             {{/each}}
-          </ul>
+          </div>
         </div>
-      </div>
+    </div>
+    <div class="col-8">
+      <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Models and submodels</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            <ul class="model-list">
+              {{#each model.make.models as |makeModel|}}
+                <li class="model-list__item">
+                  <p class="model-name">{{makeModel.name}}</p>
+                  <ul class="submodel-list">
+                    {{#each makeModel.submodels as |submodels|}}
+                      <li class="submodel-list__item">
+                        {{#link-to 'lang' class="submodel-link"}}
+                          {{submodels.name}}
+                        {{/link-to}}
+                      </li>
+                    {{/each}}
+                  </ul>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
     </div>
   </div>
 </div>
+

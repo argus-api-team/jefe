@@ -12,7 +12,7 @@ export default EmberRoute.extend({
         sort: '-quote-ratio',
         include: 'make,submodel',
         page: { size: 10 },
-        filter: {           //Need API update
+        filter: {
           quotable: true,
         },
         meta: {
