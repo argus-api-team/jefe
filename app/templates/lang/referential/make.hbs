@@ -115,17 +115,15 @@
             </div>
           </div>
           <div class="m-portlet__body">
-            {{#each model.make.categories as |category|}}
-              <div class="m-form__group form-group row">
-                <div class="col-3">
-                  <span class="m-switch">
-                    <label>
-                      <input id="category-{{category.id}}" type="checkbox" checked="checked" name="{{category.name}}"/>
-                      <span for="category-{{category.id}}"></span>
-                    </label>
-                  </span>
-                </div>
-                <label class="col-9 col-form-label" for="category-{{category.id}}">
+            {{#each model.make.categories as |category index|}}
+              <div class="m-form__group form-group categories-filter">
+                <span class="m-switch">
+                  <label>
+                    {{input id=category.categoryInputId type="checkbox" checked=category.showCategory name=category.name}}
+                    <span for="{{category.categoryInputId}}"></span>
+                  </label>
+                </span>
+                <label class="form-label" for="{{category.categoryInputId}}">
                   {{category.name}}
                 </label>
               </div>
@@ -144,7 +142,7 @@
           </div>
           <div class="m-portlet__body">
             <ul class="model-list">
-              {{#each model.make.models as |makeModel|}}
+              {{#each (await filteredModels) as |makeModel|}}
                 <li class="model-list__item">
                   <p class="model-name">{{makeModel.name}}</p>
                   <ul class="submodel-list">
