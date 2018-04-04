@@ -30,6 +30,7 @@ Router.map( function () { // eslint-disable-line
     this.route('referential', function () {
       this.route('makes', { path: '/' });
       this.route('make', { path: 'make/:id' });
+      this.route('model', { path: 'model/:id' });
     });
   });
 });

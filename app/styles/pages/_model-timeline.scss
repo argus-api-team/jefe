@@ -1,0 +1,37 @@
+.model-timeline {
+
+  &::after {
+    background: get-color($m--default-skin, panel, darken3);
+  }
+
+  .m-timeline-1__items {
+    .m-timeline-1__arrow {
+      @include m--build-classic-arrow(top, 16px)
+      position: absolute;
+      left: 50%;
+      transform: translate(-15.5px, -3px);
+      border-bottom-color: get-color($m--default-skin, panel, darken3);
+    }
+
+    .m-timeline-1__item {
+      .m-timeline-1__item-arrow {
+        z-index: 3;
+        color: $white !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+      }
+
+      .m-timeline-1__item-content {
+        background: $white;
+        box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08); // sass-lint:disable-line no-color-literals,   : Improted property from metronic
+      }
+    }
+  }
+
+  @include minimal-desktop-and-below {
+    .m-timeline-1__items {
+      .m-timeline-1__arrow {
+        left: 0;
+        transform: translate(-11px, -3px);
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h1 class="m-subheader__title m-subheader__title--separator">
+        Model timeline
+      </h1>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          {{#link-to 'lang' class="m-nav__link m-nav__link--icon"}}
+            <i class="m-nav__link-icon la la-home"></i>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to 'lang.referential' class="m-nav__link m-nav__link--icon"}}
+            <span class="m-nav__link-text">
+              {{t "index.referential.title"}}
+            </span>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to 'lang.referential.make' model.make.id class="m-nav__link m-nav__link--icon"}}
+            <span class="m-nav__link-text">
+              {{model.make.name}}
+            </span>
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="m-content">
+  <div class="row align-items-stretch">
+    <div class="col-3">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Informations</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body informations-portlet">
+          <div class="logo-container text-center">
+            {{logo-img url=model.make.logoURL className='make-logo'}}
+          </div>
+          <h4 class="informations-portlet__title">{{model.make.name}}</h4>
+          <h5 class="informations-portlet__data">{{model.name}}</h5>
+          <p class="informations-portlet__data">{{model.displayDate}}</p>
+        </div>
+      </div>
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Index</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <ul>
+            {{#each model.sortedGenerations as |generation index test|}}
+              <li>
+                <span>Generation {{generation.name}}{{index}}{{test}}</span>
+                <ul>
+                  {{#each generation.sortedPhases as |phase|}}
+                    <li>Phase {{phase.name}}</li>
+                  {{/each}}
+                </ul>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      {{model-timeline model=model}}
+    </div>
+  </div>
+</div>

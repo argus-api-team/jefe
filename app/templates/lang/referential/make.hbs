@@ -35,15 +35,13 @@
             </div>
           </div>
         </div>
-        <div class="m-portlet__body">
-          <div class="make-informations">
-            <div class="logo-container text-center">
-              {{logo-img url=model.make.logoURL className='make-logo'}}
-            </div>
-            <h4 class="make-name">{{model.make.name}}</h4>
-            <p class="make-data">{{model.make.displayDate}}</p>
-            <p class="make-data">Position quote: {{model.make.positionQuote}}</p>
+        <div class="m-portlet__body informations-portlet">
+          <div class="logo-container text-center">
+            {{logo-img url=model.make.logoURL className='make-logo'}}
           </div>
+          <h4 class="informations-portlet__title">{{model.make.name}}</h4>
+          <p class="informations-portlet__data">{{model.make.displayDate}}</p>
+          <p class="informations-portlet__data">Position quote: {{model.make.positionQuote}}</p>
         </div>
       </div>
     </div>
@@ -71,7 +69,7 @@
                   </li>
                 {{/each}}
               </ul>
-              <a href="https://jira.largus.fr/projects/SPECS/issues/SPECS-288" target="_blank">Related to SPECS-288 Ticket</a>
+              <a href="https://jira.largus.fr/projects/SPECS/issues/SPECS-290" target="_blank">Related to SPECS-290 Ticket</a>
             </div>
           </div>
         </div>
@@ -97,7 +95,7 @@
                   </li>
                 {{/each}}
               </ul>
-              <a href="https://jira.largus.fr/projects/SPECS/issues/SPECS-288" target="_blank">Related to SPECS-288 Ticket</a>
+              <a href="https://jira.largus.fr/projects/SPECS/issues/SPECS-290" target="_blank">Related to SPECS-290 Ticket</a>
             </div>
           </div>
         </div>
@@ -148,7 +146,7 @@
                   <ul class="submodel-list">
                     {{#each makeModel.submodels as |submodels|}}
                       <li class="submodel-list__item">
-                        {{#link-to 'lang' class="submodel-link"}}
+                        {{#link-to 'lang.referential.model' submodels.id class="submodel-link"}}
                           {{submodels.name}}
                         {{/link-to}}
                       </li>

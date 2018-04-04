@@ -1,0 +1,18 @@
+<div class="m-timeline-1__item-circle">
+  <div class="m--bg-danger"></div>
+</div>
+<div class="m-timeline-1__item-arrow"></div>
+<div class="m-timeline-1__item-content">
+  <div class="m-timeline-1__item-title">
+    Phase {{phase.name}}
+  </div>
+  <div class="m-timeline-1__item-body">
+    <div class="m-timeline-1__item-body m--margin-top-15">
+      <ul>
+        {{#each phase.versions as |version|}}
+          <li>{{version.name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

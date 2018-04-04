@@ -1,0 +1,9 @@
+<div class="m-timeline-1__items">
+  <div class="m-timeline-1__arrow"></div>
+  {{#each model.sortedGenerations as |generation|}}
+    <div class="">Generation {{generation.name}}</div>
+    {{#each generation.sortedPhases as |phase index|}}
+      {{model-timeline-phase-block phase=phase phaseIndex=index sortedModelPhasesArray=sortedModelPhasesArray}}
+    {{/each}}
+  {{/each}}
+</div>
