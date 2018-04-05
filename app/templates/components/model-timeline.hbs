@@ -1,7 +1,18 @@
 <div class="m-timeline-1__items">
   <div class="m-timeline-1__arrow"></div>
   {{#each model.sortedGenerations as |generation|}}
-    <div class="">Generation {{generation.name}}</div>
+    <div class="timeline-generation">
+      <h6 class="timeline-generation__name">
+        Generation {{generation.name}}
+      </h6>
+      <span class="timeline-generation__date">
+        {{#if generation.endDate}}
+          {{moment-format generation.endDate 'MMM YYYY'}}
+        {{else}}
+          Today
+        {{/if}}
+      </span>
+    </div>
     {{#each generation.sortedPhases as |phase index|}}
       {{model-timeline-phase-block phase=phase phaseIndex=index sortedModelPhasesArray=sortedModelPhasesArray}}
     {{/each}}

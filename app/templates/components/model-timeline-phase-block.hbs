@@ -1,3 +1,12 @@
+<div class="phase-date">
+  <span>
+    {{#if phase.endDate}}
+      {{moment-format phase.endDate 'MMM YYYY'}}
+    {{else}}
+      Today
+    {{/if}}
+  </span>
+</div>
 <div class="m-timeline-1__item-circle">
   <div class="m--bg-danger"></div>
 </div>

@@ -14,23 +14,156 @@
     }
 
     .m-timeline-1__item {
-      .m-timeline-1__item-arrow {
-        z-index: 3;
-        color: $white !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+      margin-top: 3rem;
+      padding-top: 4rem;
+
+      .m-timeline-1__item-circle {
+        background: none;
+
+        .m--bg-danger {
+          width: 1rem;
+          height: 1rem;
+        }
       }
 
       .m-timeline-1__item-content {
         background: $white;
         box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08); // sass-lint:disable-line no-color-literals,   : Improted property from metronic
       }
+
+      .phase-date {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        padding: 6px 12px;
+        border: 1px solid array-get($m--state-colors, danger, base);
+        border-radius: 25px;
+        background: $white;
+        color: $timeline-gen-color;
+        font-size: 1.2rem;
+      }
+
+      &.m-timeline-1__item--right,
+      &.m-timeline-1__item--left {
+        top: 0;
+
+        .m-timeline-1__item-circle {
+          top: 5.57rem;
+        }
+
+        .m-timeline-1__item-arrow {
+          z-index: 3;
+          top: 4.86rem;
+          color: $white;
+        }
+      }
+
+      &.m-timeline-1__item--right {
+        .phase-date {
+          left: 0;
+          transform: translate(-50%, 0);
+        }
+      }
+
+      &.m-timeline-1__item--left {
+        .phase-date {
+          right: 0;
+          transform: translate(50%, 0);
+        }
+      }
+
+      & + .timeline-generation {
+        margin-top: 4rem;
+      }
+    }
+
+    .timeline-generation {
+      display: flex;
+      position: relative;
+      align-items: center;
+      padding: $gutter 0 $gutter / 2;
+      color: $timeline-gen-color;
+      font-size: 1.35rem;
+
+
+      & + .m-timeline-1__item {
+        margin-top: 0;
+        padding-top: 0;
+
+        .m-timeline-1__item-arrow {
+          top: .86rem;
+        }
+
+        .m-timeline-1__item-circle {
+          top: 1.57rem;
+        }
+
+        .phase-date {
+          display: none;
+        }
+      }
+
+      .timeline-generation__name {
+        flex: 1;
+        order: 3;
+        margin: 0;
+        padding-left: 1.5rem;
+        font-size: 1.35rem;
+        font-weight: 400;
+      }
+
+      .timeline-generation__date {
+        position: relative;
+        z-index: 3;
+        order: 2;
+        padding: 8px 16px;
+        border: 2px solid array-get($m--state-colors, danger, base);
+        border-radius: 25px;
+        background: $white;
+        font-weight: 400;
+
+      }
+
+      &::before {
+        content: '';
+        flex: 1;
+        order: 1;
+        padding-right: 1.5rem;
+      }
     }
   }
+
 
   @include minimal-desktop-and-below {
     .m-timeline-1__items {
       .m-timeline-1__arrow {
         left: 0;
         transform: translate(-11px, -3px);
+      }
+
+      .m-timeline-1__item {
+        &.m-timeline-1__item--right,
+        &.m-timeline-1__item--left {
+          .phase-date {
+            right: auto;
+            left: 0;
+            transform: translate(-15px, 0);
+          }
+        }
+      }
+
+      .timeline-generation {
+        .timeline-generation__date {
+          margin-left: -15px;
+        }
+
+        &::before {
+          display: none;
+        }
+
+        & + .m-timeline-1__item {
+          margin-top: 0 !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+        }
       }
     }
   }
