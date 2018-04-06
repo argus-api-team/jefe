@@ -1,5 +1,20 @@
-.model-timeline {
+.timeline-index {
+  .generation-list,
+  .phase-list {
+    margin: 0;
+    padding-left: 15px;
+  }
 
+  .anchor-link {
+    color: array-get($m--typography-colors, light, regular, base);
+
+    &:hover {
+      color: array-get($m--state-colors, brand, base);
+    }
+  }
+}
+
+.model-timeline {
   &::after {
     background: get-color($m--default-skin, panel, darken3);
   }
@@ -29,6 +44,14 @@
       .m-timeline-1__item-content {
         background: $white;
         box-shadow: 0 1px 15px 1px rgba(69, 65, 78, .08); // sass-lint:disable-line no-color-literals,   : Improted property from metronic
+
+        a {
+          color: array-get($m--typography-colors, light, regular, base);
+
+          &:hover {
+            color: array-get($m--state-colors, brand, base);
+          }
+        }
       }
 
       .phase-date {

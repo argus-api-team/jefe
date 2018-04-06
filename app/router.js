@@ -31,6 +31,7 @@ Router.map( function () { // eslint-disable-line
       this.route('makes', { path: '/' });
       this.route('make', { path: 'make/:id' });
       this.route('model', { path: 'model/:id' });
+      this.route('vehicle', { path: 'vehicle/:id' });
     });
   });
 });

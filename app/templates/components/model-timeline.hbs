@@ -1,7 +1,7 @@
 <div class="m-timeline-1__items">
   <div class="m-timeline-1__arrow"></div>
   {{#each model.sortedGenerations as |generation|}}
-    <div class="timeline-generation">
+    <div class="timeline-generation" id="generation-{{generation.id}}">
       <h6 class="timeline-generation__name">
         Generation {{generation.name}}
       </h6>

@@ -12,6 +12,10 @@ export default Component.extend({
   },
 
   didReceiveAttrs() {
+    this.getAllPhaseOfModel();
+  },
+
+  getAllPhaseOfModel() {
     const model = this.get('model');
     model.get('generations').then((generations) => {
       generations.forEach((generation) => {

@@ -7,6 +7,11 @@ export default Component.extend({
   classNameBindings: ['positionClassName'],
 
   didReceiveAttrs() {
+    this.setClassOfPhaseBlock();
+    this.setIdOfPhaseBlock();
+  },
+
+  setClassOfPhaseBlock() {
     const phase = this.get('phase');
     const sortedModelPhasesArray = this.get('sortedModelPhasesArray');
     let phaseIndex;
@@ -20,5 +25,11 @@ export default Component.extend({
     } else {
       this.set('positionClassName', 'm-timeline-1__item--right');
     }
+  },
+
+  setIdOfPhaseBlock() {
+    const phaseId = this.get('phase.id');
+    const phaseBlockId = `phase-${phaseId}`;
+    this.set('elementId', phaseBlockId);
   },
 });

@@ -19,7 +19,11 @@
     <div class="m-timeline-1__item-body m--margin-top-15">
       <ul>
         {{#each phase.versions as |version|}}
-          <li>{{version.name}}</li>
+          <li>
+            {{#link-to 'lang.referential.vehicle' version.id}}
+              {{version.name}}
+            {{/link-to}}
+          </li>
         {{/each}}
       </ul>
     </div>

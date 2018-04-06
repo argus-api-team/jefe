@@ -54,29 +54,33 @@
           <p class="informations-portlet__data">{{model.displayDate}}</p>
         </div>
       </div>
-      <div class="m-portlet">
-        <div class="m-portlet__head">
-          <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Index</h3>
+      {{#sticky-element top=110}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Index</h3>
+              </div>
             </div>
           </div>
+          <div class="m-portlet__body timeline-index">
+            <ul class="generation-list">
+              {{#each model.sortedGenerations as |generation|}}
+                <li>
+                  <a class="anchor-link" href="#generation-{{generation.id}}">Generation {{generation.name}}</a>
+                  <ul class="phase-list">
+                    {{#each generation.sortedPhases as |phase|}}
+                      <li>
+                        <a class="anchor-link" href="#phase-{{phase.id}}">Phase {{phase.name}}</a>
+                      </li>
+                    {{/each}}
+                  </ul>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
         </div>
-        <div class="m-portlet__body">
-          <ul>
-            {{#each model.sortedGenerations as |generation index test|}}
-              <li>
-                <span>Generation {{generation.name}}{{index}}{{test}}</span>
-                <ul>
-                  {{#each generation.sortedPhases as |phase|}}
-                    <li>Phase {{phase.name}}</li>
-                  {{/each}}
-                </ul>
-              </li>
-            {{/each}}
-          </ul>
-        </div>
-      </div>
+      {{/sticky-element}}
     </div>
     <div class="col-9">
       {{model-timeline model=model}}

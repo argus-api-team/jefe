@@ -1,0 +1,54 @@
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h1 class="m-subheader__title m-subheader__title--separator">
+        Vehicle sheet
+      </h1>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          {{#link-to 'lang' class="m-nav__link m-nav__link--icon"}}
+            <i class="m-nav__link-icon la la-home"></i>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to 'lang.referential' class="m-nav__link m-nav__link--icon"}}
+            <span class="m-nav__link-text">
+              {{t "index.referential.title"}}
+            </span>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to 'lang.referential.make' model.make.id class="m-nav__link m-nav__link--icon"}}
+            <span class="m-nav__link-text">
+              {{model.make.name}}
+            </span>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to 'lang.referential.model' model.submodel.id class="m-nav__link m-nav__link--icon"}}
+            <span class="m-nav__link-text">
+              {{model.submodel.name}}
+            </span>
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="m-content">
+  <div class="row">
+    <div class="col-3">
+      {{model.name}}
+    </div>
+    <div class="col-9"></div>
+  </div>
+</div>
