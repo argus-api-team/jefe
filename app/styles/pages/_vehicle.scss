@@ -1,0 +1,43 @@
+.vehicule-identity {
+  display: flex;
+  align-items: center;
+
+  .vehicule-identity__make-logo {
+    width: 128px;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .vehicule-infos {
+    flex: 1;
+  }
+}
+
+.quote-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.vehicle-price {
+  align-self: flex-end;
+
+  .price-incl-taxes {
+    font-size: 1.5rem;
+
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  .price-excl-taxes {
+    font-size: 1.1rem;
+
+    span {
+      font-size: 1rem;
+    }
+  }
+}

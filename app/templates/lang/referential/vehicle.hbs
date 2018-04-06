@@ -46,9 +46,68 @@
 </div>
 <div class="m-content">
   <div class="row">
-    <div class="col-3">
-      {{model.name}}
+    <div class="col-4">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Vehicle Identity</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="vehicule-identity">
+            <div class="vehicule-identity__make-logo m--margin-right-15">
+              {{logo-img url=model.make.logoURL className='make-logo'}}
+            </div>
+            <div class="vehicule-infos">
+              <h4 class="vehicule-infos__make m--marginless">{{model.make.name}}</h4>
+              <h5 class="vehicule-infos__model m--marginless">{{model.phase.shortNicename}}</h5>
+              <p class="vehicule-infos__name m--marginless">{{model.name}}</p>
+              <p class="vehicule-infos__body-type m--marginless">{{model.generation.bodyType}}</p>
+              <p class="vehicule-infos__segment m--margin-bottom-10">{{model.generation.segment}}</p>
+            </div>
+          </div>
+          <p class="vehicule-infos__date text-right font-italic m--marginless">{{model.generation.displayDate}}</p>
+        </div>
+      </div>
+      {{#sticky-element top=110}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Price and cote</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            <h4>Price evolution</h4>
+            <div class="m--margin-30 text-center">Graph</div>
+            <h4>Quote</h4>
+            <div class="quote-price">
+              <table class="quote-infos">
+                <tr>
+                  <th class="m--padding-right-10 text-right">Quotable</th>
+                  <td>{{if mode.quotable "yes" "no"}}</td>
+                </tr>
+                <tr>
+                  <th class="m--padding-right-10 text-right">First quote</th>
+                  <td>{{moment-format model.firstQuoteAt "DD/MM/YYYY"}}</td>
+                </tr>
+                <tr>
+                  <th class="m--padding-right-10 text-right">Prevarable</th>
+                  <td>{{if model.prevarable "yes" "no"}}</td>
+                </tr>
+              </table>
+              <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-15">
+                <p class="price-incl-taxes mb-0 m--font-bold">{{selectedPeriod.content.priceIncludingVat}}€ <span class="m--font-thin">incl. tax</span></p>
+                <p class="price-excl-taxes mb-0 m--font-normal">{{selectedPeriod.content.priceExcludingVat}}€ <span class="m--font-thin">excl. taxes</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/sticky-element}}
     </div>
-    <div class="col-9"></div>
+    <div class="col-8"></div>
   </div>
 </div>
