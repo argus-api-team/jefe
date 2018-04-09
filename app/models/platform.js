@@ -8,7 +8,7 @@ export default DS.Model.extend({
   powerSteeringAssistance: DS.attr('string'),
   powerSteeringType: DS.attr('string'),
   rearSuspensionType: DS.attr('string'),
-  steeringWheelLockToLockTurns: DS.attr('string'),
-  turningCircleBetweenKerbs: DS.attr('string'),
-  turningCircleWallToWall: DS.attr('string'),
+  steeringWheelLockToLockTurns: DS.attr('number'),
+  turningCircleBetweenKerbs: DS.attr('number'),
+  turningCircleWallToWall: DS.attr('number'),
 });

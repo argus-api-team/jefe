@@ -1,0 +1,11 @@
+<th class="tech-data-content__label text-right">{{t labelKey}}</th>
+<td class="tech-data-content__value">
+  {{#if value}}
+    {{value}}
+    {{#if unitKey}}
+      {{t unitKey}}
+    {{/if}}
+  {{else}}
+    {{t "techData.notSpecified"}}
+  {{/if}}
+</td>

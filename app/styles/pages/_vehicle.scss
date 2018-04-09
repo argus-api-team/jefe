@@ -41,3 +41,40 @@
     }
   }
 }
+
+.tech-data-header__title {
+  font-size: 1.1rem;
+
+}
+
+.tech-data-content {
+  width: 100%;
+}
+
+.tech-data-content__label {
+  width: 60%;
+  font-weight: 400;
+}
+
+.tech-data-content__value {
+  width: 40%;
+}
+
+.tech-data-content__value,
+.tech-data-content__label {
+  padding: 5px $gutter / 2;
+}
+
+.tech-data-content__row {
+  &:nth-child(odd) {
+    .tech-data-content__value {
+      background: $odd-list-background;
+    }
+  }
+
+  &:nth-child(even) {
+    .tech-data-content__value {
+      background: $even-list-background;
+    }
+  }
+}
