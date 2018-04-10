@@ -78,3 +78,16 @@
     }
   }
 }
+
+.categery-standard-equipments-header {
+  display: flex;
+  align-items: center;
+
+  .categery-standard-equipments__title {
+    font-size: 1.1rem;
+  }
+
+  .categery-standard-equipments__separator {
+    flex: 1;
+  }
+}

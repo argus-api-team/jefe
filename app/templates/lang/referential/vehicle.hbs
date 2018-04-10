@@ -24,9 +24,9 @@
           -
         </li>
         <li class="m-nav__item">
-          {{#link-to 'lang.referential.make' model.make.id class="m-nav__link m-nav__link--icon"}}
+          {{#link-to 'lang.referential.make' model.vehicle.make.id class="m-nav__link m-nav__link--icon"}}
             <span class="m-nav__link-text">
-              {{model.make.name}}
+              {{model.vehicle.make.name}}
             </span>
           {{/link-to}}
         </li>
@@ -34,9 +34,9 @@
           -
         </li>
         <li class="m-nav__item">
-          {{#link-to 'lang.referential.model' model.submodel.id class="m-nav__link m-nav__link--icon"}}
+          {{#link-to 'lang.referential.model.vehicle' model.vehicle.submodel.vehicle.id class="m-nav__link m-nav__link--icon"}}
             <span class="m-nav__link-text">
-              {{model.submodel.name}}
+              {{model.vehicle.submodel.vehicle.name}}
             </span>
           {{/link-to}}
         </li>
@@ -58,17 +58,17 @@
         <div class="m-portlet__body">
           <div class="vehicule-identity">
             <div class="vehicule-identity__make-logo m--margin-right-15">
-              {{logo-img url=model.make.logoURL className='make-logo'}}
+              {{logo-img url=model.vehicle.make.logoURL className='make-logo'}}
             </div>
             <div class="vehicule-infos">
-              <h4 class="vehicule-infos__make m--marginless">{{model.make.name}}</h4>
-              <h5 class="vehicule-infos__model m--marginless">{{model.phase.shortNicename}}</h5>
-              <p class="vehicule-infos__name m--marginless">{{model.name}}</p>
-              <p class="vehicule-infos__body-type m--marginless">{{model.generation.bodyType}}</p>
-              <p class="vehicule-infos__segment m--margin-bottom-10">{{model.generation.segment}}</p>
+              <h4 class="vehicule-infos__make m--marginless">{{model.vehicle.make.name}}</h4>
+              <h5 class="vehicule-infos__model.vehicle m--marginless">{{model.vehicle.phase.shortNicename}}</h5>
+              <p class="vehicule-infos__name m--marginless">{{model.vehicle.name}}</p>
+              <p class="vehicule-infos__body-type m--marginless">{{model.vehicle.generation.bodyType}}</p>
+              <p class="vehicule-infos__segment m--margin-bottom-10">{{model.vehicle.generation.segment}}</p>
             </div>
           </div>
-          <p class="vehicule-infos__date text-right font-italic m--marginless">{{model.generation.displayDate}}</p>
+          <p class="vehicule-infos__date text-right font-italic m--marginless">{{model.vehicle.generation.displayDate}}</p>
         </div>
       </div>
       {{#sticky-element top=110}}
@@ -92,11 +92,11 @@
                 </tr>
                 <tr>
                   <th class="m--padding-right-10 text-right m--font-bold">First quote</th>
-                  <td>{{moment-format model.firstQuoteAt "DD/MM/YYYY"}}</td>
+                  <td>{{moment-format model.vehicle.firstQuoteAt "DD/MM/YYYY"}}</td>
                 </tr>
                 <tr>
                   <th class="m--padding-right-10 text-right m--font-bold">Prevarable</th>
-                  <td>{{if model.prevarable "yes" "no"}}</td>
+                  <td>{{if model.vehicle.prevarable "yes" "no"}}</td>
                 </tr>
               </table>
               <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-15">
@@ -151,8 +151,8 @@
                 {{tech-data-row labelKey="techData.weight.unbrakedTrailer" value=selectedPeriod.content.weight.unbrakedTrailer unitKey="techData.units.kg"}}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.habitability.title"}}
-                {{tech-data-row labelKey="techData.habitability.numberOfPlaces" value=model.numberOfPlaces}}
-                {{tech-data-row labelKey="techData.habitability.numberOfDoors" value=model.numberOfDoors}}
+                {{tech-data-row labelKey="techData.habitability.numberOfPlaces" value=model.vehicle.numberOfPlaces}}
+                {{tech-data-row labelKey="techData.habitability.numberOfDoors" value=model.vehicle.numberOfDoors}}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.boot.title"}}
                 {{tech-data-row labelKey="techData.boot.capacity" value=selectedPeriod.content.boot.capacity unitKey="techData.units.liter"}}
@@ -180,12 +180,12 @@
           <div class="row">
             <div class="col-6">
               {{#tech-data-container titleKey="techData.energy.title"}}
-                {{tech-data-row labelKey="techData.energy.name" value=model.energy.name}}
-                {{tech-data-row labelKey="techData.energy.code" value=model.energy.code}}
-                {{tech-data-row labelKey="techData.energy.masterId" value=model.energy.masterId}}
-                {{tech-data-row labelKey="techData.energy.masterName" value=model.energy.masterName}}
-                {{tech-data-row labelKey="techData.energy.masterCode" value=model.energy.masterCode}}
-                {{tech-data-row labelKey="techData.energy.legacyId" value=model.energy.legacyId}}
+                {{tech-data-row labelKey="techData.energy.name" value=model.vehicle.energy.name}}
+                {{tech-data-row labelKey="techData.energy.code" value=model.vehicle.energy.code}}
+                {{tech-data-row labelKey="techData.energy.masterId" value=model.vehicle.energy.masterId}}
+                {{tech-data-row labelKey="techData.energy.masterName" value=model.vehicle.energy.masterName}}
+                {{tech-data-row labelKey="techData.energy.masterCode" value=model.vehicle.energy.masterCode}}
+                {{tech-data-row labelKey="techData.energy.legacyId" value=model.vehicle.energy.legacyId}}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.engine.title"}}
                 {{tech-data-row labelKey="techData.engine.marketName" value=selectedPeriod.content.engine.marketName}}
@@ -212,12 +212,12 @@
             </div>
             <div class="col-6">
               {{#tech-data-container titleKey="techData.gearbox.title"}}
-                {{tech-data-row labelKey="techData.gearbox.name" value=model.gearbox.name}}
-                {{tech-data-row labelKey="techData.gearbox.marketingName" value=model.gearbox.marketingName}}
-                {{tech-data-row labelKey="techData.gearbox.subtype" value=model.gearbox.subtype}}
-                {{tech-data-row labelKey="techData.gearbox.numberOfGears" value=model.gearbox.numberOfGears}}
-                {{tech-data-row labelKey="techData.gearbox.code" value=model.gearbox.code}}
-                {{tech-data-row labelKey="techData.gearbox.legacyId" value=model.gearbox.legacyId}}
+                {{tech-data-row labelKey="techData.gearbox.name" value=model.vehicle.gearbox.name}}
+                {{tech-data-row labelKey="techData.gearbox.marketingName" value=model.vehicle.gearbox.marketingName}}
+                {{tech-data-row labelKey="techData.gearbox.subtype" value=model.vehicle.gearbox.subtype}}
+                {{tech-data-row labelKey="techData.gearbox.numberOfGears" value=model.vehicle.gearbox.numberOfGears}}
+                {{tech-data-row labelKey="techData.gearbox.code" value=model.vehicle.gearbox.code}}
+                {{tech-data-row labelKey="techData.gearbox.legacyId" value=model.vehicle.gearbox.legacyId}}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.transmission.title"}}
                 {{tech-data-row labelKey="techData.transmission.marketingName" value=selectedPeriod.content.transmission.marketingName}}
@@ -271,6 +271,22 @@
               {{/tech-data-container}}
             </div>
           </div>
+        </div>
+      </div>
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Standard equipments</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          {{#if selectedPeriod.content}}
+            {{#each model.featureCategories as |featureCategory|}}
+              {{category-standard-equipments category=featureCategory equipments=selectedPeriod.content.standardEquipments}}
+            {{/each}}
+          {{/if}}
         </div>
       </div>
     </div>

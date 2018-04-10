@@ -225,7 +225,7 @@ export default {
       legacyId: 'Legacy id',
     },
     transmission: {
-      title: 'transmission',
+      title: 'Transmission',
       marketingName: 'Nom commercial',
       drivenWheels: 'Mode de transmission',
       numberOfGears: 'Nombre de vitesses',
