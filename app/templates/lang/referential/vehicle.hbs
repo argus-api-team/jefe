@@ -289,6 +289,43 @@
           {{/if}}
         </div>
       </div>
+      {{#if selectedPeriod.content.optionalEquipments.length}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Optional equipments</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            <table class="optional-equipement-table">
+              <thead>
+                <tr class="optional-equipement-table__header">
+                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">#</th>
+                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">Manufacturer ref.</th>
+                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">Name</th>
+                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">Category</th>
+                  <th class="text-right m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">Price excl. taxes</th>
+                  <th class="text-right m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">Price incl. taxes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each selectedPeriod.content.optionalEquipments as |equipment|}}
+                <tr class="optional-equipement-table__row">
+                  <td class="m--padding-10">{{equipment.id}}</td>
+                  <td class="m--padding-10">{{equipment.manufacturerSpec}}</td>
+                  <td class="m--padding-10">{{equipment.name}}</td>
+                  <td class="m--padding-10">{{equipment.featureCategory.name}}</td>
+                  <td class="text-right m--padding-10">{{equipment.priceExcludingVat}} €</td>
+                  <td class="text-right m--padding-10">{{equipment.priceIncludingVat}} €</td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>

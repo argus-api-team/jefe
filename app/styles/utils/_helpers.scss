@@ -15,3 +15,7 @@
 .align-items-stretch {
   align-items: stretch;
 }
+
+.ellipsis {
+  @include ellipsis;
+}

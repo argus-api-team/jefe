@@ -91,3 +91,20 @@
     flex: 1;
   }
 }
+
+.optional-equipement-table {
+  width: 100%;
+}
+
+.optional-equipement-table__header {
+  background: $table-header-background;
+  font-weight: 400;
+}
+
+.optional-equipement-table__row {
+  background: $odd-list-background;
+  &:nth-child(even) {
+    background: $even-list-background;
+  }
+}
+
