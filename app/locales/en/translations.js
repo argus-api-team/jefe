@@ -182,6 +182,7 @@ export default {
       usableLength: 'Usable length',
       usableWidth: 'Usable width',
       loadStillHeight: 'Load sill height',
+      thirdRowCapacity: 'Third row capacity',
     },
     energy: {
       title: 'Energy',
@@ -251,7 +252,7 @@ export default {
     },
     consumption: {
       title: 'Consumption',
-      totalFuel: 'Urban cycle',
+      urbanFuel: 'Urban cycle',
       extraUrbanFuel: 'Extra urban',
       combinedFuel: 'Mixed',
       electricRange: 'Electrique range',

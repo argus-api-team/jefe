@@ -18,7 +18,7 @@ module.exports = function(environment) {
       }
     },
     googleFonts: [
-      'Open+Sans:300,400,700&subset=all'
+      'roboto:300,400,700&subset=all'
     ],
 
     contentSecurityPolicy: {

@@ -12,7 +12,7 @@ export default Route.extend({
       featureCategories: this.store.findAll('featureCategory'),
     });
   },
-  includedRelationship: computed('', function() {
+  includedRelationship: computed('', function () { // eslint-disable-line
     const includedRelationship = [
       'make',
       'generation',
@@ -35,8 +35,8 @@ export default Route.extend({
       'periods.standard-packs.feature-category',
       'periods.standard-packs.equipments',
       'periods.optional-packs.feature-category',
-      'periods.optional-packs.equipments'
+      'periods.optional-packs.equipments',
     ].join(',');
-    return includedRelationship
-  })
+    return includedRelationship;
+  }),
 });

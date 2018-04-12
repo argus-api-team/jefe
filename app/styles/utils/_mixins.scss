@@ -20,10 +20,10 @@
   white-space: nowrap;
 }
 
-@mixin clearfix{
+@mixin clearfix {
   &::after {
     content: '';
-    clear: both;
     display: block;
+    clear: both;
   }
 }

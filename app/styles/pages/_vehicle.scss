@@ -118,8 +118,9 @@
 }
 
 .pack-price {
+  margin-right: - $gutter / 2;
+  margin-left: - $gutter / 2;
   border-top: 1px solid get-color($m--default-skin, panel);
-  margin: 0 -$gutter / 2;
   background: $even-list-background;
 
 
