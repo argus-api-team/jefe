@@ -12,6 +12,24 @@ export default Route.extend({
       featureCategories: this.store.findAll('featureCategory'),
     });
   },
+
+  setupController(controller, model) {
+    // Call _super for default behavior
+    this._super(controller, model);
+    model.vehicle.get('periods').then((periods) => {
+      const periodsArray = periods.toArray().sortBy('startDate');
+      const queryPeriodId = this.controller.get('periodId')
+      this.controller.set('sortedPeriods', periodsArray);
+      if(queryPeriodId){
+        const queryPeriod = periodsArray.findBy('id', queryPeriodId)
+        this.controller.set('selectedPeriod', queryPeriod);
+      }
+      else {
+        this.controller.set('selectedPeriod', periodsArray.objectAt(periodsArray.length - 1));
+      }
+    })
+  },
+
   includedRelationship: computed('', function () { // eslint-disable-line
     const includedRelationship = [
       'make',
