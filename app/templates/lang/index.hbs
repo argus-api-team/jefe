@@ -87,7 +87,7 @@
           <ul class="vertical-list">
             {{#each model.topVehicles as |vehicle|}}
               <li class="vertical-list__item">
-                <a href="#" class="list-item-content">
+                {{#link-to "lang.referential.vehicle" vehicle.id class="list-item-content"}}
                   <section class="infos">
                     <h5>{{vehicle.submodel.fullNicename}}</h5>
                     <p class="small">{{vehicle.name}}</p>
@@ -95,7 +95,7 @@
                   <div class="logo-img">
                     {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
                   </div>
-                </a>
+                {{/link-to}}
               </li>
             {{/each}}
           </ul>
@@ -116,7 +116,7 @@
           <ul class="vertical-list">
             {{#each model.latestVehicles as |vehicle|}}
               <li class="vertical-list__item">
-                <a href="#" class="list-item-content">
+                {{#link-to "lang.referential.vehicle" vehicle.id class="list-item-content"}}
                   <section class="infos">
                     <h5>{{vehicle.submodel.fullNicename}}</h5>
                     <p class="small">{{vehicle.name}}</p>
@@ -124,7 +124,7 @@
                   <div class="logo-img">
                     {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
                   </div>
-                </a>
+                {{/link-to}}
               </li>
             {{/each}}
           </ul>
