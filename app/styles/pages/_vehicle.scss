@@ -118,8 +118,10 @@
 }
 
 .pack-price {
-  // float: right;
-  background: $light-grey;
+  border-top: 1px solid get-color($m--default-skin, panel);
+  margin: 0 -$gutter / 2;
+  background: $even-list-background;
+
 
   .price-incl-taxes {
     font-size: 1.2rem;
