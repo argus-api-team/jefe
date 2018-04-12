@@ -56,11 +56,11 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <div class="vehicule-identity">
-            <div class="vehicule-identity__make-logo m--margin-right-15">
+          <div class="vehicule-identity row align-items-center">
+            <div class="vehicule-identity__make-logo m--margin-bottom-15 col-12 col-xl-4 text-center">
               {{logo-img url=model.vehicle.make.logoURL className='make-logo'}}
             </div>
-            <div class="vehicule-infos">
+            <div class="vehicule-infos col-12 col-xl-8">
               <h4 class="vehicule-infos__make m--marginless">{{model.vehicle.make.name}}</h4>
               <h5 class="vehicule-infos__model.vehicle m--marginless">{{model.vehicle.phase.shortNicename}}</h5>
               <p class="vehicule-infos__name m--marginless">{{model.vehicle.name}}</p>
@@ -84,24 +84,28 @@
             <h4>Price evolution</h4>
             <div class="m--margin-30 text-center">Graph</div>
             <h4>Quote</h4>
-            <div class="quote-price">
-              <table class="quote-infos">
-                <tr>
-                  <th class="m--padding-right-10 text-right m--font-bold">Quotable</th>
-                  <td>{{if mode.quotable "yes" "no"}}</td>
-                </tr>
-                <tr>
-                  <th class="m--padding-right-10 text-right m--font-bold">First quote</th>
-                  <td>{{moment-format model.vehicle.firstQuoteAt "DD/MM/YYYY"}}</td>
-                </tr>
-                <tr>
-                  <th class="m--padding-right-10 text-right m--font-bold">Prevarable</th>
-                  <td>{{if model.vehicle.prevarable "yes" "no"}}</td>
-                </tr>
-              </table>
-              <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-15">
-                <p class="price-incl-taxes mb-0 m--font-bold">{{selectedPeriod.content.priceIncludingVat}}€ <span class="m--font-thin">incl. tax</span></p>
-                <p class="price-excl-taxes mb-0 m--font-normal">{{selectedPeriod.content.priceExcludingVat}}€ <span class="m--font-thin">excl. taxes</span></p>
+            <div class="quote-price row">
+              <div class="col-12 col-xl-6">
+                <table class="quote-infos m--margin-bottom-15">
+                  <tr>
+                    <th class="m--padding-right-10 text-right m--font-bold">Quotable</th>
+                    <td>{{if mode.quotable "yes" "no"}}</td>
+                  </tr>
+                  <tr>
+                    <th class="m--padding-right-10 text-right m--font-bold">First quote</th>
+                    <td>{{moment-format model.vehicle.firstQuoteAt "DD/MM/YYYY"}}</td>
+                  </tr>
+                  <tr>
+                    <th class="m--padding-right-10 text-right m--font-bold">Prevarable</th>
+                    <td>{{if model.vehicle.prevarable "yes" "no"}}</td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-12 col-xl-6">
+                <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-15">
+                  <p class="price-incl-taxes m--marginless m--font-bold">{{selectedPeriod.content.priceIncludingVat}}€ <span class="m--font-thin">incl. tax</span></p>
+                  <p class="price-excl-taxes m--marginless m--font-normal">{{selectedPeriod.content.priceExcludingVat}}€ <span class="m--font-thin">excl. taxes</span></p>
+                </div>
               </div>
             </div>
           </div>
@@ -119,7 +123,7 @@
         </div>
         <div class="m-portlet__body">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.dimensions.title"}}
                 {{tech-data-row labelKey="techData.dimensions.length" value=selectedPeriod.content.dimension.length unitKey="techData.units.mm"}}
                 {{tech-data-row labelKey="techData.dimensions.width" value=selectedPeriod.content.dimension.width unitKey="techData.units.mm"}}
@@ -141,7 +145,7 @@
                 {{tech-data-row labelKey="techData.tyre.sparewheelType" value=selectedPeriod.content.tyre.sparewheelType}}
               {{/tech-data-container}}
             </div>
-            <div class="col-6">
+            <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.weight.title"}}
                 {{tech-data-row labelKey="techData.weight.kerbweight" value=selectedPeriod.content.weight.kerbweight unitKey="techData.units.kg"}}
                 {{tech-data-row labelKey="techData.weight.kerbweightIncludingDriver" value=selectedPeriod.content.weight.kerbweightIncludingDriver unitKey="techData.units.kg"}}
@@ -178,7 +182,7 @@
         </div>
         <div class="m-portlet__body">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.energy.title"}}
                 {{tech-data-row labelKey="techData.energy.name" value=model.vehicle.energy.name}}
                 {{tech-data-row labelKey="techData.energy.code" value=model.vehicle.energy.code}}
@@ -210,7 +214,7 @@
                 {{tech-data-row labelKey="techData.engine.fiscalHorsepower" value=selectedPeriod.content.engine.fiscalHorsepower unitKey="techData.units.cv"}}
               {{/tech-data-container}}
             </div>
-            <div class="col-6">
+            <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.gearbox.title"}}
                 {{tech-data-row labelKey="techData.gearbox.name" value=model.vehicle.gearbox.name}}
                 {{tech-data-row labelKey="techData.gearbox.marketingName" value=model.vehicle.gearbox.marketingName}}
@@ -250,14 +254,14 @@
         </div>
         <div class="m-portlet__body">
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.performance.title"}}
                 {{tech-data-row labelKey="techData.performance.maximumSpeed" value=selectedPeriod.content.performance.maximumSpeed unitKey="techData.units.kph"}}
                 {{tech-data-row labelKey="techData.performance.da0100kph" value=selectedPeriod.content.performance.da0100kph unitKey="techData.units.sec"}}
                 {{tech-data-row labelKey="techData.performance.da01000m" value=selectedPeriod.content.performance.da01000m unitKey="techData.units.sec"}}
               {{/tech-data-container}}
             </div>
-            <div class="col-6">
+            <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.consumption.title"}}
                 {{tech-data-row labelKey="techData.consumption.urbanFuel" value=selectedPeriod.content.consumption.urbanFuel unitKey="techData.units.l100km"}}
                 {{tech-data-row labelKey="techData.consumption.extraUrbanFuel" value=selectedPeriod.content.consumption.extraUrbanFuel unitKey="techData.units.l100km"}}
@@ -273,22 +277,24 @@
           </div>
         </div>
       </div>
-      <div class="m-portlet">
-        <div class="m-portlet__head">
-          <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Standard equipments</h3>
+      {{#if selectedPeriod.content.standardEquipments.length}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Standard equipments</h3>
+              </div>
             </div>
           </div>
+          <div class="m-portlet__body">
+            {{#if selectedPeriod.content}}
+              {{#each model.featureCategories as |featureCategory|}}
+                {{category-standard-equipments category=featureCategory equipments=selectedPeriod.content.standardEquipments}}
+              {{/each}}
+            {{/if}}
+          </div>
         </div>
-        <div class="m-portlet__body">
-          {{#if selectedPeriod.content}}
-            {{#each model.featureCategories as |featureCategory|}}
-              {{category-standard-equipments category=featureCategory equipments=selectedPeriod.content.standardEquipments}}
-            {{/each}}
-          {{/if}}
-        </div>
-      </div>
+      {{/if}}
       {{#if selectedPeriod.content.optionalEquipments.length}}
         <div class="m-portlet">
           <div class="m-portlet__head">
@@ -326,6 +332,38 @@
           </div>
         </div>
       {{/if}}
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Standard packs</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          {{#if selectedPeriod.content}}
+            {{#each model.featureCategories as |featureCategory|}}
+              {{category-packs category=featureCategory packs=selectedPeriod.content.standardPacks}}
+            {{/each}}
+          {{/if}}
+        </div>
+      </div>
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Optional packs</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          {{#if selectedPeriod.content}}
+            {{#each model.featureCategories as |featureCategory|}}
+              {{category-packs category=featureCategory packs=selectedPeriod.content.optionalPacks}}
+            {{/each}}
+          {{/if}}
+        </div>
+      </div>
     </div>
   </div>
 </div>

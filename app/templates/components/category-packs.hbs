@@ -1,0 +1,50 @@
+{{#unless filteredPacks.isPending}}
+  {{#if filteredPacks.content.length}}
+    <div class="equipments-list-header m--margin-bottom-15">
+      <h4 class="m--marginless equipments-list-header__title m--padding-right-15">{{category.name}}</h4>
+      <div class="equipments-list-header__separator"><hr /></div>
+    </div>
+    <ul class="packs-list row">
+      {{#each filteredPacks.content as |pack|}}
+        <li class="col-12 col-xl-6">
+          <div class="pack-list-item m--padding-15 m--margin-bottom-30">
+            <h4 class="pack-list-item__title m--margin-bottom-15">{{pack.name}}</h4>
+            <div class="row {{if pack.equipments.length "m--margin-bottom-15" "m--margin-bottom-0"}}">
+              <div class="col-12 col-md-6">
+                <p class="m--margin-bottom-5"><span class="m--font-bold">Argus id:</span> {{pack.id}}</p>
+                <p class=""><span class="m--font-bold">Manufacturer ref.:</span> {{pack.manufacturerSpec}}</p>
+              </div>
+              {{#if pack.priceIncludingVat}}
+                <div class="col-12 col-md-6">
+                  <div class="pack-price text-right m--padding-5">
+                    <p class="price-incl-taxes m--marginless m--font-bold">{{pack.priceIncludingVat}}€ <span class="m--font-thin">incl. tax</span></p>
+                    <p class="price-excl-taxes m--marginless m--font-normal">{{pack.priceExcludingVat}}€ <span class="m--font-thin">excl. taxes</span></p>
+                  </div>
+                </div>
+              {{/if}}
+            </div>
+            {{#if pack.equipments.length}}
+              <div class="equipments-list-header m--margin-bottom-15">
+                <h5 class="m--marginless equipments-list-header__title m--padding-right-15">Equipments</h5>
+                <div class="equipments-list-header__separator"><hr /></div>
+              </div>
+              <ul class="pack-equipments-list">
+                {{#each pack.equipments as |equipment|}}
+                  <li>
+                    <li>{{equipment.name}}</li>
+                  </li>
+                {{/each}}
+              </ul>
+            {{/if}}
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+{{else}}
+  <div class="categery-standard-equipments-header m--margin-bottom-15">
+    <h4 class="m--marginless tech-data-header__title">{{category.name}}</h4>
+    <div class="separator"><hr /></div>
+  </div>
+  Is Pending
+{{/unless}}

@@ -19,3 +19,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+@mixin clearfix{
+  &::after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}

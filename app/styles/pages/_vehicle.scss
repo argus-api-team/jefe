@@ -1,30 +1,12 @@
 .vehicule-identity {
-  display: flex;
-  align-items: center;
-
   .vehicule-identity__make-logo {
-    width: 128px;
-    text-align: center;
-
     img {
       max-width: 100%;
     }
   }
-
-  .vehicule-infos {
-    flex: 1;
-  }
 }
-
-.quote-price {
-  display: flex;
-  justify-content: space-between;
-}
-
 
 .vehicle-price {
-  align-self: flex-end;
-
   .price-incl-taxes {
     font-size: 1.5rem;
 
@@ -79,17 +61,21 @@
   }
 }
 
-.categery-standard-equipments-header {
+.equipments-list-header {
   display: flex;
   align-items: center;
 
-  .categery-standard-equipments__title {
-    font-size: 1.1rem;
+  .equipments-list-header__title {
+    font-size: 1.3rem;
   }
 
-  .categery-standard-equipments__separator {
+  .equipments-list-header__separator {
     flex: 1;
   }
+}
+
+.categery-standard-equipments-list {
+  list-style-type: circle;
 }
 
 .optional-equipement-table {
@@ -103,8 +89,51 @@
 
 .optional-equipement-table__row {
   background: $odd-list-background;
+
   &:nth-child(even) {
     background: $even-list-background;
   }
 }
 
+.packs-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.pack-list-item {
+  @include clearfix;
+  border: 1px solid get-color($m--default-skin, panel);
+
+  .pack-list-item__title {
+    font-size: 1.2rem;
+  }
+
+  .equipments-list-header__title {
+    font-size: 1.1rem;
+  }
+}
+
+.pack-equipments-list {
+  // float: left;
+}
+
+.pack-price {
+  // float: right;
+  background: $light-grey;
+
+  .price-incl-taxes {
+    font-size: 1.2rem;
+
+    span {
+      font-size: .9rem;
+    }
+  }
+
+  .price-excl-taxes {
+    font-size: 1rem;
+
+    span {
+      font-size: .9rem;
+    }
+  }
+}
