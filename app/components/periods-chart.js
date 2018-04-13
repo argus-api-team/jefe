@@ -31,6 +31,15 @@ export default Component.extend({
           type: 'timeseries',
           tick: {
             format: '%Y-%m-%d',
+            culling: {
+              max: 10,
+            },
+            rotate: -45,
+          },
+        },
+        y: {
+          tick: {
+            format(d) { return `${d}€`; },
           },
         },
       },
