@@ -51,5 +51,11 @@ module.exports = function(defaults) {
   // Import init script for metronic layout components
   app.import('vendor/metronic/layout.js');
 
+  //Import c3 with D3 dependency
+  app.import('node_modules/d3/dist/d3.min.js')
+  app.import('node_modules/c3/c3.min.css');
+  app.import('node_modules/c3/c3.min.js');
+  app.import('vendor/shims/c3.js');
+
   return app.toTree();
 };

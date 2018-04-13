@@ -19,6 +19,8 @@
   "devDependencies": {
     "bootstrap": "^4.0.0",
     "broccoli-asset-rev": "^2.4.5",
+    "c3": "^0.5.3",
+    "d3": "^5.0.0",
     "ember-ajax": "^3.0.0",
     "ember-body-class": "^0.4.0",
     "ember-cli": "~3.0.0",
