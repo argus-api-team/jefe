@@ -87,7 +87,9 @@
           </div>
           <div class="m-portlet__body">
             <h4>Price evolution</h4>
-            <div class="m--margin-30 text-center">Graph</div>
+            <div class="m--margin-30 text-center">
+
+            </div>
             <h4>Quote</h4>
             <div class="quote-price row">
               <div class="col-12 col-xl-6">
@@ -337,38 +339,42 @@
           </div>
         </div>
       {{/if}}
-      <div class="m-portlet">
-        <div class="m-portlet__head">
-          <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Standard packs</h3>
+      {{#if selectedPeriod.standardPacks.length}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Standard packs</h3>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="m-portlet__body">
-          {{#if selectedPeriod}}
-            {{#each model.featureCategories as |featureCategory|}}
-              {{category-packs category=featureCategory packs=selectedPeriod.standardPacks}}
-            {{/each}}
-          {{/if}}
-        </div>
-      </div>
-      <div class="m-portlet">
-        <div class="m-portlet__head">
-          <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Optional packs</h3>
-            </div>
+          <div class="m-portlet__body">
+            {{#if selectedPeriod}}
+              {{#each model.featureCategories as |featureCategory|}}
+                {{category-packs category=featureCategory packs=selectedPeriod.standardPacks}}
+              {{/each}}
+            {{/if}}
           </div>
         </div>
-        <div class="m-portlet__body">
-          {{#if selectedPeriod}}
-            {{#each model.featureCategories as |featureCategory|}}
-              {{category-packs category=featureCategory packs=selectedPeriod.optionalPacks}}
-            {{/each}}
-          {{/if}}
+      {{/if}}
+      {{#if selectedPeriod.optionalPacks.length}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Optional packs</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            {{#if selectedPeriod}}
+              {{#each model.featureCategories as |featureCategory|}}
+                {{category-packs category=featureCategory packs=selectedPeriod.optionalPacks}}
+              {{/each}}
+            {{/if}}
+          </div>
         </div>
-      </div>
+      {{/if}}
     </div>
   </div>
 </div>
