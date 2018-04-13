@@ -87,8 +87,8 @@
           </div>
           <div class="m-portlet__body">
             <h4>Price evolution</h4>
-            <div class="m--margin-30 text-center">
-              {{periods-chart}}
+            <div class="m--margin-top-30 m--margin-bottom-30 text-center">
+              {{periods-chart periods=sortedPeriods selectedPeriod=selectedPeriod selectedPeriodId=periodId}}
             </div>
             <h4>Quote</h4>
             <div class="quote-price row">
