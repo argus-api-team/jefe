@@ -5,7 +5,7 @@ export default {
     noDate: 'Pas de date disponible.',
     pending: 'Chargement des données',
     yes: 'Oui',
-    no: "Non",
+    no: 'Non',
   },
 
   index: {
