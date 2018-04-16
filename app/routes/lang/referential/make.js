@@ -14,7 +14,7 @@ export default Route.extend({
         page: { size: 5 },
         filter: { // Need API update
           quotable: true,
-          'make.id': params.id
+          'make.id': params.id,
         },
         meta: {
           filterable: false,
@@ -27,8 +27,8 @@ export default Route.extend({
         meta: {
           filterable: false,
         },
-        filter: {           //Need API update
-          'make.id': params.id
+        filter: { // Need API update
+          'make.id': params.id,
         },
       }),
     });
