@@ -17,6 +17,7 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "bootstrap": "^4.0.0",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
     "ember-body-class": "^0.4.0",
@@ -54,6 +55,7 @@
     "ember-simple-auth": "^1.5.1",
     "ember-source": "~3.0.0",
     "ember-spin-button": "^0.3.0",
+    "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-import": "^2.9.0",
@@ -61,6 +63,7 @@
     "lazysizes": "^4.0.1",
     "liquid-fire": "^0.29.2",
     "loader.js": "^4.2.3",
+    "malihu-custom-scrollbar-plugin": "^3.1.5",
     "select2": "^4.0.5"
   },
   "engines": {

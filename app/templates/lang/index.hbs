@@ -1,52 +1,56 @@
-<div class="page-bar">
-  <ul class="page-breadcrumb">
-    <li>
-      <span>{{t 'application.home'}}</span>
-    </li>
-  </ul>
-</div>
-<h1 class="page-title">
-{{t 'index.header'}}
-<small>{{t 'index.subheader'}}</small>
-</h1>
-<div class="row margin-bottom-20">
-  <div class="col-md-6">
-    <div class="portlet light">
-      <div class="card-icon">
-        <i class="fa fa-car font-red-mint theme-font"></i>
-      </div>
-      <div class="card-title">
-        <span>{{t 'index.search.title'}}</span>
-      </div>
-      <div class="card-desc">
-        {{t 'index.search.description'}}
-        <hr>
-        {{#link-to 'lang.search'}}
-        <button type="button" class="btn blue-hoki">
-        {{t 'application.moreInfo'}}
-        <i class="fa fa-angle-right"></i>
-        </button>
-        {{/link-to}}
-      </div>
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h3 class="m-subheader__title m-subheader__title--separator">
+        {{t 'application.home'}}
+      </h3>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="portlet light">
-      <div class="card-icon">
-        <i class="fa fa-line-chart font-green-haze theme-font"></i>
+</div>
+<div class="m-content">
+  <h1 class="page-title">
+  {{t 'index.header'}}
+  <small>{{t 'index.subheader'}}</small>
+  </h1>
+  <div class="row margin-bottom-20">
+    <div class="col-md-6">
+      <div class="portlet light">
+        <div class="card-icon">
+          <i class="fa fa-car font-red-mint theme-font"></i>
+        </div>
+        <div class="card-title">
+          <span>{{t 'index.search.title'}}</span>
+        </div>
+        <div class="card-desc">
+          {{t 'index.search.description'}}
+          <hr>
+          {{#link-to 'lang.search'}}
+          <button type="button" class="btn blue-hoki">
+          {{t 'application.moreInfo'}}
+          <i class="fa fa-angle-right"></i>
+          </button>
+          {{/link-to}}
+        </div>
       </div>
-      <div class="card-title">
-        <span>{{t 'index.quote.title'}}</span>
-      </div>
-      <div class="card-desc">
-        {{t 'index.quote.description'}}
-        <hr>
-        {{#link-to 'lang.quote'}}
-        <button type="button" class="btn blue-hoki">
-        {{t 'application.moreInfo'}}
-        <i class="fa fa-angle-right"></i>
-        </button>
-        {{/link-to}}
+    </div>
+    <div class="col-md-6">
+      <div class="portlet light">
+        <div class="card-icon">
+          <i class="fa fa-line-chart font-green-haze theme-font"></i>
+        </div>
+        <div class="card-title">
+          <span>{{t 'index.quote.title'}}</span>
+        </div>
+        <div class="card-desc">
+          {{t 'index.quote.description'}}
+          <hr>
+          {{#link-to 'lang.quote'}}
+          <button type="button" class="btn blue-hoki">
+          {{t 'application.moreInfo'}}
+          <i class="fa fa-angle-right"></i>
+          </button>
+          {{/link-to}}
+        </div>
       </div>
     </div>
   </div>

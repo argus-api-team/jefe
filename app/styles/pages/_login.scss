@@ -1,7 +1,45 @@
-.login {
+
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: url('/assets/images/alpine-bg.jpg') no-repeat center fixed;
+  background-size: cover;
+
+  &.m-body {
+    padding: 0 !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+  }
+
+  &::before {
+    content: '';
+    flex: 1;
+    order: 1;
+  }
+
+  &::after {
+    content: '';
+    flex: 1;
+    order: 4;
+  }
+
   .logo {
+    order: 2;
+
     img {
       height: 75px;
     }
+  }
+
+  .login-form {
+    order: 3;
+  }
+
+  .copyright {
+    order: 5;
+    font-weight: 400;
   }
 }

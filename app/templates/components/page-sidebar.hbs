@@ -1,31 +1,47 @@
-<div class="page-sidebar">
-  <ul class="page-sidebar-menu page-header-fixed">
-    <li class="nav-item top-level">
-      <a class="nav-link nav-toggle">
-        <i class="icon-home"></i>
-        <span class="title">{{t 'application.home'}}</span>
-        <span class="arrow"></span>
-      </a>
-      <ul class="sub-menu">
-        <li class="nav-item">
-          {{#link-to 'lang.search' class="nav-link"}}
-            <i class="fa fa-car"></i>
-            <span class="title">{{t 'index.search.title'}}</span>
-          {{/link-to}}
-        </li>
-        <li class="nav-item">
-          {{#link-to 'lang.quote' class="nav-link"}}
-            <i class="fa fa-line-chart"></i>
-            <span class="title">{{t 'index.quote.title'}}</span>
-          {{/link-to}}
-        </li>
-        <li class="nav-item">
-          {{#link-to 'lang.showroom' class="nav-link"}}
-            <i class="fa fa-car"></i>
-            <span class="title">{{t 'index.showroom.title'}}</span>
-          {{/link-to}}
-        </li>
-      </ul>
+<div
+  id="m_ver_menu"
+  class="m-aside-menu  m-aside-menu--skin-dark"
+  data-menu-vertical="true" data-menu-scrollable="true">
+  <ul class="m-menu__nav  m-menu__nav--dropdown-submenu-arrow ">
+    <li class="m-menu__item  m-menu__item--open {{if homeIsActive activeSideMenuClass}}">
+      {{#link-to 'lang.index' class="m-menu__link"}}
+        <span class="m-menu__item-here"></span>
+        <i class="m-menu__link-icon la la-lightbulb-o"></i>
+        <span class="m-menu__link-text">
+          {{t 'application.home'}}
+        </span>
+      {{/link-to}}
     </li>
+    <li class="m-menu__item  m-menu__item--submenu {{if referentialIsActive activeSideMenuClass}}">
+      {{#link-to 'lang.showroom' class="m-menu__link"}}
+        <span class="m-menu__item-here"></span>
+        <i class="m-menu__link-icon la la-automobile"></i>
+        <span class="m-menu__link-text">
+          {{t 'index.referential.title'}}
+        </span>
+      {{/link-to}}
+    </li>
+    <li class="m-menu__item  m-menu__item--submenu {{if quoteIsActive activeSideMenuClass}}">
+      {{#link-to 'lang.quote' class="m-menu__link"}}
+        <span class="m-menu__item-here"></span>
+        <i class="m-menu__link-icon la la-bar-chart"></i>
+        <span class="m-menu__link-title">
+          <span class="m-menu__link-wrap">
+            <span class="m-menu__link-text">
+              {{t 'index.quote.title'}}
+            </span>
+          </span>
+        </span>
+      {{/link-to}}
+    </li>
+    {{!-- <li class="m-menu__item  m-menu__item--submenu" data-redirect="true">
+      <a  href="#" class="m-menu__link">
+        <span class="m-menu__item-here"></span>
+        <i class="m-menu__link-icon flaticon-lifebuoy"></i>
+        <span class="m-menu__link-text">
+          {{t 'index.plate.title'}}
+        </span>
+      </a>
+    </li> --}}
   </ul>
 </div>

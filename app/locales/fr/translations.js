@@ -1,6 +1,6 @@
 export default {
   application: {
-    home: 'Accueil',
+    home: 'Tableau de bord',
     moreInfo: 'En savoir plus',
     noDate: 'Pas de date disponible.',
   },
@@ -12,9 +12,15 @@ export default {
       title: 'Recherche de véhicule',
       description: 'Rechercher un véhicule dans le Référentiel® Argus.',
     },
+    referential: {
+      title: 'Référentiel'
+    },
     quote: {
-      title: 'La Cote Argus®',
+      title: 'La Cote Argus',
       description: 'La Cote Argus® et les Valeurs Argus de marché.',
+    },
+    plate: {
+      title: 'Chercher par immatriculation',
     },
     showroom: {
       title: 'Showroom',

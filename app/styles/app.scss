@@ -1,6 +1,71 @@
+
+// Import font icons
+@import 'vendor/fonts/flaticon';
+@import 'vendor/fonts/line-awesome';
+@import 'vendor/fonts/metronic';
+
+//
+//** Default Stylesheets
+//
+
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY BELOW INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////
+//== 1: Framework Config
+@import 'metronic-config/framework-config';  // demo level framework config override
+@import 'vendor/framework/config'; // metronic framework config
+@import 'vendor/framework/vendors/bootstrap/variables'; // metronic bootstrap override config
+
+//== 2: Framework Components Config
+@import 'vendor/framework/components/base/config';
+@import 'vendor/framework/components/general/config';
+
+//== 3: Bootstrap Include
+@import 'vendor/framework/vendors/bootstrap/metronic-bootstrap';
+
+//== 4: Framework Components
+@import 'vendor/framework/include';
+
+//== 5: Snippets
+@import 'vendor/snippets/include';
+////////////////////////////////////////////////////////////////
+///////////// DO NOT MODIFY ABOVE INCLUDE ORDER ////////////////
+////////////////////////////////////////////////////////////////
+
+//== 6: Demo Config
+@import 'metronic-config/config';
+@import 'metronic-config/base/config';
+@import 'metronic-config/header/config';
+@import 'metronic-config/aside/config';
+@import 'metronic-config/menu-header/config';
+@import 'metronic-config/menu-aside/config';
+@import 'metronic-config/footer/config';
+
+//== 7: Demo Layout
+@import 'vendor/metronic/base/page';
+@import 'vendor/metronic/base/body';
+
+@import 'vendor/metronic/header/brand';
+@import 'vendor/metronic/header/header';
+@import 'vendor/metronic/header/topbar';
+@import 'vendor/metronic/header/search';
+
+@import 'vendor/metronic/aside/aside-left';
+@import 'vendor/metronic/aside/aside-right';
+@import 'vendor/metronic/aside/aside-header-menu-mobile';
+
+@import 'vendor/metronic/menu-header/menu';
+@import 'vendor/metronic/menu-aside/menu';
+
+@import 'vendor/metronic/subheader/default';
+
+@import 'vendor/metronic/footer/default';
+
+
 //Reboot & base
-@import 'vendor/reboot';
-@import 'base/typography';
+// @import 'vendor/reboot';
+// @import 'base/typography';
+
 
 //Utils
 @import 'utils/variables';
@@ -8,8 +73,10 @@
 @import 'utils/helpers';
 
 //Layout
+@import 'layout/page-wrapper';
 @import 'layout/list-nav';
 @import 'layout/page-header';
+@import 'layout/page-footer';
 
 //Components
 @import 'components/language-selector';

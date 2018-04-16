@@ -1,5 +1,7 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  classNames: ['container'], // Todo: change this class
+
+  tagName: 'footer',
+  classNames: ['m-grid__item', 'm-footer'],
 });

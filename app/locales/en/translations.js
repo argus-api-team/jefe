@@ -1,6 +1,6 @@
 export default {
   application: {
-    home: 'Home',
+    home: 'Dashbord',
     moreInfo: 'More details',
     noDate: 'No date available',
   },
@@ -12,9 +12,15 @@ export default {
       title: 'Vehicle Search',
       description: 'Find a vehicule in Argus database.',
     },
+    referential: {
+      title: 'Referential'
+    },
     quote: {
       title: 'Argus Quote',
       description: 'Argus quote and others maket values.',
+    },
+    plate: {
+      title: 'Search by plate number',
     },
     showroom: {
       title: 'Showroom',
