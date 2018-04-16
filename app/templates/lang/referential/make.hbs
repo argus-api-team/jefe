@@ -60,12 +60,12 @@
               <ul class="vertical-list">
                 {{#each model.topMakeVehicles as |vehicle|}}
                   <li class="vertical-list__item">
-                    <a href="#" class="list-item-content">
+                    {{#link-to "lang.referential.vehicle" vehicle.id class="list-item-content"}}
                       <section class="infos">
                         <h5>{{vehicle.submodel.fullNicename}}</h5>
                         <p class="list-datetime small">{{vehicle.name}}</p>
                       </section>
-                    </a>
+                    {{/link-to}}
                   </li>
                 {{/each}}
               </ul>
@@ -85,12 +85,12 @@
               <ul class="vertical-list">
                 {{#each model.latestMakeVehicles as |vehicle|}}
                   <li class="vertical-list__item">
-                    <a href="#" class="list-item-content">
+                    {{#link-to "lang.referential.vehicle" vehicle.id class="list-item-content"}}
                       <section class="infos">
                         <h5>{{vehicle.submodel.fullNicename}}</h5>
                         <p class="list-datetime small">{{vehicle.name}}</p>
                       </section>
-                    </a>
+                    {{/link-to}}
                   </li>
                 {{/each}}
               </ul>
