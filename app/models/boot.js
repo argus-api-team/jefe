@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  capacity: DS.attr('string'),
+  capacity: DS.attr('number'),
   loadStillHeight: DS.attr('number'),
   minimumCapacity: DS.attr('number'),
   maximumCapacity: DS.attr('number'),

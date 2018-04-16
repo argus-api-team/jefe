@@ -1,6 +1,7 @@
 import Helper from '@ember/component/helper';
 import { htmlSafe } from '@ember/string';
 import { isEmpty } from '@ember/utils';
+import moment from 'moment';
 import $ from 'jquery';
 
 

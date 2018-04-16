@@ -1,0 +1,143 @@
+.vehicule-identity {
+  .vehicule-identity__make-logo {
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.vehicle-price {
+  .price-incl-taxes {
+    font-size: 1.5rem;
+
+    span {
+      font-size: 1rem;
+    }
+  }
+
+  .price-excl-taxes {
+    font-size: 1.1rem;
+
+    span {
+      font-size: 1rem;
+    }
+  }
+}
+
+.tech-data-header__title {
+  font-size: 1.1rem;
+
+}
+
+.tech-data-content {
+  width: 100%;
+}
+
+.tech-data-content__label {
+  width: 60%;
+  font-weight: 400;
+}
+
+.tech-data-content__value {
+  width: 40%;
+}
+
+.tech-data-content__value,
+.tech-data-content__label {
+  padding: 5px $gutter / 2;
+}
+
+.tech-data-content__row {
+  &:nth-child(odd) {
+    .tech-data-content__value {
+      background: $odd-list-background;
+    }
+  }
+
+  &:nth-child(even) {
+    .tech-data-content__value {
+      background: $even-list-background;
+    }
+  }
+}
+
+.equipments-list-header {
+  display: flex;
+  align-items: center;
+
+  .equipments-list-header__title {
+    font-size: 1.3rem;
+  }
+
+  .equipments-list-header__separator {
+    flex: 1;
+  }
+}
+
+.categery-standard-equipments-list {
+  list-style-type: circle;
+}
+
+.optional-equipement-table {
+  width: 100%;
+}
+
+.optional-equipement-table__header {
+  background: $table-header-background;
+  font-weight: 400;
+}
+
+.optional-equipement-table__row {
+  background: $odd-list-background;
+
+  &:nth-child(even) {
+    background: $even-list-background;
+  }
+}
+
+.packs-list {
+  padding: 0;
+  list-style-type: none;
+}
+
+.pack-list-item {
+  @include clearfix;
+  border: 1px solid get-color($m--default-skin, panel);
+
+  .pack-list-item__title {
+    font-size: 1.2rem;
+  }
+
+  .equipments-list-header__title {
+    font-size: 1.1rem;
+  }
+}
+
+.pack-equipments-list {
+  // float: left;
+}
+
+.pack-price {
+  margin-right: - $gutter / 2;
+  margin-bottom: - $gutter / 2;
+  margin-left: - $gutter / 2;
+  border-top: 1px solid get-color($m--default-skin, panel);
+  background: $even-list-background;
+
+
+  .price-incl-taxes {
+    font-size: 1.2rem;
+
+    span {
+      font-size: .9rem;
+    }
+  }
+
+  .price-excl-taxes {
+    font-size: 1rem;
+
+    span {
+      font-size: .9rem;
+    }
+  }
+}

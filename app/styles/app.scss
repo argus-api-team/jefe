@@ -74,16 +74,23 @@
 
 //Layout
 @import 'layout/page-wrapper';
-@import 'layout/list-nav';
+
 @import 'layout/page-header';
 @import 'layout/page-footer';
 
 //Components
+@import 'components/logo-img';
 @import 'components/language-selector';
-@import 'components/list';
+@import 'components/lists';
+@import 'components/card';
+@import 'components/list-nav';
+@import 'components/informations-portlet';
 @import 'spin-button'; //Component from ember addon
 
 //Page specific
 @import 'pages/login';
 @import 'pages/make';
-@import 'pages/showroom';
+@import 'pages/model-timeline';
+@import 'pages/vehicle';
+
+@import 'ember-power-select';

@@ -11,7 +11,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:ember/recommended',
     'airbnb-base'
-  ],  
+  ],
   env: {
     browser: true,
     es6: true
@@ -29,10 +29,7 @@ module.exports = {
     "prefer-rest-params": 0,
   },
   globals: {
-    "moment": true,
     'App': true,
-    'Layout': true,
-    'QuickSidebar': true
   },
   overrides: [
     // node files

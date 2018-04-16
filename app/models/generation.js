@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 import DisplayDateMixin from '../mixins/display-date';
 
 export default DS.Model.extend(DisplayDateMixin, {
@@ -19,4 +20,12 @@ export default DS.Model.extend(DisplayDateMixin, {
   model: DS.belongsTo({ async: true }),
   submodel: DS.belongsTo({ async: true }),
   phases: DS.hasMany({ async: true }),
+
+
+  // Computed properties
+  phaseSorting: computed('', function () { // eslint-disable-line
+    return ['startDate:desc'];
+  }),
+  sortedPhases: computed.sort('phases', 'phaseSorting'),
+
 });

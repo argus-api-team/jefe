@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 import DisplayDateMixin from '../mixins/display-date';
 
 export default DS.Model.extend(DisplayDateMixin, {
@@ -15,4 +16,12 @@ export default DS.Model.extend(DisplayDateMixin, {
   generations: DS.hasMany({ async: true }),
   versions: DS.hasMany({ async: true }),
   periods: DS.hasMany({ async: true }),
+
+
+  // Computed properties
+  generationSorting: computed('', function () { // eslint-disable-line
+    return ['startDate:desc'];
+  }),
+  sortedGenerations: computed.sort('generations', 'generationSorting'),
 });
+

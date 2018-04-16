@@ -11,3 +11,11 @@
 .thumbnail {
   width: 100%;
 }
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.ellipsis {
+  @include ellipsis;
+}

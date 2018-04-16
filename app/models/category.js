@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -6,4 +7,12 @@ export default DS.Model.extend({
   makes: DS.hasMany({ async: true }),
   models: DS.hasMany({ async: true }),
   submodels: DS.hasMany({ async: true }),
+
+
+  // Property to manage filters of submodels view
+  showCategory: true,
+  categoryInputId: computed('id', function () {
+    const categoryId = this.get('id');
+    return `category-${categoryId}`;
+  }),
 });

@@ -1,0 +1,21 @@
+.informations-portlet {
+  .logo-container {
+    margin-bottom: $gutter;
+  }
+
+  .make-logo {
+    max-width: 100%;
+  }
+
+  .informations-portlet__title {
+    margin-bottom: $gutter / 2;
+  }
+
+  .informations-portlet__data {
+    margin-bottom: $gutter / 3;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

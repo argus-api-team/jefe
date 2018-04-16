@@ -9,6 +9,7 @@ options:
   merge-default-rules: true
 
 rules:
+  class-name-format: 0
   property-sort-order:
     - 1
     -

@@ -3,7 +3,6 @@
   align-items: center;
   justify-content: space-between;
 
-
   .logo-img {
     margin: 0;
   }
@@ -33,5 +32,144 @@
       bottom: 0;
       left: 0;
     }
+  }
+}
+
+.make-informations {
+  .logo-container {
+    margin-bottom: $gutter;
+  }
+
+  .make-logo {
+    max-width: 100%;
+  }
+
+  .make-name {
+    margin-bottom: $gutter / 2;
+  }
+
+  .make-data {
+    margin-bottom: $gutter / 3;
+  }
+}
+
+
+.model-list {
+  margin: -2.2rem;
+  padding: 0;
+  list-style-type: none;
+
+  .model-list__item {
+    display: flex;
+    align-items: center;
+    background: $odd-list-background;
+
+    &:nth-child(even) {
+      background: $even-list-background;
+    }
+
+    .model-name {
+      @include ellipsis;
+      width: 128px;
+      margin: 0;
+      padding: 0 $gutter / 2 ;
+      font-weight: 400;
+      text-align: right;
+    }
+
+    .submodel-list {
+      flex: 1;
+    }
+  }
+}
+
+
+.submodel-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0;
+  padding-top: $gutter / 2;
+  list-style-type: none;
+
+  .submodel-list__item {
+    position: relative;
+    z-index: 2;
+    align-items: center;
+    width: 128px;
+    height: 64px;
+    margin-right: $gutter / 2;
+    margin-bottom: $gutter / 2;
+    transition: transform .4s;
+    border: 1px solid get-color($m--default-skin, panel);
+    background: $white;
+    line-height: 64px;
+    text-align: center;
+
+    &::after {
+      @include box-shadow(1);
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      transition: opacity .4s;
+      opacity: 0;
+    }
+
+    &:hover {
+      transform: translate3d(0, -3px, 0);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    .submodel-link {
+      @include ellipsis;
+      display: block;
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      padding-left: 10px;
+      color: array-get($m--typography-colors, light, regular, base);
+      text-decoration: none;
+
+      &:hover {
+        color: array-get($m--typography-colors, light, regular, base);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.categories-filter {
+  display: flex;
+  align-items: center;
+
+  .m-switch {
+    width: 60px;
+    margin-right: $gutter / 2;
+
+    label {
+      margin: 0;
+    }
+  }
+
+  .form-label {
+    flex: 1;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }

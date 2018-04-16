@@ -1,0 +1,31 @@
+<div class="phase-date">
+  <span>
+    {{#if phase.endDate}}
+      {{moment-format phase.endDate 'MMM YYYY'}}
+    {{else}}
+      {{t 'modelTimeline.today'}}
+    {{/if}}
+  </span>
+</div>
+<div class="m-timeline-1__item-circle">
+  <div class="m--bg-danger"></div>
+</div>
+<div class="m-timeline-1__item-arrow"></div>
+<div class="m-timeline-1__item-content">
+  <div class="m-timeline-1__item-title">
+    {{t 'modelTimeline.phase'}} {{phase.name}}
+  </div>
+  <div class="m-timeline-1__item-body">
+    <div class="m-timeline-1__item-body m--margin-top-15">
+      <ul>
+        {{#each phase.versions as |version|}}
+          <li>
+            {{#link-to 'lang.referential.vehicle' version.id}}
+              {{version.name}}
+            {{/link-to}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

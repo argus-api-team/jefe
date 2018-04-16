@@ -32,6 +32,10 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/jquery-listnav/jquery-listnav.js');
   app.import(app.bowerDirectory + '/jquery-listnav/css/listnav.css');
 
+  //Import base script for metronic
+  app.import('vendor/metronic/framework/base/util.js');
+  app.import('vendor/metronic/framework/base/app.js');
+
   //Import Custom scroll bar plugin for metronic
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css');
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js');
@@ -44,12 +48,14 @@ module.exports = function(defaults) {
   app.import('vendor/metronic/framework/components/general/dropdown.js');
   app.import('vendor/metronic/framework/components/general/scroll-top.js');
 
-  //Import base script for metronic
-  app.import('vendor/metronic/framework/base/util.js');
-  app.import('vendor/metronic/framework/base/app.js');
-
   // Import init script for metronic layout components
   app.import('vendor/metronic/layout.js');
+
+  //Import c3 with D3 dependency
+  app.import('node_modules/d3/dist/d3.min.js')
+  app.import('node_modules/c3/c3.min.css');
+  app.import('node_modules/c3/c3.min.js');
+  app.import('vendor/shims/c3.js');
 
   return app.toTree();
 };
