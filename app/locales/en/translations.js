@@ -122,18 +122,6 @@ export default {
     ht: 'excl. taxes',
   },
 
-  models: {
-    base: {
-      id: 'Argus ID',
-      name: 'Name',
-      startDate: 'Start date',
-      endDate: 'End date',
-      positionQuote: 'Position quote',
-      legacyId: 'Argus ID',
-    },
-  },
-
-
   techData: {
     notSpecified: 'Not specified',
     units: {

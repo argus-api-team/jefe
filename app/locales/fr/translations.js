@@ -3,7 +3,7 @@ export default {
     home: 'Tableau de bord',
     moreInfo: 'En savoir plus',
     noDate: 'Pas de date disponible.',
-    pending: 'Chargement de données',
+    pending: 'Chargement des données',
   },
 
   index: {
@@ -120,18 +120,6 @@ export default {
   prices: {
     ttc: 'TTC',
     ht: 'HT',
-  },
-
-
-  models: {
-    base: {
-      id: 'Identifiant Argus',
-      name: 'Nom',
-      startDate: 'Date de début',
-      endDate: 'Date de fin',
-      positionQuote: 'Position quote',
-      legacyId: 'Identifiant ID',
-    },
   },
 
   techData: {
