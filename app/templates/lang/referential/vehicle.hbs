@@ -81,7 +81,7 @@
             </div>
             <div class="m-portlet__head-tools">
               {{#power-select options=sortedPeriods searchEnabled=false selected=selectedPeriod onchange=(action "updateSelectedPeriod") as |period|}}
-                {{period.displayDate}}
+                {{period.displayDateCompact}}
               {{/power-select}}
             </div>
           </div>
