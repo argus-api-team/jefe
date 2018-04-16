@@ -96,7 +96,7 @@
                 <table class="quote-infos m--margin-bottom-15">
                   <tr>
                     <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.quotable'}}</th>
-                    <td>{{if mode.quotable "yes" "no"}}</td>
+                    <td>{{if mode.quotable (t 'application.yes') (t 'application.no')}}</td>
                   </tr>
                   <tr>
                     <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.first'}}</th>
@@ -104,7 +104,7 @@
                   </tr>
                   <tr>
                     <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.prevarable'}}</th>
-                    <td>{{if model.vehicle.prevarable "yes" "no"}}</td>
+                    <td>{{if model.vehicle.prevarable (t 'application.yes') (t 'application.no')}}</td>
                   </tr>
                 </table>
               </div>

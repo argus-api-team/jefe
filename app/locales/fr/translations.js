@@ -4,6 +4,8 @@ export default {
     moreInfo: 'En savoir plus',
     noDate: 'Pas de date disponible.',
     pending: 'Chargement des données',
+    yes: 'Oui',
+    no: "Non",
   },
 
   index: {
