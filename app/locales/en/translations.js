@@ -3,6 +3,7 @@ export default {
     home: 'Dashbord',
     moreInfo: 'More details',
     noDate: 'No date available',
+    pending: 'Is pending',
   },
 
   index: {
@@ -22,57 +23,10 @@ export default {
     plate: {
       title: 'Search by plate number',
     },
-    showroom: {
-      title: 'Showroom',
-      make: {
-        title: 'Make',
-        change: 'Change make',
-      },
-      models: {
-        title: 'Models',
-      },
-      model: {
-        title: 'Model',
-        change: 'Change model',
-        submodels: 'Submodels',
-        submodel: {
-          title: 'Submodel',
-          change: 'Change submodel',
-          generations: 'Generations',
-          generation: {
-            title: 'Generation',
-            change: 'Change generation',
-            phases: 'Phase',
-            phase: {
-              title: 'Phases',
-              change: 'Change phase',
-              versions: 'Versions',
-              version: {
-                title: 'Version',
-                change: 'Change version',
-                energy: 'Energy',
-                gearbox: 'Gearbox',
-                periods: 'Periods',
-                period: {
-                  title: 'Period',
-                  change: 'Change périod',
-                  weight: 'Weight',
-                  tyres: 'Tyres',
-                  transmission: 'Transmission',
-                  platform: 'Platform',
-                  performances: 'Performances',
-                  consumption: 'Consumption',
-                  dimensions: 'Dimensions',
-                  boot: 'Boot',
-                  engine: 'Engine',
-                  feature: 'Options',
-                  equipments: 'Equipments',
-                },
-              },
-            },
-          },
-        },
-      },
+    dashboard: {
+      topMakes: 'Top makes',
+      topVehicles: 'Top vehicles',
+      latestVehicles: 'Latest vehicles',
     },
   },
 
@@ -98,10 +52,74 @@ export default {
   },
 
   makeList: {
-    title: 'Make List',
+    title: 'Make list',
     displayDateSince: 'Since {{startDate}}',
     displayDateWithEnd: 'From {{startDate}} to {{endDate}}',
     noMatching: 'No matching entries for this letter.',
+  },
+
+  makeSheet: {
+    title: 'Make sheet',
+    informations: {
+      title: 'Informations',
+      quote: 'Quote position: ',
+    },
+    topVehicles: 'Top vehicles',
+    latestVehicles: 'Latest vehicles',
+    categories: 'Categories',
+    models: {
+      title: 'Models and submodels',
+    },
+  },
+
+  modelTimeline: {
+    title: 'Model timeline',
+    informations: 'Informations',
+    index: 'Index',
+    generation: 'Generation',
+    phase: 'Phase',
+    today: 'Today',
+  },
+
+  vehicleSheet: {
+    title: 'Vehicle sheet',
+    identity: 'Vehicle identity',
+    priceAndQuote: {
+      title: 'Price and quote',
+      priceEvolution: {
+        title: 'Price evolution',
+        legend: 'Price incl. tax',
+      },
+      quote: {
+        title: 'Quote',
+        quotable: 'Quotable',
+        first: 'First quote',
+        prevarable: 'Prevarable',
+      },
+    },
+    specsBlock: {
+      dimensions: 'Dimensions and wieght',
+      technical: 'Technicals specifications',
+      performance: 'Perfomances and consumption',
+      stdEquipments: 'Standard equipments',
+      optEquipments: 'Optional equipments',
+      stdPacks: 'Standard packs',
+      optPacks: 'Optional packs',
+    },
+    equipmentsLabels: {
+      manRef: 'Manufacturer ref.',
+      name: 'Name',
+      category: 'Category',
+      priceHT: 'Price excl. taxes',
+      priceTTC: 'Price incl. taxes',
+    },
+    equipments: 'Equipments',
+    argusId: 'Argus id',
+  },
+
+  prices: {
+    ttc: 'incl. tax',
+    ht: 'excl. taxes',
   },
 
   models: {

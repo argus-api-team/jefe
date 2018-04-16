@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center">
     <div class="mr-auto">
       <h1 class="m-subheader__title m-subheader__title--separator">
-        Model timeline
+        {{t 'modelTimeline.title'}}
       </h1>
       <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
         <li class="m-nav__item m-nav__item--home">
@@ -41,7 +41,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Informations</h3>
+              <h3 class="m-portlet__head-text">{{t 'modelTimeline.informations'}}</h3>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">Index</h3>
+                <h3 class="m-portlet__head-text">{{t 'modelTimeline.index'}}</h3>
               </div>
             </div>
           </div>
@@ -67,11 +67,11 @@
             <ul class="generation-list">
               {{#each model.sortedGenerations as |generation|}}
                 <li>
-                  <a class="anchor-link" href="#generation-{{generation.id}}">Generation {{generation.name}}</a>
+                  <a class="anchor-link" href="#generation-{{generation.id}}">{{t 'modelTimeline.generation'}} {{generation.name}}</a>
                   <ul class="phase-list">
                     {{#each generation.sortedPhases as |phase|}}
                       <li>
-                        <a class="anchor-link" href="#phase-{{phase.id}}">Phase {{phase.name}}</a>
+                        <a class="anchor-link" href="#phase-{{phase.id}}">{{t 'modelTimeline.phase'}} {{phase.name}}</a>
                       </li>
                     {{/each}}
                   </ul>

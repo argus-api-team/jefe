@@ -9,11 +9,11 @@
         <li class="col-6">
           <div class="pack-list-item m--padding-15 m--margin-bottom-30">
             <h4 class="pack-list-item__title m--margin-bottom-15">{{pack.name}}</h4>
-            <p class="m--margin-bottom-5"><span class="m--font-bold">Argus id:</span> {{pack.id}}</p>
-            <p class="{{if pack.equipments.length "m--margin-bottom-30" "m--margin-bottom-0"}}"><span class="m--font-bold">Manufacturer ref.:</span> {{pack.manufacturerSpec}}</p>
+            <p class="m--margin-bottom-5"><span class="m--font-bold">{{t 'vehicleSheet.argusId'}}:</span> {{pack.id}}</p>
+            <p class="{{if pack.equipments.length "m--margin-bottom-30" "m--margin-bottom-0"}}"><span class="m--font-bold">{{t 'vehicleSheet.equipmentsLabels.manRef'}}:</span> {{pack.manufacturerSpec}}</p>
             {{#if pack.equipments.length}}
               <div class="equipments-list-header m--margin-bottom-15">
-                <h5 class="m--marginless equipments-list-header__title m--padding-right-15">Equipments</h5>
+                <h5 class="m--marginless equipments-list-header__title m--padding-right-15">{{t 'vehicleSheet.equipments'}}</h5>
                 <div class="equipments-list-header__separator"><hr /></div>
               </div>
               <ul class="pack-equipments-list">
@@ -26,8 +26,8 @@
             {{/if}}
             {{#if pack.priceIncludingVat}}
               <div class="pack-price text-right m--padding-15 m--margin-top-15">
-                <p class="price-incl-taxes m--marginless m--font-bold">{{pack.priceIncludingVat}}€ <span class="m--font-thin">incl. tax</span></p>
-                <p class="price-excl-taxes m--marginless m--font-normal">{{pack.priceExcludingVat}}€ <span class="m--font-thin">excl. taxes</span></p>
+                <p class="price-incl-taxes m--marginless m--font-bold">{{pack.priceIncludingVat}}€ <span class="m--font-thin">{{t 'prices.ttc'}}</span></p>
+                <p class="price-excl-taxes m--marginless m--font-normal">{{pack.priceExcludingVat}}€ <span class="m--font-thin">{{t 'prices.ht'}}</span></p>
               </div>
             {{/if}}
           </div>
@@ -40,5 +40,5 @@
     <h4 class="m--marginless tech-data-header__title">{{category.name}}</h4>
     <div class="separator"><hr /></div>
   </div>
-  Is Pending
+  {{t 'application.pending'}}
 {{/unless}}

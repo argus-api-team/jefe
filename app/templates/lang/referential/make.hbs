@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center">
     <div class="mr-auto">
       <h1 class="m-subheader__title m-subheader__title--separator">
-        Make sheet
+        {{t 'makeSheet.title'}}
       </h1>
       <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
         <li class="m-nav__item m-nav__item--home">
@@ -31,7 +31,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Informations</h3>
+              <h3 class="m-portlet__head-text">{{t 'makeSheet.informations.title'}}</h3>
             </div>
           </div>
         </div>
@@ -41,7 +41,7 @@
           </div>
           <h4 class="informations-portlet__title">{{model.make.name}}</h4>
           <p class="informations-portlet__data">{{model.make.displayDate}}</p>
-          <p class="informations-portlet__data">Position quote: {{model.make.positionQuote}}</p>
+          <p class="informations-portlet__data">{{t 'makeSheet.informations.quote'}}{{model.make.positionQuote}}</p>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
             <div class="m-portlet__head">
               <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
-                  <h3 class="m-portlet__head-text">Top vehicles</h3>
+                  <h3 class="m-portlet__head-text">{{t "makeSheet.topVehicles"}}</h3>
                 </div>
               </div>
             </div>
@@ -78,7 +78,7 @@
             <div class="m-portlet__head">
               <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
-                  <h3 class="m-portlet__head-text">Latest vehicles</h3>
+                  <h3 class="m-portlet__head-text">{{t "makeSheet.latestVehicles"}}</h3>
                 </div>
               </div>
             </div>
@@ -109,7 +109,7 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">Categories</h3>
+                <h3 class="m-portlet__head-text">{{t 'makeSheet.categories'}}</h3>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">Models and submodels</h3>
+                <h3 class="m-portlet__head-text">{{t 'makeSheet.models.title'}}</h3>
               </div>
             </div>
           </div>

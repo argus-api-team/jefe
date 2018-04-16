@@ -3,6 +3,7 @@ export default {
     home: 'Tableau de bord',
     moreInfo: 'En savoir plus',
     noDate: 'Pas de date disponible.',
+    pending: 'Chargement de données',
   },
 
   index: {
@@ -22,57 +23,10 @@ export default {
     plate: {
       title: 'Chercher par immatriculation',
     },
-    showroom: {
-      title: 'Showroom',
-      make: {
-        title: 'Constructeur',
-        change: 'Changer de constructeur',
-      },
-      models: {
-        title: 'Modèles',
-      },
-      model: {
-        title: 'Modèle',
-        change: 'Changer de modèle',
-        submodels: 'Variantes',
-        submodel: {
-          title: 'Variante',
-          change: 'Changer de variante',
-          generations: 'Générations',
-          generation: {
-            title: 'Génération',
-            change: 'Changer de génération',
-            phases: 'Phases',
-            phase: {
-              title: 'Phase',
-              change: 'Changer de phase',
-              versions: 'Versions',
-              version: {
-                title: 'Version',
-                change: 'Changer de version',
-                energy: 'Energie',
-                gearbox: 'Boite de vitesse',
-                periods: 'Périodes',
-                period: {
-                  title: 'Période',
-                  change: 'Changer de période',
-                  weight: 'Poids',
-                  tyres: 'Pneus',
-                  transmission: 'Transmission',
-                  platform: 'Chassis',
-                  performances: 'Performances',
-                  consumption: 'Consommation',
-                  dimensions: 'Dimensions',
-                  boot: 'Coffre',
-                  engine: 'Moteur',
-                  feature: 'Options',
-                  equipments: 'Equipements',
-                },
-              },
-            },
-          },
-        },
-      },
+    dashboard: {
+      topMakes: 'Constructeurs populaires',
+      topVehicles: 'Véhicules populaires',
+      latestVehicles: 'Derniers véhicules',
     },
   },
 
@@ -103,6 +57,71 @@ export default {
     displayDateWithEnd: 'De {{startDate}} à {{endDate}}',
     noMatching: 'Aucun élément trouvé pour cette lettre.',
   },
+
+  makeSheet: {
+    title: 'Fiche constructeur',
+    informations: {
+      title: 'Informations',
+      quote: 'Position cote: ',
+    },
+    topVehicles: 'Véhicules populaires',
+    latestVehicles: 'Derniers véhicules',
+    categories: 'Catégories',
+    models: {
+      title: 'Modèles et sous-modèles',
+    },
+  },
+
+  modelTimeline: {
+    title: 'Chronologie du modèle',
+    informations: 'Informations',
+    index: 'Index',
+    generation: 'Génération',
+    phase: 'Phase',
+    today: 'Aujourd\'hui',
+  },
+
+  vehicleSheet: {
+    title: 'Fiche véhicule',
+    identity: 'Identité du véhicule',
+    priceAndQuote: {
+      title: 'Prix et cote',
+      priceEvolution: {
+        title: 'Évolution du prix',
+        legend: 'Prix TTC',
+      },
+      quote: {
+        title: 'Cote',
+        quotable: 'Cotable',
+        first: 'Première cote',
+        prevarable: 'Prevarable',
+      },
+    },
+    specsBlock: {
+      dimensions: 'Dimensions et poids',
+      technical: 'Spécifications technique',
+      performance: 'Performances et consommation',
+      stdEquipments: 'Équipement de série',
+      optEquipments: 'Équipement optionnels',
+      stdPacks: 'Packs de série',
+      optPacks: 'Packs optionnels',
+    },
+    equipmentsLabels: {
+      manRef: 'Ref. constructeur',
+      name: 'Nom',
+      category: 'Catégory',
+      priceHT: 'Prix HT',
+      priceTTC: 'Prix TTC',
+    },
+    equipments: 'Équipements',
+    argusId: 'Id Argus',
+  },
+
+  prices: {
+    ttc: 'TTC',
+    ht: 'HT',
+  },
+
 
   models: {
     base: {

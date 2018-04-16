@@ -1,8 +1,10 @@
 import Component from '@ember/component';
 import { computed, observer } from '@ember/object';
+import { inject as service } from '@ember/service';
 import c3 from 'c3';
 
 export default Component.extend({
+  i18n: service(),
   didInsertElement() {
     this.initChart();
   },
@@ -62,7 +64,9 @@ export default Component.extend({
   periodsPrices: computed('periods', function () {
     const periods = this.get('periods');
     const periodsPrices = periods.mapBy('priceIncludingVat');
-    periodsPrices.unshift('Price TTC');
+    const i18n = this.get('i18n');
+    const graphLegend = i18n.t('vehicleSheet.priceAndQuote.priceEvolution.legend').string;
+    periodsPrices.unshift(graphLegend);
     return periodsPrices;
   }),
 
@@ -82,7 +86,9 @@ export default Component.extend({
     const selectedPeriod = this.get('selectedPeriod');
     const chart = this.get('chart');
     const indexOfSelectedPeriod = periods.indexOf(selectedPeriod);
-    chart.select(['Price TTC'], [indexOfSelectedPeriod], true);
+    const i18n = this.get('i18n');
+    const graphLegend = i18n.t('vehicleSheet.priceAndQuote.priceEvolution.legend').string;
+    chart.select([graphLegend], [indexOfSelectedPeriod], true);
   },
 
   updateSelectedPeriod(selectedData) {

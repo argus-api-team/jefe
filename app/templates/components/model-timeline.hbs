@@ -3,13 +3,13 @@
   {{#each model.sortedGenerations as |generation|}}
     <div class="timeline-generation" id="generation-{{generation.id}}">
       <h6 class="timeline-generation__name">
-        Generation {{generation.name}}
+        {{t 'modelTimeline.generation'}} {{generation.name}}
       </h6>
       <span class="timeline-generation__date">
         {{#if generation.endDate}}
           {{moment-format generation.endDate 'MMM YYYY'}}
         {{else}}
-          Today
+          {{t 'modelTimeline.today'}}
         {{/if}}
       </span>
     </div>
