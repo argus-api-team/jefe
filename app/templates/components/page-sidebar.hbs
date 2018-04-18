@@ -34,14 +34,18 @@
         </span>
       {{/link-to}}
     </li>
-    {{!-- <li class="m-menu__item  m-menu__item--submenu" data-redirect="true">
-      <a  href="#" class="m-menu__link">
+    <li class="m-menu__item  m-menu__item--submenu {{if licensePlateIsActive activeSideMenuClass}}">
+      {{#link-to 'lang.license-plate' class="m-menu__link"}}
         <span class="m-menu__item-here"></span>
-        <i class="m-menu__link-icon flaticon-lifebuoy"></i>
-        <span class="m-menu__link-text">
-          {{t 'index.plate.title'}}
+        <i class="m-menu__link-icon la la-search"></i>
+        <span class="m-menu__link-title">
+          <span class="m-menu__link-wrap">
+            <span class="m-menu__link-text">
+              {{t 'index.licensePlate.title'}}
+            </span>
+          </span>
         </span>
-      </a>
-    </li> --}}
+      {{/link-to}}
+    </li>
   </ul>
 </div>

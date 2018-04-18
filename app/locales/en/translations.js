@@ -17,13 +17,18 @@ export default {
     },
     referential: {
       title: 'Referential',
+      description: 'Explore the Argus vehicle database.',
+      button: 'Browse',
+    },
+    licensePlate: {
+      title: 'Search by licence plate',
+      description: 'Find a vehicule with his plate number.',
+      button: 'Find',
     },
     quote: {
       title: 'Argus Quote',
-      description: 'Argus quote and others maket values.',
-    },
-    plate: {
-      title: 'Search by plate number',
+      description: ' Get Argus quote and others maket values of a vehicle. ',
+      button: 'Estimate',
     },
     dashboard: {
       topMakes: 'Top makes',

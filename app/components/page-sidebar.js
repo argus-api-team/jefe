@@ -30,4 +30,8 @@ export default Component.extend({
   quoteIsActive: computed('router.currentRouteName', function () {
     return this.get('router.currentRouteName').indexOf('lang.quote') === 0;
   }),
+
+  licensePlateIsActive: computed('router.currentRouteName', function () {
+    return this.get('router.currentRouteName').indexOf('lang.license-plate') === 0;
+  }),
 });

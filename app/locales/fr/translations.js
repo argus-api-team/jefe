@@ -16,14 +16,19 @@ export default {
       description: 'Rechercher un véhicule dans le Référentiel® Argus.',
     },
     referential: {
-      title: 'Référentiel',
+      title: 'Referential',
+      description: 'Explorer la base de véhciules de l\'Argus.',
+      button: 'Naviguer',
+    },
+    licensePlate: {
+      title: 'Chercher par immatriculation',
+      description: 'Trouver un véhicule avec son numéro d\'immatriculation.',
+      button: 'Trouver',
     },
     quote: {
       title: 'La Cote Argus',
       description: 'La Cote Argus® et les Valeurs Argus de marché.',
-    },
-    plate: {
-      title: 'Chercher par immatriculation',
+      button: 'Estimer',
     },
     dashboard: {
       topMakes: 'Constructeurs populaires',
