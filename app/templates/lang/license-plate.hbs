@@ -24,11 +24,51 @@
             <label class="license-plate-form__label m--marginless">
               <img src="/assets/images/french-license-plate.png" class="license-plate-form__logo text-center" alt="French license plate">
             </label>
-            {{input value=licensePlateNumber name="license-plate-number" class="license-plate-form__input text-center" size="9" maxlength="9" pattern="^[A-Z]{2} ?- ?\d{3} ?- ?[A-Z]{2}$"}}
+            {{input value=licensePlateNumber name="license-plate-number" class="license-plate-form__input text-center" size="9" maxlength="9"}}
             <button type="submit" class="license-plate-form__button text-center">
               <i class="la la-search"></i>
             </button>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Previous search</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+          <ul class="vertical-list">
+            {{#each model as |matching|}}
+              <li class="vertical-list__item">
+                {{#link-to "lang.license-plate" class="list-item-content"}}
+                  <section class="infos">
+                    <h5>{{matching.registration}}</h5>
+                  </section>
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Search result visualisation</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          {{outlet}}
         </div>
       </div>
     </div>
