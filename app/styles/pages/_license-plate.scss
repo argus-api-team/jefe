@@ -1,0 +1,23 @@
+.license-plate-form {
+  @include box-shadow(1);
+  display: flex;
+}
+
+.license-plate-form__input {
+  flex: 1;
+  border: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+
+}
+
+.license-plate-form__button {
+  border: 0;
+  background: $license-plate-blue;
+  color: $white;
+
+
+  i {
+    font-size: 3rem;
+  }
+}

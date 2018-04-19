@@ -8,5 +8,29 @@
   </div>
 </div>
 <div class="m-content">
-
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">License plate</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <p>Enter your license plate number:</p>
+          <form class="license-plate-form">
+            <label class="license-plate-form__label m--marginless">
+              <img src="/assets/images/french-license-plate.png" class="license-plate-form__logo text-center" alt="French license plate">
+            </label>
+            {{input value=licensePlateNumber name="license-plate-number" class="license-plate-form__input text-center" size="9" maxlength="9" pattern="^[A-Z]{2} ?- ?\d{3} ?- ?[A-Z]{2}$"}}
+            <button type="submit" class="license-plate-form__button text-center">
+              <i class="la la-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
