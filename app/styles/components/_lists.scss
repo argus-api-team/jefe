@@ -95,6 +95,10 @@
     }
   }
 
+  &.active {
+    color: array-get($m--state-colors, primary, base);
+  }
+
   .logo-img {
     display: flex;
     flex-direction: column;

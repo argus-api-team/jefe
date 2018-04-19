@@ -16,7 +16,9 @@ Router.map( function () { // eslint-disable-line
       this.route('model', { path: 'model/:id' });
       this.route('vehicle', { path: 'vehicle/:id' });
     });
-    this.route('license-plate');
+    this.route('license-plate', function () {
+      this.route('matching', { path: '/:id' });
+    });
   });
 });
 

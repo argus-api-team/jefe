@@ -47,9 +47,9 @@
           <ul class="vertical-list">
             {{#each model as |matching|}}
               <li class="vertical-list__item">
-                {{#link-to "lang.license-plate" class="list-item-content"}}
+                {{#link-to "lang.license-plate.matching" matching.id class="list-item-content"}}
                   <section class="infos">
-                    <h5>{{matching.registration}}</h5>
+                    <h5 class="m--marginless">{{matching.registration}}</h5>
                   </section>
                 {{/link-to}}
               </li>

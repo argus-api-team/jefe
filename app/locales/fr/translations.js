@@ -124,6 +124,18 @@ export default {
     argusId: 'Id Argus',
   },
 
+  licensePlate: {
+    registration: {
+      title: 'Certificat d\'immatriculation',
+      number: 'Immatriculation',
+      firstDate: 'Première immatriculation',
+      date: 'Date du certificat',
+      vinCode: 'Code vin',
+      fiscalPower: 'Puissance fiscale',
+      carbonEmission: 'Emission de carbon',
+    },
+  },
+
   prices: {
     ttc: 'TTC',
     ht: 'HT',

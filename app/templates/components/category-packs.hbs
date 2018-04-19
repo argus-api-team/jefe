@@ -1,8 +1,8 @@
 {{#unless filteredPacks.isPending}}
   {{#if filteredPacks.content.length}}
-    <div class="equipments-list-header m--margin-bottom-15">
-      <h4 class="m--marginless equipments-list-header__title m--padding-right-15">{{category.name}}</h4>
-      <div class="equipments-list-header__separator"><hr /></div>
+    <div class="section-header m--margin-bottom-15">
+      <h4 class="m--marginless section-header__title m--padding-right-15">{{category.name}}</h4>
+      <div class="section-header__separator"><hr /></div>
     </div>
     <ul class="packs-list row">
       {{#each filteredPacks.content as |pack|}}
@@ -12,9 +12,9 @@
             <p class="m--margin-bottom-5"><span class="m--font-bold">{{t 'vehicleSheet.argusId'}}:</span> {{pack.id}}</p>
             <p class="{{if pack.equipments.length "m--margin-bottom-30" "m--margin-bottom-0"}}"><span class="m--font-bold">{{t 'vehicleSheet.equipmentsLabels.manRef'}}:</span> {{pack.manufacturerSpec}}</p>
             {{#if pack.equipments.length}}
-              <div class="equipments-list-header m--margin-bottom-15">
-                <h5 class="m--marginless equipments-list-header__title m--padding-right-15">{{t 'vehicleSheet.equipments'}}</h5>
-                <div class="equipments-list-header__separator"><hr /></div>
+              <div class="section-header m--margin-bottom-15">
+                <h5 class="m--marginless section-header__title m--padding-right-15">{{t 'vehicleSheet.equipments'}}</h5>
+                <div class="section-header__separator"><hr /></div>
               </div>
               <ul class="pack-equipments-list">
                 {{#each pack.equipments as |equipment|}}
