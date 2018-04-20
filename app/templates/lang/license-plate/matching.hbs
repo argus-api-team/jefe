@@ -15,38 +15,9 @@
       <div class="section-header__separator"><hr /></div>
     </div>
     <ul class="vertical-list">
-      <li class="vertical-list__item">
-        {{#link-to "lang.referential" class="list-item-content"}}
-          <section class="infos">
-            <h5 class="">Vehicule model</h5>
-            <p class="small">submodel</p>
-          </section>
-        {{/link-to}}
-      </li>
-      <li class="vertical-list__item">
-        {{#link-to "lang.referential" class="list-item-content"}}
-          <section class="infos">
-            <h5 class="">Vehicule model</h5>
-            <p class="small">submodel</p>
-          </section>
-        {{/link-to}}
-      </li>
-      <li class="vertical-list__item">
-        {{#link-to "lang.referential" class="list-item-content"}}
-          <section class="infos">
-            <h5 class="">Vehicule model</h5>
-            <p class="small">submodel</p>
-          </section>
-        {{/link-to}}
-      </li>
-      <li class="vertical-list__item">
-        {{#link-to "lang.referential" class="list-item-content"}}
-          <section class="infos">
-            <h5 class="">Vehicule model</h5>
-            <p class="small">submodel</p>
-          </section>
-        {{/link-to}}
-      </li>
+      {{#each model.candidates as |candidate|}}
+        {{candidate-item candidate=candidate}}
+      {{/each}}
     </ul>
   </div>
 </div>
