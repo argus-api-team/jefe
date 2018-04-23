@@ -1,10 +1,11 @@
-import Service from '@ember/service';
+import Service from '@ember/service';  // eslint-disable-line
+import { inject as service } from '@ember/service'; // eslint-disable-line
 import ENV from 'jefe/config/environment';
 import { singularize } from 'ember-inflector';
 /* global Ably */
 
 export default Service.extend({
-  store: Service.inject(),
+  store: service(),
   init() {
     this._super(...arguments);
     this._setTokenAndChannelId();
