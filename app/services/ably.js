@@ -30,19 +30,24 @@ export default Service.extend({
     const channelName = this.get('channelName');
     const ablyClient = this.get('ablyClient');
     const channel = ablyClient.channels.get(channelName);
-    const store = this.get('store');
+
     channel.subscribe((msg) => {
       if (msg.name === 'get-data') {
-        const splitUrl = msg.data.url.split('/');
-        const recordType = singularize(splitUrl[splitUrl.length - 2]);
-        const recordId = singularize(splitUrl[splitUrl.length - 1]);
-        if (recordType === 'matching') {
-          store.findRecord(recordType, recordId, {
-            include: 'registration-card,candidates',
-            reload: true,
-          });
-        }
+        this._getData(msg.data.url);
       }
     });
+  },
+
+  _getData(url) {
+    const splitUrl = url.split('/');
+    const recordType = singularize(splitUrl[splitUrl.length - 2]);
+    const recordId = singularize(splitUrl[splitUrl.length - 1]);
+    const store = this.get('store');
+    if (recordType === 'matching') {
+      store.findRecord(recordType, recordId, {
+        include: 'registration-card,candidates',
+        reload: true,
+      });
+    }
   },
 });
