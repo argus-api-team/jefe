@@ -11,6 +11,7 @@ export default Component.extend({
     const store = this.get('store');
     store.findRecord('version', candidateVersionId, {
       include: 'make,submodel',
+      reload: true,
     }).then((versionRecord) => {
       this.set('candidateVersion', versionRecord);
     });
