@@ -7,4 +7,9 @@ export default Route.extend({
       sort: '-id',
     });
   },
+  actions: {
+    refreshModel() {
+      this.refresh();
+    },
+  },
 });
