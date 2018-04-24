@@ -10,8 +10,13 @@
   focus-out=(action (mut showErrorMessage) true)
 }}
 <button type="submit" class="license-plate-form__button text-center" disabled={{v-get matching 'isInvalid'}}>
-  <i class="la la-search"></i>
+  {{#unless matching.isSaving}}
+    <i class="la la-search"></i>
+  {{else}}
+    <div class="m-loader"></div>
+  {{/unless}}
 </button>
+
 {{#if showErrorMessage}}
   <p class="license-plate-form__error m--font-danger">{{v-get matching 'registration' 'message'}}</p>
 {{/if}}
