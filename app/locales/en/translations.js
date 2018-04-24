@@ -324,8 +324,5 @@ export default {
     email: '{{description}} must be a valid email address',
     phone: '{{description}} must be a valid phone number',
     url: '{{description}} must be a valid url',
-  }
+  },
 };
-
-
-

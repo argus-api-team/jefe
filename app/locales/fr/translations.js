@@ -321,5 +321,5 @@ export default {
     email: '{{description}} doit être une adresse email valide',
     phone: '{{description}} doit être un numéro de téléphone valide',
     url: '{{description}} doit être une URL valide',
-  }
+  },
 };

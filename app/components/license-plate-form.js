@@ -38,7 +38,7 @@ export default Component.extend({
   },
 
   keyPress(e) {
-    if(e.originalEvent.keyCode === 13) {
+    if (e.originalEvent.keyCode === 13) {
       this.set('showErrorMessage', true);
     }
   },
@@ -50,7 +50,7 @@ export default Component.extend({
     if (matching.get('isSaving')) {
       return false;
     }
-    matching.save().then((matchingRecord) => {
+    return matching.save().then((matchingRecord) => {
       this.refreshModel();
       if (router.isActive('lang.license-plate')) {
         router.transitionTo('lang.license-plate.matching', matchingRecord.get('id'));
