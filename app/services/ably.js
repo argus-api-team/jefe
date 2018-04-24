@@ -41,7 +41,7 @@ export default Service.extend({
   _getData(url) {
     const splitUrl = url.split('/');
     const recordType = singularize(splitUrl[splitUrl.length - 2]);
-    const recordId = singularize(splitUrl[splitUrl.length - 1]);
+    const recordId = splitUrl[splitUrl.length - 1];
     const store = this.get('store');
     if (recordType === 'matching') {
       store.findRecord(recordType, recordId, {
