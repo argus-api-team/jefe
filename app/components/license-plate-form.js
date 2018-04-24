@@ -8,36 +8,42 @@ export default Component.extend({
 
   tagName: 'form',
   classNames: ['license-plate-form'],
-  licensePlateNumber: '',
-  licenseNumberFormat: /^[a-zA-Z]{2}\d{3}[a-zA-Z]{2}$/,
-  oldLicenseNumberFormat: /^\d{1,4}[a-zA-Z]{1,3}\d{2,3}$/,
+
   init() {
     this._super(...arguments);
     this.get('ably');
+    this._initNewMatchingRecord();
   },
+
+  _initNewMatchingRecord() {
+    const store = this.get('store');
+    const matching = store.createRecord(
+      'matching',
+      {
+        offer: 'identification-by-registration',
+      },
+    );
+    this.set('matching', matching);
+  },
+
+  willDestroyElement() {
+    const matching = this.get('matching');
+    if (!matching.get('isSaving') || matching.get('isValid')) {
+      matching.unloadRecord();
+      this.set('mathcing', null);
+    }
+  },
+
   submit(e) {
     e.preventDefault();
-    const licensePlateNumber = this.get('licensePlateNumber').replace(/-/g, '').replace(/\s/g, '');
-    const licenseNumberIsValid = this.licenseNumberIsValid(licensePlateNumber);
-    const store = this.get('store');
     const router = this.get('router');
-    if (!licenseNumberIsValid) {
-      return false;
-    }
-    return store.createRecord('matching', {
-      offer: 'identification-by-registration',
-      registration: licensePlateNumber,
-    }).save().then((matchingRecord) => {
+    const matching = this.get('matching');
+    matching.save().then((matchingRecord) => {
       this.refreshModel();
       if (router.isActive('lang.license-plate')) {
         router.transitionTo('lang.license-plate.matching', matchingRecord.get('id'));
+        this._initNewMatchingRecord();
       }
     });
-  },
-
-  licenseNumberIsValid(licensePlateNumber) {
-    const isCurrentLicenseNumberFormat = this.get('licenseNumberFormat').test(licensePlateNumber);
-    const isOldLicenseNumberFormat = this.get('oldLicenseNumberFormat').test(licensePlateNumber);
-    return isCurrentLicenseNumberFormat || isOldLicenseNumberFormat;
   },
 });

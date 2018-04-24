@@ -1,7 +1,8 @@
 <label class="license-plate-form__label m--marginless">
   <img src="/assets/images/french-license-plate.png" class="license-plate-form__logo text-center" alt="French license plate">
 </label>
-{{input value=licensePlateNumber name="license-plate-number" class="license-plate-form__input text-center" size="9" maxlength="12"}}
-<button type="submit" class="license-plate-form__button text-center">
+{{input value=matching.registration name="license-plate-number" class="license-plate-form__input text-center" size="9" maxlength="12"}}
+<button type="submit" class="license-plate-form__button text-center" disabled={{v-get matching 'isInvalid'}}>
   <i class="la la-search"></i>
 </button>
+<p class="license-plate-form__error">{{v-get matching 'registration' 'message'}}</p>

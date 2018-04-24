@@ -1,6 +1,8 @@
 .license-plate-form {
   @include box-shadow(1);
   display: flex;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .license-plate-form__input {
@@ -20,4 +22,10 @@
   i {
     font-size: 3rem;
   }
+}
+
+.license-plate-form__error {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 60px;
 }
