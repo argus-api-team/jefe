@@ -11,6 +11,10 @@ export default Component.extend({
     const store = this.get('store');
     store.findRecord('version', candidateVersionId, {
       include: 'make,submodel',
+      meta: {
+        filterable: false,
+      },
+      page: { size: 500 },
       reload: true,
     }).then((versionRecord) => {
       this.set('candidateVersion', versionRecord);
