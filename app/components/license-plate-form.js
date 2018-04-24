@@ -6,6 +6,8 @@ export default Component.extend({
   ably: service(),
   router: service(),
 
+  showErrorMessage: false,
+
   tagName: 'form',
   classNames: ['license-plate-form'],
 
@@ -24,6 +26,7 @@ export default Component.extend({
       },
     );
     this.set('matching', matching);
+    this.set('showErrorMessage', false);
   },
 
   willDestroyElement() {
@@ -34,10 +37,19 @@ export default Component.extend({
     }
   },
 
+  keyPress(e) {
+    if(e.originalEvent.keyCode === 13) {
+      this.set('showErrorMessage', true);
+    }
+  },
+
   submit(e) {
     e.preventDefault();
     const router = this.get('router');
     const matching = this.get('matching');
+    if (matching.get('isSaving')) {
+      return false;
+    }
     matching.save().then((matchingRecord) => {
       this.refreshModel();
       if (router.isActive('lang.license-plate')) {

@@ -296,7 +296,7 @@ export default {
     confirmation: '{{description}} ne correspond {{on}}',
     accepted: '{{description}} doit être accepté',
     empty: '{{description}} ne peux pas être vide',
-    blank: '{{description}} ne peut pas être vide',
+    blank: '{{description}} est obligatoire',
     present: '{{description}} doit être vide',
     collection: '{{description}} doit être une collection',
     singular: '{{description}} ne peut pas être une collection',
