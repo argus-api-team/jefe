@@ -52,6 +52,7 @@ export default Component.extend({
     }
     return matching.save().then((matchingRecord) => {
       this.refreshModel();
+      matching.set('isSearching', true);
       if (router.isActive('lang.license-plate')) {
         router.transitionTo('lang.license-plate.matching', matchingRecord.get('id'));
         this._initNewMatchingRecord();

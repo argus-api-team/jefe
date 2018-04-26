@@ -1,7 +1,7 @@
 <div class="row">
-  <div class="col-6">
-    {{#tech-data-container titleKey="licensePlate.registration.title" titleLeft=true}}
-      {{tech-data-row labelKey="licensePlate.registration.number" value=model.registration}}
+  <div class="col-12 col-xl-6">
+    {{#tech-data-container titleKey="licensePlate.registration.title" titleLeft=true isLoading=model.isSearching}}
+      {{tech-data-row labelKey="licensePlate.registration.number" value=model.formatedRegistration}}
       {{tech-data-row labelKey="licensePlate.registration.firstDate" value=model.registrationCard.firstRegistrationDate}}
       {{tech-data-row labelKey="licensePlate.registration.date" value=model.registrationCard.registrationDate}}
       {{tech-data-row labelKey="licensePlate.registration.vinCode" value=model.registrationCard.vinCode}}
@@ -9,15 +9,24 @@
       {{tech-data-row labelKey="licensePlate.registration.carbonEmission" value=model.registrationCard.carbonEmission unitKey="techData.units.gpkm"}}
     {{/tech-data-container}}
   </div>
-  <div class="col-6">
+  <div class="col-12 col-xl-6">
     <div class="section-header m--margin-bottom-15">
       <h4 class="m--marginless section-header__title m--padding-right-15">Candidates</h4>
       <div class="section-header__separator"><hr /></div>
     </div>
-    <ul class="vertical-list">
-      {{#each model.candidates as |candidate|}}
-        {{candidate-item candidate=candidate}}
-      {{/each}}
-    </ul>
+    {{#unless model.isSearching}}
+      {{#if model.candidates.length}}
+        <ul class="vertical-list">
+          {{#each model.candidates as |candidate|}}
+            {{candidate-item candidate=candidate}}
+          {{/each}}
+        </ul>
+      {{else}}
+        <p class="m--align-center">No candidate found</p>
+      {{/if}}
+    {{else}}
+      <p class="m--align-center m--font-bold">Searching</p>
+      <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30"></div>
+    {{/unless}}
   </div>
 </div>

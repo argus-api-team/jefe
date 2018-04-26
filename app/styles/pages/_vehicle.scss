@@ -24,6 +24,16 @@
   }
 }
 
+.vehicle-data {
+  .tech-data-content__label {
+    width: 60%;
+  }
+
+  .tech-data-content__value {
+    width: 40%;
+  }
+}
+
 .categery-standard-equipments-list {
   list-style-type: circle;
 }

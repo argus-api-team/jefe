@@ -1,6 +1,6 @@
 export default {
   application: {
-    home: 'Dashbord',
+    home: 'Dashboard',
     moreInfo: 'More details',
     noDate: 'No date available',
     pending: 'Is pending',

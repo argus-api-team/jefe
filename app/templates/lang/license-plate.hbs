@@ -36,12 +36,12 @@
           </div>
         </div>
         <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
-          <ul class="vertical-list">
+          <ul class="vertical-list license-plate-list">
             {{#each model as |matching|}}
               <li class="vertical-list__item">
                 {{#link-to "lang.license-plate.matching" matching.id class="list-item-content"}}
                   <section class="infos">
-                    <h5 class="m--marginless">{{matching.registration}}</h5>
+                    <h5 class="m--marginless license-plate-list__registration">{{matching.formatedRegistration}}</h5>
                   </section>
                 {{/link-to}}
               </li>

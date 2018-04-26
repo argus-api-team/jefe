@@ -47,6 +47,8 @@ export default Service.extend({
       store.findRecord(recordType, recordId, {
         include: 'registration-card,candidates',
         reload: true,
+      }).then((matchingRecord) => {
+        matchingRecord.set('isSearching', false);
       });
     }
   },
