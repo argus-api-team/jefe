@@ -17,7 +17,7 @@ export default {
     },
     referential: {
       title: 'Referential',
-      description: 'Explore the Argus vehicle database.',
+      description: 'Explore the Argus vehicles database.',
       button: 'Browse',
     },
     licensePlate: {
