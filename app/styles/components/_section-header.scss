@@ -1,0 +1,12 @@
+.section-header {
+  display: flex;
+  align-items: center;
+
+  .section-header__title {
+    font-size: 1.3rem;
+  }
+
+  .section-header__separator {
+    flex: 1;
+  }
+}

@@ -1,0 +1,9 @@
+{{#link-to "lang.referential.vehicle" candidateVersion.id class="list-item-content"}}
+  <section class="infos">
+    <h5>{{candidateVersion.submodel.fullNicename}}</h5>
+    <p class="small">{{candidateVersion.name}}</p>
+  </section>
+  <div class="logo-img">
+    {{logo-img url=candidateVersion.make.logoURL className='thumbnail make-logo'}}
+  </div>
+{{/link-to}}

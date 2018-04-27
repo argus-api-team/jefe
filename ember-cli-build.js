@@ -57,5 +57,12 @@ module.exports = function(defaults) {
   app.import('node_modules/c3/c3.min.js');
   app.import('vendor/shims/c3.js');
 
+  // Import Ably Module
+  app.import('node_modules/ably/browser/static/ably.js', {
+    using: [
+      { transformation: 'amd', as: 'ably' }
+    ]
+  });
+
   return app.toTree();
 };

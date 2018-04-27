@@ -1,7 +1,8 @@
 import OAuth2PasswordGrand from 'ember-simple-auth/authenticators/oauth2-password-grant';
+import ENV from 'jefe/config/environment';
 
 export default OAuth2PasswordGrand.extend({
-  serverTokenEndpoint: 'https://oauth.largus.fr/oauth/token',
+  serverTokenEndpoint: ENV.OAUTH_URL,
 
   authenticate(applicationId, applicationSecret, username, password) {
     const applicationAuth = btoa(`${applicationId}:${applicationSecret}`);

@@ -70,6 +70,16 @@
 
 .vertical-list__item {
   border-bottom: 1px solid get-color($m--default-skin, panel);
+
+  .list-item-content {
+    margin: 0 -2.2rem;
+    padding: 15px calc(2.2rem + 15px);
+
+    &.active {
+      background: array-get($m--state-colors, primary, base);
+      color: $white;
+    }
+  }
 }
 
 
@@ -93,6 +103,10 @@
     p {
       margin: 0;
     }
+  }
+
+  &.active {
+    color: array-get($m--state-colors, primary, base);
   }
 
   .logo-img {

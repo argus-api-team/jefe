@@ -85,6 +85,8 @@
 @import 'components/card';
 @import 'components/list-nav';
 @import 'components/informations-portlet';
+@import 'components/section-header';
+@import 'components/tech-data';
 @import 'spin-button'; //Component from ember addon
 
 //Page specific
@@ -92,5 +94,6 @@
 @import 'pages/make';
 @import 'pages/model-timeline';
 @import 'pages/vehicle';
+@import 'pages/license-plate';
 
 @import 'ember-power-select';

@@ -8,24 +8,39 @@
   </div>
 </div>
 <div class="m-content">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row m--margin-bottom-30">
+
+    <div class="col-md-4 col-12">
       <div class="m-portlet card text-center">
         <div class="card-icon text-danger">
           <i class="la la-car"></i>
         </div>
         <div class="card-body">
-        <h3 class="card-title">{{t 'index.search.title'}}</h3>
-          {{t 'index.search.description'}}
+        <h3 class="card-title">{{t 'index.referential.title'}}</h3>
+          {{t 'index.referential.description'}}
           <hr>
           {{#link-to 'lang.referential.makes' class="btn btn-primary"}}
-              {{t 'application.moreInfo'}}
-               <i class="la la-angle-right"></i>
+              {{t 'index.referential.button'}}
           {{/link-to}}
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4 col-12">
+      <div class="m-portlet card text-center">
+        <div class="card-icon text-info">
+          <i class="la la-search"></i>
+        </div>
+        <div class="card-body">
+        <h3 class="card-title">{{t 'index.licensePlate.title'}}</h3>
+          {{t 'index.licensePlate.description'}}
+          <hr>
+          {{#link-to 'lang.license-plate' class="btn btn-primary"}}
+            {{t 'index.licensePlate.button'}}
+          {{/link-to}}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12">
       <div class="m-portlet card text-center">
         <div class="card-icon text-success">
           <i class="la la-bar-chart"></i>
@@ -35,14 +50,13 @@
           {{t 'index.quote.description'}}
           <hr>
           {{#link-to 'lang.quote' class="btn btn-primary"}}
-            {{t 'application.moreInfo'}}
-             <i class="la la-angle-right"></i>
+            {{t 'index.quote.button'}}
           {{/link-to}}
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
   <div class="row">
 
     <div class="col-12 col-lg-12 col-xl-4">

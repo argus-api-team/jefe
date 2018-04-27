@@ -1,8 +1,8 @@
 {{#unless filteredEquipments.isPending}}
   {{#if filteredEquipments.content.length}}
-    <div class="equipments-list-header m--margin-bottom-15">
-      <h4 class="m--marginless equipments-list-header__title m--padding-right-15">{{category.name}}</h4>
-      <div class="equipments-list-header__separator"><hr /></div>
+    <div class="section-header m--margin-bottom-15">
+      <h4 class="m--marginless section-header__title m--padding-right-15">{{category.name}}</h4>
+      <div class="section-header__separator"><hr /></div>
     </div>
     <ul class="row categery-standard-equipments-list m--margin-bottom-30">
       {{#each filteredEquipments.content as |equipment|}}

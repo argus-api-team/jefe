@@ -24,53 +24,13 @@
   }
 }
 
-.tech-data-header__title {
-  font-size: 1.1rem;
-
-}
-
-.tech-data-content {
-  width: 100%;
-}
-
-.tech-data-content__label {
-  width: 60%;
-  font-weight: 400;
-}
-
-.tech-data-content__value {
-  width: 40%;
-}
-
-.tech-data-content__value,
-.tech-data-content__label {
-  padding: 5px $gutter / 2;
-}
-
-.tech-data-content__row {
-  &:nth-child(odd) {
-    .tech-data-content__value {
-      background: $odd-list-background;
-    }
+.vehicle-data {
+  .tech-data-content__label {
+    width: 60%;
   }
 
-  &:nth-child(even) {
-    .tech-data-content__value {
-      background: $even-list-background;
-    }
-  }
-}
-
-.equipments-list-header {
-  display: flex;
-  align-items: center;
-
-  .equipments-list-header__title {
-    font-size: 1.3rem;
-  }
-
-  .equipments-list-header__separator {
-    flex: 1;
+  .tech-data-content__value {
+    width: 40%;
   }
 }
 

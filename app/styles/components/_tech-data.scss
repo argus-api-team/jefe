@@ -1,0 +1,59 @@
+
+.tech-data-header__title {
+  font-size: 1.1rem;
+
+}
+
+.tech-data-content {
+  width: 100%;
+}
+
+.tech-data {
+  .m-loader {
+    box-shadow: 0 0 20px 10px rgba(255, 255, 255, 1); // sass-lint:disable-line no-color-literals :Blur effect only used here
+
+    &::before {
+      z-index: 2;
+    }
+
+    .tech-data-content__label,
+    .tech-data-content__value {
+      opacity: .7;
+      color: rgba(0, 0, 0, 0); // sass-lint:disable-line no-color-literals :Blur effect only used here
+      text-shadow: 0 0 10px rgba(0, 0, 0, .9); // sass-lint:disable-line no-color-literals :Blur effect only used here
+    }
+
+    .loading-data-text {
+      position: absolute;
+      top: calc(50% - 50px);
+      left: 50%;
+      margin-bottom: 0;
+      transform: translate(-50%, 0);
+      font-weight: 400;
+      text-align: center;
+    }
+  }
+}
+
+.tech-data-content__label {
+  font-weight: 400;
+}
+
+.tech-data-content__value,
+.tech-data-content__label {
+  padding: 5px $gutter / 2;
+}
+
+.tech-data-content__row {
+  &:nth-child(odd) {
+    .tech-data-content__value {
+      background: $odd-list-background;
+    }
+  }
+
+  &:nth-child(even) {
+    .tech-data-content__value {
+      background: $even-list-background;
+    }
+  }
+}

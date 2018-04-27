@@ -1,0 +1,22 @@
+<label class="license-plate-form__label m--marginless">
+  <img src="/assets/images/french-license-plate.png" class="license-plate-form__logo text-center" alt="French license plate">
+</label>
+{{input
+  value=matching.registration
+  name="license-plate-number"
+  class="license-plate-form__input text-center"
+  size="9"
+  maxlength="12"
+  focus-out=(action (mut showErrorMessage) true)
+}}
+<button type="submit" class="license-plate-form__button text-center" disabled={{v-get matching 'isInvalid'}}>
+  {{#unless matching.isSaving}}
+    <i class="la la-search"></i>
+  {{else}}
+    <div class="m-loader"></div>
+  {{/unless}}
+</button>
+
+{{#if showErrorMessage}}
+  <p class="license-plate-form__error m--font-danger">{{v-get matching 'registration' 'message'}}</p>
+{{/if}}

@@ -1,0 +1,41 @@
+.license-plate-form {
+  @include box-shadow(1);
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.license-plate-form__input {
+  flex: 1;
+  border: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+
+}
+
+.license-plate-form__button {
+  border: 0;
+  background: $license-plate-blue;
+  color: $white;
+  cursor: pointer;
+
+  i {
+    font-size: 3rem;
+  }
+
+  .m-loader {
+    width: 39px;
+  }
+}
+
+.license-plate-form__error {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 60px;
+}
+
+.license-plate-list {
+  .license-plate-list__registration {
+    font-weight: 300;
+  }
+}
