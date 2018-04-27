@@ -125,6 +125,23 @@ export default {
   },
 
   licensePlate: {
+    form: {
+      title: 'Plaque d\'immatriculation',
+      label: 'Entrer numéro d\'immatriculation',
+      description: 'Immatriculation',
+      notValid: 'Le numéro d\'immatriculation n\'est pas valide',
+    },
+    previous: 'Recherches précédentes',
+    result: {
+      title: 'Resultat de la recherche',
+      registration: 'Certificat d\'immatriculation',
+      blank: 'Rechercher un véhcule avec son numero d\'immatriculation, ou sélectionner une recherche antérieure',
+      candidates: {
+        title: 'Candidats',
+        searching: 'Recherche de candidats',
+        notFound: 'Pas de candidat',
+      },
+    },
     registration: {
       title: 'Certificat d\'immatriculation',
       number: 'Immatriculation',

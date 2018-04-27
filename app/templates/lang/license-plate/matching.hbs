@@ -11,7 +11,7 @@
   </div>
   <div class="col-12 col-xl-6">
     <div class="section-header m--margin-bottom-15">
-      <h4 class="m--marginless section-header__title m--padding-right-15">Candidates</h4>
+      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'licensePlate.result.candidates.title'}}</h4>
       <div class="section-header__separator"><hr /></div>
     </div>
     {{#unless model.isSearching}}
@@ -22,10 +22,10 @@
           {{/each}}
         </ul>
       {{else}}
-        <p class="m--align-center">No candidate found</p>
+        <p class="m--align-center">{{t 'licensePlate.result.candidates.notFound'}}</p>
       {{/if}}
     {{else}}
-      <p class="m--align-center m--font-bold">Searching</p>
+      <p class="m--align-center m--font-bold">{{t 'licensePlate.result.candidates.searching'}}</p>
       <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30"></div>
     {{/unless}}
   </div>

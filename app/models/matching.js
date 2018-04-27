@@ -1,18 +1,21 @@
 import DS from 'ember-data';
 import { validator, buildValidations } from 'ember-cp-validations';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 const Validations = buildValidations({
   registration: [
     validator('presence', {
       presence: true,
-      description: 'Registration number',
+      descriptionKey: 'licensePlate.form.description',
     }),
     validator('registration-number'),
   ],
 });
 
 export default DS.Model.extend(Validations, {
+  i18n: service(),
+
   isSearching: false,
 
   registration: DS.attr('string'),

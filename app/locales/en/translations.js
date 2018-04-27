@@ -125,6 +125,23 @@ export default {
   },
 
   licensePlate: {
+    form: {
+      title: 'License plate',
+      label: 'Enter a license plate number',
+      description: 'License plate number',
+      notValid: 'License plate number is not valid',
+    },
+    previous: 'Previous search',
+    result: {
+      title: 'Search result',
+      blank: 'Search a vehicule by license plate, or select a previous search',
+      candidates: {
+        title: 'Candidates',
+        searching: 'Searching candidates',
+        notFound: 'No candidates',
+      },
+    },
+
     registration: {
       title: 'Registration certificate',
       number: 'Registration number',
