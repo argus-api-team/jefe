@@ -2,7 +2,6 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import DS from 'ember-data';
-import moment from 'moment';
 // import { filter } from 'rsvp';
 // import { hash } from 'rsvp';
 
@@ -43,26 +42,26 @@ export default Component.extend({
     // });
   },
 
-  modelsSelection: computed('selectedMake', 'vehicleDate', function() {
-    console.log('modelsSelection');
+  modelsSelection: computed('selectedMake', 'vehicleDate', function () {
+    // console.log('modelsSelection');
     const store = this.get('store');
     const selectedMake = this.get('selectedMake');
     const vehicleDate = this.get('vehicleDate');
-    if(!selectedMake|| !vehicleDate) {
-      return false
+    if (!selectedMake || !vehicleDate) {
+      return false;
     }
-    console.log(vehicleDate);
-    return  DS.PromiseObject.create({
+    // console.log(vehicleDate);
+    return DS.PromiseObject.create({
       promise: store.query('phase', {
         filter: {
           make: selectedMake.get('id'),
-          startDate: {lt: vehicleDate.unix()},
-          endDate: {gt: vehicleDate.unix()},
-        }
+          startDate: { lt: vehicleDate.unix() },
+          endDate: { gt: vehicleDate.unix() },
+        },
       }).then((matchingPhases) => {
-        console.log(matchingPhases);
+        // console.log(matchingPhases);
         return matchingPhases;
-      })
+      }),
     });
   }),
   actions: {
