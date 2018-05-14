@@ -1,0 +1,68 @@
+<fieldset class="col-6">
+  <div class="section-header m--margin-bottom-15">
+    <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle selection</h4>
+    <div class="section-header__separator"><hr /></div>
+  </div>
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-2 col-form-label text-right">Make</label>
+    <div class="col-10">
+      {{#power-select
+        options=makeSelectOptions
+        selected=selectedMake
+        searchField="name"
+        enableTime=false
+        onchange=(action "selectMake")
+        as |make|
+      }}
+        {{make.name}}
+      {{/power-select}}
+    </div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-2 col-form-label text-right">Date</label>
+    <div class="col-10">
+      {{date-picker
+        buttonClasses="btn btn-primary"
+        disabled=(if selectedMake false true)
+        minDate=(moment selectedMake.startDate)
+        maxDate=(if selectedMake.endDate (moment selectedMake.endDate) (moment))
+        availableYearOffset=15
+        value=vehicleDate
+        action=(action (mut vehicleDate))
+      }}
+    </div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-2 col-form-label text-right">Model</label>
+    <div class="col-10">
+    {{!--   {{#power-select
+        options=makeSelectOptions
+        selected=selectedMake
+        searchField="name"
+        enableTime=false
+        onchange=(action "selectMake")
+        as |make|
+      }}
+        {{make.name}}
+      {{/power-select}} --}}
+    </div>
+  </div>
+
+</fieldset>
+<section class="col-6">
+  <div class="section-header m--margin-bottom-15">
+    <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle preview</h4>
+    <div class="section-header__separator"><hr /></div>
+  </div>
+  <p>Selected make: {{selectedMake.name}}</p>
+  <p>Selected make StartDate: {{moment-format selectedMake.startDate 'DD/MM/YYYY'}}</p>
+  <p>Selected make EndDate: {{moment-format selectedMake.endDate 'DD/MM/YYYY'}}</p>
+  <p>VehcileDate: {{moment-format vehicleDate 'DD/MM/YYYY'}}</p>
+  <ul>
+    {{#each modelsSelection as |model|}}
+      <li>{{model.shortNicename}}</li>
+    {{/each}}
+  </ul>
+</section>

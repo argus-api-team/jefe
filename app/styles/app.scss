@@ -66,6 +66,13 @@
 // @import 'vendor/reboot';
 // @import 'base/typography';
 
+//Addons Styles
+@import 'ember-power-select';
+@import 'ember-basic-dropdown';
+@import 'ember-power-calendar';
+@import 'ember-power-datepicker';
+@import 'ember-date-components/addon';
+
 
 //Utils
 @import 'utils/variables';
@@ -96,5 +103,3 @@
 @import 'pages/model-timeline';
 @import 'pages/vehicle';
 @import 'pages/license-plate';
-
-@import 'ember-power-select';
