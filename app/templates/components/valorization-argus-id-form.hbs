@@ -1,1 +1,61 @@
-{{yield}}
+
+<div class="row">
+  <fieldset class="col-6">
+    <div class="section-header m--margin-bottom-15">
+      <h4 class="m--marginless section-header__title m--padding-right-15">OID input</h4>
+      <div class="section-header__separator"><hr /></div>
+    </div>
+    <div class="form-group m-form__group row align-items-center">
+      <label class="col-2 col-form-label text-right">Argus OID</label>
+      <div class="col-10">
+        {{input value=argusOID class="form-control"}}
+      </div>
+    </div>
+
+    <div class="form-group m-form__group row align-items-center">
+      <label class="col-2 col-form-label text-right">Date</label>
+      <div class="col-10">
+        {{date-picker
+          buttonClasses="btn btn-primary"
+          disabled=(if resolvedVersion false true)
+          minDate=(moment resolvedVersion.startDate)
+          maxDate=(if resolvedVersion.endDate (moment resolvedVersion.endDate) (moment))
+          availableYearOffset=15
+          value=vehicleDate
+          action=(action (mut vehicleDate))
+        }}
+      </div>
+    </div>
+  </fieldset>
+  <section class="col-6">
+    <div class="section-header m--margin-bottom-15">
+      <h4 class="m--marginless section-header__title m--padding-right-15">Resolved OID</h4>
+      <div class="section-header__separator"><hr /></div>
+    </div>
+    <div class="vehicle-preview m--clearfix">
+      {{#unless resolvedVersion}}
+        {{#if isSearching}}
+          <div class="m-loader m-loader--brand m--margin-right-10"></div>
+          <p class="m--marginless  m--pull-left">Is searching</p>
+        {{else if noOidMatch}}
+          <p class="m--marginless m--font-danger">No version matched with your OID</p>
+        {{else}}
+          <p class="m--marginless">Please enter an Argus OID</p>
+        {{/if}}
+      {{else}}
+        <div class="vehcile-infos">
+          <h5 class="h5"> {{resolvedVersion.make.name}} - {{resolvedVersion.submodel.name}}</h5>
+          <p class="m--margin-bottom-5">Gén. {{resolvedVersion.generation.name}} Pe. {{resolvedVersion.phase.name}}</p>
+          <p class="m--marginless">{{resolvedVersion.name}}</p>
+        </div>
+        <div class="vehcile-make-logo">
+          {{logo-img url=resolvedVersion.make.logoURL className='thumbnail make-logo'}}
+        </div>
+      {{/unless}}
+    </div>
+  </section>
+</div>
+<div class="btn-container text-right">
+  <button class="btn btn-primary" disabled={{if resolvedVersion (if vehicleDate false true) true}} type="submit">Validate</button>
+</div>
+
