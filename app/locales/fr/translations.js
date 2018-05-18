@@ -127,7 +127,7 @@ export default {
   licensePlate: {
     form: {
       title: 'Plaque d\'immatriculation',
-      label: 'Entrer numéro d\'immatriculation',
+      label: 'Entrer un numéro d\'immatriculation',
       description: 'Immatriculation',
       notValid: 'Le numéro d\'immatriculation n\'est pas valide',
     },

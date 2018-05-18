@@ -16,11 +16,7 @@
     </div>
     {{#unless model.isSearching}}
       {{#if model.candidates.length}}
-        <ul class="vertical-list">
-          {{#each model.candidates as |candidate|}}
-            {{candidate-item candidate=candidate}}
-          {{/each}}
-        </ul>
+        {{candidates-list candidates=model.candidates}}
       {{else}}
         <p class="m--align-center">{{t 'licensePlate.result.candidates.notFound'}}</p>
       {{/if}}

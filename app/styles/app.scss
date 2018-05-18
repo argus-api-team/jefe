@@ -95,6 +95,7 @@
 @import 'components/section-header';
 @import 'components/tech-data';
 @import 'components/wizzard';
+@import 'components/license-plate';
 @import 'spin-button'; //Component from ember addon
 
 //Page specific
@@ -102,5 +103,4 @@
 @import 'pages/make';
 @import 'pages/model-timeline';
 @import 'pages/vehicle';
-@import 'pages/license-plate';
 @import 'pages/quote';
