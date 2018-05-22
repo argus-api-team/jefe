@@ -6,6 +6,7 @@ import { observer } from '@ember/object';
 export default Component.extend({
   // Inject service
   store: service(),
+  router: service(),
 
   // Html element properties
   tagName: 'form',
@@ -49,4 +50,15 @@ export default Component.extend({
     this.set('vehicleDate', null);
     debounce(this, this.resolveArgusOID, 500);
   }),
+
+  submit(e) {
+    e.preventDefault();
+    const valorizationRecord = this.get('valorizationRecord');
+    const resolvedVersion = this.get('resolvedVersion');
+    const vehicleDate = this.get('vehicleDate').format('YYYY-MM-DD');
+    const router = this.get('router');
+    valorizationRecord.set('version', resolvedVersion);
+    valorizationRecord.set('releasedAt', vehicleDate);
+    router.transitionTo('lang.quote.valorize.offer');
+  },
 });

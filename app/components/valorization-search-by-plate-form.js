@@ -4,15 +4,26 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   store: service(),
+  router: service(),
 
   selectedVersion: null,
 
   resetSelectedVehicle: observer('matchingRecord', function () {
     this.set('selectedVersion', null);
   }),
+
   actions: {
     validateVehicle() {
-      // alert('Validate Vehicle choice');
+      const valorizationRecord = this.get('valorizationRecord');
+      const matchingRecord = this.get('matchingRecord');
+      const selectedVersion = this.get('selectedVersion');
+      const router = this.get('router');
+      valorizationRecord.set('version', selectedVersion);
+      this.get('matchingRecord').get('registrationCard').then((registrationCard) => {
+        const firstRegistrationDate = registrationCard.get('firstRegistrationDate');
+        valorizationRecord.set('releasedAt', firstRegistrationDate);
+        router.transitionTo('lang.quote.valorize.offer');
+      });
     },
   },
 });
