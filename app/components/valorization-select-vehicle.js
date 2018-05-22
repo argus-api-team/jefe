@@ -58,10 +58,7 @@ export default Component.extend({
           startDate: { lt: vehicleDate.unix() },
           endDate: { gt: vehicleDate.unix() },
         },
-      }).then((matchingPhases) => {
-        // console.log(matchingPhases);
-        return matchingPhases;
-      }),
+      }).then(matchingPhases => matchingPhases),
     });
   }),
   actions: {

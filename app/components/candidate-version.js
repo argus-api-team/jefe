@@ -14,6 +14,11 @@ export default Component.extend({
     return (versionQuoteRation / aggregatedCandidateQuoteRatio) * 100;
   }),
 
+  candidateFrequencyStyle: computed('candidateFrequency', function () {
+    const cadidateFrequency = this.get('candidateFrequency');
+    return `height: ${cadidateFrequency}%`;
+  }),
+
   candidateGaugeColor: computed('candidateFrequency', function () {
     const candidateFrequency = this.get('candidateFrequency');
     if (candidateFrequency > 50) {

@@ -2,11 +2,12 @@
   <h5 class="h5 m--margin-bottom-5"> {{version.make.name}} - {{version.submodel.name}} {{#if candidate.suggested}}<i class="la la-star m--font-info"></i>{{/if}}</h5>
   <p class="m--margin-bottom-5">Gén. {{version.generation.name}} Pe. {{version.phase.name}}</p>
   <p class="m--marginless">{{version.name}}</p>
+  <p>{{candidateFrequencyStyle}}</p>
 </section>
 <div class="logo-img">
   {{logo-img url=version.make.logoURL className='thumbnail make-logo'}}
 </div>
 <div class="candidate-frequency m--margin-Left-15">
-  <div class="candidate-frequency__gauge {{{candidateGaugeColor}}}" style="height: {{{candidateFrequency}}}%"></div>
+  <div class="candidate-frequency__gauge {{{candidateGaugeColor}}}" style={{{candidateFrequencyStyle}}}></div>
 </div>
 
