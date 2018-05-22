@@ -19,7 +19,7 @@ export default Component.extend({
       const selectedVersion = this.get('selectedVersion');
       const router = this.get('router');
       valorizationRecord.set('version', selectedVersion);
-      this.get('matchingRecord').get('registrationCard').then((registrationCard) => {
+      matchingRecord.get('registrationCard').then((registrationCard) => {
         const firstRegistrationDate = registrationCard.get('firstRegistrationDate');
         valorizationRecord.set('releasedAt', firstRegistrationDate);
         router.transitionTo('lang.quote.valorize.offer');

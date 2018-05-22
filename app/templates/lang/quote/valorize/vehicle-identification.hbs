@@ -19,7 +19,7 @@
       <!--begin: Form Wizard Progress -->
       <div class="m-wizard__progress">
         <div class="progress">
-          <div class="progress-bar" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+          <div class="progress-bar" role="progressbar"  aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
       </div>
       <!--end: Form Wizard Progress -->
@@ -27,11 +27,11 @@
       <div class="m-wizard__nav">
         <div class="m-wizard__steps">
           <div class="m-wizard__step m-wizard__step--current">
-            <a href="#" class="m-wizard__step-number">
+            {{#link-to 'lang.quote.valorize.vehicle-identification' class="m-wizard__step-number"}}
               <span>
-                <i class="fa  flaticon-placeholder"></i>
+                <i class="la la-automobile"></i>
               </span>
-            </a>
+            {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
                 1. Identify your vehicle
@@ -39,11 +39,11 @@
             </div>
           </div>
           <div class="m-wizard__step">
-            <a href="#" class="m-wizard__step-number">
+           {{#link-to 'lang.quote.valorize.offer' class="m-wizard__step-number"}}
               <span>
-                <i class="fa  flaticon-layers"></i>
+                <i class="la la-bar-chart"></i>
               </span>
-            </a>
+            {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
                 2. Select value to compute
@@ -51,11 +51,11 @@
             </div>
           </div>
           <div class="m-wizard__step">
-            <a href="#" class="m-wizard__step-number">
+            {{#link-to 'lang.quote.valorize.criteria' class="m-wizard__step-number"}}
               <span>
-                <i class="fa  flaticon-layers"></i>
+                <i class="la la-list"></i>
               </span>
-            </a>
+            {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
                 3. Define your criteria

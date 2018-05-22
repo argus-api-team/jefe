@@ -1,8 +1,6 @@
-.vehicle-preview {
-  @include box-shadow(1);
+.vehicle-card {
   display: flex;
   align-items: center;
-  padding: 1.1rem;
 
   .m-loader {
     width: 1.4rem;
@@ -20,5 +18,75 @@
     width: 80px;
     min-height: 80px;
     margin-right: 10px;
+  }
+
+  &.vehicle-preview {
+    @include box-shadow(1);
+    padding: 1.1rem;
+  }
+}
+
+
+
+.offer-list {
+  list-style-type: none;
+}
+
+.offer-list__item {
+  position: relative;
+  height: 100%;
+  padding: $gutter / 2;
+  transition: transform .4s;
+  border-left: 5px solid;
+  background: $white;
+  cursor: pointer;
+
+  &.border-argus {
+    border-color: $argus-color;
+  }
+
+  &.border-focus {
+    border-color: array-get($m--state-colors, focus, base);
+  }
+
+  &::before {
+    @include box-shadow(1);
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity .4s;
+    opacity: 1;
+  }
+
+  &::after {
+    @include box-shadow(2);
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity .4s;
+    opacity: 0;
+  }
+
+  &:hover {
+    transform: translate3d(0, -3px, 0);
+
+    &::before {
+      opacity: 0;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+
   }
 }
