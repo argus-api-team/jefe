@@ -1,14 +1,17 @@
 import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
 
 export default Route.extend({
 
   model() {
-    const valorization = this.modelFor('lang.quote.valorize');
-    return this.store.findAll('featureCategory')
-      .then(featureCategories => ({
-        valorization,
-        featureCategories,
-      }));
+    return RSVP.hash({
+      valorization: this.modelFor('lang.quote.valorize'),
+      featureCategories: this.store.query('featureCategory', { page: { size: 500 } }),
+      makes: this.store.query('make', {
+        page: { size: 500 },
+        sort: 'name',
+      }),
+    });
   },
 
   beforeModel() {
