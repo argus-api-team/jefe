@@ -19,7 +19,10 @@ export default Component.extend({
     const vehicleDate = valorization.get('releasedAt');
     return valorization.get('version')
       .then(version => this._getVehiclePeriod(version, vehicleDate))
-      .then(period => period.get('optionalFeatures'))
+      .then(period => period.query('optionalFeatures', {
+        page: { size: 500 },
+        include: 'feature-category',
+      }))
       .then(optionalFeatures => this._filterOptionsByCategory(optionalFeatures, categoryId));
   },
 

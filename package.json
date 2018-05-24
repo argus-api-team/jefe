@@ -48,6 +48,7 @@
     "ember-cp-validations": "^4.0.0-beta.0",
     "ember-data": "~3.0.0",
     "ember-data-filter": "^1.13.0",
+    "ember-data-has-many-query": "^0.2.0",
     "ember-date-components": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-font-awesome": "^3.1.1",

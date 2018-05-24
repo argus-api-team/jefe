@@ -110,3 +110,25 @@
 
   }
 }
+
+
+.feature-checkbox {
+  display: flex;
+}
+
+.feature-checkbox__name {
+  @include ellipsis;
+  flex: 1;
+  font-weight: 400;
+}
+
+
+.selected-feature {
+  display: flex;
+}
+
+.selected-feature__name {
+  @include ellipsis;
+  flex: 1;
+  font-weight: 400;
+}

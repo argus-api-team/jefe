@@ -173,6 +173,20 @@
             <dt class="col-3 text-right">Date: </dt>
             <dd class="col-3"></dd>
           </div>
+          <div class="section-header m--margin-bottom-15 m--margin-top-30">
+            <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle options</h4>
+            <div class="section-header__separator"><hr /></div>
+          </div>
+          <ul>
+            {{#each model.valorization.features as |feature|}}
+              <li class="clearfix m--margin-bottom-5 ">
+                <div class="selected-feature">
+                  <span class="selected-feature__name">{{feature.name}}</span>
+                  <span class="pull-right selected-feature__price">{{feature.priceIncludingVat}} €</span>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>
