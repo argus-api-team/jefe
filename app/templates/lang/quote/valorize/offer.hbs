@@ -73,7 +73,7 @@
       <ul class="offer-list row">
         <li class="col-4 m--margin-bottom-30">
           <div class="offer-list__item border-argus" {{action "selectOffer" "extended-market-value"}}>
-            <h5>Valeurs de marché Argus</h5>
+            <h5>Valeurs Argus de marché</h5>
             <p class="m--marginless">Calculer la cote et les valeurs de marché de votre véhicule</p>
           </div>
         </li>
@@ -85,7 +85,7 @@
         </li>
         <li class="col-4 m--margin-bottom-30">
           <div class="offer-list__item border-info" {{action "selectOffer" "prevar-value"}}>
-            <h5>Valeur résiduelle Prevar</h5>
+            <h5>Valeur Argus résiduelle</h5>
             <p class="m--marginless">Calculer la valeur Argus prévisionnelle de votre véhicule</p>
           </div>
         </li>
@@ -119,13 +119,13 @@
           </div>
         </div>
         <div class="m-portlet__body">
-          <div class="vehicle-card m--clearfix">
-            <div class="vehcile-infos">
+          <div class="valorization-card m--clearfix">
+            <div class="vehicle-infos">
               <h5 class="h5"> {{model.version.make.name}} - {{model.version.submodel.name}}</h5>
               <p class="m--margin-bottom-5">Gén. {{model.version.generation.name}} Pe. {{model.version.phase.name}} - {{moment-format model.releasedAt "DD/MM/YYYY"}}</p>
               <p class="m--marginless">{{model.version.name}}</p>
               </div>
-            <div class="vehcile-make-logo">
+            <div class="vehicle-make-logo">
               {{logo-img url=model.version.make.logoURL className='thumbnail make-logo'}}
             </div>
           </div>

@@ -1,16 +1,17 @@
-.vehicle-card {
+.valorization-card {
   display: flex;
+  position: relative;
   align-items: center;
 
   .m-loader {
     width: 1.4rem;
   }
 
-  .vehcile-infos {
+  .vehicle-infos {
     order: 2;
   }
 
-  .vehcile-make-logo {
+  .vehicle-make-logo {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,9 +25,28 @@
     @include box-shadow(1);
     padding: 1.1rem;
   }
+
+  .offer-badge {
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 0;
+  }
 }
 
+.offer-badge {
+  padding: 4px 8px;
+  color: $white;
+  font-weight: 400;
 
+  &.m--bg-argus {
+    background: $argus-color;
+  }
+
+  &.m--bg-focus {
+    background: array-get($m--state-colors, focus, base);
+  }
+}
 
 .offer-list {
   list-style-type: none;

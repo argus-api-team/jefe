@@ -32,7 +32,7 @@
       <h4 class="m--marginless section-header__title m--padding-right-15">Resolved OID</h4>
       <div class="section-header__separator"><hr /></div>
     </div>
-    <div class="vehicle-card vehicle-preview m--clearfix">
+    <div class="valorization-card vehicle-preview m--clearfix">
       {{#unless resolvedVersion}}
         {{#if isSearching}}
           <div class="m-loader m-loader--brand m--margin-right-10"></div>
@@ -43,12 +43,12 @@
           <p class="m--marginless">Please enter an Argus OID</p>
         {{/if}}
       {{else}}
-        <div class="vehcile-infos">
+        <div class="vehicle-infos">
           <h5 class="h5"> {{resolvedVersion.make.name}} - {{resolvedVersion.submodel.name}}</h5>
           <p class="m--margin-bottom-5">Gén. {{resolvedVersion.generation.name}} Pe. {{resolvedVersion.phase.name}}</p>
           <p class="m--marginless">{{resolvedVersion.name}}</p>
         </div>
-        <div class="vehcile-make-logo">
+        <div class="vehicle-make-logo">
           {{logo-img url=resolvedVersion.make.logoURL className='thumbnail make-logo'}}
         </div>
       {{/unless}}
