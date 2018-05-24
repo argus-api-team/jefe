@@ -71,7 +71,7 @@
           <p class="vehicule-infos__date text-right font-italic m--marginless">{{model.vehicle.generation.displayDate}}</p>
         </div>
       </div>
-      {{#sticky-element top=110}}
+      {{#sticky-element top=110 enabled=(if (media 'isMobile') false true)}}
         <div class="m-portlet">
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
