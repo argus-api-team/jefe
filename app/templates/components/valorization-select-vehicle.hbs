@@ -3,15 +3,33 @@
     <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle selection</h4>
     <div class="section-header__separator"><hr /></div>
   </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-2 col-form-label text-right">Category</label>
+    <div class="col-10">
+      {{#power-select
+        options=categoriesSelection
+        selected=selectedCategory
+        searchField="name"
+        enableTime=false
+        onchange=(action (mut selectedCategory))
+        as |category|
+      }}
+        {{category.name}}
+      {{/power-select}}
+    </div>
+  </div>
+
   <div class="form-group m-form__group row align-items-center">
     <label class="col-2 col-form-label text-right">Make</label>
     <div class="col-10">
       {{#power-select
-        options=makeSelectOptions
+        options=makesSelection
         selected=selectedMake
         searchField="name"
         enableTime=false
-        onchange=(action "selectMake")
+        disabled=(if selectedCategory false true)
+        onchange=(action (mut selectedMake))
         as |make|
       }}
         {{make.name}}
@@ -37,16 +55,34 @@
   <div class="form-group m-form__group row align-items-center">
     <label class="col-2 col-form-label text-right">Model</label>
     <div class="col-10">
-    {{!--   {{#power-select
-        options=makeSelectOptions
-        selected=selectedMake
+      {{#power-select
+        options=phasesSelection
+        selected=selectedPhase
+        searchField="shortNicename"
+        enableTime=false
+        disabled=(if vehicleDate false true)
+        onchange=(action (mut selectedPhase))
+        as |phase|
+      }}
+        {{phase.shortNicename}}
+      {{/power-select}}
+    </div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-2 col-form-label text-right">Version</label>
+    <div class="col-10">
+      {{#power-select
+        options=versionsSelection
+        selected=selectedVersion
         searchField="name"
         enableTime=false
-        onchange=(action "selectMake")
-        as |make|
+        disabled=(if selectedPhase false true)
+        onchange=(action (mut selectedVersion))
+        as |version|
       }}
-        {{make.name}}
-      {{/power-select}} --}}
+        {{version.name}}
+      {{/power-select}}
     </div>
   </div>
 
@@ -56,13 +92,17 @@
     <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle preview</h4>
     <div class="section-header__separator"><hr /></div>
   </div>
-  <p>Selected make: {{selectedMake.name}}</p>
-  <p>Selected make StartDate: {{moment-format selectedMake.startDate 'DD/MM/YYYY'}}</p>
-  <p>Selected make EndDate: {{moment-format selectedMake.endDate 'DD/MM/YYYY'}}</p>
-  <p>VehcileDate: {{moment-format vehicleDate 'DD/MM/YYYY'}}</p>
-  <ul>
-    {{#each modelsSelection as |model|}}
-      <li>{{model.shortNicename}}</li>
-    {{/each}}
-  </ul>
+  <div class="valorization-card vehicle-preview m--clearfix">
+    <div class="vehicle-infos">
+      <h5 class="h5"> {{selectedMake.name}} - {{selectedPhase.submodel.name}}</h5>
+      <p class="m--margin-bottom-5">Gén. {{selectedPhase.generation.name}} Pe. {{selectedPhase.name}} - {{if vehicleDate (moment-format vehicleDate "DD/MM/YYYY")}} </p>
+      <p class="m--marginless">{{selectedVersion.name}}</p>
+    </div>
+    <div class="vehicle-make-logo">
+      {{logo-img url=selectedMake.logoURL className='thumbnail make-logo'}}
+    </div>
+  </div>
 </section>
+<div class="btn-container m--margin-top-30 text-right col-12">
+  <button class="btn btn-primary" disabled={{if selectedVersion false true}}>Validate</button>
+</div>
