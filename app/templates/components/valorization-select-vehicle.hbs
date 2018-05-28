@@ -94,13 +94,42 @@
   </div>
   <div class="valorization-card vehicle-preview m--clearfix">
     <div class="vehicle-infos">
-      <h5 class="h5"> {{selectedMake.name}} - {{selectedPhase.submodel.name}}</h5>
-      <p class="m--margin-bottom-5">Gén. {{selectedPhase.generation.name}} Pe. {{selectedPhase.name}} - {{if vehicleDate (moment-format vehicleDate "DD/MM/YYYY")}} </p>
-      <p class="m--marginless">{{selectedVersion.name}}</p>
+
+      {{#if selectedMake}}
+
+        <h5 class="h5">
+          {{selectedMake.name}}
+          {{#if vehicleDate}}
+            - {{if selectedPhase selectedPhase.submodel.name 'Choose a model'}}
+          {{/if}}
+        </h5>
+
+      {{else}}
+        <h5 class="h5 m--marginless">{{if selectedCategory 'Choose a make' 'Choose a category'}}</h5>
+      {{/if}}
+
+      {{#if vehicleDate}}
+
+        <p class="{{ 'm--margin-bottom-5' 'm--marginless'}}">
+          {{#if selectedPhase}}
+            Gén. {{selectedPhase.generation.name}} Pe. {{selectedPhase.name}} -
+          {{/if}}
+          {{if vehicleDate (moment-format vehicleDate "DD/MM/YYYY")}}
+        </p>
+
+      {{else}}
+        <p class="m--marginless">{{if selectedMake 'Select a date' ''}}</p>
+      {{/if}}
+      {{#if selectedPhase}}
+        <p class="m--marginless">{{if selectedVersion selectedVersion.name 'Select a version'}}</p>
+      {{/if}}
+
     </div>
-    <div class="vehicle-make-logo">
-      {{logo-img url=selectedMake.logoURL className='thumbnail make-logo'}}
-    </div>
+    {{#if selectedMake}}
+      <div class="vehicle-make-logo">
+        {{logo-img url=selectedMake.logoURL className='thumbnail make-logo'}}
+      </div>
+    {{/if}}
   </div>
 </section>
 <div class="btn-container m--margin-top-30 text-right col-12">

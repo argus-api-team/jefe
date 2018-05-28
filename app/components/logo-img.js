@@ -17,6 +17,10 @@ export default Component.extend({
     this._detectMissingImg();
   },
 
+  didUpdateAttrs() {
+    this.$().find('img').addClass('lazyload');
+  },
+
   _detectMissingImg() {
     const context = this;
     this.$().find('img').on('error', function () {
