@@ -8,8 +8,11 @@ import { map } from 'rsvp';
 export default Component.extend({
   store: service(),
   i18n: service(),
+  router: service(),
+
   tagName: 'form',
   classNames: ['row'],
+
   didInsertElement() {
     const store = this.get('store');
     store.query('category', {
@@ -18,6 +21,17 @@ export default Component.extend({
     }).then((allCategories) => {
       this.set('categoriesSelection', allCategories);
     });
+  },
+
+  submit(e) {
+    e.preventDefault();
+    const vehicleDate = this.get('vehicleDate');
+    const version = this.get('selectedVersion');
+    const valorizationRecord = this.get('valorizationRecord');
+    const router = this.get('router');
+    valorizationRecord.set('releasedAt', vehicleDate);
+    valorizationRecord.set('version', version);
+    router.transitionTo('lang.quote.valorize.offer');
   },
 
   makesSelection: computed('selectedCategory', function () {
