@@ -19,7 +19,7 @@
       <!--begin: Form Wizard Progress -->
       <div class="m-wizard__progress">
         <div class="progress">
-          <div class="progress-bar" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+          <div class="progress-bar" role="progressbar"  aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
         </div>
       </div>
       <!--end: Form Wizard Progress -->
@@ -81,28 +81,33 @@
         <div class="m-portlet__body">
           <div class="row">
             <div class="col-12 col-md-6">
-              <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</label>
-                <div class="col-10 input-group">
-                  {{input value=model.valorization.mileage class="form-control"}}
-                  <div class="input-group-append">
-                    <span class="input-group-text">km</span>
-                  </div>
+              {{#validated-form-group
+                label=(t "valorization.wizzard.criteria.usage.mileage")
+                isValid=(v-get model.valorization 'mileage' 'isValid')
+                errorMessage=(v-get model.valorization 'mileage' 'message')
+                forceShowErrorMessage=showErrorMessages
+              }}
+              {{input value=model.valorization.mileage class="form-control"}}
+                <div class="input-group-append">
+                  <span class="input-group-text">km</span>
                 </div>
-              </div>
+              {{/validated-form-group}}
             </div>
             <div class="col-12 col-md-6">
               <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.date"}}</label>
-                <div class="col-10">
+                <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.date"}}</label>
+                <div class="col-8 input-group">
                   {{date-picker
                     buttonClasses="btn btn-primary"
                     availableYearOffset=15
-                    value=model.valorization.calculatedFor
+                    value=(if model.valorization.needReturnedAt model.valorization.returnedAt model.valorization.calculatedFor)
                     placeholder=(t "application.datePlaceholder")
                     action=(action (mut model.valorization.calculatedFor))
                   }}
                 </div>
+                {{#if showErrorMessages}}
+                  <div class="form-control-feedback offset-4 col-8">{{if model.valorization.needReturnedAt (v-get model.valorization 'returnedAt' 'message') (v-get model.valorization 'calculatedFor' 'message')}}</div>
+                {{/if}}
               </div>
             </div>
           </div>
@@ -134,8 +139,8 @@
           <div class="row">
             <div class="col-12 col-md-6">
               <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</label>
-                <div class="col-10">
+                <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</label>
+                <div class="col-8">
                   {{#power-select-multiple
                     options=model.makes
                     selected=garageMakes
@@ -151,8 +156,8 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</label>
-                <div class="col-10">
+                <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</label>
+                <div class="col-8">
                   {{input value=model.valorization.geolocalisation class="form-control"}}
                 </div>
               </div>
@@ -179,7 +184,7 @@
             <div class="valorization-card valorization-card m--clearfix">
               <div class="vehicle-infos">
                 <h5 class="h6"> {{model.valorization.version.make.name}} - {{model.valorization.version.submodel.name}}</h5>
-                <p class="m--margin-bottom-5">Gen. {{model.valorization.version.generation.name}} Pe. {{model.valorization.version.phase.name}} - {{moment-format model.valorization.releasedAt 'DD/MM/YYYY'}}</p>
+                <p class="m--margin-bottom-5">Gen. {{model.valorization.version.generation.name}} Pe. {{model.valorization.version.phase.name}} - {{moment-format model.valorization.releasedAt (t 'application.dateFormat')}}</p>
                 <p class="m--marginless">{{model.valorization.version.name}}</p>
               </div>
               <div class="vehicle-make-logo">
@@ -199,7 +204,15 @@
                 {{/if}}
               </dd>
               <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
-              <dd class="col-3">{{moment-format model.valorization.calculatedFor 'YYYY-MM-DD'}}</dd>
+              {{#if model.valorization.needReturnedAt}}
+                {{#if model.valorization.returnedAt}}
+                  <dd class="col-3">{{moment-format model.valorization.returnedAt 'YYYY-MM-DD'}}</dd>
+                {{/if}}
+              {{else}}
+                {{#if model.valorization.calculatedFor}}
+                  <dd class="col-3">{{moment-format model.valorization.calculatedFor 'YYYY-MM-DD'}}</dd>
+                {{/if}}
+              {{/if}}
             </div>
             {{#if model.valorization.features.length}}
               <div class="section-header m--margin-bottom-15 m--margin-top-30">
@@ -236,7 +249,7 @@
               <dd class="col-3">{{model.valorization.geolocalisation}}</dd>
             </div>
             <div class="btn-container text-right m--margin-top-30">
-              <button class="btn btn-primary" type="button" {{action 'validateForm'}}>{{t "valorization.wizzard.criteria.valorize"}}</button>
+              <button class="btn btn-primary" disabled={{v-get model.valorization 'isInvalid'}} type="button" {{action 'validateForm'}}>{{t "valorization.wizzard.criteria.valorize"}}</button>
             </div>
           </div>
         </div>

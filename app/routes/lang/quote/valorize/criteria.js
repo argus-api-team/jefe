@@ -16,10 +16,8 @@ export default Route.extend({
 
   beforeModel() {
     const valorizationRecord = this.modelFor('lang.quote.valorize');
-    valorizationRecord.set('releasedAt', '2015-11-20');
-    valorizationRecord.set('offer', 'extended-market-value');
-    this.store.findRecord('version', 1532850).then((placeHolderVersion) => {
-      valorizationRecord.set('version', placeHolderVersion);
-    });
+    if(!valorizationRecord.get('offer')) {
+      this.transitionTo('lang.quote.valorize.offer');
+    }
   },
 });

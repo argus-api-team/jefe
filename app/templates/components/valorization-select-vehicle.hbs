@@ -5,8 +5,8 @@
   </div>
 
   <div class="form-group m-form__group row align-items-center">
-    <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.identity.select.category"}}</label>
-    <div class="col-10">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.category"}}</label>
+    <div class="col-8">
       {{#power-select
         options=categoriesSelection
         selected=selectedCategory
@@ -21,8 +21,8 @@
   </div>
 
   <div class="form-group m-form__group row align-items-center">
-    <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.identity.select.make"}}</label>
-    <div class="col-10">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.make"}}</label>
+    <div class="col-8">
       {{#power-select
         options=makesSelection
         selected=selectedMake
@@ -38,8 +38,8 @@
   </div>
 
   <div class="form-group m-form__group row align-items-center">
-    <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.identity.select.date"}}</label>
-    <div class="col-10">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.date"}}</label>
+    <div class="col-8">
       {{date-picker
         buttonClasses="btn btn-primary"
         disabled=(if selectedMake false true)
@@ -54,8 +54,8 @@
   </div>
 
   <div class="form-group m-form__group row align-items-center">
-    <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.identity.select.model"}}</label>
-    <div class="col-10">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.model"}}</label>
+    <div class="col-8">
       {{#power-select
         options=phasesSelection
         selected=selectedPhase
@@ -71,8 +71,8 @@
   </div>
 
   <div class="form-group m-form__group row align-items-center">
-    <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.identity.select.version"}}</label>
-    <div class="col-10">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.version"}}</label>
+    <div class="col-8">
       {{#power-select
         options=versionsSelection
         selected=selectedVersion

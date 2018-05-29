@@ -3,7 +3,9 @@ import { on } from '@ember/object/evented';
 
 export default Route.extend({
   model() {
-    return this.store.createRecord('valorization');
+    return this.store.createRecord('valorization', {
+      businessTarget: 'btob',
+    });
   },
   unloadIncompleteValorizeRecord: on('deactivate', function () {
     if (this.currentModel.get('isNew') && !this.currentModel.get('isSaving')) {
