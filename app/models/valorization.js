@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import { computed } from '@ember/object';
+import { computed, observer } from '@ember/object';
 import { validator, buildValidations } from 'ember-cp-validations';
 
 const Validations = buildValidations({
@@ -47,4 +47,7 @@ export default DS.Model.extend(Validations, {
     const offer = this.get('offer');
     return offer === 'prevar-value';
   }),
+  resetOptions: observer('version', function() {
+    this.set('features', []);
+  })
 });
