@@ -4,10 +4,10 @@ export default Route.extend({
   beforeModel() {
     const valorizationRecord = this.modelFor('lang.quote.valorize');
     valorizationRecord.get('version').then((versionRecord) => {
-      if(!versionRecord || !valorizationRecord.get('releasedAt')) {
+      if (!versionRecord || !valorizationRecord.get('releasedAt')) {
         this.transitionTo('lang.quote.valorize');
       }
-    })
+    });
   },
   actions: {
     selectOffer(offer) {

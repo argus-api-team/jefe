@@ -16,7 +16,7 @@ export default Route.extend({
 
   beforeModel() {
     const valorizationRecord = this.modelFor('lang.quote.valorize');
-    if(!valorizationRecord.get('offer')) {
+    if (!valorizationRecord.get('offer')) {
       this.transitionTo('lang.quote.valorize.offer');
     }
   },
