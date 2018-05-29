@@ -101,6 +101,8 @@
                     buttonClasses="btn btn-primary"
                     availableYearOffset=15
                     value=(if model.valorization.needReturnedAt model.valorization.returnedAt model.valorization.calculatedFor)
+                    minDate=(if model.valorization.needReturnedAt (moment))
+                    maxDate=(if model.valorization.needCalculatedFor (moment))
                     placeholder=(t "application.datePlaceholder")
                     action=(action (mut model.valorization.calculatedFor))
                   }}
