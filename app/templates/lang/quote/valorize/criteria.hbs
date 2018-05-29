@@ -184,7 +184,7 @@
             <div class="valorization-card valorization-card m--clearfix">
               <div class="vehicle-infos">
                 <h5 class="h6"> {{model.valorization.version.make.name}} - {{model.valorization.version.submodel.name}}</h5>
-                <p class="m--margin-bottom-5">Gen. {{model.valorization.version.generation.name}} Pe. {{model.valorization.version.phase.name}} - {{moment-format model.valorization.releasedAt (t 'application.dateFormat')}}</p>
+                <p class="m--margin-bottom-5">Gen. {{model.valorization.version.generation.name}} Pe. {{model.valorization.version.phase.name}} - {{moment-format model.valorization.releasedAt 'DD/MM/YYYY'}}</p>
                 <p class="m--marginless">{{model.valorization.version.name}}</p>
               </div>
               <div class="vehicle-make-logo">

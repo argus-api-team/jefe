@@ -237,7 +237,7 @@ export default {
         },
         garage: {
           title: 'Your garage',
-          makes: 'Make affiliations',
+          makes: 'Makes',
           zipcode: 'Zipcode',
         },
         summary: {

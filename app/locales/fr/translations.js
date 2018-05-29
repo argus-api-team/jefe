@@ -237,7 +237,7 @@ export default {
         },
         garage: {
           title: 'Votre garage',
-          makes: 'Affialitions constructeur',
+          makes: 'Constructeurs',
           zipcode: 'Code postal',
         },
         summary: {
