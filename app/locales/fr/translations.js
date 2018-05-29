@@ -6,6 +6,9 @@ export default {
     pending: 'Chargement des données',
     yes: 'Oui',
     no: 'Non',
+    validate: 'Valider',
+    datePlaceholder: 'Sélectionnez une date',
+    dateFormat: 'DD/MM/YYYY',
   },
 
   index: {
@@ -156,6 +159,94 @@ export default {
   prices: {
     ttc: 'TTC',
     ht: 'HT',
+  },
+
+  valorization: {
+    wizzard: {
+      identity: {
+        title: '1. Selection d\'un véhicule',
+        select: {
+          title: 'Selectionner un vehicule',
+          subtitle: 'Sélection du véhicule',
+          category: 'Catégorie',
+          make: 'Constructeur',
+          date: 'Date',
+          model: 'Modèle',
+          version: 'Version',
+          preview: {
+            title: 'Prévisualisation du véhicule',
+            category: 'Sélectionnez un catégorie',
+            make: 'Sélectionnez un constructeur',
+            date: 'Sélectionnez une date',
+            model: 'Sélectionnez un modèle',
+            version: 'Sélectionnez une version',
+          },
+        },
+        argusId: {
+          title: 'Chercher par OID Argus',
+          form: {
+            title: 'Formulaire de recherche',
+            oid: 'OID Argus',
+            date: 'Date',
+          },
+          preview: {
+            title: 'Résultat de la recherche',
+            noOID: 'Veuillez entrer un OID Argus',
+            noMatch: 'Aucune version ne correspond à votre OID Argus',
+            pending: 'Recherche en cours',
+          },
+        },
+      },
+      offer: {
+        title: '2. Sélection de l\'offre',
+        values: {
+          title: 'Valeur Agrus de marché',
+          description: 'Calculer la cote et les valeurs de marché de votre véhicule',
+        },
+        quote: {
+          title: 'Cote Argus personnalisée',
+          description: 'Calculer la cote de votre véhciule',
+        },
+        prevar: {
+          title: 'Valeur Argus résiduelle',
+          description: 'Calculer la valeur Argus prévisionnelle de votre véhicule',
+        },
+        pastStock: {
+          title: 'Cote à date passée et prix du neuf',
+          description: 'Calculer la cote de votre véhicule à une date passée avec le prix du neuf inclus',
+        },
+        past: {
+          title: 'Cote à date passée',
+          description: 'Calculer la cote de votre véhicule à une date passée',
+        },
+        recovery: {
+          title: 'Valeur de reprise',
+          description: 'Ajouter une description',
+        },
+        vehicle: 'Véhicule valorisé',
+      },
+      criteria: {
+        title: '3. Définition des critères',
+        usage: {
+          title: 'Utilisation du véhicule',
+          mileage: 'Kilométrage',
+          date: 'Date',
+        },
+        options: {
+          title: 'Options du véhicule',
+        },
+        garage: {
+          title: 'Votre garage',
+          makes: 'Affialitions constructeur',
+          zipcode: 'Code postal',
+        },
+        summary: {
+          title: 'Résumé de la valorisation',
+          offer: 'Véhicule et offre',
+        },
+        valorize: 'Valoriser',
+      },
+    },
   },
 
   techData: {

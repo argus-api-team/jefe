@@ -34,7 +34,7 @@
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                1. Identify your vehicle
+                {{t 'valorization.wizzard.identity.title'}}
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                2. Select value to compute
+                {{t 'valorization.wizzard.offer.title'}}
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                3. Define your criteria
+                {{t 'valorization.wizzard.criteria.title'}}
               </div>
             </div>
           </div>
@@ -73,38 +73,38 @@
       <ul class="offer-list list-unstyled row">
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
           <div class="offer-list__item border-argus" {{action "selectOffer" "extended-market-value"}}>
-            <h5>Valeurs Argus de marché</h5>
-            <p class="m--marginless">Calculer la cote et les valeurs de marché de votre véhicule</p>
+            <h5>{{t "valorization.wizzard.offer.values.title"}}</h5>
+            <p class="m--marginless">{{t "valorization.wizzard.offer.values.description"}}</p>
           </div>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
           <div class="offer-list__item border-danger" {{action "selectOffer" "custom-market-value"}}>
-            <h5>Cote Argus personnalisée</h5>
-            <p class="m--marginless">Caculer la cote de votre véhicule</p>
+            <h5>{{t "valorization.wizzard.offer.quote.title"}}</h5>
+            <p class="m--marginless">{{t "valorization.wizzard.offer.quote.description"}}</p>
           </div>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
           <div class="offer-list__item border-info" {{action "selectOffer" "prevar-value"}}>
-            <h5>Valeur Argus résiduelle</h5>
-            <p class="m--marginless">Calculer la valeur Argus prévisionnelle de votre véhicule</p>
+            <h5>{{t "valorization.wizzard.offer.prevar.title"}}</h5>
+            <p class="m--marginless">{{t "valorization.wizzard.offer.prevar.description"}}</p>
           </div>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
           <div class="offer-list__item border-focus" {{action "selectOffer" "past-market-value"}}>
-            <h5>Cote à date passé et prix du neuf</h5>
-            <p class="m--marginless">Caculer la cote de votre véhicule à une date passée avec le prix du neuf inclus</p>
+            <h5>{{t "valorization.wizzard.offer.pastStock.title"}}</h5>
+            <p class="m--marginless">{{t "valorization.wizzard.offer.pastStock.description"}}</p>
           </div>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
           <div class="offer-list__item border-primary" {{action "selectOffer" "past-stock-market-value"}}>
-            <h5>Cote à date passé</h5>
-            <p class="m--marginless">Caculer la cote de votre véhicule à une date passée</p>
+            <h5>{{t "valorization.wizzard.offer.past.title"}}</h5>
+            <p class="m--marginless">{{t "valorization.wizzard.offer.past.description"}}</p>
           </div>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
           <div class="offer-list__item border-success" {{action "selectOffer" "part-exchange-value"}}>
-            <h5>Valeur de reprise</h5>
-            <p class="m--marginless">Add a description</p>
+            <h5>{{t "valorization.wizzard.offer.recovery.title"}}</h5>
+            <p class="m--marginless">{{t "valorization.wizzard.offer.recovery.description"}}</p>
           </div>
         </li>
       </ul>
@@ -114,7 +114,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Valorized vehicle</h3>
+              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.offer.vehicle"}}</h3>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
           <div class="valorization-card m--clearfix">
             <div class="vehicle-infos">
               <h5 class="h5"> {{model.version.make.name}} - {{model.version.submodel.name}}</h5>
-              <p class="m--margin-bottom-5">Gén. {{model.version.generation.name}} Pe. {{model.version.phase.name}} - {{moment-format model.releasedAt "DD/MM/YYYY"}}</p>
+              <p class="m--margin-bottom-5">Gen. {{model.version.generation.name}} Pe. {{model.version.phase.name}} - {{moment-format model.releasedAt (t "application.dateFormat")}}</p>
               <p class="m--marginless">{{model.version.name}}</p>
               </div>
             <div class="vehicle-make-logo">

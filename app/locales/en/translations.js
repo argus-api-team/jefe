@@ -6,6 +6,9 @@ export default {
     pending: 'Is pending',
     yes: 'Yes',
     no: 'No',
+    validate: 'Validate',
+    datePlaceholder: 'Select date',
+    dateFormat: 'MM/DD/YYYY',
   },
 
   index: {
@@ -156,6 +159,94 @@ export default {
   prices: {
     ttc: 'incl. tax',
     ht: 'excl. taxes',
+  },
+
+  valorization: {
+    wizzard: {
+      identity: {
+        title: '1. Identify a vehicle',
+        select: {
+          title: 'Select a vehicle',
+          subtitle: 'Vehicle selection',
+          category: 'Catégorie',
+          make: 'Constructeur',
+          date: 'Date',
+          model: 'Modèle',
+          version: 'Version',
+          preview: {
+            title: 'Vehicle preview',
+            category: 'Select a category',
+            make: 'Select a make',
+            date: 'Select date',
+            model: 'Select a model',
+            version: 'Select a version',
+          },
+        },
+        argusId: {
+          title: 'Search by OID',
+          form: {
+            title: 'Search form',
+            oid: 'Argus OID',
+            date: 'Date',
+          },
+          preview: {
+            title: 'Search result',
+            noOID: 'Please enter an Argus OID',
+            noMatch: 'No version matched with your OID',
+            pending: 'Is searching',
+          },
+        },
+      },
+      offer: {
+        title: '2. Offer selection',
+        values: {
+          title: 'Argus market values',
+          description: 'Compute the quote and the market values of your vehicle',
+        },
+        quote: {
+          title: 'Personalized Argus quotation',
+          description: 'Compute the quotation of your vehicle',
+        },
+        prevar: {
+          title: 'Residual Argus value',
+          description: 'Calculate the projected Argus value of your vehicle',
+        },
+        pastStock: {
+          title: 'Past quotation and new price',
+          description: 'Calculate the price of your vehicle at a past date with the new price included',
+        },
+        past: {
+          title: 'Past quotation',
+          description: 'Calculate the price of your vehicle at a past date',
+        },
+        recovery: {
+          title: 'Trade-in value',
+          description: 'Add a description',
+        },
+        vehicle: 'Valorized vehicle',
+      },
+      criteria: {
+        title: '3. Define criteria',
+        usage: {
+          title: 'Vehicle usage',
+          mileage: 'Mileage',
+          date: 'Date',
+        },
+        options: {
+          title: 'Vehicle options',
+        },
+        garage: {
+          title: 'Your garage',
+          makes: 'Make affiliations',
+          zipcode: 'Zipcode',
+        },
+        summary: {
+          title: 'Valorization summary',
+          offer: 'Vehicle and offer',
+        },
+        valorize: 'Valorize',
+      },
+    },
   },
 
   techData: {

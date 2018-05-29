@@ -34,7 +34,7 @@
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                1. Identify your vehicle
+                {{t 'valorization.wizzard.identity.title'}}
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                2. Select value to compute
+                {{t 'valorization.wizzard.offer.title'}}
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                3. Define your criteria
+                {{t 'valorization.wizzard.criteria.title'}}
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Vehicle usage</h3>
+              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.usage.title"}}</h3>
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
           <div class="row">
             <div class="col-12 col-md-6">
               <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">Mileage</label>
+                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</label>
                 <div class="col-10 input-group">
                   {{input value=model.valorization.mileage class="form-control"}}
                   <div class="input-group-append">
@@ -93,12 +93,13 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">Date</label>
+                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.date"}}</label>
                 <div class="col-10">
                   {{date-picker
                     buttonClasses="btn btn-primary"
                     availableYearOffset=15
                     value=model.valorization.calculatedFor
+                    placeholder=(t "application.datePlaceholder")
                     action=(action (mut model.valorization.calculatedFor))
                   }}
                 </div>
@@ -111,7 +112,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Vehicle options</h3>
+              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.options.title"}}</h3>
             </div>
           </div>
         </div>
@@ -125,7 +126,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Your garage</h3>
+              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.garage.title"}}</h3>
             </div>
           </div>
         </div>
@@ -133,7 +134,7 @@
           <div class="row">
             <div class="col-12 col-md-6">
               <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">Makes</label>
+                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</label>
                 <div class="col-10">
                   {{#power-select-multiple
                     options=model.makes
@@ -150,7 +151,7 @@
             </div>
             <div class="col-12 col-md-6">
               <div class="form-group m-form__group row align-items-center">
-                <label class="col-2 col-form-label text-right">Zipcode</label>
+                <label class="col-2 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</label>
                 <div class="col-10">
                   {{input value=model.valorization.geolocalisation class="form-control"}}
                 </div>
@@ -166,19 +167,19 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">Valorization summary</h3>
+                <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.summary.title"}}</h3>
               </div>
             </div>
           </div>
           <div class="m-portlet__body">
             <div class="section-header m--margin-bottom-15">
-              <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle and offer</h4>
+              <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.summary.offer"}}</h4>
               <div class="section-header__separator"><hr /></div>
             </div>
             <div class="valorization-card valorization-card m--clearfix">
               <div class="vehicle-infos">
                 <h5 class="h6"> {{model.valorization.version.make.name}} - {{model.valorization.version.submodel.name}}</h5>
-                <p class="m--margin-bottom-5">Gén. {{model.valorization.version.generation.name}} Pe. {{model.valorization.version.phase.name}} - {{moment-format model.valorization.releasedAt "DD/MM/YYYY"}}</p>
+                <p class="m--margin-bottom-5">Gen. {{model.valorization.version.generation.name}} Pe. {{model.valorization.version.phase.name}} - {{moment-format model.valorization.releasedAt 'DD/MM/YYYY'}}</p>
                 <p class="m--marginless">{{model.valorization.version.name}}</p>
               </div>
               <div class="vehicle-make-logo">
@@ -187,22 +188,22 @@
               {{valorization-offer-badge offer=model.valorization.offer}}
             </div>
             <div class="section-header m--margin-bottom-15 m--margin-top-30">
-              <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle usage</h4>
+              <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.usage.title"}}</h4>
               <div class="section-header__separator"><hr /></div>
             </div>
             <div class="row">
-              <dt class="col-3 text-right">Mileage: </dt>
+              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</dt>
               <dd class="col-3">
                 {{#if model.valorization.mileage}}
                   {{model.valorization.mileage}} {{t 'techData.units.km'}}
                 {{/if}}
               </dd>
-              <dt class="col-3 text-right">Date: </dt>
+              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
               <dd class="col-3">{{moment-format model.valorization.calculatedFor 'YYYY-MM-DD'}}</dd>
             </div>
             {{#if model.valorization.features.length}}
               <div class="section-header m--margin-bottom-15 m--margin-top-30">
-                <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle options</h4>
+                <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.options.title"}}</h4>
                 <div class="section-header__separator"><hr /></div>
               </div>
               <ul>
@@ -217,11 +218,11 @@
               </ul>
             {{/if}}
             <div class="section-header m--margin-bottom-15 m--margin-top-30">
-              <h4 class="m--marginless section-header__title m--padding-right-15">Your garage</h4>
+              <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.garage.title"}}</h4>
               <div class="section-header__separator"><hr /></div>
             </div>
             <div class="row">
-              <dt class="col-3 text-right">Makes: </dt>
+              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</dt>
               <dd class="col-3">
                 <ul>
                   {{#each garageMakes as |make|}}
@@ -231,11 +232,11 @@
                   {{/each}}
                 </ul>
               </dd>
-              <dt class="col-3 text-right">Zipcode: </dt>
+              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</dt>
               <dd class="col-3">{{model.valorization.geolocalisation}}</dd>
             </div>
             <div class="btn-container text-right m--margin-top-30">
-              <button class="btn btn-primary" type="button" {{action 'validateForm'}}>Valorize</button>
+              <button class="btn btn-primary" type="button" {{action 'validateForm'}}>{{t "valorization.wizzard.criteria.valorize"}}</button>
             </div>
           </div>
         </div>
