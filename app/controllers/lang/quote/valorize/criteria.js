@@ -1,22 +1,15 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
+  isExtendedValue: computed('model.valorization.offer', function () {
+    return this.get('model.valorization.offer') === 'extended-market-value';
+  }),
+  showSummaryGaragePart: computed.or('garageMakes', 'model.valorization.geolocalisation'),
+  showSummaryUsage: computed.or('model.valorization.{mileage,calculatedFor,returnedAt}'),
   actions: {
     validateForm() {
       const valorization = this.get('model.valorization');
-      // let calculatedFor = valorization.get('calculatedFor');
-      // if (calculatedFor) {
-      //   calculatedFor = calculatedFor.format('YYYY-MM-DD');
-      //   valorization.set('calculatedFor', valorization)
-      // }
-      // let returnedAt = valorization.get('returnedAt');
-      // if (returnedAt) {
-      //   returnedAt = returnedAt.format('YYYY-MM-DD');
-      //   valorization.set('returnedAt', returnedAt)
-      // }
-      // let releasedAt = valorization.get('releasedAt');
-      // releasedAt = releasedAt.format('YYYY-MM-DD');
-      // valorization.set('releasedAt', releasedAt)
       valorization.save();
     },
   },

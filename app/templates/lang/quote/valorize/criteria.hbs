@@ -93,28 +93,70 @@
                 </div>
               {{/validated-form-group}}
             </div>
-            <div class="col-12 col-md-6">
-              <div class="form-group m-form__group row align-items-center">
-                <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.date"}}</label>
-                <div class="col-8 input-group">
-                  {{date-picker
-                    buttonClasses="btn btn-primary"
-                    availableYearOffset=15
-                    value=(if model.valorization.needReturnedAt model.valorization.returnedAt model.valorization.calculatedFor)
-                    minDate=(if model.valorization.needReturnedAt (moment))
-                    maxDate=(if model.valorization.needCalculatedFor (moment))
-                    placeholder=(t "application.datePlaceholder")
-                    action=(if model.valorization.needReturnedAt (action (mut model.valorization.returnedAt)) (action (mut model.valorization.calculatedFor)))
-                  }}
+            {{#unless isExtendedValue}}
+              <div class="col-12 col-md-6">
+                <div class="form-group m-form__group row align-items-center">
+                  <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.date"}}</label>
+                  <div class="col-8 input-group">
+                    {{date-picker
+                      buttonClasses="btn btn-primary"
+                      availableYearOffset=15
+                      value=(if model.valorization.isPrevar model.valorization.returnedAt model.valorization.calculatedFor)
+                      minDate=(if model.valorization.isPrevar (moment))
+                      maxDate=(unless model.valorization.isPrevar (moment))
+                      placeholder=(t "application.datePlaceholder")
+                      action=(if model.valorization.isPrevar (action (mut model.valorization.returnedAt)) (action (mut model.valorization.calculatedFor)))
+                    }}
+                  </div>
+                  {{#if showErrorMessages}}
+                    <div class="form-control-feedback offset-4 col-8">{{if model.valorization.isPrevar (v-get model.valorization 'returnedAt' 'message') (v-get model.valorization 'calculatedFor' 'message')}}</div>
+                  {{/if}}
                 </div>
-                {{#if showErrorMessages}}
-                  <div class="form-control-feedback offset-4 col-8">{{if model.valorization.needReturnedAt (v-get model.valorization 'returnedAt' 'message') (v-get model.valorization 'calculatedFor' 'message')}}</div>
-                {{/if}}
+              </div>
+              {{/unless}}
+          </div>
+        </div>
+      </div>
+      {{#if isExtendedValue}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.garage.title"}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group m-form__group row align-items-center">
+                  <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</label>
+                  <div class="col-8">
+                    {{#power-select-multiple
+                      options=model.makes
+                      selected=garageMakes
+                      searchField="name"
+                      enableTime=false
+                      onchange=(action (mut garageMakes))
+                      as |make|
+                    }}
+                      {{make.name}}
+                    {{/power-select-multiple}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group m-form__group row align-items-center">
+                  <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</label>
+                  <div class="col-8">
+                    {{input value=model.valorization.geolocalisation class="form-control"}}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      {{/if}}
       <div class="m-portlet">
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
@@ -127,44 +169,6 @@
           {{#each model.featureCategories as |featureCategory|}}
             {{valorization-features-category category=featureCategory valorization=model.valorization vehicleVersion=model.valorization.version}}
           {{/each}}
-        </div>
-      </div>
-      <div class="m-portlet">
-        <div class="m-portlet__head">
-          <div class="m-portlet__head-caption">
-            <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.garage.title"}}</h3>
-            </div>
-          </div>
-        </div>
-        <div class="m-portlet__body">
-          <div class="row">
-            <div class="col-12 col-md-6">
-              <div class="form-group m-form__group row align-items-center">
-                <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</label>
-                <div class="col-8">
-                  {{#power-select-multiple
-                    options=model.makes
-                    selected=garageMakes
-                    searchField="name"
-                    enableTime=false
-                    onchange=(action (mut garageMakes))
-                    as |make|
-                  }}
-                    {{make.name}}
-                  {{/power-select-multiple}}
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6">
-              <div class="form-group m-form__group row align-items-center">
-                <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</label>
-                <div class="col-8">
-                  {{input value=model.valorization.geolocalisation class="form-control"}}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -194,28 +198,57 @@
               </div>
               {{valorization-offer-badge offer=model.valorization.offer}}
             </div>
-            <div class="section-header m--margin-bottom-15 m--margin-top-30">
-              <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.usage.title"}}</h4>
-              <div class="section-header__separator"><hr /></div>
-            </div>
-            <div class="row">
-              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</dt>
-              <dd class="col-3">
+            {{#if showSummaryUsage}}
+              <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.usage.title"}}</h4>
+                <div class="section-header__separator"><hr /></div>
+              </div>
+              <div class="row">
                 {{#if model.valorization.mileage}}
-                  {{model.valorization.mileage}} {{t 'techData.units.km'}}
+                  <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</dt>
+                  <dd class="col-3">{{model.valorization.mileage}} {{t 'techData.units.km'}}</dd>
                 {{/if}}
-              </dd>
-              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
-              {{#if model.valorization.needReturnedAt}}
-                {{#if model.valorization.returnedAt}}
-                  <dd class="col-3">{{moment-format model.valorization.returnedAt 'YYYY-MM-DD'}}</dd>
-                {{/if}}
-              {{else}}
-                {{#if model.valorization.calculatedFor}}
-                  <dd class="col-3">{{moment-format model.valorization.calculatedFor 'YYYY-MM-DD'}}</dd>
-                {{/if}}
+                {{#unless isExtendedValue}}
+                  {{#if model.valorization.isPrevar}}
+                    {{#if model.valorization.returnedAt}}
+                      <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
+                      <dd class="col-3">{{moment-format model.valorization.returnedAt 'YYYY-MM-DD'}}</dd>
+                    {{/if}}
+                  {{else}}
+                    {{#if model.valorization.calculatedFor}}
+                      <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
+                      <dd class="col-3">{{moment-format model.valorization.calculatedFor 'YYYY-MM-DD'}}</dd>
+                    {{/if}}
+                  {{/if}}
+                {{/unless}}
+              </div>
+            {{/if}}
+            {{#if isExtendedValue}}
+              {{#if showSummaryGaragePart}}
+                <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                  <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.garage.title"}}</h4>
+                  <div class="section-header__separator"><hr /></div>
+                </div>
+                <div class="row">
+                  {{#if garageMakes.length}}
+                    <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</dt>
+                    <dd class="col-3">
+                      <ul>
+                        {{#each garageMakes as |make|}}
+                          <li>
+                            {{make.name}}
+                          </li>
+                        {{/each}}
+                      </ul>
+                    </dd>
+                  {{/if}}
+                  {{#if model.valorization.geolocalisation}}
+                    <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</dt>
+                    <dd class="col-3">{{model.valorization.geolocalisation}}</dd>
+                  {{/if}}
+                </div>
               {{/if}}
-            </div>
+            {{/if}}
             {{#if model.valorization.features.length}}
               <div class="section-header m--margin-bottom-15 m--margin-top-30">
                 <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.options.title"}}</h4>
@@ -232,24 +265,6 @@
                 {{/each}}
               </ul>
             {{/if}}
-            <div class="section-header m--margin-bottom-15 m--margin-top-30">
-              <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.garage.title"}}</h4>
-              <div class="section-header__separator"><hr /></div>
-            </div>
-            <div class="row">
-              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</dt>
-              <dd class="col-3">
-                <ul>
-                  {{#each garageMakes as |make|}}
-                    <li>
-                      {{make.name}}
-                    </li>
-                  {{/each}}
-                </ul>
-              </dd>
-              <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</dt>
-              <dd class="col-3">{{model.valorization.geolocalisation}}</dd>
-            </div>
             <div class="btn-container text-right m--margin-top-30">
               <button class="btn btn-primary" disabled={{v-get model.valorization 'isInvalid'}} type="button" {{action 'validateForm'}}>{{t "valorization.wizzard.criteria.valorize"}}</button>
             </div>

@@ -16,7 +16,7 @@ const Validations = buildValidations({
   returnedAt: [
     validator('presence', {
       presence: true,
-      disabled: computed.not('model.needReturnedAt'),
+      disabled: computed.not('model.isPrevar'),
     }),
   ],
 });
@@ -47,12 +47,13 @@ export default DS.Model.extend(Validations, {
 
   // Computed properties to handle needed attr with the selected offer
   needCalculatedFor: computed('offer', function () {
-    const offer = this.get('offer');
-    return offer.indexOf('past-') !== -1;
+    return this.get('offer').indexOf('past-') !== -1;
   }),
-  needReturnedAt: computed('offer', function () {
-    const offer = this.get('offer');
-    return offer === 'prevar-value';
+  isPrevar: computed('offer', function () {
+    return this.get('offer') === 'prevar-value';
+  }),
+  isExtended: computed('offer', function () {
+    return this.get('offer') === 'extended-market-value';
   }),
   resetOptions: observer('version', function () {
     this.set('features', []);
