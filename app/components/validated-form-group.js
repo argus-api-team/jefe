@@ -7,7 +7,7 @@ export default Component.extend({
   classNameBindings: ['onError:has-danger'],
 
   onError: computed('isValid', 'showErrorMessage', function () {
-    const showErrorMessage = this.get('showErrorMessage') || this.get('forceShowErrorMessage')
+    const showErrorMessage = this.get('showErrorMessage') || this.get('forceShowErrorMessage');
     return !this.get('isValid') && showErrorMessage;
   }),
   showErrorMessage: false,

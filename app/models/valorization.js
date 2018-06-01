@@ -22,13 +22,20 @@ const Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
+  // Required
   offer: DS.attr('string'),
   mileage: DS.attr('number'),
   releasedAt: DS.attr('date'),
-  calculatedFor: DS.attr('date'),
-  returnedAt: DS.attr('date'),
   businessTarget: DS.attr('string'),
-  geolocalisation: DS.attr('number'),
+
+  // Custom, Past, exchange
+  calculatedFor: DS.attr('date'),
+
+  // Prevar
+  returnedAt: DS.attr('date'),
+
+  // Extended
+  geolocalisation: DS.attr('string'),
   makes: DS.attr('string'),
 
   order: DS.belongsTo({ async: true }),
@@ -47,7 +54,7 @@ export default DS.Model.extend(Validations, {
     const offer = this.get('offer');
     return offer === 'prevar-value';
   }),
-  resetOptions: observer('version', function() {
+  resetOptions: observer('version', function () {
     this.set('features', []);
-  })
+  }),
 });

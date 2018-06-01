@@ -24,12 +24,12 @@ export default Component.extend({
           name: 'Valeur Argus résiduelle',
           classNames: 'm--bg-info',
         };
-      case 'past-market-value':
+      case 'past-stock-market-value':
         return {
           name: 'Cote à date passé et prix du neuf',
           classNames: 'm--bg-focus',
         };
-      case 'past-stock-market-value':
+      case 'past-market-value':
         return {
           name: 'Cote à date passé',
           classNames: 'm--bg-primary',

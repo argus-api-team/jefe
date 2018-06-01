@@ -104,7 +104,7 @@
                     minDate=(if model.valorization.needReturnedAt (moment))
                     maxDate=(if model.valorization.needCalculatedFor (moment))
                     placeholder=(t "application.datePlaceholder")
-                    action=(action (mut model.valorization.calculatedFor))
+                    action=(if model.valorization.needReturnedAt (action (mut model.valorization.returnedAt)) (action (mut model.valorization.calculatedFor)))
                   }}
                 </div>
                 {{#if showErrorMessages}}
