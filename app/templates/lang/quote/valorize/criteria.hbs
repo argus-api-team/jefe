@@ -86,6 +86,7 @@
                 isValid=(v-get model.valorization 'mileage' 'isValid')
                 errorMessage=(v-get model.valorization 'mileage' 'message')
                 forceShowErrorMessage=showErrorMessages
+                required=true
               }}
               {{input value=model.valorization.mileage class="form-control"}}
                 <div class="input-group-append">
@@ -93,31 +94,31 @@
                 </div>
               {{/validated-form-group}}
             </div>
-            {{#unless isExtendedValue}}
+            {{#unless model.valorization.isExtended}}
               <div class="col-12 col-md-6">
-                <div class="form-group m-form__group row align-items-center">
-                  <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.usage.date"}}</label>
-                  <div class="col-8 input-group">
-                    {{date-picker
-                      buttonClasses="btn btn-primary"
-                      availableYearOffset=15
-                      value=(if model.valorization.isPrevar model.valorization.returnedAt model.valorization.calculatedFor)
-                      minDate=(if model.valorization.isPrevar (moment))
-                      maxDate=(unless model.valorization.isPrevar (moment))
-                      placeholder=(t "application.datePlaceholder")
-                      action=(if model.valorization.isPrevar (action (mut model.valorization.returnedAt)) (action (mut model.valorization.calculatedFor)))
-                    }}
-                  </div>
-                  {{#if showErrorMessages}}
-                    <div class="form-control-feedback offset-4 col-8">{{if model.valorization.isPrevar (v-get model.valorization 'returnedAt' 'message') (v-get model.valorization 'calculatedFor' 'message')}}</div>
-                  {{/if}}
-                </div>
+                {{#validated-form-group
+                  label=(if model.valorization.isPrevar (t 'valorization.wizzard.criteria.usage.returnedAt') (t 'valorization.wizzard.criteria.usage.calculatedFor'))
+                  isValid=(if model.valorization.isPrevar (v-get model.valorization 'returnedAt' 'isValid') (v-get model.valorization 'calculatedFor' 'isValid'))
+                  errorMessage=(if model.valorization.isPrevar (v-get model.valorization 'returnedAt' 'message') (v-get model.valorization 'calculatedFor' 'message'))
+                  forceShowErrorMessage=showErrorMessages
+                  required=(if model.valorization.isPrevar true (if model.valorization.needCalculatedFor true false))
+                }}
+                  {{date-picker
+                    buttonClasses="btn btn-primary"
+                    availableYearOffset=15
+                    value=(if model.valorization.isPrevar model.valorization.returnedAt model.valorization.calculatedFor)
+                    minDate=(if model.valorization.isPrevar (moment))
+                    maxDate=(unless model.valorization.isPrevar (moment))
+                    placeholder=(t "application.datePlaceholder")
+                    action=(if model.valorization.isPrevar (action (mut model.valorization.returnedAt)) (action (mut model.valorization.calculatedFor)))
+                  }}
+                {{/validated-form-group}}
               </div>
-              {{/unless}}
+            {{/unless}}
           </div>
         </div>
       </div>
-      {{#if isExtendedValue}}
+      {{#if model.valorization.isExtended}}
         <div class="m-portlet">
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
@@ -208,7 +209,7 @@
                   <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</dt>
                   <dd class="col-3">{{model.valorization.mileage}} {{t 'techData.units.km'}}</dd>
                 {{/if}}
-                {{#unless isExtendedValue}}
+                {{#unless model.valorization.isExtended}}
                   {{#if model.valorization.isPrevar}}
                     {{#if model.valorization.returnedAt}}
                       <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
@@ -223,7 +224,7 @@
                 {{/unless}}
               </div>
             {{/if}}
-            {{#if isExtendedValue}}
+            {{#if model.valorization.isExtended}}
               {{#if showSummaryGaragePart}}
                 <div class="section-header m--margin-bottom-15 m--margin-top-30">
                   <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.garage.title"}}</h4>

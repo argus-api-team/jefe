@@ -231,6 +231,8 @@ export default {
           title: 'Utilisation du véhicule',
           mileage: 'Kilométrage',
           date: 'Date',
+          calculatedFor: 'Date cotation',
+          returnedAt: 'Date de retour',
         },
         options: {
           title: 'Options du véhicule',
