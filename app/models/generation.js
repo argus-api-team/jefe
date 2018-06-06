@@ -2,8 +2,9 @@ import DS from 'ember-data';
 import { computed } from '@ember/object';
 import HasManyQuery from 'ember-data-has-many-query';
 import DisplayDateMixin from '../mixins/display-date';
+import SortableDate from '../mixins/sortable-date';
 
-export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
+export default DS.Model.extend(DisplayDateMixin, SortableDate, HasManyQuery.ModelMixin, {
   name: DS.attr('string'),
   shortNicename: DS.attr('string'),
   fullNicename: DS.attr('string'),
@@ -24,8 +25,9 @@ export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
 
 
   // Computed properties
-  phaseSorting: computed('', function () { // eslint-disable-line
-    return ['startDate:desc'];
+
+  phaseSorting: computed('phases.length', function () { // eslint-disable-line
+    return ['sortableStartDate:desc'];
   }),
   sortedPhases: computed.sort('phases', 'phaseSorting'),
 

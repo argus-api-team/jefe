@@ -18,10 +18,10 @@ export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
   versions: DS.hasMany({ async: true }),
   periods: DS.hasMany({ async: true }),
 
-
   // Computed properties
-  generationSorting: computed('', function () { // eslint-disable-line
-    return ['startDate:desc'];
+
+  generationSorting: computed('generations.length', function () { // eslint-disable-line
+    return ['sortableStartDate:desc'];
   }),
   sortedGenerations: computed.sort('generations', 'generationSorting'),
 });
