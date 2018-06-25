@@ -163,6 +163,7 @@ export default {
 
   valorization: {
     wizzard: {
+      title: 'Computed an Argus value',
       identity: {
         title: '1. Identify a vehicle',
         select: {

@@ -163,6 +163,7 @@ export default {
 
   valorization: {
     wizzard: {
+      title: 'Calcuer une valeur Argus',
       identity: {
         title: '1. Selection d\'un véhicule',
         select: {

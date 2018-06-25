@@ -55,7 +55,34 @@ export default DS.Model.extend(Validations, {
   isExtended: computed('offer', function () {
     return this.get('offer') === 'extended-market-value';
   }),
+  isPastValue: computed('offer', function () {
+    return this.get('offer').indexOf('past-') !== -1;
+  }),
+  isPartExchange: computed('offer', function () {
+    return this.get('offer') === 'part-exchange-value';
+  }),
+  mainValue: computed('values.length', 'offer', function () {
+    let mainValueSubtype;
+    return DS.PromiseObject.create({
+      promise: this.get('values')
+        .then((values) => {
+          if (this.get('isPastValue')) {
+            mainValueSubtype = 'past-market-values';
+          } else if (this.get('isPrevar')) {
+            mainValueSubtype = 'prevar-values';
+          } else if (this.get('isPartExchange')) {
+            mainValueSubtype = 'part-exchange-values';
+          } else {
+            mainValueSubtype = 'custom-market-values';
+          }
+          return values.findBy('subtype', mainValueSubtype);
+        }),
+    });
+  }),
+
+  // Observer to handle some events
   resetOptions: observer('version', function () {
     this.set('features', []);
   }),
+
 });

@@ -22,7 +22,7 @@ Router.map( function () { // eslint-disable-line
     });
 
     this.route('quote', function () {
-      this.route('valorize', { path: '/' }, function () {
+      this.route('valorize', function () {
         this.route('vehicle-identification', { path: '/' });
         this.route('offer');
         this.route('criteria');
