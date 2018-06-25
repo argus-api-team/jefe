@@ -162,6 +162,17 @@ export default {
   },
 
   valorization: {
+    index: {
+      title: 'Historique de valorisation',
+      labels: {
+        offer: 'Offre',
+        vehcule: 'Véhicule',
+        release: 'MEC',
+        date: 'Date',
+        mileage: 'Kilométrage',
+        value: 'Valeur',
+      },
+    },
     wizzard: {
       title: 'Calcuer une valeur Argus',
       identity: {

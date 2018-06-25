@@ -12,7 +12,7 @@
     <div class="m-portlet__head">
       <div class="m-portlet__head-caption">
         <div class="m-portlet__head-title">
-          <h3 class="m-portlet__head-text">Valorization History {{compactMode}}</h3>
+          <h3 class="m-portlet__head-text">{{t 'valorization.index.title'}}</h3>
         </div>
       </div>
     </div>
@@ -20,28 +20,28 @@
       <ul class="list-unstyled">
         <li class="row m--margin-bottom-15">
           <div class="col-4 col-lg-3">
-            Offer
+            {{t 'valorization.index.labels.offer'}}
           </div>
           <div class="col-4 col-lg-5 col-xl-4">
-            Vehicle
+            {{t 'valorization.index.labels.vehcule'}}
           </div>
           {{#if largeMode}}
             <div class="col-1">
-              Mec
+              {{t 'valorization.index.labels.release'}}
             </div>
             <div class="col-1">
-              Date
+              {{t 'valorization.index.labels.date'}}
             </div>
             <div class="col-2">
-              Mileage
+              {{t 'valorization.index.labels.mileage'}}
             </div>
           {{else}}
             <div class="col-2">
-              Mec/Date/Milege
-            </div>
+              {{t 'valorization.index.labels.release'}} / {{t 'valorization.index.labels.date'}} / {{t 'valorization.index.labels.mileage'}}
+             </div>
           {{/if}}
           <div class="col-2 col-xl-1">
-            Value
+            {{t 'valorization.index.labels.value'}}
           </div>
         </li>
         {{#each model.valorizations as |valorization|}}
@@ -60,12 +60,12 @@
             {{#if largeMode}}
               <div class="col-1">{{moment-format valorization.releasedAt 'YYYY-MM-DD'}}</div>
               <div class="col-1">{{if isPrevar (moment-format valorization.returnedAt 'YYYY-MM-DD') (moment-format valorization.calculatedFor 'YYYY-MM-DD')}}</div>
-              <div class="col-2">{{valorization.mileage}} Km</div>
+              <div class="col-2">{{valorization.mileage}} {{t 'techData.units.km'}}</div>
             {{else}}
               <div class="col-2">
                 <p class="m--margin-bottom-5">{{moment-format valorization.releasedAt 'YYYY-MM-DD'}}</p>
                 <p class="m--margin-bottom-5">{{if isPrevar (moment-format valorization.returnedAt 'YYYY-MM-DD') (moment-format valorization.calculatedFor 'YYYY-MM-DD')}}</p>
-                <p class="m--marginless">{{valorization.mileage}} Km</p>
+                <p class="m--marginless">{{valorization.mileage}} {{t 'techData.units.km'}}</p>
               </div>
             {{/if}}
 
@@ -85,7 +85,7 @@
             <div class="row m--margin-bottom-15">
               <div class="col-6">Offer: {{valorization.offer}}</div>
               <div class="col-6">Release date: {{moment-format valorization.releasedAt "YYYY-MM-DD"}}</div>
-              <div class="col-6">KM: {{valorization.mileage}} km</div>
+              <div class="col-6">{{t 'techData.units.km'}}: {{valorization.mileage}} {{t 'techData.units.km'}}</div>
               <div class="col-6">Computed date: {{if valorziation.calculatedFor (moment-format valorziation.calculatedFor "YYYY-MM-DD") (moment-format valorziation.returnedAt "YYYY-MM-DD")}}</div>
             </div>
             {{#if valorization.features.length}}
@@ -229,7 +229,7 @@
                     <div class="row m--margin-bottom-15">
                       <div class="col-6">Offer: {{valorization.offer}}</div>
                       <div class="col-6">Release date: {{moment-format valorization.releasedAt "YYYY-MM-DD"}}</div>
-                      <div class="col-6">KM: {{valorization.mileage}} km</div>
+                      <div class="col-6">{{t 'techData.units.km'}}: {{valorization.mileage}} {{t 'techData.units.km'}}</div>
                       <div class="col-6">Computed date: {{if valorziation.calculatedFor (moment-format valorziation.calculatedFor "YYYY-MM-DD") (moment-format valorziation.returnedAt "YYYY-MM-DD")}}</div>
                     </div>
                     {{#if valorization.features.length}}

@@ -162,6 +162,17 @@ export default {
   },
 
   valorization: {
+    index: {
+      title: 'Valorization history',
+      labels: {
+        offer: 'Offer',
+        vehicle: 'Vehicle',
+        release: 'Release',
+        date: 'Date',
+        mileage: 'Mileage',
+        value: 'Value',
+      },
+    },
     wizzard: {
       title: 'Computed an Argus value',
       identity: {
