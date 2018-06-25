@@ -6,7 +6,8 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL,
 });
 
-Router.map( function () { // eslint-disable-line
+Router.map( function () {
+  // eslint-disable-line
   this.route('lang', { path: '/:lang' }, function () {
     this.route('login');
 
@@ -27,6 +28,7 @@ Router.map( function () { // eslint-disable-line
         this.route('offer');
         this.route('criteria');
       });
+      this.route('valorization', { path: 'valorization/:id' });
     });
   });
 });
