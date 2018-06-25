@@ -1,1 +1,134 @@
-{{outlet}}
+
+<div class="m-content">
+  <div class="m--margin-bottom-30 m--padding-15" style="background: white; box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);">
+    <h5 >{{model.version.fullNicename}}</h5>
+    <div class="row m--margin-bottom-15">
+      <div class="col-6">Offer: {{model.offer}}</div>
+      <div class="col-6">Release date: {{moment-format model.releasedAt "YYYY-MM-DD"}}</div>
+      <div class="col-6">{{t 'techData.units.km'}}: {{model.mileage}} {{t 'techData.units.km'}}</div>
+      <div class="col-6">Computed date: {{if valorziation.calculatedFor (moment-format valorziation.calculatedFor "YYYY-MM-DD") (moment-format valorziation.returnedAt "YYYY-MM-DD")}}</div>
+    </div>
+    {{#if model.features.length}}
+      <h6 class="m--margin-bottom-5">Options</h6>
+      <ul class="m--margin-bottom-30">
+        {{#each model.features as |feature|}}
+          <li>
+          {{feature.name}}
+          <span>{{feature.priceIncludingVat}}</span>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+    <h5 class="m--margin-bottom-5">Values</h5>
+    <ul class="list-unstyled m--padding-15">
+      {{#each model.values as |value|}}
+        <li class="m--padding-15" style="border: 1px solid black">
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">subtype (Generic)</dt>
+            <dd class="col-6">{{value.subtype}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">label (Generic)</dt>
+            <dd class="col-6">{{value.label}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">value (Generic)</dt>
+            <dd class="col-6">{{value.value}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">mileage (Generic)</dt>
+            <dd class="col-6">{{value.mileage}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">releasedAt (Generic)</dt>
+            <dd class="col-6">{{value.releasedAt}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">calculatedFor (Generic)</dt>
+            <dd class="col-6">{{value.calculatedFor}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">case (Custom Market Value)</dt>
+            <dd class="col-6">{{value.case}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">influence (Custom Market Value)</dt>
+            <dd class="col-6">
+              Body: {{value.influence.body}} <br/>
+              mileage: {{value.influence.mileage}} <br/>
+              options: {{value.influence.options}} <br/>
+              release: {{value.influence.release}}
+            </dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">standardValue (Custom Market Value)</dt>
+            <dd class="col-6">{{value.standardValue}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">prevarDate (Prevar)</dt>
+            <dd class="col-6">{{value.prevarDate}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">returnDate (Prevar)</dt>
+            <dd class="col-6">{{value.returnDate}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">registrationDate (Prevar)</dt>
+            <dd class="col-6">{{value.registrationDate}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">initialPrice (Prevar)</dt>
+            <dd class="col-6">{{value.initialPrice}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">ratio (Prevar)</dt>
+            <dd class="col-6">{{value.ratio}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">confidenceIntervals (Refurbishment)</dt>
+            <dd class="col-6">
+              Max: {{value.confidenceIntervals.max}}<br/>
+              Min: {{value.confidenceIntervals.min}}<br/>
+              Probability: {{value.confidenceIntervals.probability}}
+            </dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">dispersion (Refurbishment)</dt>
+            <dd class="col-6">{{value.dispersion}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">internMessage (Refurbishment)</dt>
+            <dd class="col-6">{{value.internMessage}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">message (Refurbishment)</dt>
+            <dd class="col-6">{{value.message}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">applicationType (Market Values)</dt>
+            <dd class="col-6">{{value.applicationType}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">confidenceIndex (Market Values)</dt>
+            <dd class="col-6">{{value.confidenceIndex}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">info (Market Values)</dt>
+            <dd class="col-6">{{value.info}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">makes (Market Values)</dt>
+            <dd class="col-6">{{value.makes}}</dd>
+          </div>
+          <div class="row m--padding-5" style="border-bottom: 1px solid black">
+            <dt class="col-6">leeway (Display)</dt>
+            <dd class="col-6">
+              value: {{value.leeway.value}}<br/>
+              percentage: {{value.leeway.percentage}}
+            </dd>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

@@ -46,7 +46,7 @@
         </li>
         {{#each model.valorizations as |valorization|}}
           <li class="vertical-list__item">
-            {{#link-to "lang.quote.valorization" valorization.id class="row m--padding-top-15 m--padding-bottom-15 align-items-center list-item-content"}}
+            {{#link-to "lang.quote.valorization" valorization class="row m--padding-top-15 m--padding-bottom-15 align-items-center list-item-content"}}
               <div class="col-4 col-lg-3">{{valorization-offer-badge offer=valorization.offer}}</div>
               <div class="col-4 col-lg-5 col-xl-4 valorization-card">{{!-- {{valorization.version.fullNicename}} --}}
                 <div class="vehicle-infos">
