@@ -7,6 +7,7 @@ export default Route.extend({
       valorizations: this.get('store').query('valorization', {
         include: 'values',
         page: { size: 500 },
+        sort: '-id'
       }),
       batches: this.get('store').query('batch', {
         include: 'valorizations.values',
