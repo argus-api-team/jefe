@@ -6,26 +6,26 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Valorized vehicle</h3>
+              <h3 class="m-portlet__head-text">Valorization</h3>
             </div>
+          </div>
+          <div class="m-portlet__head-tools">
+            {{valorization-offer-badge offer=model.offer}}
           </div>
         </div>
         <div class="m-portlet__body valorization-criteria">
           <div class="section-header m--margin-bottom-15">
-            <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle and offer</h4>
+            <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle identification</h4>
             <div class="section-header__separator"><hr /></div>
           </div>
-          <div class="m--clearfix row">
-            <div class="vehicle-infos col-5 order-2">
+          <div class="valorization-card m--clearfix">
+            <div class="vehicle-infos">
               <h5 class="h6"> {{model.version.make.name}} - {{model.version.submodel.name}}</h5>
               <p class="m--margin-bottom-5">Gen. {{model.version.generation.name}} Pe. {{model.version.phase.name}} - {{moment-format model.releasedAt 'DD/MM/YYYY'}}</p>
               <p class="m--marginless">{{model.version.name}}</p>
             </div>
-            <div class="vehicle-make-logo col-3 order-1 text-right">
+            <div class="vehicle-make-logo">
               {{logo-img url=model.version.make.logoURL className='thumbnail make-logo'}}
-            </div>
-            <div class="value-and-offer col-4 order-3 text-right">
-              {{valorization-offer-badge offer=model.offer}}
             </div>
           </div>
           <div class="section-header m--margin-bottom-15 m--margin-top-30">
@@ -107,40 +107,57 @@
         </div>
         <div class="m-portlet__body">
           <div class="row">
-            <div class="col-3">
-              <div class="section-header m--margin-bottom-15 m--margin-top-0">
-                <h4 class="m--marginless section-header__title m--padding-right-15">Custom market value</h4>
-                <div class="section-header__separator"><hr /></div>
-              </div>
-              <div class="custom-market-value-details">
-                <div class="custom-market-value-detail">
-                  <span class="custom-market-value-detail__label">Argus average price:</span>
-                  <span class="custom-market-value-detail__value">{{model.customMarketValues.content.standardValue}} €</span>
-                </div>
-                <div class="custom-market-value-detail">
-                  <span class="custom-market-value-detail__label">Influence of body:</span>
-                  <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.body}} €</span>
-                </div>
-                <div class="custom-market-value-detail">
-                  <span class="custom-market-value-detail__label">Influence of release date:</span>
-                  <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.release}} €</span>
-                </div>
-                <div class="custom-market-value-detail">
-                  <span class="custom-market-value-detail__label">Influence of options:</span>
-                  <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.options}} €</span>
-                </div>
-                <div class="custom-market-value-detail">
-                  <span class="custom-market-value-detail__label">Influence of mileage:</span>
-                  <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.mileage}} €</span>
-                </div>
-              </div>
-              <hr />
-              <p class="main-value-display text-right">{{model.customMarketValues.content.value}} €</p>
-            </div>
-            <div class="col-3">
+            <div class="col-12 col-md-6">
               <section>
                 <div class="section-header m--margin-bottom-15 m--margin-top-0">
-                  <h4 class="m--marginless section-header__title m--padding-right-15">Displayed value</h4>
+                  <h4 class="m--marginless section-header__title m--padding-right-15">Initial values</h4>
+                  <div class="section-header__separator"><hr /></div>
+                </div>
+                <p class="main-value-display text-right">{{model.initialPricesValue.content.value}} €</p>
+              </section>
+              <section>
+                <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                  <h4 class="m--marginless section-header__title m--padding-right-15">Custom market value</h4>
+                  <div class="section-header__separator"><hr /></div>
+                </div>
+                <div class="custom-market-value-details">
+                  <div class="custom-market-value-detail">
+                    <span class="custom-market-value-detail__label">Argus average price:</span>
+                    <span class="custom-market-value-detail__value">{{model.customMarketValues.content.standardValue}} €</span>
+                  </div>
+                  <div class="custom-market-value-detail">
+                    <span class="custom-market-value-detail__label">Influence of body:</span>
+                    <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.body}} €</span>
+                  </div>
+                  <div class="custom-market-value-detail">
+                    <span class="custom-market-value-detail__label">Influence of release date:</span>
+                    <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.release}} €</span>
+                  </div>
+                  <div class="custom-market-value-detail">
+                    <span class="custom-market-value-detail__label">Influence of options:</span>
+                    <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.options}} €</span>
+                  </div>
+                  <div class="custom-market-value-detail">
+                    <span class="custom-market-value-detail__label">Influence of mileage:</span>
+                    <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.mileage}} €</span>
+                  </div>
+                </div>
+                <hr />
+                <p class="main-value-display text-right">{{model.customMarketValues.content.value}} €</p>
+              </section>
+              <section>
+                <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                  <h4 class="m--marginless section-header__title m--padding-right-15">refurbishment</h4>
+                  <div class="section-header__separator"><hr /></div>
+                </div>
+                <p class="main-value-display text-right">{{model.refurbishmentCosts.content.value}} €</p>
+                <p class="secondary-value-display text-right">+/- {{model.refurbishmentCosts.content.dispersion}} €</p>
+              </section>
+            </div>
+            <div class="col-12 col-md-6">
+              <section>
+                <div class="section-header m--margin-bottom-15 {{if (media 'isMobile') 'm--margin-top-30' 'm--margin-top-0'}} ">
+                  <h4 class="m--marginless section-header__title m--padding-right-15">Displayed value {{if (media 'isMobile') 'true' 'false'}}</h4>
                   <div class="section-header__separator"><hr /></div>
                 </div>
                 <p class="main-value-display text-right">{{model.displayedValue.content.value}} €</p>
@@ -160,15 +177,6 @@
               </section>
               <section>
                 <div class="section-header m--margin-bottom-15 m--margin-top-30">
-                  <h4 class="m--marginless section-header__title m--padding-right-15">Initial values</h4>
-                  <div class="section-header__separator"><hr /></div>
-                </div>
-                <p class="main-value-display text-right">{{model.initialPricesValue.content.value}} €</p>
-              </section>
-            </div>
-            <div class="col-3">
-              <section>
-                <div class="section-header m--margin-bottom-15 m--margin-top-0">
                   <h4 class="m--marginless section-header__title m--padding-right-15">Customers</h4>
                   <div class="section-header__separator"><hr /></div>
                 </div>
@@ -202,16 +210,6 @@
                     height=12
                   }}
                 </div>
-              </section>
-            </div>
-            <div class="col-3">
-              <section>
-                <div class="section-header m--margin-bottom-15 m--margin-top-0">
-                  <h4 class="m--marginless section-header__title m--padding-right-15">refurbishment</h4>
-                  <div class="section-header__separator"><hr /></div>
-                </div>
-                <p class="main-value-display text-right">{{model.refurbishmentCosts.content.value}} €</p>
-                <p class="secondary-value-display text-right">+/- {{model.refurbishmentCosts.content.dispersion}} €</p>
               </section>
             </div>
           </div>

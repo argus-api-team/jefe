@@ -172,6 +172,9 @@
               <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.summary.title"}}</h3>
             </div>
           </div>
+          <div class="m-portlet__head-tools">
+            {{valorization-offer-badge offer=model.valorization.offer}}
+          </div>
         </div>
         <div class="m-portlet__body">
           <div class="section-header m--margin-bottom-15">
@@ -187,7 +190,6 @@
             <div class="vehicle-make-logo">
               {{logo-img url=model.valorization.version.make.logoURL className='thumbnail make-logo'}}
             </div>
-            {{valorization-offer-badge offer=model.valorization.offer}}
           </div>
           {{#if showSummaryUsage}}
             <div class="section-header m--margin-bottom-15 m--margin-top-30">
