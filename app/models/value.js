@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
 
@@ -36,4 +37,8 @@ export default DS.Model.extend({
 
   // Display
   leeway: DS.attr(),
+
+  confidenceStars: computed('confidenceIndex', function () {
+    return this.get('confidenceIndex') / 2;
+  }),
 });

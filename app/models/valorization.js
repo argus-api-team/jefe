@@ -79,10 +79,34 @@ export default DS.Model.extend(Validations, {
         }),
     });
   }),
+  showSummaryGaragePart: computed.or('garageMakes', 'geolocalisation'),
 
   // Observer to handle some events
   resetOptions: observer('version', function () {
     this.set('features', []);
   }),
 
+  initialPricesValue: computed('values.length', function () {
+    return this._getSpecificValue('initial-prices');
+  }),
+  customMarketValues: computed('values.length', function () {
+    return this._getSpecificValue('custom-market-values');
+  }),
+  displayedValue: computed('values.length', function () {
+    return this._getSpecificValue('displayed-selling-values');
+  }),
+  btocValue: computed('values.length', function () {
+    return this._getSpecificValue('btoc-transaction-values');
+  }),
+  btobValue: computed('values.length', function () {
+    return this._getSpecificValue('btob-transaction-values');
+  }),
+  refurbishmentCosts: computed('values.length', function () {
+    return this._getSpecificValue('expected-refurbishment-costs');
+  }),
+  _getSpecificValue(subtype) {
+    return DS.PromiseObject.create({
+      promise: this.get('values').then(values => values.findBy('subtype', subtype)),
+    });
+  },
 });
