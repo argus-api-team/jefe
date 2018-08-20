@@ -28,7 +28,7 @@
     {{input value=password class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.password") name="password" type="password"}}
   </div>
   <div class="form-actions">
-    {{#spin-button action=(action "authenticate") buttonStyle="expand-right" class="m--margin-right-30"}}{{t "login.button.signIn"}}{{/spin-button}}
+    <button {{action "authenticate"}} type="button" class="m--margin-right-30 btn btn-primary">{{t "login.button.signIn"}}</button>
     <label class="rememberme check m-checkbox m-checkbox-outline m--margin-top-10">
       {{input type="checkbox" name="isRemembered" checked=isRemembered}}{{t "login.form.isRemembered"}}
       <span></span>
