@@ -30,7 +30,6 @@ export default Service.extend({
     const channelName = this.get('channelName');
     const ablyClient = this.get('ablyClient');
     const channel = ablyClient.channels.get(channelName);
-
     channel.subscribe((msg) => {
       if (msg.name === 'get-data') {
         this._getData(msg.data.url);
@@ -49,6 +48,12 @@ export default Service.extend({
         reload: true,
       }).then((matchingRecord) => {
         matchingRecord.set('isSearching', false);
+      });
+    }
+    if (recordType === 'valorization') {
+      store.findRecord(recordType, recordId, {
+        include: 'values',
+        reload: true,
       });
     }
   },
