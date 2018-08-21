@@ -22,12 +22,14 @@ const Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
+
+  isComputing: false,
+
   // Required
   offer: DS.attr('string'),
   mileage: DS.attr('number'),
   releasedAt: DS.attr('date'),
   businessTarget: DS.attr('string'),
-
   // Custom, Past, exchange
   calculatedFor: DS.attr('date'),
 

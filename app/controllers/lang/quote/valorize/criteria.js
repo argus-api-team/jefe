@@ -17,6 +17,7 @@ export default Controller.extend({
         return;
       }
       valorization.save().then((valorizationRecord) => {
+        valorizationRecord.set('isComputing', true);
         router.transitionTo('lang.quote.valorization', valorizationRecord.get('id'));
       });
     },
