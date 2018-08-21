@@ -51,12 +51,11 @@ export default Service.extend({
       });
     }
     if (recordType === 'valorization') {
-      console.log('Get Values');
       store.findRecord(recordType, recordId, {
         include: 'values',
         reload: true,
       }).then((valorizationRecord) => {
-        valorizationRecord.set('isComputing', false)
+        valorizationRecord.set('isComputing', false);
       });
     }
   },

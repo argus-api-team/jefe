@@ -63,6 +63,9 @@ export default DS.Model.extend(Validations, {
   isPartExchange: computed('offer', function () {
     return this.get('offer') === 'part-exchange-value';
   }),
+  isCustomMarketValue: computed('offer', function () {
+    return this.get('offer') === 'custom-market-value';
+  }),
   mainValue: computed('values.length', 'offer', function () {
     let mainValueSubtype;
     return DS.PromiseObject.create({
@@ -106,9 +109,30 @@ export default DS.Model.extend(Validations, {
   refurbishmentCosts: computed('values.length', function () {
     return this._getSpecificValue('expected-refurbishment-costs');
   }),
+  pastMarketValues: computed('values.length', function () {
+    return this._getSpecificValue('past-market-values');
+  }),
+  prevarValues: computed('values.length', function () {
+    return this._getSpecificValue('prevar-values');
+  }),
+  exchangeValues: computed('values.length', function () {
+    return this._getSpecificValue('part-exchange-values');
+  }),
   _getSpecificValue(subtype) {
     return DS.PromiseObject.create({
       promise: this.get('values').then(values => values.findBy('subtype', subtype)),
     });
   },
+
+  vehicle: computed('version', function () {
+    const store = this.get('store');
+    const versionId = this.belongsTo('version').id();
+    if (!versionId) { return null; }
+    return DS.PromiseObject.create({
+      promise: store.findRecord('version', versionId, {
+        include: 'make,submodel,generation,phase',
+      }).then(version => version)
+        .catch(() => null),
+    });
+  }),
 });

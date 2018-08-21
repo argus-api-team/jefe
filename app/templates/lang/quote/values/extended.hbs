@@ -20,6 +20,7 @@
                 <div class="m-loader m-loader--brand m-loader--lg"></div>
               </div>
             {{else}}
+
               <div class="row">
                 <div class="col-12 col-md-6">
                   <section>
@@ -71,7 +72,7 @@
                 <div class="col-12 col-md-6">
                   <section>
                     <div class="section-header m--margin-bottom-15 {{if (media 'isMobile') 'm--margin-top-30' 'm--margin-top-0'}} ">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">Displayed value {{if (media 'isMobile') 'true' 'false'}}</h4>
+                      <h4 class="m--marginless section-header__title m--padding-right-15">Displayed value</h4>
                       <div class="section-header__separator"><hr /></div>
                     </div>
                     <p class="main-value-display text-right">{{model.displayedValue.content.value}} €</p>

@@ -1,0 +1,71 @@
+
+<div class="m-content">
+  <div class="row">
+    <div class="col-12 col-xl-4">
+      {{valorization-informations valorization=model}}
+    </div>
+    <div class="col-xl-8 col-12 vehicle-data">
+      <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">Values</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            {{#if model.isComputing}}
+              <div class="m--align-center m--font-bold h3 m--margin-top-15 m--margin-bottom-60">
+                <p class="m--margin-bottom-30">Computing values</p>
+                <div class="m-loader m-loader--brand m-loader--lg"></div>
+              </div>
+            {{else}}
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <section>
+                    <div class="section-header m--margin-bottom-15 m--margin-top-0">
+                      <h4 class="m--marginless section-header__title m--padding-right-15">Initial values</h4>
+                      <div class="section-header__separator"><hr /></div>
+                    </div>
+                    <p class="main-value-display text-right">{{model.initialPricesValue.content.value}} €</p>
+                  </section>
+                </div>
+                <div class="col-12 col-md-6">
+                 <section>
+                  <div class="section-header m--margin-bottom-15 m--margin-top-0">
+                    <h4 class="m--marginless section-header__title m--padding-right-15">Past custom market value</h4>
+                    <div class="section-header__separator"><hr /></div>
+                  </div>
+                  <div class="custom-market-value-details">
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">Argus average price:</span>
+                      <span class="custom-market-value-detail__value">{{model.pastMarketValues.content.standardValue}} €</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">Influence of body:</span>
+                      <span class="custom-market-value-detail__value">{{model.pastMarketValues.content.influence.body}} €</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">Influence of release date:</span>
+                      <span class="custom-market-value-detail__value">{{model.pastMarketValues.content.influence.release}} €</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">Influence of options:</span>
+                      <span class="custom-market-value-detail__value">{{model.pastMarketValues.content.influence.options}} €</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">Influence of mileage:</span>
+                      <span class="custom-market-value-detail__value">{{model.pastMarketValues.content.influence.mileage}} €</span>
+                    </div>
+                  </div>
+                  <hr />
+                  <p class="main-value-display text-right">{{model.pastMarketValues.content.value}} €</p>
+                </section>
+              </div>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

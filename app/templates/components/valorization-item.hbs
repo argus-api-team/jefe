@@ -2,12 +2,12 @@
   <div class="col-4 col-lg-3">{{valorization-offer-badge offer=valorization.offer}}</div>
   <div class="col-4 col-lg-5 col-xl-4 valorization-card">
     <div class="vehicle-infos">
-      <h5 class="h6"> {{vehicle.content.make.name}} - {{vehicle.content.submodel.name}}</h5>
-      <p class="m--margin-bottom-5">Gen. {{vehicle.content.generation.name}} Pe. {{vehicle.content.phase.name}}</p>
-      <p class="m--marginless">{{vehicle.content.name}}</p>
+      <h5 class="h6"> {{valorization.vehicle.content.make.name}} - {{valorization.vehicle.content.submodel.name}}</h5>
+      <p class="m--margin-bottom-5">Gen. {{valorization.vehicle.content.generation.name}} Pe. {{valorization.vehicle.content.phase.name}}</p>
+      <p class="m--marginless">{{valorization.vehicle.content.name}}</p>
     </div>
     <div class="vehicle-make-logo">
-      {{logo-img url=vehicle.content.make.logoURL className='thumbnail make-logo'}}
+      {{logo-img url=valorization.vehicle.content.make.logoURL className='thumbnail make-logo'}}
     </div>
   </div>
   {{#if largeMode}}
@@ -15,6 +15,7 @@
     <div class="col-1">
       {{if valorization.isPrevar (if valorization.returnedAt (moment-format valorization.returnedAt 'YYYY-MM-DD')) (if valorization.calculatedFor (moment-format valorization.calculatedFor 'YYYY-MM-DD'))}}
       {{if valorization.isExtended (if valorization.customMarketValues.content.calculatedFor (moment-format valorization.customMarketValues.content.calculatedFor 'YYYY-MM-DD'))}}
+      {{if valorization.isCustomMarketValue (if valorization.customMarketValues.content.calculatedFor (moment-format valorization.customMarketValues.content.calculatedFor 'YYYY-MM-DD'))}}
     </div>
     <div class="col-2">{{valorization.mileage}} {{t 'techData.units.km'}}</div>
   {{else}}
@@ -23,6 +24,7 @@
       <p class="m--margin-bottom-5">
         {{if valorization.isPrevar (if valorization.returnedAt (moment-format valorization.returnedAt 'YYYY-MM-DD')) (if valorization.calculatedFor (moment-format valorization.calculatedFor 'YYYY-MM-DD'))}}
         {{if valorization.isExtended (if valorization.customMarketValues.content.calculatedFor (moment-format valorization.customMarketValues.content.calculatedFor 'YYYY-MM-DD'))}}
+        {{if valorization.isCustomMarketValue (if valorization.customMarketValues.content.calculatedFor (moment-format valorization.customMarketValues.content.calculatedFor 'YYYY-MM-DD'))}}
       </p>
       <p class="m--marginless">{{valorization.mileage}} {{t 'techData.units.km'}}</p>
     </div>
