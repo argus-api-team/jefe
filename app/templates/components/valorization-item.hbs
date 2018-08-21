@@ -12,12 +12,18 @@
   </div>
   {{#if largeMode}}
     <div class="col-1">{{if valorization.releasedAt (moment-format valorization.releasedAt 'YYYY-MM-DD')}}</div>
-    <div class="col-1">{{if valorization.isPrevar (if valorization.returnedAt (moment-format valorization.returnedAt 'YYYY-MM-DD')) (if valorization.calculatedFor (moment-format valorization.calculatedFor 'YYYY-MM-DD'))}}</div>
+    <div class="col-1">
+      {{if valorization.isPrevar (if valorization.returnedAt (moment-format valorization.returnedAt 'YYYY-MM-DD')) (if valorization.calculatedFor (moment-format valorization.calculatedFor 'YYYY-MM-DD'))}}
+      {{if valorization.isExtended (if valorization.customMarketValues.content.calculatedFor (moment-format valorization.customMarketValues.content.calculatedFor 'YYYY-MM-DD'))}}
+    </div>
     <div class="col-2">{{valorization.mileage}} {{t 'techData.units.km'}}</div>
   {{else}}
     <div class="col-2">
       <p class="m--margin-bottom-5">{{if valorization.releasedAt (moment-format valorization.releasedAt 'YYYY-MM-DD')}}</p>
-      <p class="m--margin-bottom-5">{{if valorization.isPrevar (if valorization.returnedAt (moment-format valorization.returnedAt 'YYYY-MM-DD')) (if valorization.calculatedFor (moment-format valorization.calculatedFor 'YYYY-MM-DD'))}}</p>
+      <p class="m--margin-bottom-5">
+        {{if valorization.isPrevar (if valorization.returnedAt (moment-format valorization.returnedAt 'YYYY-MM-DD')) (if valorization.calculatedFor (moment-format valorization.calculatedFor 'YYYY-MM-DD'))}}
+        {{if valorization.isExtended (if valorization.customMarketValues.content.calculatedFor (moment-format valorization.customMarketValues.content.calculatedFor 'YYYY-MM-DD'))}}
+      </p>
       <p class="m--marginless">{{valorization.mileage}} {{t 'techData.units.km'}}</p>
     </div>
   {{/if}}

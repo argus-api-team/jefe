@@ -10,7 +10,6 @@ export default Component.extend({
   tagName: 'li',
   classNames: ['vertical-list__item'],
 
-
   vehicle: computed('valorization', function () {
     const store = this.get('store');
     const valorization = this.get('valorization');
