@@ -9,14 +9,14 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">Values</h3>
+                <h3 class="m-portlet__head-text">{{t 'valorization.values.title'}}</h3>
               </div>
             </div>
           </div>
           <div class="m-portlet__body">
             {{#if model.isComputing}}
               <div class="m--align-center m--font-bold h3 m--margin-top-15 m--margin-bottom-60">
-                <p class="m--margin-bottom-30">Computing values</p>
+                <p class="m--margin-bottom-30">{{t 'valorization.values.computing'}}</p>
                 <div class="m-loader m-loader--brand m-loader--lg"></div>
               </div>
             {{else}}
@@ -24,7 +24,7 @@
                 <div class="col-12 col-md-6">
                   <section>
                     <div class="section-header m--margin-bottom-15 m--margin-top-0">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">Initial value</h4>
+                      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.initial'}}</h4>
                       <div class="section-header__separator"><hr /></div>
                     </div>
                     <p class="main-value-display text-right">{{model.prevarValues.content.initialPrice}} €</p>
@@ -33,7 +33,7 @@
                 <div class="col-12 col-md-6">
                  <section>
                   <div class="section-header m--margin-bottom-15 m--margin-top-0">
-                    <h4 class="m--marginless section-header__title m--padding-right-15">Residual value</h4>
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.residual'}}</h4>
                     <div class="section-header__separator"><hr /></div>
                   </div>
                   <p class="main-value-display text-right">{{model.prevarValues.content.value}} €</p>

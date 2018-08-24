@@ -162,8 +162,17 @@ export default {
   },
 
   valorization: {
+    offers: {
+      extended: 'Argus market values',
+      custom: 'Personalized Argus quote',
+      residual: 'Residual Argus value',
+      pastStock: 'Past quote and new price',
+      past: 'Past quote',
+      exchange: 'Trade-in value',
+    },
     index: {
       title: 'Valorization history',
+      valorize: 'Valorize',
       labels: {
         offer: 'Offer',
         vehicle: 'Vehicle',
@@ -211,28 +220,22 @@ export default {
       },
       offer: {
         title: '2. Offer selection',
-        values: {
-          title: 'Argus market values',
+        extended: {
           description: 'Compute the quote and the market values of your vehicle',
         },
-        quote: {
-          title: 'Personalized Argus quotation',
+        custom: {
           description: 'Compute the quotation of your vehicle',
         },
-        prevar: {
-          title: 'Residual Argus value',
+        residual: {
           description: 'Calculate the projected Argus value of your vehicle',
         },
         pastStock: {
-          title: 'Past quotation and new price',
           description: 'Calculate the price of your vehicle at a past date with the new price included',
         },
         past: {
-          title: 'Past quotation',
           description: 'Calculate the price of your vehicle at a past date',
         },
-        recovery: {
-          title: 'Trade-in value',
+        exhange: {
           description: 'Add a description',
         },
         vehicle: 'Valorized vehicle',
@@ -260,6 +263,26 @@ export default {
         },
         valorize: 'Valorize',
       },
+    },
+    values: {
+      title: 'Values',
+      computing: 'Computing values',
+      initial: 'Price of new',
+      custom: {
+        title: 'Custom market values',
+        pastTitle: 'Past market value',
+        standardValue: 'Argus average price: ',
+        bodyInfluence: 'Body influence',
+        releaseInfluence: 'Release date influence: ',
+        optionsInfluence: 'Options influence',
+        mileageInfluence: 'Mileage influence',
+      },
+      refurbishment: 'Refurbishment',
+      displayeValues: 'Displayed value',
+      customerValue: 'Customers',
+      proValue: 'Profesionnals',
+      residual: 'Residual value',
+      exchangeValue: 'Trade-in value',
     },
   },
 

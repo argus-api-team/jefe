@@ -162,11 +162,20 @@ export default {
   },
 
   valorization: {
+    offers: {
+      extended: 'Valeur Agrus de marché',
+      custom: 'Cote Argus personnalisée',
+      residual: 'Valeur Argus résiduellee',
+      pastStock: 'Cote à date passée et prix du neuf',
+      past: 'Cote à date passée',
+      exchange: 'Valeur de reprise',
+    },
     index: {
       title: 'Historique de valorisation',
+      valorize: 'Valoriser',
       labels: {
         offer: 'Offre',
-        vehcule: 'Véhicule',
+        vehicle: 'Véhicule',
         release: 'MEC',
         date: 'Date',
         mileage: 'Kilométrage',
@@ -211,28 +220,22 @@ export default {
       },
       offer: {
         title: '2. Sélection de l\'offre',
-        values: {
-          title: 'Valeur Agrus de marché',
+        extended: {
           description: 'Calculer la cote et les valeurs de marché de votre véhicule',
         },
-        quote: {
-          title: 'Cote Argus personnalisée',
+        custom: {
           description: 'Calculer la cote de votre véhciule',
         },
-        prevar: {
-          title: 'Valeur Argus résiduelle',
+        residual: {
           description: 'Calculer la valeur Argus prévisionnelle de votre véhicule',
         },
         pastStock: {
-          title: 'Cote à date passée et prix du neuf',
           description: 'Calculer la cote de votre véhicule à une date passée avec le prix du neuf inclus',
         },
         past: {
-          title: 'Cote à date passée',
           description: 'Calculer la cote de votre véhicule à une date passée',
         },
-        recovery: {
-          title: 'Valeur de reprise',
+        exhange: {
           description: 'Ajouter une description',
         },
         vehicle: 'Véhicule valorisé',
@@ -260,6 +263,26 @@ export default {
         },
         valorize: 'Valoriser',
       },
+    },
+    values: {
+      title: 'Valeurs',
+      computing: 'Calcul des valeurs en cours',
+      initial: 'Prix du neuf',
+      custom: {
+        title: 'Cote Argus Personnalisée ®',
+        pastTitle: 'Cote Argus à date passée',
+        standardValue: 'Cours Argus Moyen®: ',
+        bodyInfluence: 'Influence de la carrosserie',
+        releaseInfluence: 'Influence de la date de mise en circulation: ',
+        optionsInfluence: 'Influence des options ',
+        mileageInfluence: 'Influence du kilométrage',
+      },
+      refurbishment: 'Remise en état',
+      displayeValues: 'Valeur Argus Annonces ®',
+      customerValue: 'Valeur Argus Transactions® à particuliers',
+      proValue: 'Valeur Argus Transactions® à professionnels',
+      residual: 'Valeur résiduelle',
+      exchangeValue: 'Valeur de reprise',
     },
   },
 
