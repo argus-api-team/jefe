@@ -109,11 +109,17 @@
                 </table>
               </div>
               <div class="col-12 col-xl-6">
-                <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-15">
+                <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-10">
                   <p class="price-incl-taxes m--marginless m--font-bold">{{selectedPeriod.priceIncludingVat}}€ <span class="m--font-thin">{{t 'prices.ttc'}}</span></p>
                   <p class="price-excl-taxes m--marginless m--font-normal">{{selectedPeriod.priceExcludingVat}}€ <span class="m--font-thin">{{t 'prices.ht'}}</span></p>
                 </div>
               </div>
+            </div>
+            <hr class="m--margin-top-15 m--margin-bottom-15"/>
+            <div class="text-right m--margin-top-25">
+              {{#link-to "lang.quote.valorize.vehicle-identification" (query-params oid=model.vehicle.id) class="btn btn-primary" }}
+                Valoriser
+              {{/link-to}}
             </div>
           </div>
         </div>
