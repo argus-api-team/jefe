@@ -84,11 +84,11 @@
       {{valorization-search-by-plate-form valorizationRecord=model}}
     </div>
   </div>
-  <div class="m-portlet" id="oid-form">
+  <div class="m-portlet {{if highlightOidForm 'm-portlet--brand m-portlet--head-solid-bg m-portlet--bordered'}}" id="oid-form">
     <div class="m-portlet__head">
       <div class="m-portlet__head-caption">
         <div class="m-portlet__head-title">
-          <h3 class="m-portlet__head-text">Search by Argus OID</h3>
+          <h3 class="m-portlet__head-text">Search by Argus OID {{highlightOidForm}}</h3>
         </div>
       </div>
     </div>

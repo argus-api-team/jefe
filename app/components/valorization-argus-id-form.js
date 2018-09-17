@@ -17,6 +17,13 @@ export default Component.extend({
   resolvedVersion: null,
   vehicleDate: null,
 
+  didRender() {
+    const argusOID = this.get('argusOID');
+    if (argusOID) {
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+  },
+
   // Methods
   resolveArgusOID() {
     const argusOID = this.get('argusOID');
