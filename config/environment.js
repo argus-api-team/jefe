@@ -46,7 +46,13 @@ module.exports = function(environment) {
     routeAfterAuthentication: 'lang',
     routeIfAlreadyAuthenticated: 'lang'
   };
-
+  if (environment !== 'production') {
+    require('dotenv').config();
+  }
+  //Setup VarEnv
+  ENV.API_URL = process.env.API_URL;
+  ENV.OAUTH_URL = process.env.OAUTH_URL;
+  ENV.ABLY_KEY = process.env.ABLY_KEY;
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
@@ -72,6 +78,8 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.APP.isSecureCookie = true
   }
+
+
 
   return ENV;
 };
