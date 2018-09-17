@@ -54,6 +54,7 @@ export default {
     button: {
       signIn: 'Login',
     },
+    isLoging: 'Loging in',
   },
 
   pageHeader: {

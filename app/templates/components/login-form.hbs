@@ -5,7 +5,7 @@
     </div>
   </div>
 </div>
-<div class="m-portlet__body">
+<div class="m-portlet__body loging-form__content">
   {{#if errorMessage}}
   <div class="alert alert-danger">
     <span>{{errorMessage}}</span>
@@ -34,4 +34,12 @@
       <span></span>
     </label>
   </div>
+  {{#if isLogingIn}}
+    <div class="m--padding-15 is-loging">
+      <div class="is-loging__spacing"></div>
+      <p class="m--align-center m--font-bold is-loging__caption">{{t "login.isLoging"}}</p>
+      <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30 m--margin-bottom-30"></div>
+      <div class="is-loging__spacing"></div>
+    </div>
+  {{/if}}
 </div>

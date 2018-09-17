@@ -54,6 +54,7 @@ export default {
     button: {
       signIn: 'Me connecter',
     },
+    isLoging: 'Connection en cours',
   },
 
   pageHeader: {

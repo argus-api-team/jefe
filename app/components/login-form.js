@@ -17,6 +17,7 @@ export default Component.extend({
   isRemembered: Cookies.get('isRemembered'),
   expiresLength: 15,
   isSecureCookie: computed.alias('config.APP.isSecureCookie'),
+  isLogingIn: false,
 
   init() {
     this._super(...arguments);
@@ -38,12 +39,17 @@ export default Component.extend({
         username,
         password,
       } = this.getProperties('applicationId', 'applicationSecret', 'username', 'password');
-
-      this.get('session').authenticate('authenticator:oauth2', applicationId, applicationSecret, username, password).then(() => {
-        this.get('controller').transitionToRoute('lang', { lang: this.get('controller.lang') });
-      }, (reason) => {
-        this.set('errorMessage', reason.error);
-      });
+      this.set('isLogingIn', true);
+      this.get('session').authenticate('authenticator:oauth2', applicationId, applicationSecret, username, password)
+        .then(() => {
+          this.get('controller').transitionToRoute('lang', { lang: this.get('controller.lang') });
+        })
+        .catch((reason) => {
+          this.set('errorMessage', reason.error);
+        })
+        .finally(() => {
+          this.set('isLogingIn', false);
+        });
     },
   },
 
