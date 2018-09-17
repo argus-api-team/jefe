@@ -1,0 +1,7 @@
+<label class="col-4 col-form-label text-right">{{label}}{{if required '*'}}</label>
+<div class="col-8 input-group">
+  {{yield}}
+</div>
+{{#if onError}}
+  <div class="form-control-feedback offset-4 col-8">{{errorMessage}}</div>
+{{/if}}

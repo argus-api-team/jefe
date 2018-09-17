@@ -6,6 +6,9 @@ export default {
     pending: 'Is pending',
     yes: 'Yes',
     no: 'No',
+    validate: 'Validate',
+    datePlaceholder: 'Select date',
+    dateFormat: 'MM/DD/YYYY',
   },
 
   index: {
@@ -51,6 +54,7 @@ export default {
     button: {
       signIn: 'Login',
     },
+    isLoging: 'Loging in',
   },
 
   pageHeader: {
@@ -156,6 +160,131 @@ export default {
   prices: {
     ttc: 'incl. tax',
     ht: 'excl. taxes',
+  },
+
+  valorization: {
+    offers: {
+      extended: 'Argus market values',
+      custom: 'Personalized Argus quote',
+      residual: 'Residual Argus value',
+      pastStock: 'Past quote and new price',
+      past: 'Past quote',
+      exchange: 'Trade-in value',
+    },
+    index: {
+      title: 'Valorization history',
+      valorize: 'Valorize',
+      labels: {
+        offer: 'Offer',
+        vehicle: 'Vehicle',
+        release: 'Release',
+        date: 'Date',
+        mileage: 'Mileage',
+        value: 'Value',
+      },
+    },
+    wizzard: {
+      title: 'Computed an Argus value',
+      identity: {
+        title: '1. Identify a vehicle',
+        select: {
+          title: 'Select a vehicle',
+          subtitle: 'Vehicle selection',
+          category: 'Catégorie',
+          make: 'Constructeur',
+          date: 'Date',
+          model: 'Modèle',
+          version: 'Version',
+          preview: {
+            title: 'Vehicle preview',
+            category: 'Select a category',
+            make: 'Select a make',
+            date: 'Select date',
+            model: 'Select a model',
+            version: 'Select a version',
+          },
+        },
+        argusId: {
+          title: 'Search by OID',
+          form: {
+            title: 'Search form',
+            oid: 'Argus OID',
+            date: 'Date',
+          },
+          preview: {
+            title: 'Search result',
+            noOID: 'Please enter an Argus OID',
+            noMatch: 'No version matched with your OID',
+            pending: 'Is searching',
+          },
+        },
+      },
+      offer: {
+        title: '2. Offer selection',
+        extended: {
+          description: 'Compute the quote and the market values of your vehicle',
+        },
+        custom: {
+          description: 'Compute the quotation of your vehicle',
+        },
+        residual: {
+          description: 'Calculate the projected Argus value of your vehicle',
+        },
+        pastStock: {
+          description: 'Calculate the price of your vehicle at a past date with the new price included',
+        },
+        past: {
+          description: 'Calculate the price of your vehicle at a past date',
+        },
+        exhange: {
+          description: 'Add a description',
+        },
+        vehicle: 'Valorized vehicle',
+      },
+      criteria: {
+        title: '3. Define criteria',
+        usage: {
+          title: 'Vehicle usage',
+          mileage: 'Mileage',
+          date: 'Date',
+          calculatedFor: 'Quotable date',
+          returnedAt: 'Return date',
+        },
+        options: {
+          title: 'Vehicle options',
+        },
+        garage: {
+          title: 'Your garage',
+          makes: 'Makes',
+          zipcode: 'Zipcode',
+        },
+        summary: {
+          title: 'Valorization summary',
+          offer: 'Vehicle and offer',
+        },
+        valorize: 'Valorize',
+      },
+    },
+    values: {
+      title: 'Values',
+      computing: 'Computing values',
+      initial: 'Price of new',
+      custom: {
+        title: 'Custom market values',
+        pastTitle: 'Past market value',
+        standardValue: 'Argus average price: ',
+        bodyInfluence: 'Body influence',
+        releaseInfluence: 'Release date influence: ',
+        optionsInfluence: 'Options influence',
+        mileageInfluence: 'Mileage influence',
+      },
+      refurbishment: 'Refurbishment',
+      displayeValues: 'Displayed value',
+      customerValue: 'Customers',
+      proValue: 'Profesionnals',
+      residual: 'Residual value',
+      exchangeValue: 'Trade-in value',
+    },
   },
 
   techData: {

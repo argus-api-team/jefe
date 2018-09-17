@@ -1,0 +1,138 @@
+<fieldset class="col-12 col-md-6">
+  <div class="section-header m--margin-bottom-15">
+    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.identity.select.subtitle"}}</h4>
+    <div class="section-header__separator"><hr /></div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.category"}}</label>
+    <div class="col-8">
+      {{#power-select
+        options=categoriesSelection
+        selected=selectedCategory
+        searchField="name"
+        enableTime=false
+        onchange=(action (mut selectedCategory))
+        as |category|
+      }}
+        {{category.name}}
+      {{/power-select}}
+    </div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.make"}}</label>
+    <div class="col-8">
+      {{#power-select
+        options=makesSelection
+        selected=selectedMake
+        searchField="name"
+        enableTime=false
+        disabled=(if selectedCategory false true)
+        onchange=(action (mut selectedMake))
+        as |make|
+      }}
+        {{make.name}}
+      {{/power-select}}
+    </div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.date"}}</label>
+    <div class="col-8">
+      {{date-picker
+        buttonClasses="btn btn-primary"
+        disabled=(if selectedMake false true)
+        minDate=(moment selectedMake.startDate)
+        maxDate=(if selectedMake.endDate (moment selectedMake.endDate) (moment))
+        availableYearOffset=15
+        value=vehicleDate
+        placeholder=(t "application.datePlaceholder")
+        action=(action (mut vehicleDate))
+      }}
+    </div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.model"}}</label>
+    <div class="col-8">
+      {{#power-select
+        options=phasesSelection
+        selected=selectedPhase
+        searchField="shortNicename"
+        enableTime=false
+        disabled=(if vehicleDate false true)
+        onchange=(action (mut selectedPhase))
+        as |phase|
+      }}
+        {{phase.shortNicename}}
+      {{/power-select}}
+    </div>
+  </div>
+
+  <div class="form-group m-form__group row align-items-center">
+    <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.version"}}</label>
+    <div class="col-8">
+      {{#power-select
+        options=versionsSelection
+        selected=selectedVersion
+        searchField="name"
+        enableTime=false
+        disabled=(if selectedPhase false true)
+        onchange=(action (mut selectedVersion))
+        as |version|
+      }}
+        {{version.name}}
+      {{/power-select}}
+    </div>
+  </div>
+
+</fieldset>
+<section class="col-12 col-md-6">
+  <div class="section-header m--margin-bottom-15">
+    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.identity.select.title"}}</h4>
+    <div class="section-header__separator"><hr /></div>
+  </div>
+  <div class="valorization-card vehicle-preview m--clearfix">
+    <div class="vehicle-infos">
+
+      {{#if selectedMake}}
+
+        <h5 class="h5">
+          {{selectedMake.name}}
+          {{#if vehicleDate}}
+            - {{if selectedPhase selectedPhase.submodel.name (t "valorization.wizzard.identity.select.preview.model")}}
+          {{/if}}
+        </h5>
+
+      {{else}}
+        <h5 class="h5 m--marginless">{{if selectedCategory (t "valorization.wizzard.identity.select.preview.make") (t "valorization.wizzard.identity.select.preview.category")}}</h5>
+      {{/if}}
+
+      {{#if vehicleDate}}
+
+        <p class="{{ 'm--margin-bottom-5' 'm--marginless'}}">
+          {{#if selectedPhase}}
+            Gen. {{selectedPhase.generation.name}} Pe. {{selectedPhase.name}} -
+          {{/if}}
+          {{if vehicleDate (moment-format vehicleDate (t "application.dateFormat"))}}
+        </p>
+
+      {{else}}
+        <p class="m--marginless">{{if selectedMake (t "valorization.wizzard.identity.select.preview.date") ''}}</p>
+      {{/if}}
+      {{#if selectedPhase}}
+        <p class="m--marginless">{{if selectedVersion selectedVersion.name (t "valorization.wizzard.identity.select.preview.version")}}</p>
+      {{/if}}
+
+    </div>
+    {{#if selectedMake}}
+      <div class="vehicle-make-logo">
+        {{logo-img url=selectedMake.logoURL className='thumbnail make-logo'}}
+      </div>
+    {{/if}}
+  </div>
+</section>
+<div class="btn-container m--margin-top-30 text-right col-12">
+  <button class="btn btn-primary" disabled={{if selectedVersion false true}}>{{t "application.validate"}}</button>
+</div>

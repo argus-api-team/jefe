@@ -5,7 +5,7 @@
     </div>
   </div>
 </div>
-<div class="m-portlet__body">
+<div class="m-portlet__body loging-form__content">
   {{#if errorMessage}}
   <div class="alert alert-danger">
     <span>{{errorMessage}}</span>
@@ -28,10 +28,18 @@
     {{input value=password class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.password") name="password" type="password"}}
   </div>
   <div class="form-actions">
-    {{#spin-button action=(action "authenticate") buttonStyle="expand-right" class="m--margin-right-30"}}{{t "login.button.signIn"}}{{/spin-button}}
+    <button {{action "authenticate"}} type="button" class="m--margin-right-30 btn btn-primary">{{t "login.button.signIn"}}</button>
     <label class="rememberme check m-checkbox m-checkbox-outline m--margin-top-10">
       {{input type="checkbox" name="isRemembered" checked=isRemembered}}{{t "login.form.isRemembered"}}
       <span></span>
     </label>
   </div>
+  {{#if isLogingIn}}
+    <div class="m--padding-15 is-loging">
+      <div class="is-loging__spacing"></div>
+      <p class="m--align-center m--font-bold is-loging__caption">{{t "login.isLoging"}}</p>
+      <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30 m--margin-bottom-30"></div>
+      <div class="is-loging__spacing"></div>
+    </div>
+  {{/if}}
 </div>

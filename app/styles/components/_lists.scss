@@ -72,12 +72,27 @@
   border-bottom: 1px solid get-color($m--default-skin, panel);
 
   .list-item-content {
-    margin: 0 -2.2rem;
-    padding: 15px calc(2.2rem + 15px);
-
     &.active {
       background: array-get($m--state-colors, primary, base);
       color: $white;
+    }
+
+    &.is-selected {
+      background: array-get($m--state-colors, primary, base);
+      color: $white;
+    }
+
+    &.is-selectable {
+      cursor: pointer;
+
+      &:hover {
+        background: array-get($m--state-colors, info, base);
+        color: $white;
+
+        &.is-selected {
+          background: array-get($m--state-colors, primary, base);
+        }
+      }
     }
   }
 }
@@ -98,6 +113,7 @@
   }
 
   .infos {
+    flex: 1;
     order: 2;
 
     p {
@@ -117,10 +133,24 @@
     width: 80px;
     min-height: 80px;
     margin-right: 10px;
+    background: $white;
 
     img {
       width: 100%;
       margin-bottom: 0;
+    }
+  }
+
+  .candidate-frequency {
+    order: 3;
+  }
+}
+
+.m-portlet__body {
+  & > .vertical-list {
+    .list-item-content {
+      margin: 0 -2.2rem;
+      padding: 15px calc(2.2rem + 15px);
     }
   }
 }

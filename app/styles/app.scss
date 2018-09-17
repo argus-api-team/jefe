@@ -66,6 +66,13 @@
 // @import 'vendor/reboot';
 // @import 'base/typography';
 
+//Addons Styles
+@import 'utils/power-select-theme';
+@import 'ember-power-select';
+@import 'ember-basic-dropdown';
+@import 'ember-power-calendar';
+@import 'ember-date-components/addon';
+
 
 //Utils
 @import 'utils/variables';
@@ -87,13 +94,13 @@
 @import 'components/informations-portlet';
 @import 'components/section-header';
 @import 'components/tech-data';
-@import 'spin-button'; //Component from ember addon
+@import 'components/wizzard';
+@import 'components/license-plate';
 
 //Page specific
 @import 'pages/login';
 @import 'pages/make';
 @import 'pages/model-timeline';
 @import 'pages/vehicle';
-@import 'pages/license-plate';
-
-@import 'ember-power-select';
+@import 'pages/quote';
+@import 'pages/valorization';

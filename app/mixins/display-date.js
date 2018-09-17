@@ -17,6 +17,7 @@ export default Mixin.create({
     return this.getDisplayDate(format);
   }),
 
+
   getDisplayDate(format) {
     moment.locale(this.get('i18n.locale'));
     const formatedStartDate = moment(this.get('startDate')).format(format);

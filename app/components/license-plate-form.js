@@ -1,7 +1,9 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 
+
 export default Component.extend({
+
   store: service(),
   ably: service(),
   router: service(),
@@ -50,12 +52,14 @@ export default Component.extend({
     if (matching.get('isSaving')) {
       return false;
     }
+    this.$().find('input').blur();
     return matching.save().then((matchingRecord) => {
-      this.refreshModel();
       matching.set('isSearching', true);
+      this.set('resolvedMatchingRecord', matchingRecord);
+      this._initNewMatchingRecord();
       if (router.isActive('lang.license-plate')) {
+        this.refreshModel();
         router.transitionTo('lang.license-plate.matching', matchingRecord.get('id'));
-        this._initNewMatchingRecord();
       }
     });
   },

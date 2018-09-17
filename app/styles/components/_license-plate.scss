@@ -39,3 +39,31 @@
     font-weight: 300;
   }
 }
+
+
+.candidate-frequency {
+  position: relative;
+  width: 15px;
+  height: 60px;
+  border: 1px solid $light-grey;
+  background: $white;
+
+  .candidate-frequency__gauge {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.version-link {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+
+    .list-item-content {
+      color: array-get($m--state-colors, primary, base);
+    }
+  }
+}

@@ -17,9 +17,13 @@ export default Component.extend({
     this._detectMissingImg();
   },
 
+  didUpdateAttrs() {
+    this.$().find('img').addClass('lazyload');
+  },
+
   _detectMissingImg() {
     const context = this;
-    $('img').on('error', function () {
+    this.$().find('img').on('error', function () {
       $(this).addClass('no-logo');
       $(this).attr('src', context.get('noLogoUrl'));
     });

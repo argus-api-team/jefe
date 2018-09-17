@@ -12,7 +12,10 @@ module.exports = function(defaults) {
       includePaths: [
         'node_modules/bootstrap/scss'
       ]
-  }
+    },
+    'ember-date-components': {
+      'importCSS': false
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

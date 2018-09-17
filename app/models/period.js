@@ -1,7 +1,10 @@
 import DS from 'ember-data';
+import HasManyQuery from 'ember-data-has-many-query';
 import DisplayDateMixin from '../mixins/display-date';
+import SortableDate from '../mixins/sortable-date';
 
-export default DS.Model.extend(DisplayDateMixin, {
+
+export default DS.Model.extend(DisplayDateMixin, SortableDate, HasManyQuery.ModelMixin, {
   priceExcludingVat: DS.attr('number'),
   priceIncludingVat: DS.attr('number'),
   startDate: DS.attr('date'),

@@ -21,7 +21,7 @@ export default Route.extend({
 
   setupPeriodArrayInController(controller, model) {
     model.vehicle.get('periods').then((periods) => {
-      const periodsArray = periods.toArray().sortBy('startDate');
+      const periodsArray = periods.toArray().sortBy('sortableStartDate');
       const queryPeriodId = this.controller.get('periodId');
       controller.set('sortedPeriods', periodsArray);
       if (queryPeriodId) {

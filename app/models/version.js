@@ -12,7 +12,7 @@ export default DS.Model.extend(DisplayDateMixin, {
   legacyId: DS.attr('number'),
   position: DS.attr('number'),
   numberOfPlaces: DS.attr('string'),
-  quoteable: DS.attr('boolean'),
+  quotable: DS.attr('boolean'),
   prevarable: DS.attr('boolean'),
   firstQuoteAt: DS.attr('date'),
   positionQuote: DS.attr('number'),

@@ -6,6 +6,9 @@ export default {
     pending: 'Chargement des données',
     yes: 'Oui',
     no: 'Non',
+    validate: 'Valider',
+    datePlaceholder: 'Sélectionnez une date',
+    dateFormat: 'DD/MM/YYYY',
   },
 
   index: {
@@ -51,6 +54,7 @@ export default {
     button: {
       signIn: 'Me connecter',
     },
+    isLoging: 'Connection en cours',
   },
 
   pageHeader: {
@@ -127,7 +131,7 @@ export default {
   licensePlate: {
     form: {
       title: 'Plaque d\'immatriculation',
-      label: 'Entrer numéro d\'immatriculation',
+      label: 'Entrer un numéro d\'immatriculation',
       description: 'Immatriculation',
       notValid: 'Le numéro d\'immatriculation n\'est pas valide',
     },
@@ -156,6 +160,131 @@ export default {
   prices: {
     ttc: 'TTC',
     ht: 'HT',
+  },
+
+  valorization: {
+    offers: {
+      extended: 'Valeur Agrus de marché',
+      custom: 'Cote Argus personnalisée',
+      residual: 'Valeur Argus résiduellee',
+      pastStock: 'Cote à date passée et prix du neuf',
+      past: 'Cote à date passée',
+      exchange: 'Valeur de reprise',
+    },
+    index: {
+      title: 'Historique de valorisation',
+      valorize: 'Valoriser',
+      labels: {
+        offer: 'Offre',
+        vehicle: 'Véhicule',
+        release: 'MEC',
+        date: 'Date',
+        mileage: 'Kilométrage',
+        value: 'Valeur',
+      },
+    },
+    wizzard: {
+      title: 'Calcuer une valeur Argus',
+      identity: {
+        title: '1. Selection d\'un véhicule',
+        select: {
+          title: 'Selectionner un vehicule',
+          subtitle: 'Sélection du véhicule',
+          category: 'Catégorie',
+          make: 'Constructeur',
+          date: 'Date',
+          model: 'Modèle',
+          version: 'Version',
+          preview: {
+            title: 'Prévisualisation du véhicule',
+            category: 'Sélectionnez un catégorie',
+            make: 'Sélectionnez un constructeur',
+            date: 'Sélectionnez une date',
+            model: 'Sélectionnez un modèle',
+            version: 'Sélectionnez une version',
+          },
+        },
+        argusId: {
+          title: 'Chercher par OID Argus',
+          form: {
+            title: 'Formulaire de recherche',
+            oid: 'OID Argus',
+            date: 'Date',
+          },
+          preview: {
+            title: 'Résultat de la recherche',
+            noOID: 'Veuillez entrer un OID Argus',
+            noMatch: 'Aucune version ne correspond à votre OID Argus',
+            pending: 'Recherche en cours',
+          },
+        },
+      },
+      offer: {
+        title: '2. Sélection de l\'offre',
+        extended: {
+          description: 'Calculer la cote et les valeurs de marché de votre véhicule',
+        },
+        custom: {
+          description: 'Calculer la cote de votre véhciule',
+        },
+        residual: {
+          description: 'Calculer la valeur Argus prévisionnelle de votre véhicule',
+        },
+        pastStock: {
+          description: 'Calculer la cote de votre véhicule à une date passée avec le prix du neuf inclus',
+        },
+        past: {
+          description: 'Calculer la cote de votre véhicule à une date passée',
+        },
+        exhange: {
+          description: 'Ajouter une description',
+        },
+        vehicle: 'Véhicule valorisé',
+      },
+      criteria: {
+        title: '3. Définition des critères',
+        usage: {
+          title: 'Utilisation du véhicule',
+          mileage: 'Kilométrage',
+          date: 'Date',
+          calculatedFor: 'Date cotation',
+          returnedAt: 'Date de retour',
+        },
+        options: {
+          title: 'Options du véhicule',
+        },
+        garage: {
+          title: 'Votre garage',
+          makes: 'Constructeurs',
+          zipcode: 'Code postal',
+        },
+        summary: {
+          title: 'Résumé de la valorisation',
+          offer: 'Véhicule et offre',
+        },
+        valorize: 'Valoriser',
+      },
+    },
+    values: {
+      title: 'Valeurs',
+      computing: 'Calcul des valeurs en cours',
+      initial: 'Prix du neuf',
+      custom: {
+        title: 'Cote Argus Personnalisée ®',
+        pastTitle: 'Cote Argus à date passée',
+        standardValue: 'Cours Argus Moyen®: ',
+        bodyInfluence: 'Influence de la carrosserie',
+        releaseInfluence: 'Influence de la date de mise en circulation: ',
+        optionsInfluence: 'Influence des options ',
+        mileageInfluence: 'Influence du kilométrage',
+      },
+      refurbishment: 'Remise en état',
+      displayeValues: 'Valeur Argus Annonces ®',
+      customerValue: 'Valeur Argus Transactions® à particuliers',
+      proValue: 'Valeur Argus Transactions® à professionnels',
+      residual: 'Valeur résiduelle',
+      exchangeValue: 'Valeur de reprise',
+    },
   },
 
   techData: {

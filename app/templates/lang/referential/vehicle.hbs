@@ -71,7 +71,7 @@
           <p class="vehicule-infos__date text-right font-italic m--marginless">{{model.vehicle.generation.displayDate}}</p>
         </div>
       </div>
-      {{#sticky-element top=110}}
+      {{#sticky-element top=110 enabled=(if (media 'isMobile') false true)}}
         <div class="m-portlet">
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
@@ -96,7 +96,7 @@
                 <table class="quote-infos m--margin-bottom-15">
                   <tr>
                     <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.quotable'}}</th>
-                    <td>{{if mode.quotable (t 'application.yes') (t 'application.no')}}</td>
+                    <td>{{if model.vehicle.quotable (t 'application.yes') (t 'application.no')}}</td>
                   </tr>
                   <tr>
                     <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.first'}}</th>
@@ -109,11 +109,17 @@
                 </table>
               </div>
               <div class="col-12 col-xl-6">
-                <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-15">
+                <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-10">
                   <p class="price-incl-taxes m--marginless m--font-bold">{{selectedPeriod.priceIncludingVat}}€ <span class="m--font-thin">{{t 'prices.ttc'}}</span></p>
                   <p class="price-excl-taxes m--marginless m--font-normal">{{selectedPeriod.priceExcludingVat}}€ <span class="m--font-thin">{{t 'prices.ht'}}</span></p>
                 </div>
               </div>
+            </div>
+            <hr class="m--margin-top-15 m--margin-bottom-15"/>
+            <div class="text-right m--margin-top-25">
+              {{#link-to "lang.quote.valorize.vehicle-identification" (query-params oid=model.vehicle.id) class="btn btn-primary" }}
+                Valoriser
+              {{/link-to}}
             </div>
           </div>
         </div>
