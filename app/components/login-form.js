@@ -1,38 +1,28 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
-import Cookies from 'ember-cli-js-cookie';
 
 export default Component.extend({
   session: service('session'),
-  config: service(),
 
   tagName: 'form',
   classNames: ['login-form', 'm-portlet'],
 
-  applicationId: Cookies.get('applicationId'),
-  applicationSecret: Cookies.get('applicationSecret'),
-  username: Cookies.get('username'),
-  password: Cookies.get('password'),
-  isRemembered: Cookies.get('isRemembered'),
-  expiresLength: 15,
-  isSecureCookie: computed.alias('config.APP.isSecureCookie'),
+  applicationId: '',
+  applicationSecret: '',
+  username: '',
+  password: '',
+  isRemembered: false,
   isLogingIn: false,
 
   init() {
     this._super(...arguments);
-    this.credentialProperties = [
-      'applicationId', 'applicationSecret',
-      'username', 'password', 'isRemembered',
-    ];
+    this._initCredentialProperties();
   },
 
   actions: {
     authenticate() {
       this.set('errorMessage', false);
-
       this._rememberCredentials();
-
       const {
         applicationId,
         applicationSecret,
@@ -53,16 +43,32 @@ export default Component.extend({
     },
   },
 
-  _saveCredentials() {
-    this.get('credentialProperties').forEach((property) => {
-      Cookies.set(property, this.get(property), { expires: this.get('expiresLength'), secure: this.get('isSecureCookie') });
+  _initCredentialProperties() {
+    const session = this.get('session');
+    session.get('store').restore().then((storedSession) => {
+      this.set('applicationId', storedSession.applicationId);
+      this.set('applicationSecret', storedSession.applicationSecret);
+      this.set('username', storedSession.username);
+      this.set('password', storedSession.password);
+      this.set('isRemembered', storedSession.isRemembered);
     });
   },
 
+  _saveCredentials() {
+    const session = this.get('session');
+    const credentialProperties = {
+      applicationId: this.get('applicationId'),
+      applicationSecret: this.get('applicationSecret'),
+      username: this.get('username'),
+      password: this.get('password'),
+      isRemembered: this.get('isRemembered'),
+    };
+    session.get('store').persist(credentialProperties);
+  },
+
   _clearCredentials() {
-    this.get('credentialProperties').forEach((property) => {
-      Cookies.remove(property, { secure: this.get('isSecureCookie') });
-    });
+    const session = this.get('session');
+    session.get('store').clear();
   },
 
   _rememberCredentials() {
@@ -72,4 +78,5 @@ export default Component.extend({
       this._clearCredentials();
     }
   },
+
 });
