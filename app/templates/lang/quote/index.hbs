@@ -49,9 +49,10 @@
             {{t 'valorization.index.labels.value'}}
           </div>
         </li>
-        {{#each model.valorizations as |valorization|}}
+        {{#each model as |valorization|}}
           {{valorization-item valorization=valorization largeMode=largeMode}}
         {{/each}}
+        {{infinity-loader infinityModel=model}}
       </ul>
     </div>
   </div>
