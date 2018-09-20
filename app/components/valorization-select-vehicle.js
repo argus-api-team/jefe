@@ -4,11 +4,11 @@ import { computed, observer } from '@ember/object';
 import DS from 'ember-data';
 import moment from 'moment';
 import { map } from 'rsvp';
+import VehicleSelectionlMixin from '../mixins/vehicle-selection';
 
-export default Component.extend({
+export default Component.extend(VehicleSelectionlMixin, {
   store: service(),
   i18n: service(),
-  router: service(),
 
   tagName: 'form',
   classNames: ['row'],
@@ -25,13 +25,8 @@ export default Component.extend({
 
   submit(e) {
     e.preventDefault();
-    const vehicleDate = this.get('vehicleDate');
-    const version = this.get('selectedVersion');
-    const valorizationRecord = this.get('valorizationRecord');
-    const router = this.get('router');
-    valorizationRecord.set('releasedAt', vehicleDate);
-    valorizationRecord.set('version', version);
-    router.transitionTo('lang.quote.valorize.offer');
+    const selectedVersion = this.get('selectedVersion');
+    this.selectVersion(selectedVersion);
   },
 
   makesSelection: computed('selectedCategory', function () {

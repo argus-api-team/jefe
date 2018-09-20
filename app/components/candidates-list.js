@@ -22,9 +22,8 @@ export default Component.extend({
     });
   }),
 
-  candidatesVersionsSorting: computed('', function () { // eslint-disable-line
-    return ['version.quoteRatio:desc'];
-  }),
+  candidatesVersionsSorting: Object.freeze(['version.quoteRatio:desc']),
+
   sortedCandidatesVersionsList: sort('candidatesVersionsList.content', 'candidatesVersionsSorting'),
 
   aggregatedCandidateQuoteRatio: computed('candidatesVersionsList.content.@each.quoteRatio', function () {
@@ -60,10 +59,5 @@ export default Component.extend({
         version: versions.findBy('id', candidate.get('versionId')),
       };
     });
-  },
-  actions: {
-    testAction() {
-      // alert('good');
-    },
   },
 });

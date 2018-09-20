@@ -1,18 +1,17 @@
 import Route from '@ember/routing/route';
-import RSVP from 'rsvp';
+import { inject as service } from '@ember/service';
 
 export default Route.extend({
+  infinity: service(),
+
   model() {
-    return RSVP.hash({
-      valorizations: this.get('store').query('valorization', {
-        include: 'values',
-        page: { size: 500 },
-        sort: '-id',
-      }),
-      batches: this.get('store').query('batch', {
-        include: 'valorizations.values',
-        page: { size: 500 },
-      }),
+    return this.get('infinity').model('valorization', {
+      perPage: 10,
+      startingPage: 1,
+      sort: '-id',
+      include: 'values',
+      perPageParam: 'page.size',
+      countParam: 'meta.record-count',
     });
   },
 });

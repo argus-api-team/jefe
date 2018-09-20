@@ -34,7 +34,7 @@ export default {
       button: 'Estimer',
     },
     dashboard: {
-      topMakes: 'Constructeurs populaires',
+      topMakes: 'Marques populaires',
       topVehicles: 'Véhicules populaires',
       latestVehicles: 'Derniers véhicules',
     },
@@ -63,14 +63,14 @@ export default {
   },
 
   makeList: {
-    title: 'Liste des constructeurs',
+    title: 'Liste des marques',
     displayDateSince: 'Depuis {{startDate}}',
     displayDateWithEnd: 'De {{startDate}} à {{endDate}}',
     noMatching: 'Aucun élément trouvé pour cette lettre.',
   },
 
   makeSheet: {
-    title: 'Fiche constructeur',
+    title: 'Fiche marque',
     informations: {
       title: 'Informations',
       quote: 'Position cote: ',
@@ -118,7 +118,7 @@ export default {
       optPacks: 'Packs optionnels',
     },
     equipmentsLabels: {
-      manRef: 'Ref. constructeur',
+      manRef: 'Ref. marque',
       name: 'Nom',
       category: 'Catégory',
       priceHT: 'Prix HT',
@@ -191,14 +191,14 @@ export default {
           title: 'Selectionner un vehicule',
           subtitle: 'Sélection du véhicule',
           category: 'Catégorie',
-          make: 'Constructeur',
+          make: 'Marque',
           date: 'Date',
           model: 'Modèle',
           version: 'Version',
           preview: {
             title: 'Prévisualisation du véhicule',
             category: 'Sélectionnez un catégorie',
-            make: 'Sélectionnez un constructeur',
+            make: 'Sélectionnez un marque',
             date: 'Sélectionnez une date',
             model: 'Sélectionnez un modèle',
             version: 'Sélectionnez une version',
@@ -255,7 +255,7 @@ export default {
         },
         garage: {
           title: 'Votre garage',
-          makes: 'Constructeurs',
+          makes: 'Marques',
           zipcode: 'Code postal',
         },
         summary: {
