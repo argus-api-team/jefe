@@ -1,11 +1,10 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { debounce } from '@ember/runloop';
+import VehicleSelectionlMixin from '../mixins/vehicle-selection';
 
-export default Component.extend({
-  // Inject service
+export default Component.extend(VehicleSelectionlMixin, {
   store: service(),
-  router: service(),
 
   // Html element properties
   tagName: 'form',
@@ -17,11 +16,18 @@ export default Component.extend({
   resolvedVersion: null,
   vehicleDate: null,
 
+  // Events
   didRender() {
     const argusOID = this.get('argusOID');
     if (argusOID) {
       window.scrollTo(0, document.body.scrollHeight);
     }
+  },
+
+  submit(e) {
+    e.preventDefault();
+    const resolvedVersion = this.get('resolvedVersion');
+    this.selectVersion(resolvedVersion);
   },
 
   // Methods
@@ -57,14 +63,4 @@ export default Component.extend({
     debounce(this, this.resolveArgusOID, 500);
   },
 
-  submit(e) {
-    e.preventDefault();
-    const valorizationRecord = this.get('valorizationRecord');
-    const resolvedVersion = this.get('resolvedVersion');
-    const vehicleDate = this.get('vehicleDate').format('YYYY-MM-DD');
-    const router = this.get('router');
-    valorizationRecord.set('version', resolvedVersion);
-    valorizationRecord.set('releasedAt', vehicleDate);
-    router.transitionTo('lang.quote.valorize.offer');
-  },
 });

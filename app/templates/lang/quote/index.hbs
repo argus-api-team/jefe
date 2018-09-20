@@ -52,7 +52,11 @@
         {{#each model as |valorization|}}
           {{valorization-item valorization=valorization largeMode=largeMode}}
         {{/each}}
-        {{infinity-loader infinityModel=model}}
+        {{infinity-loader
+          infinityModel=model
+          loadingText=""
+          loadedText=""
+        }}
       </ul>
     </div>
   </div>

@@ -6,10 +6,10 @@ import c3 from 'c3';
 export default Component.extend({
   i18n: service(),
   didInsertElement() {
-    this.initChart();
+    this._initChart();
   },
 
-  initChart() {
+  _initChart() {
     const component = this;
     const componentId = `#${this.get('elementId')}`;
     const chart = c3.generate({

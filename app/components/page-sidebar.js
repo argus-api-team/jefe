@@ -16,7 +16,6 @@ export default Component.extend({
     this.$('.active').closest('.nav-item').addClass('active');
     this.$('.active').closest('.top-level').addClass('active');
     mLayout.initAside();
-    // console.log(mLayout);
   },
 
   homeIsActive: computed('router.currentRouteName', function () {
