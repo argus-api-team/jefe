@@ -2,11 +2,11 @@
   <div class="d-flex align-items-center">
     <div class="mr-auto">
       <h1 class="m-subheader__title m-subheader__title--separator">
-        {{t 'modelTimeline.title'}}
+        {{t "modelTimeline.title"}}
       </h1>
       <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
         <li class="m-nav__item m-nav__item--home">
-          {{#link-to 'lang' class="m-nav__link m-nav__link--icon"}}
+          {{#link-to "lang" class="m-nav__link m-nav__link--icon"}}
             <i class="m-nav__link-icon la la-home"></i>
           {{/link-to}}
         </li>
@@ -14,7 +14,7 @@
           -
         </li>
         <li class="m-nav__item">
-          {{#link-to 'lang.referential' class="m-nav__link m-nav__link--icon"}}
+          {{#link-to "lang.referential" class="m-nav__link m-nav__link--icon"}}
             <span class="m-nav__link-text">
               {{t "index.referential.title"}}
             </span>
@@ -24,7 +24,11 @@
           -
         </li>
         <li class="m-nav__item">
-          {{#link-to 'lang.referential.make' model.make.id class="m-nav__link m-nav__link--icon"}}
+          {{#link-to
+            "lang.referential.make"
+            model.make.id
+            class="m-nav__link m-nav__link--icon"
+          }}
             <span class="m-nav__link-text">
               {{model.make.name}}
             </span>
@@ -41,13 +45,13 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'modelTimeline.informations'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "modelTimeline.informations"}}</h3>
             </div>
           </div>
         </div>
         <div class="m-portlet__body informations-portlet">
           <div class="logo-container text-center">
-            {{logo-img url=model.make.logoURL className='make-logo'}}
+            {{logo-img url=model.make.logoURL className="make-logo"}}
           </div>
           <h4 class="informations-portlet__title">{{model.make.name}}</h4>
           <h5 class="informations-portlet__data">{{model.name}}</h5>
@@ -59,7 +63,7 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t 'modelTimeline.index'}}</h3>
+                <h3 class="m-portlet__head-text">{{t "modelTimeline.index"}}</h3>
               </div>
             </div>
           </div>
@@ -67,11 +71,11 @@
             <ul class="generation-list">
               {{#each model.sortedGenerations as |generation|}}
                 <li>
-                  <a class="anchor-link" href="#generation-{{generation.id}}">{{t 'modelTimeline.generation'}} {{generation.name}}</a>
+                  <a class="anchor-link" href="#generation-{{generation.id}}">{{t "modelTimeline.generation"}} {{generation.name}}</a>
                   <ul class="phase-list">
                     {{#each generation.sortedPhases as |phase|}}
                       <li>
-                        <a class="anchor-link" href="#phase-{{phase.id}}">{{t 'modelTimeline.phase'}} {{phase.name}}</a>
+                        <a class="anchor-link" href="#phase-{{phase.id}}">{{t "modelTimeline.phase"}} {{phase.name}}</a>
                       </li>
                     {{/each}}
                   </ul>

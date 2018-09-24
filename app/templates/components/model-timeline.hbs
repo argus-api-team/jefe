@@ -3,18 +3,22 @@
   {{#each model.sortedGenerations as |generation|}}
     <div class="timeline-generation" id="generation-{{generation.id}}">
       <h6 class="timeline-generation__name">
-        {{t 'modelTimeline.generation'}} {{generation.name}}
+        {{t "modelTimeline.generation"}} {{generation.name}}
       </h6>
       <span class="timeline-generation__date">
         {{#if generation.endDate}}
-          {{moment-format generation.endDate 'MMM YYYY'}}
+          {{moment-format generation.endDate "MMM YYYY"}}
         {{else}}
-          {{t 'modelTimeline.today'}}
+          {{t "modelTimeline.today"}}
         {{/if}}
       </span>
     </div>
     {{#each generation.sortedPhases as |phase index|}}
-      {{model-timeline-phase-block phase=phase phaseIndex=index sortedModelPhasesArray=sortedModelPhasesArray}}
+      {{model-timeline-phase-block
+        phase=phase
+        phaseIndex=index
+        sortedModelPhasesArray=sortedModelPhasesArray
+      }}
     {{/each}}
   {{/each}}
 </div>

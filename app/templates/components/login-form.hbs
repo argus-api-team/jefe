@@ -7,30 +7,66 @@
 </div>
 <div class="m-portlet__body loging-form__content">
   {{#if errorMessage}}
-  <div class="alert alert-danger">
-    <span>{{errorMessage}}</span>
-  </div>
+    <div class="alert alert-danger">
+      <span>{{errorMessage}}</span>
+    </div>
   {{/if}}
   <div class="form-group">
     <label class="control-label visible-ie8 visible-ie9">{{t "login.form.applicationId"}}</label>
-    {{input value=applicationId class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.applicationId") name="applicationId"}}
+    {{input
+      value=applicationId
+      class="form-control form-control-solid placeholder-no-fix"
+      autocomplete="off"
+      placeholder=(t "login.form.applicationId")
+      name="applicationId"
+    }}
   </div>
   <div class="form-group">
     <label class="control-label visible-ie8 visible-ie9">{{t "login.form.applicationSecret"}}</label>
-    {{input value=applicationSecret class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.applicationSecret") name="applicationSecret" type="password"}}
+    {{input
+      value=applicationSecret
+      class="form-control form-control-solid placeholder-no-fix"
+      autocomplete="off"
+      placeholder=(t "login.form.applicationSecret")
+      name="applicationSecret"
+      type="password"
+    }}
   </div>
   <div class="form-group">
     <label class="control-label visible-ie8 visible-ie9">{{t "login.form.username"}}</label>
-    {{input value=username class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.username") name="username"}}
+    {{input
+      value=username
+      class="form-control form-control-solid placeholder-no-fix"
+      autocomplete="off"
+      placeholder=(t "login.form.username")
+      name="username"
+    }}
   </div>
   <div class="form-group">
     <label class="control-label visible-ie8 visible-ie9">{{t "login.form.password"}}</label>
-    {{input value=password class="form-control form-control-solid placeholder-no-fix" autocomplete="off" placeholder=(t "login.form.password") name="password" type="password"}}
+    {{input
+      value=password
+      class="form-control form-control-solid placeholder-no-fix"
+      autocomplete="off"
+      placeholder=(t "login.form.password")
+      name="password"
+      type="password"
+    }}
   </div>
   <div class="form-actions">
-    <button {{action "authenticate"}} type="button" class="m--margin-right-30 btn btn-primary">{{t "login.button.signIn"}}</button>
+    <button {{action "authenticate"}}
+      type="button"
+      class="m--margin-right-30 btn btn-primary"
+    >
+      {{t "login.button.signIn"}}
+    </button>
     <label class="rememberme check m-checkbox m-checkbox-outline m--margin-top-10">
-      {{input type="checkbox" name="isRemembered" checked=isRemembered}}{{t "login.form.isRemembered"}}
+      {{input
+        type="checkbox"
+        name="isRemembered"
+        checked=isRemembered
+      }}
+      {{t "login.form.isRemembered"}}
       <span></span>
     </label>
   </div>
@@ -38,7 +74,10 @@
     <div class="m--padding-15 is-loging">
       <div class="is-loging__spacing"></div>
       <p class="m--align-center m--font-bold is-loging__caption">{{t "login.isLoging"}}</p>
-      <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30 m--margin-bottom-30"></div>
+      <div
+        class="m-loader m-loader--brand m-loader--lg m--margin-top-30 m--margin-bottom-30"
+      >
+      </div>
       <div class="is-loging__spacing"></div>
     </div>
   {{/if}}

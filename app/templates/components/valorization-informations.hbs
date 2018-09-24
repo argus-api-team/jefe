@@ -1,7 +1,7 @@
 <div class="m-portlet__head">
   <div class="m-portlet__head-caption">
     <div class="m-portlet__head-title">
-      <h3 class="m-portlet__head-text">Valorization</h3>
+      <h3 class="m-portlet__head-text">{{t "valorization.values.infos.title"}}</h3>
     </div>
   </div>
   <div class="m-portlet__head-tools">
@@ -10,41 +10,44 @@
 </div>
 <div class="m-portlet__body valorization-criteria">
   <div class="section-header m--margin-bottom-15">
-    <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle identification</h4>
-    <div class="section-header__separator"><hr /></div>
+    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.infos.identification"}}</h4>
+    <div class="section-header__separator"><hr></div>
   </div>
   <div class="valorization-card m--clearfix">
     <div class="vehicle-infos">
       <h5 class="h6"> {{valorization.vehicle.content.make.name}} - {{valorization.vehicle.content.submodel.name}}</h5>
-      <p class="m--margin-bottom-5">Gen. {{valorization.vehicle.content.generation.name}} Pe. {{valorization.vehicle.content.phase.name}} - {{moment-format valorization.releasedAt 'DD/MM/YYYY'}}</p>
+      <p class="m--margin-bottom-5">{{t "application.gen"}} {{valorization.vehicle.content.generation.name}} {{t "application.pe"}} {{valorization.vehicle.content.phase.name}} - {{moment-format valorization.releasedAt "DD/MM/YYYY"}}</p>
       <p class="m--marginless">{{valorization.vehicle.content.name}}</p>
     </div>
     <div class="vehicle-make-logo">
-      {{logo-img url=valorization.vehicle.content.make.logoURL className='thumbnail make-logo'}}
+      {{logo-img
+        url=valorization.vehicle.content.make.logoURL
+        className="thumbnail make-logo"
+      }}
     </div>
   </div>
   <div class="section-header m--margin-bottom-15 m--margin-top-30">
-    <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle usage</h4>
-    <div class="section-header__separator"><hr /></div>
+    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.infos.usage"}}</h4>
+    <div class="section-header__separator"><hr></div>
   </div>
   <div class="row">
     {{#if valorization.mileage}}
       <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</dt>
-      <dd class="col-3">{{valorization.mileage}} {{t 'techData.units.km'}}</dd>
+      <dd class="col-3">{{valorization.mileage}} {{t "techData.units.km"}}</dd>
     {{/if}}
     {{#if valorization.returnedAt}}
       <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
-      <dd class="col-3">{{moment-format valorization.returnedAt 'YYYY-MM-DD'}}</dd>
+      <dd class="col-3">{{moment-format valorization.returnedAt "YYYY-MM-DD"}}</dd>
     {{/if}}
     {{#if valorization.calculatedFor}}
       <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
-      <dd class="col-3">{{moment-format valorization.calculatedFor 'YYYY-MM-DD'}}</dd>
+      <dd class="col-3">{{moment-format valorization.calculatedFor "YYYY-MM-DD"}}</dd>
     {{/if}}
   </div>
   {{#if valorization.features.length}}
     <div class="section-header m--margin-bottom-15 m--margin-top-30">
-      <h4 class="m--marginless section-header__title m--padding-right-15">Vehicle options</h4>
-      <div class="section-header__separator"><hr /></div>
+      <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.infos.options"}}</h4>
+      <div class="section-header__separator"><hr></div>
     </div>
     <ul>
       {{#each valorization.features as |feature|}}
@@ -59,8 +62,8 @@
   {{#if valorization.isExtended}}
     {{#if valorization.showSummaryGaragePart}}
       <div class="section-header m--margin-bottom-15 m--margin-top-30">
-        <h4 class="m--marginless section-header__title m--padding-right-15">Your garage</h4>
-        <div class="section-header__separator"><hr /></div>
+        <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.infos.garage"}}</h4>
+        <div class="section-header__separator"><hr></div>
       </div>
       <div class="row">
         {{#if valorization.makes.length}}
@@ -83,8 +86,12 @@
     {{/if}}
   {{/if}}
   <div class="btn-container text-right m--margin-top-30">
-    {{#link-to 'lang.referential.vehicle' valorization.version.id class="btn btn-primary"}}
-      Specs
+    {{#link-to
+      "lang.referential.vehicle"
+      valorization.version.id
+      class="btn btn-primary"
+    }}
+      {{t "valorization.values.infos.specs"}}
     {{/link-to}}
   </div>
 </div>

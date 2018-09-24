@@ -6,127 +6,131 @@
     </div>
     <div class="col-xl-8 col-12 vehicle-data">
       <div class="m-portlet">
-          <div class="m-portlet__head">
-            <div class="m-portlet__head-caption">
-              <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t 'valorization.values.title'}}</h3>
-              </div>
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "valorization.values.title"}}</h3>
             </div>
           </div>
-          <div class="m-portlet__body">
-            {{#if model.isComputing}}
-              <div class="m--align-center m--font-bold h3 m--margin-top-15 m--margin-bottom-60">
-                <p class="m--margin-bottom-30">{{t 'valorization.values.computing'}}</p>
-                <div class="m-loader m-loader--brand m-loader--lg"></div>
+        </div>
+        <div class="m-portlet__body">
+          {{#if model.isComputing}}
+            <div
+              class="m--align-center m--font-bold h3 m--margin-top-15 m--margin-bottom-60"
+            >
+              <p class="m--margin-bottom-30">{{t "valorization.values.computing"}}</p>
+              <div class="m-loader m-loader--brand m-loader--lg"></div>
+            </div>
+          {{else}}
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <section>
+                  <div class="section-header m--margin-bottom-15 m--margin-top-0">
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.initial"}}</h4>
+                    <div class="section-header__separator"><hr></div>
+                  </div>
+                  <p class="main-value-display text-right">{{model.initialPricesValue.content.value}} {{t "application.currency"}}</p>
+                </section>
+                <section>
+                  <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.custom.title"}}</h4>
+                    <div class="section-header__separator"><hr></div>
+                  </div>
+                  <div class="custom-market-value-details">
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.standardValue"}}:</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.standardValue}} {{t "application.currency"}}</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.bodyInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.body}} {{t "application.currency"}}</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.releaseInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.release}} {{t "application.currency"}}</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.optionsInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.options}} {{t "application.currency"}}</span>
+                    </div>
+                    <div class="custom-market-value-detail">
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.mileageInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.mileage}} {{t "application.currency"}}</span>
+                    </div>
+                  </div>
+                  <hr>
+                  <p class="main-value-display text-right">{{model.customMarketValues.content.value}} {{t "application.currency"}}</p>
+                </section>
+                <section>
+                  <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.refurbishment"}}</h4>
+                    <div class="section-header__separator"><hr></div>
+                  </div>
+                  <p class="main-value-display text-right">{{model.refurbishmentCosts.content.value}} {{t "application.currency"}}</p>
+                  <p class="secondary-value-display text-right">+/- {{model.refurbishmentCosts.content.dispersion}} {{t "application.currency"}}</p>
+                </section>
               </div>
-            {{else}}
-              <div class="row">
-                <div class="col-12 col-md-6">
-                  <section>
-                    <div class="section-header m--margin-bottom-15 m--margin-top-0">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.initial'}}</h4>
-                      <div class="section-header__separator"><hr /></div>
-                    </div>
-                    <p class="main-value-display text-right">{{model.initialPricesValue.content.value}} €</p>
-                  </section>
-                  <section>
-                    <div class="section-header m--margin-bottom-15 m--margin-top-30">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.custom.title'}}</h4>
-                      <div class="section-header__separator"><hr /></div>
-                    </div>
-                    <div class="custom-market-value-details">
-                      <div class="custom-market-value-detail">
-                        <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.standardValue'}}:</span>
-                        <span class="custom-market-value-detail__value">{{model.customMarketValues.content.standardValue}} €</span>
-                      </div>
-                      <div class="custom-market-value-detail">
-                        <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.bodyInfluence'}}</span>
-                        <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.body}} €</span>
-                      </div>
-                      <div class="custom-market-value-detail">
-                        <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.releaseInfluence'}}</span>
-                        <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.release}} €</span>
-                      </div>
-                      <div class="custom-market-value-detail">
-                        <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.optionsInfluence'}}</span>
-                        <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.options}} €</span>
-                      </div>
-                      <div class="custom-market-value-detail">
-                        <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.mileageInfluence'}}</span>
-                        <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.mileage}} €</span>
-                      </div>
-                    </div>
-                    <hr />
-                    <p class="main-value-display text-right">{{model.customMarketValues.content.value}} €</p>
-                  </section>
-                  <section>
-                    <div class="section-header m--margin-bottom-15 m--margin-top-30">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.refurbishment'}}</h4>
-                      <div class="section-header__separator"><hr /></div>
-                    </div>
-                    <p class="main-value-display text-right">{{model.refurbishmentCosts.content.value}} €</p>
-                    <p class="secondary-value-display text-right">+/- {{model.refurbishmentCosts.content.dispersion}} €</p>
-                  </section>
-                </div>
-                <div class="col-12 col-md-6">
-                  <section>
-                    <div class="section-header m--margin-bottom-15 {{if (media 'isMobile') 'm--margin-top-30' 'm--margin-top-0'}} ">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.displayeValues'}}</h4>
-                      <div class="section-header__separator"><hr /></div>
-                    </div>
-                    <p class="main-value-display text-right">{{model.displayedValue.content.value}} €</p>
-                    <p class="secondary-value-display text-right">+ {{model.displayedValue.content.leeway.value}} €</p>
-                    <p class="tiers-value-display text-right">+ {{percentage-display model.displayedValue.content.leeway.percentage}}</p>
-                    <div class="confidence-index text-right">
-                      {{star-rating
-                        numStars=5
-                        rating=model.displayedValue.content.confidenceStars
-                        readOnly=true
-                        baseColor="#D8D8D8"
-                        fillColor="#B91000"
-                        width=12
-                        height=12
-                      }}
-                    </div>
-                  </section>
-                  <section>
-                    <div class="section-header m--margin-bottom-15 m--margin-top-30">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.customerValue'}}</h4>
-                      <div class="section-header__separator"><hr /></div>
-                    </div>
-                    <p class="main-value-display text-right">{{model.btocValue.content.value}} €</p>
-                    <div class="confidence-index text-right">
-                      {{star-rating
-                        numStars=5
-                        rating=model.btocValue.content.confidenceStars
-                        readOnly=true
-                        baseColor="#D8D8D8"
-                        fillColor="#B91000"
-                        width=12
-                        height=12
-                      }}
-                    </div>
-                  </section>
-                  <section>
-                    <div class="section-header m--margin-bottom-15 m--margin-top-30">
-                      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.proValue'}}</h4>
-                      <div class="section-header__separator"><hr /></div>
-                    </div>
-                    <p class="main-value-display text-right">{{model.btobValue.content.value}} €</p>
-                    <div class="confidence-index text-right">
-                      {{star-rating
-                        numStars=5
-                        rating=model.btobValue.content.confidenceStars
-                        readOnly=true
-                        baseColor="#D8D8D8"
-                        fillColor="#B91000"
-                        width=12
-                        height=12
-                      }}
-                    </div>
-                  </section>
-                </div>
+              <div class="col-12 col-md-6">
+                <section>
+                  <div
+                    class="section-header m--margin-bottom-15 {{if (media "isMobile") "m--margin-top-30" "m--margin-top-0"}}"
+                  >
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.displayeValues"}}</h4>
+                    <div class="section-header__separator"><hr></div>
+                  </div>
+                  <p class="main-value-display text-right">{{model.displayedValue.content.value}} {{t "application.currency"}}</p>
+                  <p class="secondary-value-display text-right">+ {{model.displayedValue.content.leeway.value}} {{t "application.currency"}}</p>
+                  <p class="tiers-value-display text-right">+ {{percentage-display model.displayedValue.content.leeway.percentage}}</p>
+                  <div class="confidence-index text-right">
+                    {{star-rating
+                      numStars=5
+                      rating=model.displayedValue.content.confidenceStars
+                      readOnly=true
+                      baseColor="#D8D8D8"
+                      fillColor="#B91000"
+                      width=12
+                      height=12
+                    }}
+                  </div>
+                </section>
+                <section>
+                  <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.customerValue"}}</h4>
+                    <div class="section-header__separator"><hr></div>
+                  </div>
+                  <p class="main-value-display text-right">{{model.btocValue.content.value}} {{t "application.currency"}}</p>
+                  <div class="confidence-index text-right">
+                    {{star-rating
+                      numStars=5
+                      rating=model.btocValue.content.confidenceStars
+                      readOnly=true
+                      baseColor="#D8D8D8"
+                      fillColor="#B91000"
+                      width=12
+                      height=12
+                    }}
+                  </div>
+                </section>
+                <section>
+                  <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.proValue"}}</h4>
+                    <div class="section-header__separator"><hr></div>
+                  </div>
+                  <p class="main-value-display text-right">{{model.btobValue.content.value}} {{t "application.currency"}}</p>
+                  <div class="confidence-index text-right">
+                    {{star-rating
+                      numStars=5
+                      rating=model.btobValue.content.confidenceStars
+                      readOnly=true
+                      baseColor="#D8D8D8"
+                      fillColor="#B91000"
+                      width=12
+                      height=12
+                    }}
+                  </div>
+                </section>
               </div>
+            </div>
           {{/if}}
         </div>
       </div>

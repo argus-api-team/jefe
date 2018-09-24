@@ -2,11 +2,11 @@
   <div class="d-flex align-items-center">
     <div class="mr-auto">
       <h1 class="m-subheader__title m-subheader__title--separator">
-        {{t 'vehicleSheet.title'}}
+        {{t "vehicleSheet.title"}}
       </h1>
       <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
         <li class="m-nav__item m-nav__item--home">
-          {{#link-to 'lang' class="m-nav__link m-nav__link--icon"}}
+          {{#link-to "lang" class="m-nav__link m-nav__link--icon"}}
             <i class="m-nav__link-icon la la-home"></i>
           {{/link-to}}
         </li>
@@ -14,7 +14,7 @@
           -
         </li>
         <li class="m-nav__item">
-          {{#link-to 'lang.referential' class="m-nav__link m-nav__link--icon"}}
+          {{#link-to "lang.referential" class="m-nav__link m-nav__link--icon"}}
             <span class="m-nav__link-text">
               {{t "index.referential.title"}}
             </span>
@@ -24,7 +24,11 @@
           -
         </li>
         <li class="m-nav__item">
-          {{#link-to 'lang.referential.make' model.vehicle.make.id class="m-nav__link m-nav__link--icon"}}
+          {{#link-to
+            "lang.referential.make"
+            model.vehicle.make.id
+            class="m-nav__link m-nav__link--icon"
+          }}
             <span class="m-nav__link-text">
               {{model.vehicle.make.name}}
             </span>
@@ -34,7 +38,11 @@
           -
         </li>
         <li class="m-nav__item">
-          {{#link-to 'lang.referential.model' model.vehicle.submodel.id class="m-nav__link m-nav__link--icon"}}
+          {{#link-to
+            "lang.referential.model"
+            model.vehicle.submodel.id
+            class="m-nav__link m-nav__link--icon"
+          }}
             <span class="m-nav__link-text">
               {{model.vehicle.submodel.name}}
             </span>
@@ -51,14 +59,19 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'vehicleSheet.identity'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "vehicleSheet.identity"}}</h3>
             </div>
           </div>
         </div>
         <div class="m-portlet__body">
           <div class="vehicule-identity row align-items-center">
-            <div class="vehicule-identity__make-logo m--margin-bottom-15 col-12 col-xl-4 text-center">
-              {{logo-img url=model.vehicle.make.logoURL className='make-logo'}}
+            <div
+              class="vehicule-identity__make-logo m--margin-bottom-15 col-12 col-xl-4 text-center"
+            >
+              {{logo-img
+                url=model.vehicle.make.logoURL
+                className="make-logo"
+              }}
             </div>
             <div class="vehicule-infos col-12 col-xl-8">
               <h4 class="vehicule-infos__make m--marginless">{{model.vehicle.make.name}}</h4>
@@ -71,54 +84,71 @@
           <p class="vehicule-infos__date text-right font-italic m--marginless">{{model.vehicle.generation.displayDate}}</p>
         </div>
       </div>
-      {{#sticky-element top=110 enabled=(if (media 'isMobile') false true)}}
+      {{#sticky-element top=110 enabled=(if (media "isMobile") false true)}}
         <div class="m-portlet">
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t 'vehicleSheet.priceAndQuote.title'}}</h3>
+                <h3 class="m-portlet__head-text">{{t "vehicleSheet.priceAndQuote.title"}}</h3>
               </div>
             </div>
             <div class="m-portlet__head-tools">
-              {{#power-select options=sortedPeriods searchEnabled=false selected=selectedPeriod onchange=(action "updateSelectedPeriod") as |period|}}
+              {{! template-lint-disable }}
+              {{#power-select
+                options=sortedPeriods
+                searchEnabled=false
+                elected=selectedPeriod
+                onchange=(action "updateSelectedPeriod")
+              as |period|}}
                 {{period.displayDateCompact}}
               {{/power-select}}
+              {{! template-lint-enable }}
             </div>
           </div>
           <div class="m-portlet__body">
-            <h4>{{t 'vehicleSheet.priceAndQuote.priceEvolution.title'}}</h4>
+            <h4>{{t "vehicleSheet.priceAndQuote.priceEvolution.title"}}</h4>
             <div class="m--margin-top-30 m--margin-bottom-30 text-center">
-              {{periods-chart periods=sortedPeriods selectedPeriod=selectedPeriod selectedPeriodId=periodId}}
+              {{periods-chart
+                periods=sortedPeriods
+                selectedPeriod=selectedPeriod
+                selectedPeriodId=periodId
+              }}
             </div>
-            <h4>{{t 'vehicleSheet.priceAndQuote.quote.title'}}</h4>
+            <h4>{{t "vehicleSheet.priceAndQuote.quote.title"}}</h4>
             <div class="quote-price row">
               <div class="col-12 col-xl-6">
                 <table class="quote-infos m--margin-bottom-15">
-                  <tr>
-                    <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.quotable'}}</th>
-                    <td>{{if model.vehicle.quotable (t 'application.yes') (t 'application.no')}}</td>
-                  </tr>
-                  <tr>
-                    <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.first'}}</th>
-                    <td>{{moment-format model.vehicle.firstQuoteAt "DD/MM/YYYY"}}</td>
-                  </tr>
-                  <tr>
-                    <th class="m--padding-right-10 text-right m--font-bold">{{t 'vehicleSheet.priceAndQuote.quote.prevarable'}}</th>
-                    <td>{{if model.vehicle.prevarable (t 'application.yes') (t 'application.no')}}</td>
-                  </tr>
+                  <tbody>
+                    <tr>
+                      <th class="m--padding-right-10 text-right m--font-bold">{{t "vehicleSheet.priceAndQuote.quote.quotable"}}</th>
+                      <td>{{if model.vehicle.quotable (t "application.yes") (t "application.no")}}</td>
+                    </tr>
+                    <tr>
+                      <th class="m--padding-right-10 text-right m--font-bold">{{t "vehicleSheet.priceAndQuote.quote.first"}}</th>
+                      <td>{{moment-format model.vehicle.firstQuoteAt "DD/MM/YYYY"}}</td>
+                    </tr>
+                    <tr>
+                      <th class="m--padding-right-10 text-right m--font-bold">{{t "vehicleSheet.priceAndQuote.quote.prevarable"}}</th>
+                      <td>{{if model.vehicle.prevarable (t "application.yes") (t "application.no")}}</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
               <div class="col-12 col-xl-6">
                 <div class="vehicle-price text-right m--bg-metal m--font-light m--padding-10">
-                  <p class="price-incl-taxes m--marginless m--font-bold">{{selectedPeriod.priceIncludingVat}}€ <span class="m--font-thin">{{t 'prices.ttc'}}</span></p>
-                  <p class="price-excl-taxes m--marginless m--font-normal">{{selectedPeriod.priceExcludingVat}}€ <span class="m--font-thin">{{t 'prices.ht'}}</span></p>
+                  <p class="price-incl-taxes m--marginless m--font-bold">{{selectedPeriod.priceIncludingVat}}{{t "application.currency"}} <span class="m--font-thin">{{t "prices.ttc"}}</span></p>
+                  <p class="price-excl-taxes m--marginless m--font-normal">{{selectedPeriod.priceExcludingVat}}{{t "application.currency"}} <span class="m--font-thin">{{t "prices.ht"}}</span></p>
                 </div>
               </div>
             </div>
-            <hr class="m--margin-top-15 m--margin-bottom-15"/>
+            <hr class="m--margin-top-15 m--margin-bottom-15">
             <div class="text-right m--margin-top-25">
-              {{#link-to "lang.quote.valorize.vehicle-identification" (query-params oid=model.vehicle.id) class="btn btn-primary" }}
-                Valoriser
+              {{#link-to
+                "lang.quote.valorize.vehicle-identification"
+                (query-params oid=model.vehicle.id)
+                class="btn btn-primary"
+              }}
+                {{t "valorization.index.valorize"}}
               {{/link-to}}
             </div>
           </div>
@@ -130,7 +160,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'vehicleSheet.specsBlock.dimensions'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "vehicleSheet.specsBlock.dimensions"}}</h3>
             </div>
           </div>
         </div>
@@ -138,48 +168,169 @@
           <div class="row">
             <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.dimensions.title"}}
-                {{tech-data-row labelKey="techData.dimensions.length" value=selectedPeriod.dimension.length unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.width" value=selectedPeriod.dimension.width unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.height" value=selectedPeriod.dimension.height unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.heightIncludingRoofRails" value=selectedPeriod.dimension.heightIncludingRoofRails unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.wheelBase" value=selectedPeriod.dimension.wheelBase unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.fuelTank" value=selectedPeriod.dimension.fuelTankCapacity unitKey="techData.units.liter"}}
-                {{tech-data-row labelKey="techData.dimensions.frontOverhang" value=selectedPeriod.dimension.frontOverhang unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.rearOverhang" value=selectedPeriod.dimension.rearOverhang unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.frontTrack" value=selectedPeriod.dimension.frontTrack unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.rearTrack" value=selectedPeriod.dimension.rearTrack unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.dimensions.dragCoefficent" value=selectedPeriod.dimension.dragCoefficent unitKey="techData.units.cx"}}
+                {{tech-data-row
+                  labelKey="techData.dimensions.length"
+                  value=selectedPeriod.dimension.length
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.width"
+                  value=selectedPeriod.dimension.width
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.height"
+                  value=selectedPeriod.dimension.height
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.heightIncludingRoofRails"
+                  value=selectedPeriod.dimension.heightIncludingRoofRails
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.wheelBase"
+                  value=selectedPeriod.dimension.wheelBase
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.fuelTank"
+                  value=selectedPeriod.dimension.fuelTankCapacity
+                  unitKey="techData.units.liter"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.frontOverhang"
+                  value=selectedPeriod.dimension.frontOverhang
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.rearOverhang"
+                  value=selectedPeriod.dimension.rearOverhang
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.frontTrack"
+                  value=selectedPeriod.dimension.frontTrack
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.rearTrack"
+                  value=selectedPeriod.dimension.rearTrack
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.dimensions.dragCoefficent"
+                  value=selectedPeriod.dimension.dragCoefficent
+                  unitKey="techData.units.cx"
+                }}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.tyre.title"}}
-                {{tech-data-row labelKey="techData.tyre.wheelType" value=selectedPeriod.tyre.wheelType}}
-                {{tech-data-row labelKey="techData.tyre.tyreType" value=selectedPeriod.tyre.constructionType}}
-                {{tech-data-row labelKey="techData.tyre.front" value=selectedPeriod.tyre.front}}
-                {{tech-data-row labelKey="techData.tyre.rear" value=selectedPeriod.tyre.rear}}
-                {{tech-data-row labelKey="techData.tyre.sparewheelType" value=selectedPeriod.tyre.sparewheelType}}
+                {{tech-data-row
+                  labelKey="techData.tyre.wheelType"
+                  value=selectedPeriod.tyre.wheelType
+                }}
+                {{tech-data-row
+                  labelKey="techData.tyre.tyreType"
+                  value=selectedPeriod.tyre.constructionType
+                }}
+                {{tech-data-row
+                  labelKey="techData.tyre.front"
+                  value=selectedPeriod.tyre.front
+                }}
+                {{tech-data-row
+                  labelKey="techData.tyre.rear"
+                  value=selectedPeriod.tyre.rear
+                }}
+                {{tech-data-row
+                  labelKey="techData.tyre.sparewheelType"
+                  value=selectedPeriod.tyre.sparewheelType
+                }}
               {{/tech-data-container}}
             </div>
             <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.weight.title"}}
-                {{tech-data-row labelKey="techData.weight.kerbweight" value=selectedPeriod.weight.kerbweight unitKey="techData.units.kg"}}
-                {{tech-data-row labelKey="techData.weight.kerbweightIncludingDriver" value=selectedPeriod.weight.kerbweightIncludingDriver unitKey="techData.units.kg"}}
-                {{tech-data-row labelKey="techData.weight.grossVehicleRating" value=selectedPeriod.weight.grossVehicleRating unitKey="techData.units.kg"}}
-                {{tech-data-row labelKey="techData.weight.grossCombinedRating" value=selectedPeriod.weight.grossCombinedRating unitKey="techData.units.kg"}}
-                {{tech-data-row labelKey="techData.weight.payload" value=selectedPeriod.weight.payload unitKey="techData.units.kg"}}
-                {{tech-data-row labelKey="techData.weight.unbrakedTrailer" value=selectedPeriod.weight.unbrakedTrailer unitKey="techData.units.kg"}}
+                {{tech-data-row
+                  labelKey="techData.weight.kerbweight"
+                  value=selectedPeriod.weight.kerbweight
+                  unitKey="techData.units.kg"
+                }}
+                {{tech-data-row
+                  labelKey="techData.weight.kerbweightIncludingDriver"
+                  value=selectedPeriod.weight.kerbweightIncludingDriver
+                  unitKey="techData.units.kg"
+                }}
+                {{tech-data-row
+                  labelKey="techData.weight.grossVehicleRating"
+                  value=selectedPeriod.weight.grossVehicleRating
+                  unitKey="techData.units.kg"
+                }}
+                {{tech-data-row
+                  labelKey="techData.weight.grossCombinedRating"
+                  value=selectedPeriod.weight.grossCombinedRating
+                  unitKey="techData.units.kg"
+                }}
+                {{tech-data-row
+                  labelKey="techData.weight.payload"
+                  value=selectedPeriod.weight.payload
+                  unitKey="techData.units.kg"
+                }}
+                {{tech-data-row
+                  labelKey="techData.weight.unbrakedTrailer"
+                  value=selectedPeriod.weight.unbrakedTrailer
+                  unitKey="techData.units.kg"
+                }}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.habitability.title"}}
-                {{tech-data-row labelKey="techData.habitability.numberOfPlaces" value=model.vehicle.numberOfPlaces}}
-                {{tech-data-row labelKey="techData.habitability.numberOfDoors" value=model.vehicle.numberOfDoors}}
+                {{tech-data-row
+                  labelKey="techData.habitability.numberOfPlaces"
+                  value=model.vehicle.numberOfPlaces
+                }}
+                {{tech-data-row
+                  labelKey="techData.habitability.numberOfDoors"
+                  value=model.vehicle.numberOfDoors
+                }}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.boot.title"}}
-                {{tech-data-row labelKey="techData.boot.capacity" value=selectedPeriod.boot.capacity unitKey="techData.units.liter"}}
-                {{tech-data-row labelKey="techData.boot.minimumCapacity" value=selectedPeriod.boot.minimumCapacity unitKey="techData.units.liter"}}
-                {{tech-data-row labelKey="techData.boot.maximumCapacity" value=selectedPeriod.boot.maximumCapacity unitKey="techData.units.liter"}}
-                {{tech-data-row labelKey="techData.boot.maximumLength" value=selectedPeriod.boot.maximumlength unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.boot.usableLength" value=selectedPeriod.boot.usableLength unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.boot.usableWidth" value=selectedPeriod.boot.usableLength unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.boot.loadStillHeight" value=selectedPeriod.boot.loadStillHeight unitKey="techData.units.mm"}}
-                {{tech-data-row labelKey="techData.boot.thirdRowCapacity" value=selectedPeriod.boot.thirdRowCapacity unitKey="techData.units.liter"}}
+                {{tech-data-row
+                  labelKey="techData.boot.capacity"
+                  value=selectedPeriod.boot.capacity
+                  unitKey="techData.units.liter"
+                }}
+                {{tech-data-row
+                  labelKey="techData.boot.minimumCapacity"
+                  value=selectedPeriod.boot.minimumCapacity
+                  unitKey="techData.units.liter"
+                }}
+                {{tech-data-row
+                  labelKey="techData.boot.maximumCapacity"
+                  value=selectedPeriod.boot.maximumCapacity
+                  unitKey="techData.units.liter"
+                }}
+                {{tech-data-row
+                  labelKey="techData.boot.maximumLength"
+                  value=selectedPeriod.boot.maximumlength
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.boot.usableLength"
+                  value=selectedPeriod.boot.usableLength
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.boot.usableWidth"
+                  value=selectedPeriod.boot.usableLength
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.boot.loadStillHeight"
+                  value=selectedPeriod.boot.loadStillHeight
+                  unitKey="techData.units.mm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.boot.thirdRowCapacity"
+                  value=selectedPeriod.boot.thirdRowCapacity
+                  unitKey="techData.units.liter"
+                }}
               {{/tech-data-container}}
             </div>
           </div>
@@ -189,7 +340,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'vehicleSheet.specsBlock.technical'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "vehicleSheet.specsBlock.technical"}}</h3>
             </div>
           </div>
         </div>
@@ -197,61 +348,207 @@
           <div class="row">
             <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.energy.title"}}
-                {{tech-data-row labelKey="techData.energy.name" value=model.vehicle.energy.name}}
-                {{tech-data-row labelKey="techData.energy.code" value=model.vehicle.energy.code}}
-                {{tech-data-row labelKey="techData.energy.masterId" value=model.vehicle.energy.masterId}}
-                {{tech-data-row labelKey="techData.energy.masterName" value=model.vehicle.energy.masterName}}
-                {{tech-data-row labelKey="techData.energy.masterCode" value=model.vehicle.energy.masterCode}}
-                {{tech-data-row labelKey="techData.energy.legacyId" value=model.vehicle.energy.legacyId}}
+                {{tech-data-row
+                  labelKey="techData.energy.name"
+                  value=model.vehicle.energy.name
+                }}
+                {{tech-data-row
+                  labelKey="techData.energy.code"
+                  value=model.vehicle.energy.code
+                }}
+                {{tech-data-row
+                  labelKey="techData.energy.masterId"
+                  value=model.vehicle.energy.masterId
+                }}
+                {{tech-data-row
+                  labelKey="techData.energy.masterName"
+                  value=model.vehicle.energy.masterName
+                }}
+                {{tech-data-row
+                  labelKey="techData.energy.masterCode"
+                  value=model.vehicle.energy.masterCode
+                }}
+                {{tech-data-row
+                  labelKey="techData.energy.legacyId"
+                  value=model.vehicle.energy.legacyId
+                }}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.engine.title"}}
-                {{tech-data-row labelKey="techData.engine.marketName" value=selectedPeriod.engine.marketName}}
-                {{tech-data-row labelKey="techData.engine.powerMarketName" value=selectedPeriod.engine.powerMarketName}}
-                {{tech-data-row labelKey="techData.engine.fullNicename" value=selectedPeriod.engine.fullNicename}}
-                {{tech-data-row labelKey="techData.engine.acronym" value=selectedPeriod.engine.acronym}}
-                {{tech-data-row labelKey="techData.engine.layout" value=selectedPeriod.engine.layout}}
-                {{tech-data-row labelKey="techData.engine.configuration" value=selectedPeriod.engine.configuration}}
-                {{tech-data-row labelKey="techData.engine.supply" value=selectedPeriod.engine.supply}}
-                {{tech-data-row labelKey="techData.engine.injectionSystem" value=selectedPeriod.engine.injectionSystem}}
-                {{tech-data-row labelKey="techData.engine.literCapacity" value=selectedPeriod.engine.literCapacity unitKey="techData.units.liter"}}
-                {{tech-data-row labelKey="techData.engine.cubicCapacity" value=selectedPeriod.engine.cubicCapacity unitKey="techData.units.cc"}}
-                {{tech-data-row labelKey="techData.engine.dinHorsepower" value=selectedPeriod.engine.dinHorsepower unitKey="techData.units.hp"}}
-                {{tech-data-row labelKey="techData.engine.kilowatt" value=selectedPeriod.engine.kilowatt unitKey="techData.units.kw"}}
-                {{tech-data-row labelKey="techData.engine.maxPowerRpm" value=selectedPeriod.engine.maxPowerRpm unitKey="techData.units.rpm"}}
-                {{tech-data-row labelKey="techData.engine.torque" value=selectedPeriod.engine.torque unitKey="techData.units.nm"}}
-                {{tech-data-row labelKey="techData.engine.maxTorqueRpm" value=selectedPeriod.engine.maxTorqueRpm unitKey="techData.units.rpm"}}
-                {{tech-data-row labelKey="techData.engine.numberOfValves" value=selectedPeriod.engine.numberOfValves}}
-                {{tech-data-row labelKey="techData.engine.boreAndStroke" value=selectedPeriod.engine.boreAndStroke}}
-                {{tech-data-row labelKey="techData.engine.compressionRatio" value=selectedPeriod.engine.compressionRatio}}
-                {{tech-data-row labelKey="techData.engine.emission" value=selectedPeriod.engine.emission}}
-                {{tech-data-row labelKey="techData.engine.fiscalHorsepower" value=selectedPeriod.engine.fiscalHorsepower unitKey="techData.units.cv"}}
+                {{tech-data-row
+                  labelKey="techData.engine.marketName"
+                  value=selectedPeriod.engine.marketName
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.powerMarketName"
+                  value=selectedPeriod.engine.powerMarketName
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.fullNicename"
+                  value=selectedPeriod.engine.fullNicename
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.acronym"
+                  value=selectedPeriod.engine.acronym
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.layout"
+                  value=selectedPeriod.engine.layout
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.configuration"
+                  value=selectedPeriod.engine.configuration
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.supply"
+                  value=selectedPeriod.engine.supply
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.injectionSystem"
+                  value=selectedPeriod.engine.injectionSystem
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.literCapacity"
+                  value=selectedPeriod.engine.literCapacity
+                  unitKey="techData.units.liter"
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.cubicCapacity"
+                  value=selectedPeriod.engine.cubicCapacity
+                  unitKey="techData.units.cc"
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.dinHorsepower"
+                  value=selectedPeriod.engine.dinHorsepower
+                  unitKey="techData.units.hp"
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.kilowatt"
+                  value=selectedPeriod.engine.kilowatt
+                  unitKey="techData.units.kw"
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.maxPowerRpm"
+                  value=selectedPeriod.engine.maxPowerRpm
+                  unitKey="techData.units.rpm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.torque"
+                  value=selectedPeriod.engine.torque
+                  unitKey="techData.units.nm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.maxTorqueRpm"
+                  value=selectedPeriod.engine.maxTorqueRpm
+                  unitKey="techData.units.rpm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.numberOfValves"
+                  value=selectedPeriod.engine.numberOfValves
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.boreAndStroke"
+                  value=selectedPeriod.engine.boreAndStroke
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.compressionRatio"
+                  value=selectedPeriod.engine.compressionRatio
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.emission"
+                  value=selectedPeriod.engine.emission
+                }}
+                {{tech-data-row
+                  labelKey="techData.engine.fiscalHorsepower"
+                  value=selectedPeriod.engine.fiscalHorsepower
+                  unitKey="techData.units.cv"
+                }}
               {{/tech-data-container}}
             </div>
             <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.gearbox.title"}}
-                {{tech-data-row labelKey="techData.gearbox.name" value=model.vehicle.gearbox.name}}
-                {{tech-data-row labelKey="techData.gearbox.marketingName" value=model.vehicle.gearbox.marketingName}}
-                {{tech-data-row labelKey="techData.gearbox.subtype" value=model.vehicle.gearbox.subtype}}
-                {{tech-data-row labelKey="techData.gearbox.numberOfGears" value=model.vehicle.gearbox.numberOfGears}}
-                {{tech-data-row labelKey="techData.gearbox.code" value=model.vehicle.gearbox.code}}
-                {{tech-data-row labelKey="techData.gearbox.legacyId" value=model.vehicle.gearbox.legacyId}}
+                {{tech-data-row
+                  labelKey="techData.gearbox.name"
+                  value=model.vehicle.gearbox.name
+                }}
+                {{tech-data-row
+                  labelKey="techData.gearbox.marketingName"
+                  value=model.vehicle.gearbox.marketingName
+                }}
+                {{tech-data-row
+                  labelKey="techData.gearbox.subtype"
+                  value=model.vehicle.gearbox.subtype
+                }}
+                {{tech-data-row
+                  labelKey="techData.gearbox.numberOfGears"
+                  value=model.vehicle.gearbox.numberOfGears
+                }}
+                {{tech-data-row
+                  labelKey="techData.gearbox.code"
+                  value=model.vehicle.gearbox.code
+                }}
+                {{tech-data-row
+                  labelKey="techData.gearbox.legacyId"
+                  value=model.vehicle.gearbox.legacyId
+                }}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.transmission.title"}}
-                {{tech-data-row labelKey="techData.transmission.marketingName" value=selectedPeriod.transmission.marketingName}}
-                {{tech-data-row labelKey="techData.transmission.drivenWheels" value=selectedPeriod.transmission.drivenWheels}}
-                {{tech-data-row labelKey="techData.transmission.numberOfGears" value=selectedPeriod.transmission.numberOfGears}}
+                {{tech-data-row
+                  labelKey="techData.transmission.marketingName"
+                  value=selectedPeriod.transmission.marketingName
+                }}
+                {{tech-data-row
+                  labelKey="techData.transmission.drivenWheels"
+                  value=selectedPeriod.transmission.drivenWheels
+                }}
+                {{tech-data-row
+                  labelKey="techData.transmission.numberOfGears"
+                  value=selectedPeriod.transmission.numberOfGears
+                }}
               {{/tech-data-container}}
               {{#tech-data-container titleKey="techData.platform.title"}}
-                {{tech-data-row labelKey="techData.platform.chassisType" value=selectedPeriod.platform.chassisType}}
-                {{tech-data-row labelKey="techData.platform.chassisMaterial" value=selectedPeriod.platform.chassisMaterial}}
-                {{tech-data-row labelKey="techData.platform.powerSteering" value=selectedPeriod.platform.powerSteering}}
-                {{tech-data-row labelKey="techData.platform.powerSteeringType" value=selectedPeriod.platform.powerSteeringType}}
-                {{tech-data-row labelKey="techData.platform.powerSteeringAssistance" value=selectedPeriod.platform.powerSteeringAssistance}}
-                {{tech-data-row labelKey="techData.platform.turningCircleBetweenKerbs" value=selectedPeriod.platform.turningCircleBetweenKerbs unitKey="techData.units.m"}}
-                {{tech-data-row labelKey="techData.platform.turningCircleWallToWall" value=selectedPeriod.platform.turningCircleWallToWall unitKey="techData.units.m"}}
-                {{tech-data-row labelKey="techData.platform.steeringWheelLockToLockTurns" value=selectedPeriod.platform.steeringWheelLockToLockTurns unitKey="techData.units.degree"}}
-                {{tech-data-row labelKey="techData.platform.frontSuspension" value=selectedPeriod.platform.frontSuspension}}
-                {{tech-data-row labelKey="techData.platform.rearSuspensionType" value=selectedPeriod.platform.rearSuspensionType}}
+                {{tech-data-row
+                  labelKey="techData.platform.chassisType"
+                  value=selectedPeriod.platform.chassisType
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.chassisMaterial"
+                  value=selectedPeriod.platform.chassisMaterial
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.powerSteering"
+                  value=selectedPeriod.platform.powerSteering
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.powerSteeringType"
+                  value=selectedPeriod.platform.powerSteeringType
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.powerSteeringAssistance"
+                  value=selectedPeriod.platform.powerSteeringAssistance
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.turningCircleBetweenKerbs"
+                  value=selectedPeriod.platform.turningCircleBetweenKerbs
+                  unitKey="techData.units.m"
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.turningCircleWallToWall"
+                  value=selectedPeriod.platform.turningCircleWallToWall
+                  unitKey="techData.units.m"
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.steeringWheelLockToLockTurns"
+                  value=selectedPeriod.platform.steeringWheelLockToLockTurns
+                  unitKey="techData.units.degree"
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.frontSuspension"
+                  value=selectedPeriod.platform.frontSuspension
+                }}
+                {{tech-data-row
+                  labelKey="techData.platform.rearSuspensionType"
+                  value=selectedPeriod.platform.rearSuspensionType
+                }}
               {{/tech-data-container}}
             </div>
           </div>
@@ -261,7 +558,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'vehicleSheet.specsBlock.performance'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "vehicleSheet.specsBlock.performance"}}</h3>
             </div>
           </div>
         </div>
@@ -269,22 +566,70 @@
           <div class="row">
             <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.performance.title"}}
-                {{tech-data-row labelKey="techData.performance.maximumSpeed" value=selectedPeriod.performance.maximumSpeed unitKey="techData.units.kph"}}
-                {{tech-data-row labelKey="techData.performance.da0100kph" value=selectedPeriod.performance.da0100kph unitKey="techData.units.sec"}}
-                {{tech-data-row labelKey="techData.performance.da01000m" value=selectedPeriod.performance.da01000m unitKey="techData.units.sec"}}
+                {{tech-data-row
+                  labelKey="techData.performance.maximumSpeed"
+                  value=selectedPeriod.performance.maximumSpeed
+                  unitKey="techData.units.kph"
+                }}
+                {{tech-data-row
+                  labelKey="techData.performance.da0100kph"
+                  value=selectedPeriod.performance.da0100kph
+                  unitKey="techData.units.sec"
+                }}
+                {{tech-data-row
+                  labelKey="techData.performance.da01000m"
+                  value=selectedPeriod.performance.da01000m
+                  unitKey="techData.units.sec"
+                }}
               {{/tech-data-container}}
             </div>
             <div class="col-12 col-xl-6">
               {{#tech-data-container titleKey="techData.consumption.title"}}
-                {{tech-data-row labelKey="techData.consumption.urbanFuel" value=selectedPeriod.consumption.urbanFuel unitKey="techData.units.l100km"}}
-                {{tech-data-row labelKey="techData.consumption.extraUrbanFuel" value=selectedPeriod.consumption.extraUrbanFuel unitKey="techData.units.l100km"}}
-                {{tech-data-row labelKey="techData.consumption.combinedFuel" value=selectedPeriod.consumption.combinedFuel unitKey="techData.units.l100km"}}
-                {{tech-data-row labelKey="techData.consumption.electricRange" value=selectedPeriod.consumption.electricRange unitKey="techData.units.km"}}
-                {{tech-data-row labelKey="techData.consumption.co2EmissionLevel" value=selectedPeriod.consumption.co2EmissionLevel unitKey="techData.units.gpkm"}}
-                {{tech-data-row labelKey="techData.consumption.carbonMonoxide" value=selectedPeriod.consumption.carbonMonoxide unitKey="techData.units.gpkm"}}
-                {{tech-data-row labelKey="techData.consumption.nitrousOxyde" value=selectedPeriod.consumption.nitrousOxyde unitKey="techData.units.gpkm"}}
-                {{tech-data-row labelKey="techData.consumption.particulateMatter" value=selectedPeriod.consumption.particulateMatter unitKey="techData.units.gpkm"}}
-                {{tech-data-row labelKey="techData.consumption.totalHydrocarbons" value=selectedPeriod.consumption.totalHydrocarbons unitKey="techData.units.gpkm"}}
+                {{tech-data-row
+                  labelKey="techData.consumption.urbanFuel"
+                  value=selectedPeriod.consumption.urbanFuel
+                  unitKey="techData.units.l100km"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.extraUrbanFuel"
+                  value=selectedPeriod.consumption.extraUrbanFuel
+                  unitKey="techData.units.l100km"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.combinedFuel"
+                  value=selectedPeriod.consumption.combinedFuel
+                  unitKey="techData.units.l100km"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.electricRange"
+                  value=selectedPeriod.consumption.electricRange
+                  unitKey="techData.units.km"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.co2EmissionLevel"
+                  value=selectedPeriod.consumption.co2EmissionLevel
+                  unitKey="techData.units.gpkm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.carbonMonoxide"
+                  value=selectedPeriod.consumption.carbonMonoxide
+                  unitKey="techData.units.gpkm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.nitrousOxyde"
+                  value=selectedPeriod.consumption.nitrousOxyde
+                  unitKey="techData.units.gpkm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.particulateMatter"
+                  value=selectedPeriod.consumption.particulateMatter
+                  unitKey="techData.units.gpkm"
+                }}
+                {{tech-data-row
+                  labelKey="techData.consumption.totalHydrocarbons"
+                  value=selectedPeriod.consumption.totalHydrocarbons
+                  unitKey="techData.units.gpkm"
+                }}
               {{/tech-data-container}}
             </div>
           </div>
@@ -295,14 +640,17 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t 'vehicleSheet.specsBlock.stdEquipments'}}</h3>
+                <h3 class="m-portlet__head-text">{{t "vehicleSheet.specsBlock.stdEquipments"}}</h3>
               </div>
             </div>
           </div>
           <div class="m-portlet__body">
             {{#if selectedPeriod}}
               {{#each model.featureCategories as |featureCategory|}}
-                {{category-standard-equipments category=featureCategory equipments=selectedPeriod.standardEquipments}}
+                {{category-standard-equipments
+                  category=featureCategory
+                  equipments=selectedPeriod.standardEquipments
+                }}
               {{/each}}
             {{/if}}
           </div>
@@ -313,7 +661,7 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t 'vehicleSheet.specsBlock.optEquipments'}}</h3>
+                <h3 class="m-portlet__head-text">{{t "vehicleSheet.specsBlock.optEquipments"}}</h3>
               </div>
             </div>
           </div>
@@ -321,24 +669,48 @@
             <table class="optional-equipement-table">
               <thead>
                 <tr class="optional-equipement-table__header">
-                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">#</th>
-                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">{{t 'vehicleSheet.equipmentsLabels.manRef'}}</th>
-                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">{{t 'vehicleSheet.equipmentsLabels.name'}}</th>
-                  <th class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">{{t 'vehicleSheet.equipmentsLabels.category'}}</th>
-                  <th class="text-right m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">{{t 'vehicleSheet.equipmentsLabels.priceHT'}}</th>
-                  <th class="text-right m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10">{{t 'vehicleSheet.equipmentsLabels.priceTTC'}}</th>
+                  <th
+                    class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10"
+                  >
+                    #
+                  </th>
+                  <th
+                    class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10"
+                  >
+                    {{t "vehicleSheet.equipmentsLabels.manRef"}}
+                  </th>
+                  <th
+                    class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10"
+                  >
+                    {{t "vehicleSheet.equipmentsLabels.name"}}
+                  </th>
+                  <th
+                    class="m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10"
+                  >
+                    {{t "vehicleSheet.equipmentsLabels.category"}}
+                  </th>
+                  <th
+                    class="text-right m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10"
+                  >
+                    {{t "vehicleSheet.equipmentsLabels.priceHT"}}
+                  </th>
+                  <th
+                    class="text-right m--padding-top-15 m--padding-bottom-15 m--padding-left-10 m--padding-right-10"
+                  >
+                    {{t "vehicleSheet.equipmentsLabels.priceTTC"}}
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {{#each selectedPeriod.optionalEquipments as |equipment|}}
-                <tr class="optional-equipement-table__row">
-                  <td class="m--padding-10">{{equipment.id}}</td>
-                  <td class="m--padding-10">{{equipment.manufacturerSpec}}</td>
-                  <td class="m--padding-10">{{equipment.name}}</td>
-                  <td class="m--padding-10">{{equipment.featureCategory.name}}</td>
-                  <td class="text-right m--padding-10">{{equipment.priceExcludingVat}} €</td>
-                  <td class="text-right m--padding-10">{{equipment.priceIncludingVat}} €</td>
-                </tr>
+                  <tr class="optional-equipement-table__row">
+                    <td class="m--padding-10">{{equipment.id}}</td>
+                    <td class="m--padding-10">{{equipment.manufacturerSpec}}</td>
+                    <td class="m--padding-10">{{equipment.name}}</td>
+                    <td class="m--padding-10">{{equipment.featureCategory.name}}</td>
+                    <td class="text-right m--padding-10">{{equipment.priceExcludingVat}} {{t "application.currency"}}</td>
+                    <td class="text-right m--padding-10">{{equipment.priceIncludingVat}} {{t "application.currency"}}</td>
+                  </tr>
                 {{/each}}
               </tbody>
             </table>
@@ -350,7 +722,7 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t 'vehicleSheet.specsBlock.stdPacks'}}</h3>
+                <h3 class="m-portlet__head-text">{{t "vehicleSheet.specsBlock.stdPacks"}}</h3>
               </div>
             </div>
           </div>
@@ -368,7 +740,7 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t 'vehicleSheet.specsBlock.optPacks'}}</h3>
+                <h3 class="m-portlet__head-text">{{t "vehicleSheet.specsBlock.optPacks"}}</h3>
               </div>
             </div>
           </div>

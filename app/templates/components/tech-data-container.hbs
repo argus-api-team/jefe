@@ -1,14 +1,22 @@
 <div class="tech-data-header row align-items-center">
-  <h4 class="col-3 m--marginless tech-data-header__title {{if titleLeft 'text-left' 'text-right'}}">{{t titleKey}}</h4>
-  <div class="col-9"><hr /></div>
+  <h4
+    class="col-3 m--marginless tech-data-header__title {{if titleLeft "text-left" "text-right"}}"
+  >
+    {{t titleKey}}
+  </h4>
+  <div class="col-9"><hr></div>
 </div>
 <div class="row m--margin-top-15">
-  <div class="col-9 offset-3  {{if isLoading 'm-loader m-loader--brand m-loader--lg'}}">
+  <div
+    class="col-9 offset-3  {{if isLoading "m-loader m-loader--brand m-loader--lg"}}"
+  >
     <table class="tech-data-content">
-      {{yield}}
+      <tbody>
+        {{yield}}
+      </tbody>
     </table>
     {{#if isLoading}}
-      <p class="loading-data-text">{{t 'application.pending'}}</p>
+      <p class="loading-data-text">{{t "application.pending"}}</p>
     {{/if}}
   </div>
 </div>

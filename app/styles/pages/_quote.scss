@@ -57,9 +57,11 @@
   height: 100%;
   padding: $gutter / 2;
   transition: transform .4s;
+  border: 0;
   border-left: 5px solid;
   background: $white;
   cursor: pointer;
+
 
   &.border-argus {
     border-color: $argus-color;

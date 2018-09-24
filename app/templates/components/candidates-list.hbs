@@ -1,11 +1,24 @@
-
 {{#each sortedCandidatesVersionsList as |candidateVersion|}}
   <li class="vertical-list__item">
     {{#if selectable}}
-      {{candidate-version candidate=candidateVersion.candidate version=candidateVersion.version aggregatedCandidateQuoteRatio=aggregatedCandidateQuoteRatio selectedVersion=selectedVersion isSelectable=selectable}}
+      {{candidate-version
+        candidate=candidateVersion.candidate
+        version=candidateVersion.version
+        aggregatedCandidateQuoteRatio=aggregatedCandidateQuoteRatio
+        selectedVersion=selectedVersion
+        isSelectable=selectable
+      }}
     {{else}}
-      {{#link-to "lang.referential.vehicle" candidateVersion.version.id class="version-link"}}
-        {{candidate-version candidate=candidateVersion.candidate version=candidateVersion.version aggregatedCandidateQuoteRatio=aggregatedCandidateQuoteRatio}}
+      {{#link-to
+        "lang.referential.vehicle"
+        candidateVersion.version.id
+        class="version-link"
+      }}
+        {{candidate-version
+          candidate=candidateVersion.candidate
+          version=candidateVersion.version
+          aggregatedCandidateQuoteRatio=aggregatedCandidateQuoteRatio
+        }}
       {{/link-to}}
     {{/if}}
   </li>

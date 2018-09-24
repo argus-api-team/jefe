@@ -1,39 +1,75 @@
 <div class="row justify-content-center ">
   <div class="col-12 col-md-9 col-lg-8 col-xlg-6">
     <p>{{t "licensePlate.form.label"}}</p>
-    {{license-plate-form resolvedMatchingRecord=matchingRecord selectedVersion=selectedVersion}}
+    {{license-plate-form
+      resolvedMatchingRecord=matchingRecord
+      selectedVersion=selectedVersion
+    }}
   </div>
 </div>
 {{#if matchingRecord}}
   <div class="row m--margin-top-30">
     <div class="col-12 col-md-6">
-      {{#tech-data-container titleKey="licensePlate.registration.title" titleLeft=true isLoading=matchingRecord.isSearching}}
-        {{tech-data-row labelKey="licensePlate.registration.number" value=matchingRecord.formatedRegistration}}
-        {{tech-data-row labelKey="licensePlate.registration.firstDate" value=matchingRecord.registrationCard.firstRegistrationDate}}
-        {{tech-data-row labelKey="licensePlate.registration.date" value=matchingRecord.registrationCard.registrationDate}}
-        {{tech-data-row labelKey="licensePlate.registration.vinCode" value=matchingRecord.registrationCard.vinCode}}
-        {{tech-data-row labelKey="licensePlate.registration.fiscalPower" value=matchingRecord.registrationCard.fiscalPower unitKey="techData.units.cv"}}
-        {{tech-data-row labelKey="licensePlate.registration.carbonEmission" value=matchingRecord.registrationCard.carbonEmission unitKey="techData.units.gpkm"}}
+      {{#tech-data-container
+        titleKey="licensePlate.registration.title"
+        titleLeft=true
+        isLoading=matchingRecord.isSearching
+      }}
+        {{tech-data-row
+          labelKey="licensePlate.registration.number"
+          value=matchingRecord.formatedRegistration
+        }}
+        {{tech-data-row
+          labelKey="licensePlate.registration.firstDate"
+          value=matchingRecord.registrationCard.firstRegistrationDate
+        }}
+        {{tech-data-row
+          labelKey="licensePlate.registration.date"
+          value=matchingRecord.registrationCard.registrationDate
+        }}
+        {{tech-data-row
+          labelKey="licensePlate.registration.vinCode"
+          value=matchingRecord.registrationCard.vinCode
+        }}
+        {{tech-data-row
+          labelKey="licensePlate.registration.fiscalPower"
+          value=matchingRecord.registrationCard.fiscalPower
+          unitKey="techData.units.cv"
+        }}
+        {{tech-data-row
+          labelKey="licensePlate.registration.carbonEmission"
+          value=matchingRecord.registrationCard.carbonEmission
+          unitKey="techData.units.gpkm"
+        }}
       {{/tech-data-container}}
     </div>
     <div class="col-12 col-md-6">
       <div class="section-header m--margin-bottom-15">
-        <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'licensePlate.result.candidates.title'}}</h4>
-        <div class="section-header__separator"><hr /></div>
+        <h4 class="m--marginless section-header__title m--padding-right-15">{{t "licensePlate.result.candidates.title"}}</h4>
+        <div class="section-header__separator"><hr></div>
       </div>
-      {{#unless matchingRecord.isSearching}}
-        {{#if matchingRecord.candidates.length}}
-          {{candidates-list candidates=matchingRecord.candidates selectable=true selectedVersion=selectedVersion}}
-        {{else}}
-          <p class="m--align-center">{{t 'licensePlate.result.candidates.notFound'}}</p>
-        {{/if}}
-      {{else}}
-        <p class="m--align-center m--font-bold">{{t 'licensePlate.result.candidates.searching'}}</p>
+      {{#if matchingRecord.isSearching}}
+        <p class="m--align-center m--font-bold">{{t "licensePlate.result.candidates.searching"}}</p>
         <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30"></div>
-      {{/unless}}
+      {{else}}
+        {{#if matchingRecord.candidates.length}}
+          {{candidates-list
+            candidates=matchingRecord.candidates
+            selectable=true
+            selectedVersion=selectedVersion
+          }}
+        {{else}}
+          <p class="m--align-center">{{t "licensePlate.result.candidates.notFound"}}</p>
+        {{/if}}
+      {{/if}}
     </div>
   </div>
   <div class="btn-container m--margin-top-30 text-right">
-    <button class="btn btn-primary" disabled={{if selectedVersion false true}} {{action 'validateVehicle'}}>{{t "application.validate"}}</button>
+    <button {{action "validateVehicle"}}
+      class="btn btn-primary"
+      disabled={{if selectedVersion false true}}
+    >
+      {{t "application.validate"}}
+    </button>
   </div>
 {{/if}}

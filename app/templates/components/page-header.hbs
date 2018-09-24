@@ -2,42 +2,70 @@
   <div class="m-stack m-stack--ver m-stack--desktop">
     <div class="m-stack__item m-brand  m-brand--skin-dark ">
       <div class="m-stack m-stack--ver m-stack--general">
-        <div class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo">
-          {{#link-to 'lang.index' class="m-brand__logo-wrapper"}}
-            <img src="/assets/logos/Jefe_logo_small.png" alt="logo" class="logo-default">
+        <div
+          class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo"
+        >
+          {{#link-to "lang.index" class="m-brand__logo-wrapper"}}
+            <img
+              src="/assets/logos/Jefe_logo_small.png"
+              alt={{t "application.name"}}
+              class="logo-default"
+            >
           {{/link-to}}
         </div>
         <div class="m-stack__item m-stack__item--middle m-brand__tools">
-          <a href="javascript:;" id="m_aside_left_offcanvas_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block">
+          <a
+            href="javascript:;"
+            id="m_aside_left_offcanvas_toggle"
+            class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-tablet-and-mobile-inline-block"
+          >
             <span></span>
           </a>
-          <a id="m_aside_header_topbar_mobile_toggle" href="javascript:;" class="m-brand__icon m--visible-tablet-and-mobile-inline-block">
+          <a
+            id="m_aside_header_topbar_mobile_toggle"
+            href="javascript:;"
+            class="m-brand__icon m--visible-tablet-and-mobile-inline-block"
+          >
             <i class="flaticon-more"></i>
           </a>
         </div>
       </div>
     </div>
     <div class="m-stack__item m-stack__item--fluid m-header-head" id="m_header_nav">
-      <div id="m_header_topbar" class="m-topbar  m-stack m-stack--ver m-stack--general">
+      <div
+        id="m_header_topbar"
+        class="m-topbar  m-stack m-stack--ver m-stack--general"
+      >
         <div class="m-stack__item m-topbar__nav-wrapper">
           <ul class="m-topbar__nav m-nav m-nav--inline">
-            <li class="m-nav__item m-dropdown m-dropdown--arrow m-dropdown--align-right language-choice-dropdown"  data-dropdown-toggle="click">
+            <li
+              class="m-nav__item m-dropdown m-dropdown--arrow m-dropdown--align-right language-choice-dropdown"
+              data-dropdown-toggle="click"
+            >
               <a href="#" class="m-nav__link m-dropdown__toggle">
                 <span class="m-nav__link-icon">
-                  <img src="/assets/flags/{{locale}}_small.png" class="flag" alt="{{locale}}">
+                  <img src="/assets/flags/{{locale}}_small.png" class="flag" alt={{locale}}>
                 </span>
               </a>
               <div class="m-dropdown__wrapper">
-                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                <span
+                  class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"
+                >
+                </span>
                 <div class="m-dropdown__inner">
                   <div class="m-dropdown__body m-dropdown__body--paddingless">
                     <div class="m-dropdown__content">
-                      <div class="m-scrollable" data-scrollable="true" data-max-height="250" data-mobile-max-height="200">
+                      <div
+                        class="m-scrollable"
+                        data-scrollable="true"
+                        data-max-height="250"
+                        data-mobile-max-height="200"
+                      >
                         <ul class="flag-list">
                           {{#each locales as |lang|}}
                             <li>
-                              {{#link-to 'lang' lang }}
-                                <img src="/assets/flags/{{lang}}_small.png" class="flag"  alt="{{lang}}">
+                              {{#link-to "lang" lang }}
+                                <img src="/assets/flags/{{lang}}_small.png" class="flag"  alt={{lang}}>
                               {{/link-to}}
                             </li>
                           {{/each}}
@@ -48,20 +76,28 @@
                 </div>
               </div>
             </li>
-            <li class="m-nav__item m-dropdown m-dropdown--small m-dropdown--arrow m-dropdown--align-right m-dropdown--skin-light profile-dropdown" data-dropdown-toggle="click">
+            <li
+              class="m-nav__item m-dropdown m-dropdown--small m-dropdown--arrow m-dropdown--align-right m-dropdown--skin-light profile-dropdown"
+              data-dropdown-toggle="click"
+            >
               <a href="#" class="m-nav__link m-dropdown__toggle">
                 <span class="m-nav__link-icon">
                   <i class="flaticon-user"></i>
                 </span>
               </a>
               <div class="m-dropdown__wrapper">
-                <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                <span
+                  class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"
+                >
+                </span>
                 <div class="m-dropdown__inner">
                   <div class="m-dropdown__body">
                     <div class="m-dropdown__content">
                       <ul class="m-nav m-nav--skin-light">
                         <li class="m-nav__item dropdown-logout">
-                          <button {{action 'invalidateSession'}} class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                          <button {{action "invalidateSession"}}
+                            class="btn m-btn--pill btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder"
+                          >
                             {{t "pageHeader.signOut"}}
                           </button>
                         </li>

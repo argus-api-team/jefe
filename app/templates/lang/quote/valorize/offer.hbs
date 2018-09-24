@@ -1,102 +1,124 @@
 <div class="m-content">
   <div class="m-wizard m-wizard--2 m-wizard--success">
-    <!--begin: Message container -->
     <div class="m-portlet__padding-x">
-      <!-- Here you can put a message or alert -->
     </div>
-    <!--end: Message container -->
-    <!--begin: Form Wizard Head -->
     <div class="m-wizard__head">
-      <!--begin: Form Wizard Progress -->
       <div class="m-wizard__progress">
         <div class="progress">
-          <div class="progress-bar" role="progressbar"  aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"></div>
+          {{! template-lint-disable }}
+          <div
+            class="progress-bar"
+            role="progressbar"
+            aria-valuenow="50"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style="width: 50%;"
+          >
+          {{! template-lint-enable }}
+          </div>
         </div>
       </div>
-      <!--end: Form Wizard Progress -->
-      <!--begin: Form Wizard Nav -->
       <div class="m-wizard__nav">
         <div class="m-wizard__steps">
           <div class="m-wizard__step m-wizard__step--done">
-            {{#link-to 'lang.quote.valorize.vehicle-identification' class="m-wizard__step-number"}}
+            {{#link-to
+              "lang.quote.valorize.vehicle-identification"
+              class="m-wizard__step-number"
+            }}
               <span>
                 <i class="la la-automobile"></i>
               </span>
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                {{t 'valorization.wizzard.identity.title'}}
+                {{t "valorization.wizzard.identity.title"}}
               </div>
             </div>
           </div>
           <div class="m-wizard__step m-wizard__step--current">
-           {{#link-to 'lang.quote.valorize.offer' class="m-wizard__step-number"}}
+            {{#link-to
+              "lang.quote.valorize.offer"
+              class="m-wizard__step-number"
+            }}
               <span>
                 <i class="la la-bar-chart"></i>
               </span>
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                {{t 'valorization.wizzard.offer.title'}}
+                {{t "valorization.wizzard.offer.title"}}
               </div>
             </div>
           </div>
           <div class="m-wizard__step">
-            {{#link-to 'lang.quote.valorize.criteria' class="m-wizard__step-number"}}
+            {{#link-to
+              "lang.quote.valorize.criteria"
+              class="m-wizard__step-number"
+            }}
               <span>
                 <i class="fa  flaticon-layers"></i>
               </span>
             {{/link-to}}
             <div class="m-wizard__step-info">
               <div class="m-wizard__step-title">
-                {{t 'valorization.wizzard.criteria.title'}}
+                {{t "valorization.wizzard.criteria.title"}}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!--end: Form Wizard Nav -->
     </div>
-    <!--end: Form Wizard Head -->
   </div>
   <div class="row">
     <div class="col-12 col-lg-7 col-xl-8 col order-2 order-lg-1">
       <ul class="offer-list list-unstyled row">
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
-          <div class="offer-list__item border-argus" {{action "selectOffer" "extended-market-value"}}>
+          <button {{action "selectOffer" "extended-market-value"}}
+            class="offer-list__item border-argus"
+          >
             <h5>{{t "valorization.offers.extended"}}</h5>
             <p class="m--marginless">{{t "valorization.wizzard.offer.extended.description"}}</p>
-          </div>
+          </button>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
-          <div class="offer-list__item border-danger" {{action "selectOffer" "custom-market-value"}}>
+          <button {{action "selectOffer" "custom-market-value"}}
+            class="offer-list__item border-danger"
+          >
             <h5>{{t "valorization.offers.custom"}}</h5>
             <p class="m--marginless">{{t "valorization.wizzard.offer.custom.description"}}</p>
-          </div>
+          </button>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
-          <div class="offer-list__item border-info" {{action "selectOffer" "prevar-value"}}>
+          <button {{action "selectOffer" "prevar-value"}}
+            class="offer-list__item border-info"
+          >
             <h5>{{t "valorization.offers.residual"}}</h5>
             <p class="m--marginless">{{t "valorization.wizzard.offer.residual.description"}}</p>
-          </div>
+          </button>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
-          <div class="offer-list__item border-focus" {{action "selectOffer" "past-stock-market-value"}}>
+          <button {{action "selectOffer" "past-stock-market-value"}}
+            class="offer-list__item border-focus"
+          >
             <h5>{{t "valorization.offers.pastStock"}}</h5>
             <p class="m--marginless">{{t "valorization.wizzard.offer.pastStock.description"}}</p>
-          </div>
+          </button>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
-          <div class="offer-list__item border-primary" {{action "selectOffer" "past-market-value"}}>
+          <button {{action "selectOffer" "past-market-value"}}
+            class="offer-list__item border-primary"
+          >
             <h5>{{t "valorization.offers.past"}}</h5>
             <p class="m--marginless">{{t "valorization.wizzard.offer.past.description"}}</p>
-          </div>
+          </button>
         </li>
         <li class="col-12 col-md-6 col-lg-12 col-xl-4 m--margin-bottom-30">
-          <div class="offer-list__item border-success" {{action "selectOffer" "part-exchange-value"}}>
+          <button {{action "selectOffer" "part-exchange-value"}}
+            class="offer-list__item border-success"
+          >
             <h5>{{t "valorization.offers.exhange"}}</h5>
             <p class="m--marginless">{{t "valorization.wizzard.offer.exhange.description"}}</p>
-          </div>
+          </button>
         </li>
       </ul>
     </div>
@@ -113,11 +135,11 @@
           <div class="valorization-card m--clearfix">
             <div class="vehicle-infos">
               <h5 class="h5"> {{model.version.make.name}} - {{model.version.submodel.name}}</h5>
-              <p class="m--margin-bottom-5">Gen. {{model.version.generation.name}} Pe. {{model.version.phase.name}} - {{moment-format model.releasedAt (t "application.dateFormat")}}</p>
+              <p class="m--margin-bottom-5">{{t "application.gen"}} {{model.version.generation.name}} {{t "application.pe"}} {{model.version.phase.name}} - {{moment-format model.releasedAt (t "application.dateFormat")}}</p>
               <p class="m--marginless">{{model.version.name}}</p>
-              </div>
+            </div>
             <div class="vehicle-make-logo">
-              {{logo-img url=model.version.make.logoURL className='thumbnail make-logo'}}
+              {{logo-img url=model.version.make.logoURL className="thumbnail make-logo"}}
             </div>
           </div>
         </div>
