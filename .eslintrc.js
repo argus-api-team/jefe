@@ -10,11 +10,11 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
-    'airbnb-base'
+    'airbnb-base',
+    'plugin:ember/recommended'
   ],
   env: {
-    browser: true,
-    es6: true
+    browser: true
   },
   rules: {
     "func-names": 0,
@@ -35,8 +35,10 @@ module.exports = {
     // node files
     {
       files: [
-        'testem.js',
+        '.template-lintrc.js',
         'ember-cli-build.js',
+        'testem.js',
+        'blueprints/*/index.js',
         'config/**/*.js',
         'lib/*/index.js'
       ],
