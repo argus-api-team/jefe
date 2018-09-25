@@ -15,7 +15,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, HasManyQuery.RESTAdapt
     return `${this.buildURL()}/${endpoint}/?page[size]=${ids.length}`;
   },
   authorize(xhr) {
-    const { accessToken } = this.get('session.data.authenticated');
+    const accessToken  = this.get('session.data.authenticated.access_token');
     if (isPresent(accessToken)) {
       xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
     }
