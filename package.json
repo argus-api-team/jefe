@@ -78,7 +78,6 @@
     "eslint-plugin-import": "^2.9.0",
     "jquery": "^3.3.1",
     "lazysizes": "^4.1.2",
-    "liquid-fire": "^0.29.2",
     "loader.js": "^4.7.0",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
     "qunit-dom": "^0.7.1",
