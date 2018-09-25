@@ -5,5 +5,5 @@ module.exports = {
   rules: {
     'no-bare-strings': true
   },
-  ignore: ['addon/templates/components/star-rating.hbs']
+  ignore: ['./addon/templates/components/star-rating'] // Ignore option have an issue: https://github.com/ember-template-lint/ember-cli-template-lint/issues/281
 };
