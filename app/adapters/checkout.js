@@ -5,7 +5,6 @@ import { isPresent } from '@ember/utils';
 // import Ember from 'ember';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
-  authorizer: 'authorizer:oauth2',
   host: ENV.API_URL,
   namespace: 'checkout/3.0',
   coalesceFindRequests: true,
