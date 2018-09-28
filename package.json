@@ -18,6 +18,7 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.42",
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",
     "ably": "^1.0.17",
@@ -47,8 +48,7 @@
     "ember-cli-uglify": "^2.1.0",
     "ember-cp-validations": "^4.0.0-beta.2",
     "ember-data": "~3.4.0",
-    "ember-data-filter": "^1.13.0",
-    "ember-data-has-many-query": "https://github.com/anthony-mangano-argus/ember-data-has-many-query/tarball/62489593f36bd8ee1688a47649e48c58cf315a6d",
+    "ember-data-has-many-query": "https://github.com/anthony-mangano-argus/ember-data-has-many-query/tarball/38ba123c6a91f5f2615baea0ab2c30fb0c46d8aa",
     "ember-date-components": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-font-awesome": "^3.1.1",
@@ -79,6 +79,7 @@
     "lazysizes": "^4.1.2",
     "loader.js": "^4.7.0",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "popper.js": "^1.14.3",
     "qunit-dom": "^0.7.1",
     "select2": "^4.0.5"
   },
