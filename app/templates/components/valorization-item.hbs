@@ -1,29 +1,46 @@
-{{#link-to "lang.quote.valorization" valorization class="row m--padding-top-15 m--padding-bottom-15 align-items-center list-item-content"}}
+{{#link-to
+  "lang.quote.valorization"
+  valorization
+  class="row m--padding-top-15 m--padding-bottom-15 align-items-center list-item-content"
+}}
   <div class="col-4 col-lg-3">{{valorization-offer-badge offer=valorization.offer}}</div>
   <div class="col-4 col-lg-5 col-xl-4 valorization-card">
     <div class="vehicle-infos">
       <h5 class="h6"> {{valorization.vehicle.content.make.name}} - {{valorization.vehicle.content.submodel.name}}</h5>
-      <p class="m--margin-bottom-5">Gen. {{valorization.vehicle.content.generation.name}} Pe. {{valorization.vehicle.content.phase.name}}</p>
+      <p class="m--margin-bottom-5">{{t "application.gen"}} {{valorization.vehicle.content.generation.name}} {{t "application.ph"}} {{valorization.vehicle.content.phase.name}}</p>
       <p class="m--marginless">{{valorization.vehicle.content.name}}</p>
     </div>
     <div class="vehicle-make-logo">
-      {{logo-img url=valorization.vehicle.content.make.logoURL className='thumbnail make-logo'}}
+      {{logo-img
+        url=valorization.vehicle.content.make.logoURL
+        className="thumbnail make-logo"
+      }}
     </div>
   </div>
   {{#if largeMode}}
-    <div class="col-1">{{if valorization.releasedAt (moment-format valorization.releasedAt 'YYYY-MM-DD')}}</div>
     <div class="col-1">
-      {{if computedDate (moment-format computedDate 'YYYY-MM-DD')}}
+      {{if
+        valorization.releasedAt
+        (moment-format valorization.releasedAt "YYYY-MM-DD")
+      }}
     </div>
-    <div class="col-2">{{valorization.mileage}} {{t 'techData.units.km'}}</div>
+    <div class="col-1">
+      {{if computedDate (moment-format computedDate "YYYY-MM-DD")}}
+    </div>
+    <div class="col-2">{{valorization.mileage}} {{t "techData.units.km"}}</div>
   {{else}}
     <div class="col-2">
-      <p class="m--margin-bottom-5">{{if valorization.releasedAt (moment-format valorization.releasedAt 'YYYY-MM-DD')}}</p>
       <p class="m--margin-bottom-5">
-        {{if computedDate (moment-format computedDate 'YYYY-MM-DD')}}
+        {{if
+          valorization.releasedAt
+          (moment-format valorization.releasedAt "YYYY-MM-DD")
+        }}
       </p>
-      <p class="m--marginless">{{valorization.mileage}} {{t 'techData.units.km'}}</p>
+      <p class="m--margin-bottom-5">
+        {{if computedDate (moment-format computedDate "YYYY-MM-DD")}}
+      </p>
+      <p class="m--marginless">{{valorization.mileage}} {{t "techData.units.km"}}</p>
     </div>
   {{/if}}
-  <div class="col-2 col-xl-1 m--font-bold">{{valorization.mainValue.content.value}} €</div>
+  <div class="col-2 col-xl-1 m--font-bold">{{valorization.mainValue.content.value}} {{t "application.currency"}}</div>
 {{/link-to}}

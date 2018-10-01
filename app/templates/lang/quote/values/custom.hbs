@@ -9,14 +9,16 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'valorization.values.title'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "valorization.values.title"}}</h3>
             </div>
           </div>
         </div>
         <div class="m-portlet__body">
           {{#if model.isComputing}}
-            <div class="m--align-center m--font-bold h3 m--margin-top-15 m--margin-bottom-60">
-              <p class="m--margin-bottom-30">{{t 'valorization.values.computing'}}</p>
+            <div
+              class="m--align-center m--font-bold h3 m--margin-top-15 m--margin-bottom-60"
+            >
+              <p class="m--margin-bottom-30">{{t "valorization.values.computing"}}</p>
               <div class="m-loader m-loader--brand m-loader--lg"></div>
             </div>
           {{else}}
@@ -25,33 +27,33 @@
               <div class="col-12 col-md-6">
                 <section>
                   <div class="section-header m--margin-bottom-15 m--margin-top-0">
-                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'valorization.values.custom.title'}}</h4>
-                    <div class="section-header__separator"><hr /></div>
+                    <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.values.custom.title"}}</h4>
+                    <div class="section-header__separator"><hr></div>
                   </div>
                   <div class="custom-market-value-details">
                     <div class="custom-market-value-detail">
-                      <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.standardValue'}}:</span>
-                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.standardValue}} €</span>
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.standardValue"}}:</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.standardValue}} {{t "application.currency"}}</span>
                     </div>
                     <div class="custom-market-value-detail">
-                      <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.bodyInfluence'}}</span>
-                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.body}} €</span>
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.bodyInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.body}} {{t "application.currency"}}</span>
                     </div>
                     <div class="custom-market-value-detail">
-                      <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.releaseInfluence'}}</span>
-                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.release}} €</span>
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.releaseInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.release}} {{t "application.currency"}}</span>
                     </div>
                     <div class="custom-market-value-detail">
-                      <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.optionsInfluence'}}</span>
-                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.options}} €</span>
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.optionsInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.options}} {{t "application.currency"}}</span>
                     </div>
                     <div class="custom-market-value-detail">
-                      <span class="custom-market-value-detail__label">{{t 'valorization.values.custom.mileageInfluence'}}</span>
-                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.mileage}} €</span>
+                      <span class="custom-market-value-detail__label">{{t "valorization.values.custom.mileageInfluence"}}</span>
+                      <span class="custom-market-value-detail__value">{{model.customMarketValues.content.influence.mileage}} {{t "application.currency"}}</span>
                     </div>
                   </div>
-                  <hr />
-                  <p class="main-value-display text-right">{{model.customMarketValues.content.value}} €</p>
+                  <hr>
+                  <p class="main-value-display text-right">{{model.customMarketValues.content.value}} {{t "application.currency"}}</p>
                 </section>
               </div>
               <div class="col-12 col-md-6">

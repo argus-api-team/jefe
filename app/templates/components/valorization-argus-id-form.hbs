@@ -1,9 +1,8 @@
-
 <div class="row">
   <fieldset class="col-12 col-md-6">
     <div class="section-header m--margin-bottom-15">
       <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.identity.argusId.form.title"}}</h4>
-      <div class="section-header__separator"><hr /></div>
+      <div class="section-header__separator"><hr></div>
     </div>
     <div class="form-group m-form__group row align-items-center">
       <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.argusId.form.oid"}}</label>
@@ -31,10 +30,19 @@
   <section class="col-12 col-md-6">
     <div class="section-header m--margin-bottom-15">
       <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.identity.argusId.preview.title"}}</h4>
-      <div class="section-header__separator"><hr /></div>
+      <div class="section-header__separator"><hr></div>
     </div>
     <div class="valorization-card vehicle-preview m--clearfix">
-      {{#unless resolvedVersion}}
+      {{#if resolvedVersion}}
+        <div class="vehicle-infos">
+          <h5 class="h5"> {{resolvedVersion.make.name}} - {{resolvedVersion.submodel.name}}</h5>
+          <p class="m--margin-bottom-5">{{t "application.gen"}} {{resolvedVersion.generation.name}} {{t "application.ph"}} {{resolvedVersion.phase.name}}</p>
+          <p class="m--marginless">{{resolvedVersion.name}}</p>
+        </div>
+        <div class="vehicle-make-logo">
+          {{logo-img url=resolvedVersion.make.logoURL className="thumbnail make-logo"}}
+        </div>
+      {{else}}
         {{#if isSearching}}
           <div class="m-loader m-loader--brand m--margin-right-10"></div>
           <p class="m--marginless  m--pull-left">{{t "valorization.wizzard.identity.argusId.preview.pending"}}</p>
@@ -43,20 +51,17 @@
         {{else}}
           <p class="m--marginless">{{t "valorization.wizzard.identity.argusId.preview.noOID"}}</p>
         {{/if}}
-      {{else}}
-        <div class="vehicle-infos">
-          <h5 class="h5"> {{resolvedVersion.make.name}} - {{resolvedVersion.submodel.name}}</h5>
-          <p class="m--margin-bottom-5">Gen. {{resolvedVersion.generation.name}} Pe. {{resolvedVersion.phase.name}}</p>
-          <p class="m--marginless">{{resolvedVersion.name}}</p>
-        </div>
-        <div class="vehicle-make-logo">
-          {{logo-img url=resolvedVersion.make.logoURL className='thumbnail make-logo'}}
-        </div>
-      {{/unless}}
+      {{/if}}
     </div>
   </section>
 </div>
 <div class="btn-container text-right m--margin-top-30">
-  <button class="btn btn-primary" disabled={{if resolvedVersion (if vehicleDate false true) true}} type="submit">{{t "application.validate"}}</button>
+  <button
+    class="btn btn-primary"
+    disabled={{if resolvedVersion (if vehicleDate false true) true}}
+    type="submit"
+  >
+    {{t "application.validate"}}
+  </button>
 </div>
 

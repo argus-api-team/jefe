@@ -39,7 +39,26 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['development', 'production'],
+        config: {
+          id: 'UA-125946722-2',
+          // Use `analytics_debug.js` in development
+          // debug: environment === 'development',
+          debug: false,
+          // Use verbose tracing of GA events
+          // trace: environment === 'development',
+          trace: false,
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development'
+          // Specify Google Analytics plugins
+          // require: ['ecommerce']
+        }
+      },
+    ],
   };
 
   ENV['ember-simple-auth'] = {

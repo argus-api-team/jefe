@@ -1,28 +1,52 @@
 <div class="row">
   <div class="col-12 col-xl-6">
-    {{#tech-data-container titleKey="licensePlate.registration.title" titleLeft=true isLoading=model.isSearching}}
-      {{tech-data-row labelKey="licensePlate.registration.number" value=model.formatedRegistration}}
-      {{tech-data-row labelKey="licensePlate.registration.firstDate" value=model.registrationCard.firstRegistrationDate}}
-      {{tech-data-row labelKey="licensePlate.registration.date" value=model.registrationCard.registrationDate}}
-      {{tech-data-row labelKey="licensePlate.registration.vinCode" value=model.registrationCard.vinCode}}
-      {{tech-data-row labelKey="licensePlate.registration.fiscalPower" value=model.registrationCard.fiscalPower unitKey="techData.units.cv"}}
-      {{tech-data-row labelKey="licensePlate.registration.carbonEmission" value=model.registrationCard.carbonEmission unitKey="techData.units.gpkm"}}
+    {{#tech-data-container
+      titleKey="licensePlate.registration.title"
+      titleLeft=true
+      isLoading=model.isSearching
+    }}
+      {{tech-data-row
+        labelKey="licensePlate.registration.number"
+        value=model.formatedRegistration
+      }}
+      {{tech-data-row
+        labelKey="licensePlate.registration.firstDate"
+        value=model.registrationCard.firstRegistrationDate
+      }}
+      {{tech-data-row
+        labelKey="licensePlate.registration.date"
+        value=model.registrationCard.registrationDate
+      }}
+      {{tech-data-row
+        labelKey="licensePlate.registration.vinCode"
+        value=model.registrationCard.vinCode
+      }}
+      {{tech-data-row
+        labelKey="licensePlate.registration.fiscalPower"
+        value=model.registrationCard.fiscalPower
+        unitKey="techData.units.cv"
+      }}
+      {{tech-data-row
+        labelKey="licensePlate.registration.carbonEmission"
+        value=model.registrationCard.carbonEmission
+        unitKey="techData.units.gpkm"
+      }}
     {{/tech-data-container}}
   </div>
   <div class="col-12 col-xl-6">
     <div class="section-header m--margin-bottom-15">
-      <h4 class="m--marginless section-header__title m--padding-right-15">{{t 'licensePlate.result.candidates.title'}}</h4>
-      <div class="section-header__separator"><hr /></div>
+      <h4 class="m--marginless section-header__title m--padding-right-15">{{t "licensePlate.result.candidates.title"}}</h4>
+      <div class="section-header__separator"><hr></div>
     </div>
-    {{#unless model.isSearching}}
+    {{#if model.isSearching}}
+      <p class="m--align-center m--font-bold">{{t "licensePlate.result.candidates.searching"}}</p>
+      <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30"></div>
+    {{else}}
       {{#if model.candidates.length}}
         {{candidates-list candidates=model.candidates}}
       {{else}}
-        <p class="m--align-center">{{t 'licensePlate.result.candidates.notFound'}}</p>
+        <p class="m--align-center">{{t "licensePlate.result.candidates.notFound"}}</p>
       {{/if}}
-    {{else}}
-      <p class="m--align-center m--font-bold">{{t 'licensePlate.result.candidates.searching'}}</p>
-      <div class="m-loader m-loader--brand m-loader--lg m--margin-top-30"></div>
-    {{/unless}}
+    {{/if}}
   </div>
 </div>

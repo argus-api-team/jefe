@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 
 export default Component.extend({
   tagName: 'li',
@@ -9,12 +8,11 @@ export default Component.extend({
     const returnedAt = valorization.get('returnedAt');
     const calculatedFor = valorization.get('calculatedFor');
     if (returnedAt || calculatedFor) {
-      this.set('computedDate', returnedAt ? returnedAt : calculatedFor);
-    }
-    else {
+      this.set('computedDate', returnedAt || calculatedFor);
+    } else {
       valorization.get('customMarketValues').then((customMarketValues) => {
-        this.set('computedDate', customMarketValues.get('calculatedFor'))
-      })
+        this.set('computedDate', customMarketValues.get('calculatedFor'));
+      });
     }
   },
   computedDate: null,

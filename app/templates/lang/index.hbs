@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center">
     <div class="mr-auto">
       <h1 class="m-subheader__title m-subheader__title--separator">
-        {{t 'application.home'}}
+        {{t "application.home"}}
       </h1>
     </div>
   </div>
@@ -16,11 +16,11 @@
           <i class="la la-car"></i>
         </div>
         <div class="card-body">
-        <h3 class="card-title">{{t 'index.referential.title'}}</h3>
-          {{t 'index.referential.description'}}
+          <h3 class="card-title">{{t "index.referential.title"}}</h3>
+          {{t "index.referential.description"}}
           <hr>
-          {{#link-to 'lang.referential.makes' class="btn btn-primary"}}
-              {{t 'index.referential.button'}}
+          {{#link-to "lang.referential.makes" class="btn btn-primary"}}
+            {{t "index.referential.button"}}
           {{/link-to}}
         </div>
       </div>
@@ -31,11 +31,11 @@
           <i class="la la-search"></i>
         </div>
         <div class="card-body">
-        <h3 class="card-title">{{t 'index.licensePlate.title'}}</h3>
-          {{t 'index.licensePlate.description'}}
+          <h3 class="card-title">{{t "index.licensePlate.title"}}</h3>
+          {{t "index.licensePlate.description"}}
           <hr>
-          {{#link-to 'lang.license-plate' class="btn btn-primary"}}
-            {{t 'index.licensePlate.button'}}
+          {{#link-to "lang.license-plate" class="btn btn-primary"}}
+            {{t "index.licensePlate.button"}}
           {{/link-to}}
         </div>
       </div>
@@ -46,11 +46,11 @@
           <i class="la la-bar-chart"></i>
         </div>
         <div class="card-body">
-        <h3 class="card-title">{{t 'index.quote.title'}}</h3>
-          {{t 'index.quote.description'}}
+          <h3 class="card-title">{{t "index.quote.title"}}</h3>
+          {{t "index.quote.description"}}
           <hr>
-          {{#link-to 'lang.quote' class="btn btn-primary"}}
-            {{t 'index.quote.button'}}
+          {{#link-to "lang.quote" class="btn btn-primary"}}
+            {{t "index.quote.button"}}
           {{/link-to}}
         </div>
       </div>
@@ -64,7 +64,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'index.dashboard.topMakes'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "index.dashboard.topMakes"}}</h3>
             </div>
           </div>
         </div>
@@ -78,7 +78,7 @@
                     <p>{{make.displayDate}}</p>
                   </section>
                   <div class="logo-img">
-                    {{logo-img url=make.logoURL className='thumbnail make-logo'}}
+                    {{logo-img url=make.logoURL className="thumbnail make-logo"}}
                   </div>
                 {{/link-to}}
               </li>
@@ -93,7 +93,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'index.dashboard.topVehicles'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "index.dashboard.topVehicles"}}</h3>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
                     <p>{{vehicle.name}}</p>
                   </section>
                   <div class="logo-img">
-                    {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
+                    {{logo-img url=vehicle.make.logoURL className="thumbnail make-logo"}}
                   </div>
                 {{/link-to}}
               </li>
@@ -122,7 +122,7 @@
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">{{t 'index.dashboard.latestVehicles'}}</h3>
+              <h3 class="m-portlet__head-text">{{t "index.dashboard.latestVehicles"}}</h3>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@
                     <p>{{vehicle.name}}</p>
                   </section>
                   <div class="logo-img">
-                    {{logo-img url=vehicle.make.logoURL className='thumbnail make-logo'}}
+                    {{logo-img url=vehicle.make.logoURL className="thumbnail make-logo"}}
                   </div>
                 {{/link-to}}
               </li>

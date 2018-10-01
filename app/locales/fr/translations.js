@@ -9,6 +9,12 @@ export default {
     validate: 'Valider',
     datePlaceholder: 'Sélectionnez une date',
     dateFormat: 'DD/MM/YYYY',
+    currency: '€',
+    argusGroup: 'Groupe Argus',
+    copy: '2018 &copy; Jefe par',
+    name: 'Jefe',
+    gen: 'Gén.',
+    ph: 'Pe.',
   },
 
   index: {
@@ -134,6 +140,7 @@ export default {
       label: 'Entrer un numéro d\'immatriculation',
       description: 'Immatriculation',
       notValid: 'Le numéro d\'immatriculation n\'est pas valide',
+      imgAlt: 'Plaque d\'immatriculation française',
     },
     previous: 'Recherches précédentes',
     result: {
@@ -269,6 +276,14 @@ export default {
       title: 'Valeurs',
       computing: 'Calcul des valeurs en cours',
       initial: 'Prix du neuf',
+      infos: {
+        title: 'Valorisation',
+        identification: 'Identifiation du véhicule',
+        usage: 'Utilisation du véhicule',
+        options: 'Options du véhicule',
+        garage: 'Votre garage',
+        specs: 'Fiche technique',
+      },
       custom: {
         title: 'Cote Argus Personnalisée ®',
         pastTitle: 'Cote Argus à date passée',

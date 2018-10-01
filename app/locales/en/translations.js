@@ -9,6 +9,12 @@ export default {
     validate: 'Validate',
     datePlaceholder: 'Select date',
     dateFormat: 'MM/DD/YYYY',
+    currency: '€',
+    argusGroup: 'Argus group',
+    copy: '2018 &copy; Jefe by',
+    name: 'Jefe',
+    gen: 'Gen.',
+    ph: 'Pe.',
   },
 
   index: {
@@ -134,6 +140,7 @@ export default {
       label: 'Enter a license plate number',
       description: 'License plate number',
       notValid: 'License plate number is not valid',
+      imgAlt: 'French license plate',
     },
     previous: 'Previous search',
     result: {
@@ -269,6 +276,14 @@ export default {
       title: 'Values',
       computing: 'Computing values',
       initial: 'Price of new',
+      infos: {
+        title: 'Valorization',
+        identification: 'Vehicle identification',
+        usage: 'Vehicle usage',
+        options: 'Vehicle options',
+        garage: 'Your garage',
+        specs: 'Technical specs',
+      },
       custom: {
         title: 'Custom market values',
         pastTitle: 'Past market value',
