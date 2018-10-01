@@ -66,6 +66,9 @@ export default DS.Model.extend(Validations, {
   isCustomMarketValue: computed('offer', function () {
     return this.get('offer') === 'custom-market-value';
   }),
+  isAutovisual: computed('offer', function () {
+    return this.get('offer').indexOf('autovisual') !== -1;
+  }),
   mainValue: computed('values.length', 'offer', function () {
     let mainValueSubtype;
     return DS.PromiseObject.create({
