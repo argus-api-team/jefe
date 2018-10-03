@@ -44,31 +44,29 @@ export default Component.extend({
   },
 
   _initCredentialProperties() {
-    const session = this.get('session');
-    session.get('store').restore().then((storedSession) => {
+    const storedSession = JSON.parse(localStorage.getItem('credentialProperties'));
+    if (storedSession) {
       this.set('applicationId', storedSession.applicationId);
       this.set('applicationSecret', storedSession.applicationSecret);
       this.set('username', storedSession.username);
       this.set('password', storedSession.password);
       this.set('isRemembered', storedSession.isRemembered);
-    });
+    }
   },
 
   _saveCredentials() {
-    const session = this.get('session');
-    const credentialProperties = {
+    const credentialProperties = JSON.stringify({
       applicationId: this.get('applicationId'),
       applicationSecret: this.get('applicationSecret'),
       username: this.get('username'),
       password: this.get('password'),
       isRemembered: this.get('isRemembered'),
-    };
-    session.get('store').persist(credentialProperties);
+    } || {});
+    localStorage.setItem('credentialProperties', credentialProperties);
   },
 
   _clearCredentials() {
-    const session = this.get('session');
-    session.get('store').clear();
+    localStorage.removeItem('credentialProperties');
   },
 
   _rememberCredentials() {
