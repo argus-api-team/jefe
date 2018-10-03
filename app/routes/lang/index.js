@@ -1,7 +1,7 @@
-import EmberRoute from '@ember/routing/route';
+import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 
-export default EmberRoute.extend({
+export default Route.extend({
   model() {
     return RSVP.hash({
       topMakes: this.get('store').query('make', {

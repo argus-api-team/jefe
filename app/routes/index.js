@@ -1,7 +1,7 @@
-import EmberRoute from '@ember/routing/route';
+import Route from '@ember/routing/route';
 import config from '../config/environment';
 
-export default EmberRoute.extend({
+export default Route.extend({
   beforeModel() {
     this.transitionTo('lang', { lang: this._selectLang() });
   },

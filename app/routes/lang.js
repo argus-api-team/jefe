@@ -1,9 +1,9 @@
-import EmberRoute from '@ember/routing/route';
+import Route from '@ember/routing/route';
 import $ from 'jquery';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import config from '../config/environment';
 
-export default EmberRoute.extend(AuthenticatedRouteMixin, {
+export default Route.extend(AuthenticatedRouteMixin, {
   classNames: ['page-header-fixed', 'page-sidebar-closed-hide-logo', 'page-content-white', 'page-boxed', 'page-md'],
   authenticationRoute: 'lang.login',
 
