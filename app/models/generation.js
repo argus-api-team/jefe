@@ -2,9 +2,8 @@ import DS from 'ember-data';
 import { sort } from '@ember/object/computed';
 import HasManyQuery from 'ember-data-has-many-query';
 import DisplayDateMixin from '../mixins/display-date';
-import SortableDate from '../mixins/sortable-date';
 
-export default DS.Model.extend(DisplayDateMixin, SortableDate, HasManyQuery.ModelMixin, {
+export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
   name: DS.attr('string'),
   shortNicename: DS.attr('string'),
   fullNicename: DS.attr('string'),
