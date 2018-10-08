@@ -60,13 +60,13 @@ export default Controller.extend({
 
   // Models sorting
 
-  sortProperty:'name',
-  sortOrder:'asc',
+  sortProperty: 'name',
+  sortOrder: 'asc',
 
-  modelsSorting: computed('sortProperty', 'sortOrder', function() {
+  modelsSorting: computed('sortProperty', 'sortOrder', function () {
     const sortProperty = this.get('sortProperty');
     const sortOrder = this.get('sortOrder');
-    return [`${sortProperty}:${sortOrder}`, 'id:${sortOrder}']
+    return [`${sortProperty}:${sortOrder}`, `id:${sortOrder}`];
   }),
   sortedModels: sort('filteredModels.content', 'modelsSorting'),
 });
