@@ -87,7 +87,45 @@
       {{/sticky-element}}
     </div>
     <div class="col-9">
-      {{model-timeline model=model}}
+      <div class="m-portlet">
+        <div class="m-portlet__head versions-table__header">
+          <div class="m-portlet__head-caption">
+            <div class="row">
+              <div class="col">id</div>
+              <div class="col">StartDate</div>
+              <div class="col-2">name</div>
+              <div class="col">gen</div>
+              <div class="col">ph.</div>
+              <div class="col">EndDate</div>
+              <div class="col">energy</div>
+              <div class="col">gearbox</div>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <ul class="vertical-list">
+            {{#each model.versions as |version|}}
+              <li class="vertical-list__item">
+                {{#link-to
+                  "lang.referential.vehicle"
+                  version.id
+                  class="row m--padding-top-20 m--padding-bottom-20 align-items-center"
+                }}
+                  <div class="col">{{version.id}}</div>
+                  <div class="col">{{version.startDate}}</div>
+                  <div class="col-2">{{version.name}}</div>
+                  <div class="col">{{version.generation.name}}</div>
+                  <div class="col">{{version.phase.name}}</div>
+                  <div class="col">{{version.endDate}}</div>
+                  <div class="col">{{version.energy.name}}</div>
+                  <div class="col">{{version.gearbox.name}}</div>
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      {{!model-timeline model=model}}
     </div>
   </div>
 </div>
