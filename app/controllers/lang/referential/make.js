@@ -58,6 +58,15 @@ export default Controller.extend({
     });
   }),
 
-  modelsSorting: Object.freeze(['name:asc']),
+  // Models sorting
+
+  sortProperty:'name',
+  sortOrder:'asc',
+
+  modelsSorting: computed('sortProperty', 'sortOrder', function() {
+    const sortProperty = this.get('sortProperty');
+    const sortOrder = this.get('sortOrder');
+    return [`${sortProperty}:${sortOrder}`, 'id:${sortOrder}']
+  }),
   sortedModels: sort('filteredModels.content', 'modelsSorting'),
 });

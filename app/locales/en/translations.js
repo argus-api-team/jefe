@@ -92,6 +92,16 @@ export default {
     models: {
       title: 'Models and submodels',
     },
+    sorting: {
+      title: 'Sorting',
+      property: 'Property',
+      name: 'Name',
+      start: 'Start date',
+      end: 'End date',
+      order: 'Order',
+      asc: 'Ascending',
+      desc: 'Descending',
+    },
   },
 
   modelTimeline: {

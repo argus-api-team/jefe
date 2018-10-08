@@ -92,6 +92,16 @@ export default {
     models: {
       title: 'Modèles et sous-modèles',
     },
+    sorting: {
+      title: 'Trier',
+      property: 'Propriété',
+      name: 'Nom',
+      start: 'Date de début',
+      end: 'Date de fin',
+      order: 'Ordre',
+      asc: 'Ascendant',
+      desc: 'Descendant',
+    },
   },
 
   modelTimeline: {
