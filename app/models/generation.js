@@ -26,7 +26,7 @@ export default DS.Model.extend(DisplayDateMixin, SortableDate, HasManyQuery.Mode
 
   // Computed properties
 
-  phaseSorting: Object.freeze(['sortableStartDate:desc']),
+  phaseSorting: Object.freeze(['startDate:desc']),
   sortedPhases: sort('phases', 'phaseSorting'),
 
 });

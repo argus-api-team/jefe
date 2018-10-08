@@ -21,7 +21,7 @@ export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
 
   // Computed properties
 
-  generationSorting: Object.freeze(['sortableStartDate:desc']),
+  generationSorting: Object.freeze(['startDate:desc']),
   sortedGenerations: sort('generations', 'generationSorting'),
 });
 
