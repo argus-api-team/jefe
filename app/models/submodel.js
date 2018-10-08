@@ -10,6 +10,7 @@ export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
   startDate: DS.attr('date'),
   endDate: DS.attr('date'),
   legacyId: DS.attr('number'),
+  positionQuote: DS.attr('number'),
 
   make: DS.belongsTo({ async: true }),
   model: DS.belongsTo({ async: true }),
@@ -20,7 +21,7 @@ export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
 
   // Computed properties
 
-  generationSorting: Object.freeze(['sortableStartDate:desc']),
+  generationSorting: Object.freeze(['startDate:desc']),
   sortedGenerations: sort('generations', 'generationSorting'),
 });
 

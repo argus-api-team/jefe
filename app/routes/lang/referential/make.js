@@ -5,7 +5,7 @@ export default Route.extend({
   model(params) {
     return RSVP.hash({
       make: this.get('store').findRecord('make', params.id, {
-        include: 'models.categories,models.submodels,categories',
+        include: 'models.categories,models.submodels,categories,submodels',
         reload: true,
       }),
       topMakeVehicles: this.get('store').query('version', {

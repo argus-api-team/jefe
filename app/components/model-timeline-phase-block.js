@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { sort } from '@ember/object/computed';
 
 
 export default Component.extend({
@@ -32,4 +33,7 @@ export default Component.extend({
     const phaseBlockId = `phase-${phaseId}`;
     this.set('elementId', phaseBlockId);
   },
+
+  versionsSorting: Object.freeze(['name:asc']),
+  sortedVersions: sort('phase.versions', 'versionsSorting'),
 });

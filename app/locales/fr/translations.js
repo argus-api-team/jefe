@@ -83,9 +83,24 @@ export default {
     },
     topVehicles: 'Véhicules populaires',
     latestVehicles: 'Derniers véhicules',
-    categories: 'Catégories',
+    filters: {
+      title: 'Filtres',
+      models: 'Modèles: ',
+      submodels: 'Sous-modèles: ',
+      production: 'En production',
+    },
     models: {
       title: 'Modèles et sous-modèles',
+    },
+    sorting: {
+      title: 'Trier',
+      property: 'Propriété',
+      name: 'Nom',
+      start: 'Date de début',
+      end: 'Date de fin',
+      order: 'Ordre',
+      asc: 'Ascendant',
+      desc: 'Descendant',
     },
   },
 
