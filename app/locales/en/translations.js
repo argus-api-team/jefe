@@ -83,7 +83,12 @@ export default {
     },
     topVehicles: 'Top vehicles',
     latestVehicles: 'Latest vehicles',
-    categories: 'Categories',
+    filters: {
+      title: 'Filters',
+      models: 'Models: ',
+      submodels: 'Sub-models: ',
+      production: 'In production',
+    },
     models: {
       title: 'Models and submodels',
     },
