@@ -58,47 +58,50 @@
           <p class="informations-portlet__data">{{model.displayDate}}</p>
         </div>
       </div>
-      {{#sticky-element top=110}}
-        <div class="m-portlet">
-          <div class="m-portlet__head">
-            <div class="m-portlet__head-caption">
-              <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t "modelTimeline.index"}}</h3>
-              </div>
-            </div>
-          </div>
-          <div class="m-portlet__body timeline-index">
-            <ul class="generation-list">
-              {{#each model.sortedGenerations as |generation|}}
-                <li>
-                  <a class="anchor-link" href="#generation-{{generation.id}}">{{t "modelTimeline.generation"}} {{generation.name}}</a>
-                  <ul class="phase-list">
-                    {{#each generation.sortedPhases as |phase|}}
-                      <li>
-                        <a class="anchor-link" href="#phase-{{phase.id}}">{{t "modelTimeline.phase"}} {{phase.name}}</a>
-                      </li>
-                    {{/each}}
-                  </ul>
-                </li>
-              {{/each}}
-            </ul>
-          </div>
-        </div>
-      {{/sticky-element}}
     </div>
     <div class="col-9">
       <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Filters</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body informations-portlet">
+          Content: Filters
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="m-portlet">
         <div class="m-portlet__head versions-table__header">
           <div class="m-portlet__head-caption">
-            <div class="row">
-              <div class="col">id</div>
-              <div class="col">StartDate</div>
-              <div class="col-2">name</div>
-              <div class="col">gen</div>
-              <div class="col">ph.</div>
-              <div class="col">EndDate</div>
-              <div class="col">energy</div>
-              <div class="col">gearbox</div>
+            <div class="row align-items-center">
+              <div class="col">Id</div>
+              <div class="col-2">Name</div>
+              <div class="col">
+                Gen
+                <br>
+                Ph.
+              </div>
+              <div class="col">
+                StartDate
+                <br>
+                EndDate
+              </div>
+              <div class="col">Finitions</div>
+              <div class="col">
+                Energy
+                <br>
+                Engine
+                <br>
+                Power
+              </div>
+              <div class="col">Gearbox</div>
+              <div class="col">Driven wheel</div>
             </div>
           </div>
         </div>
@@ -112,13 +115,39 @@
                   class="row m--padding-top-20 m--padding-bottom-20 align-items-center"
                 }}
                   <div class="col">{{version.id}}</div>
-                  <div class="col">{{version.startDate}}</div>
                   <div class="col-2">{{version.name}}</div>
-                  <div class="col">{{version.generation.name}}</div>
-                  <div class="col">{{version.phase.name}}</div>
-                  <div class="col">{{version.endDate}}</div>
-                  <div class="col">{{version.energy.name}}</div>
+                  <div class="col">
+                    Gen. {{version.generation.name}}
+                    <br>
+                    Ph. {{version.phase.name}}
+                  </div>
+                  <div class="col">
+                    {{version.startDate}}
+                    <br>
+                    {{version.endDate}}
+                  </div>
+                  <div class="col">{{version.trimLevel}}</div>
+                  <div class="col">
+                    {{version.energy.name}}
+                    <br>
+                    {{if
+                      version.lastEngine.content
+                      version.lastEngine.content.marketName
+                    }}
+                    <br>
+                    {{if
+                      version.lastEngine.content
+                      version.lastEngine.content.dinHorsepower
+                    }}
+                    {{t "techData.units.hp"}}
+                  </div>
                   <div class="col">{{version.gearbox.name}}</div>
+                  <div class="col">
+                    {{if
+                      version.lastTransmission.content
+                      version.lastTransmission.content.drivenWheels
+                    }}
+                  </div>
                 {{/link-to}}
               </li>
             {{/each}}

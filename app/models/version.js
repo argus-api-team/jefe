@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 import DisplayDateMixin from '../mixins/display-date';
 
 export default DS.Model.extend(DisplayDateMixin, {
@@ -35,4 +36,35 @@ export default DS.Model.extend(DisplayDateMixin, {
   optionalPacks: DS.hasMany({ async: true }),
   energy: DS.belongsTo({ async: true }),
   gearbox: DS.belongsTo({ async: true }),
+
+  // Computed properties
+
+  lastPeriod: computed('periods', function () {
+    return DS.PromiseObject.create({
+      promise: this.get('periods')
+        .then((periods) => {
+          const periodsArray = periods.toArray().sortBy('startDate');
+          return periodsArray.objectAt(periodsArray.length - 1);
+        }),
+    });
+  }),
+  lastEngine: computed('lastPeriod.content', function () {
+    const lastPeriod = this.get('lastPeriod.content');
+    if (lastPeriod) {
+      return DS.PromiseObject.create({
+        promise: lastPeriod.get('engine').then(engine => engine),
+      });
+    }
+    return null;
+  }),
+  lastTransmission: computed('lastPeriod.content', function () {
+    const lastPeriod = this.get('lastPeriod.content');
+    if (lastPeriod) {
+      return DS.PromiseObject.create({
+        promise: lastPeriod.get('transmission').then(transmission => transmission),
+      });
+    }
+    return null;
+  }),
 });
+
