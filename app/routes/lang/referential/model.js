@@ -15,11 +15,11 @@ export default Route.extend({
     const includedRelationship = [
       'make',
       'versions.periods.engine',
+      'versions.periods.transmission',
       'versions.energy',
       'versions.gearbox',
       'versions.generation',
       'versions.phase',
-      'versions.periods.transmission',
     ].join(',');
     return includedRelationship;
   }),
