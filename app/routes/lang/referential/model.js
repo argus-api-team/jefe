@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 
 export default Route.extend({
   model(params) {
-    let model = {
+    const model = {
       submodel: null,
       versions: null,
     };
@@ -13,14 +13,15 @@ export default Route.extend({
       meta: {
         filterable: false,
       },
-    }).then((submodel) => {
-      model.submodel = submodel
-      return submodel.get('versions')
     })
-    .then((versions) => {
-      model.versions = versions;
-      return model;
-    });
+      .then((submodel) => {
+        model.submodel = submodel;
+        return submodel.get('versions');
+      })
+      .then((versions) => {
+        model.versions = versions;
+        return model;
+      });
   },
   includedRelationship: computed('', function () { // eslint-disable-line
     const includedRelationship = [
