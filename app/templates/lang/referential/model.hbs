@@ -26,11 +26,11 @@
         <li class="m-nav__item">
           {{#link-to
             "lang.referential.make"
-            model.make.id
+            model.submodel.make.id
             class="m-nav__link m-nav__link--icon"
           }}
             <span class="m-nav__link-text">
-              {{model.make.name}}
+              {{model.submodel.make.name}}
             </span>
           {{/link-to}}
         </li>
@@ -51,11 +51,11 @@
         </div>
         <div class="m-portlet__body informations-portlet">
           <div class="logo-container text-center">
-            {{logo-img url=model.make.logoURL className="make-logo"}}
+            {{logo-img url=model.submodel.make.logoURL className="make-logo"}}
           </div>
-          <h4 class="informations-portlet__title">{{model.make.name}}</h4>
-          <h5 class="informations-portlet__data">{{model.name}}</h5>
-          <p class="informations-portlet__data">{{model.displayDate}}</p>
+          <h4 class="informations-portlet__title">{{model.submodel.make.name}}</h4>
+          <h5 class="informations-portlet__data">{{model.submodel.name}}</h5>
+          <p class="informations-portlet__data">{{model.submodel.displayDate}}</p>
         </div>
       </div>
     </div>
@@ -69,14 +69,39 @@
           </div>
         </div>
         <div class="m-portlet__body informations-portlet">
-          Content: Filters
+          <div class="row">
+            <div class="col-6">
+              <h5 class="m--margin-bottom-30">Period Filters</h5>
+              <div class="row">
+                <div class="col">
+                  {{version-period-filter
+                    title="Generation"
+                    filterOptions=model.submodel.generations
+                    recordType="generation"
+                    filterId=generationFilterId
+                  }}
+                </div>
+                <div class="col">
+                  {{version-period-filter
+                    title="Phase"
+                    filterOptions=generationFilter.phases
+                    recordType="generation"
+                    filterId=phaseFilterId
+                    parentFilterType="generation"
+                    parentFilterId=generationFilterId
+                  }}
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-12">
-      {{versions-table versionsArray=model.versions}}
+      {{versions-table versionsArray=filtereVersion}}
       {{!model-timeline model=model}}
     </div>
   </div>
