@@ -1,0 +1,24 @@
+.sort-param-button {
+  border: 0;
+  background: $white;
+}
+
+.sort-param-name {
+  display: block;
+  margin-bottom: 5px;
+  color: array-get($m--typography-colors, light, regular, base);
+  text-align: left;
+
+
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  &:last-child {
+    margin-bottom: 10px;
+  }
+
+  &.is-active {
+    font-weight: 600;
+  }
+}
