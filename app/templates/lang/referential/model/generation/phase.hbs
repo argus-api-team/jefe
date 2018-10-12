@@ -1,5 +1,39 @@
 <div class="row">
   <div class="col-12">
-    {{versions-table versionsArray=model}}
+    <div class="m-portlet">
+      <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+          <div class="m-portlet__head-title">
+            <h3 class="m-portlet__head-text">Filters</h3>
+          </div>
+        </div>
+      </div>
+      <div class="m-portlet__body informations-portlet">
+        <div class="row">
+          <div class="col-4">
+            <h6 class="m--margin-bottom-15">Finitions</h6>
+            <div class="versions-filters m-checkbox-list">
+              {{#each trimLevelOptions as | filter |}}
+                <label class="m-checkbox">
+                  {{input
+                    id=filter.name
+                    type="checkbox"
+                    checked=filter.isActive
+                    name=filter.name
+                  }}
+                  <span></span>
+                  {{filter.name}}
+                </label>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    {{versions-table versionsArray=filteredVersion}}
   </div>
 </div>
