@@ -43,21 +43,6 @@ export default Component.extend({
       },
     ];
   }),
-  periodSorting: computed('sortProperty', function () {
-    const sortProperty = this.get('sortProperty');
-    return [
-      {
-        name: 'Gen',
-        property: 'generation.name',
-        isActive: sortProperty === 'generation.name',
-      },
-      {
-        name: 'Ph.',
-        property: 'phase.name',
-        isActive: sortProperty === 'phase.name',
-      },
-    ];
-  }),
   dateSorting: computed('sortProperty', function () {
     const sortProperty = this.get('sortProperty');
     return [
@@ -83,8 +68,8 @@ export default Component.extend({
       },
       {
         name: 'Engine',
-        property: 'lastEngine.content.name',
-        isActive: sortProperty === 'lastEngine.content.name',
+        property: 'lastEngine.content.marketName',
+        isActive: sortProperty === 'lastEngine.content.marketName',
       },
       {
         name: 'Power',

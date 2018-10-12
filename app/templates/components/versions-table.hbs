@@ -16,12 +16,6 @@
         }}
         {{versions-table-sort-control
           classNames="col"
-          sortOptions=periodSorting
-          sortProperty=sortProperty
-          sortOrder=sortOrder
-        }}
-        {{versions-table-sort-control
-          classNames="col"
           sortOptions=dateSorting
           sortProperty=sortProperty
           sortOrder=sortOrder
@@ -51,15 +45,10 @@
             class="row m--padding-top-20 m--padding-bottom-20 align-items-center"
           }}
             <div class="col">{{version.id}}</div>
-            <div class="col-2">
+            <div class="col">
               {{version.name}}
               <br>
               {{version.trimLevel}}
-            </div>
-            <div class="col">
-              Gen. {{version.generation.name}}
-              <br>
-              Ph. {{version.phase.name}}
             </div>
             <div class="col">
               {{version.startDate}}

@@ -26,11 +26,11 @@
         <li class="m-nav__item">
           {{#link-to
             "lang.referential.make"
-            model.submodel.make.id
+            model.make.id
             class="m-nav__link m-nav__link--icon"
           }}
             <span class="m-nav__link-text">
-              {{model.submodel.make.name}}
+              {{model.make.name}}
             </span>
           {{/link-to}}
         </li>
@@ -40,7 +40,7 @@
 </div>
 <div class="m-content">
   <div class="row align-items-stretch">
-    <div class="col-3">
+    <div class="col-4">
       <div class="m-portlet">
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
@@ -51,58 +51,45 @@
         </div>
         <div class="m-portlet__body informations-portlet">
           <div class="logo-container text-center">
-            {{logo-img url=model.submodel.make.logoURL className="make-logo"}}
+            {{logo-img url=model.make.logoURL className="make-logo"}}
           </div>
-          <h4 class="informations-portlet__title">{{model.submodel.make.name}}</h4>
-          <h5 class="informations-portlet__data">{{model.submodel.name}}</h5>
-          <p class="informations-portlet__data">{{model.submodel.displayDate}}</p>
+          <h4 class="informations-portlet__title">{{model.make.name}}</h4>
+          <h5 class="informations-portlet__data">{{model.name}}</h5>
+          <p class="informations-portlet__data">{{model.displayDate}}</p>
         </div>
       </div>
     </div>
-    <div class="col-9">
+    <div class="col-4">
       <div class="m-portlet">
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
             <div class="m-portlet__head-title">
-              <h3 class="m-portlet__head-text">Filters</h3>
+              <h3 class="m-portlet__head-text">Generations</h3>
             </div>
           </div>
         </div>
         <div class="m-portlet__body informations-portlet">
-          <div class="row">
-            <div class="col-6">
-              <h5 class="m--margin-bottom-30">Period Filters {{phaseFilter.id}}</h5>
-              <div class="row">
-                <div class="col">
-                  {{version-period-filter
-                    title="Generation"
-                    filterOptions=model.submodel.generations
-                    recordType="generation"
-                    filterId=generationFilterId
-                  }}
-                </div>
-                <div class="col">
-                  {{version-period-filter
-                    title="Phase"
-                    filterOptions=generationFilter.phases
-                    recordType="generation"
-                    filterId=phaseFilterId
-                    parentFilterType="generation"
-                    parentFilterId=generationFilterId
-                  }}
-                </div>
-              </div>
-            </div>
-          </div>
-
+          <ul class="vertical-list">
+            {{#each sortedGenerations as |generation|}}
+              <li class="vertical-list__item">
+                {{#link-to
+                  "lang.referential.model.generation"
+                  generation.id
+                  class="list-item-content"
+                }}
+                  <section class="infos">
+                    Generation {{generation.name}}
+                  </section>
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      {{versions-table versionsArray=filtereVersion}}
-      {{!model-timeline model=model}}
+    <div class="col-4">
+      {{outlet "phases"}}
     </div>
   </div>
+  {{outlet "versions"}}
 </div>

@@ -3,18 +3,28 @@ import { computed } from '@ember/object';
 
 export default Route.extend({
   model(params) {
-    return this.store.findRecord('submodel', params.id, {
+    return this.store.peekRecord('phase', params.phase_id).query('versions', {
       include: this.get('includedRelationship'),
-      reload: true,
       meta: {
         filterable: false,
       },
+      page: { size: 500 },
     });
   },
+  renderTemplate(controller, model) {
+    this.render('lang.referential.model.generation.phase', {
+      into: 'lang.referential.model',
+      outlet: 'versions',
+      model,
+    });
+  },
+
   includedRelationship: computed('', function () { // eslint-disable-line
     const includedRelationship = [
-      'make',
-      'generations.phases',
+      'periods.engine',
+      'periods.transmission',
+      'energy',
+      'gearbox',
     ].join(',');
     return includedRelationship;
   }),

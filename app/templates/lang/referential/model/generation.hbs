@@ -1,0 +1,26 @@
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <h3 class="m-portlet__head-text">Phases</h3>
+      </div>
+    </div>
+  </div>
+  <div class="m-portlet__body informations-portlet">
+    <ul class="vertical-list">
+      {{#each sortedPhases as |phase|}}
+        <li class="vertical-list__item">
+          {{#link-to
+            "lang.referential.model.generation.phase"
+            phase.id
+            class="list-item-content"
+          }}
+            <section class="infos">
+              Phase {{phase.name}}
+            </section>
+          {{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
