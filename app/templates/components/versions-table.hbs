@@ -58,10 +58,9 @@
             <div class="col">
               {{version.energy.name}}
               <br>
-              {{if
-                version.lastEngine.content
-                version.lastEngine.content.marketName
-              }}
+              {{#if version.lastEngine.content}}
+                {{version.lastEngine.content.marketName}} - {{version.lastEngine.content.standardEmission}}
+              {{/if}}
               <br>
               {{if
                 version.lastEngine.content

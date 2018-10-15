@@ -10,7 +10,7 @@
       </div>
       <div class="m-portlet__body informations-portlet">
         <div class="row">
-          <div class="col-4">
+          <div class="col-3">
             <h6 class="m--margin-bottom-15">Finitions</h6>
             <div class="versions-filters m-checkbox-list">
               {{#each trimLevelOptions as | filter |}}
@@ -19,7 +19,54 @@
                     id=filter.name
                     type="checkbox"
                     checked=filter.isActive
-                    name=filter.name
+                  }}
+                  <span></span>
+                  {{filter.name}}
+                </label>
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-3">
+            <h6 class="m--margin-bottom-15">Engines</h6>
+            <div class="versions-filters m-checkbox-list">
+              {{#each enginesOptions as | filter |}}
+                <label class="m-checkbox">
+                  {{input
+                    id=filter.inputId
+                    type="checkbox"
+                    checked=filter.isActive
+                  }}
+                  <span></span>
+                  {{filter.name}}
+                </label>
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-3">
+            <h6 class="m--margin-bottom-15">Gearboxes</h6>
+            <div class="versions-filters m-checkbox-list">
+              {{#each gearboxesOptions as | filter |}}
+                <label class="m-checkbox">
+                  {{input
+                    id=filter.inputId
+                    type="checkbox"
+                    checked=filter.isActive
+                  }}
+                  <span></span>
+                  {{filter.name}}
+                </label>
+              {{/each}}
+            </div>
+          </div>
+          <div class="col-3">
+            <h6 class="m--margin-bottom-15">Transmissions</h6>
+            <div class="versions-filters m-checkbox-list">
+              {{#each transmissionsOptions as | filter |}}
+                <label class="m-checkbox">
+                  {{input
+                    id=filter.inputId
+                    type="checkbox"
+                    checked=filter.isActive
                   }}
                   <span></span>
                   {{filter.name}}

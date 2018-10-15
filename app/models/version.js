@@ -48,23 +48,17 @@ export default DS.Model.extend(DisplayDateMixin, {
         }),
     });
   }),
-  lastEngine: computed('lastPeriod.content', function () {
-    const lastPeriod = this.get('lastPeriod.content');
-    if (lastPeriod) {
-      return DS.PromiseObject.create({
-        promise: lastPeriod.get('engine').then(engine => engine),
-      });
-    }
-    return null;
+  lastEngine: computed('lastPeriod', function () {
+    const lastPeriodPromise = this.get('lastPeriod');
+    return DS.PromiseObject.create({
+      promise: lastPeriodPromise.then(lastPeriod => lastPeriod.get('engine')),
+    });
   }),
-  lastTransmission: computed('lastPeriod.content', function () {
-    const lastPeriod = this.get('lastPeriod.content');
-    if (lastPeriod) {
-      return DS.PromiseObject.create({
-        promise: lastPeriod.get('transmission').then(transmission => transmission),
-      });
-    }
-    return null;
+  lastTransmission: computed('lastPeriod', function () {
+    const lastPeriodPromise = this.get('lastPeriod');
+    return DS.PromiseObject.create({
+      promise: lastPeriodPromise.then(lastPeriod => lastPeriod.get('transmission')),
+    });
   }),
 });
 
