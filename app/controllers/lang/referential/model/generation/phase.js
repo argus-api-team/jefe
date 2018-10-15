@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
-import EmberObject from '@ember/object';
+import { computed } from '@ember/object'; // eslint-disable-line import/no-duplicates
+import EmberObject from '@ember/object'; // eslint-disable-line import/no-duplicates
 import ArrayProxy from '@ember/array/proxy';
 
 export default Controller.extend({
@@ -14,7 +15,7 @@ export default Controller.extend({
     },
   },
 
-  filteredVersion: EmberObject.computed(
+  filteredVersion: computed(
     'model.versions',
     'trimLevelOptions.@each.isActive',
     'gearboxOptions.@each.isActive',
@@ -53,20 +54,22 @@ export default Controller.extend({
     },
   ),
 
-  trimLevelOptions: EmberObject.computed('model.trimLevels', function () {
+  trimLevelOptions: computed('model.trimLevels', function () {
     return this._generateFilterOptions(this.get('model.trimLevels'), 'name');
   }),
-  engineOptions: EmberObject.computed('model.engines', function () {
+
+  engineOptions: computed('model.engines', function () {
     return this._generateFilterOptions(this.get('model.engines'), 'marketName', 'standardEmission');
   }),
-  energyOptions: EmberObject.computed('model.energies', 'engineOptions', function () {
+  energyOptions: computed('model.energies', 'engineOptions', function () {
     return this._generateFilterOptions(this.get('model.energies'), 'name');
   }),
-  gearboxOptions: EmberObject.computed('model.gearboxes', function () {
+
+  gearboxOptions: computed('model.gearboxes', function () {
     return this._generateFilterOptions(this.get('model.gearboxes'), 'name');
   }),
 
-  transmissionOptions: EmberObject.computed('model.transmissions', function () {
+  transmissionOptions: computed('model.transmissions', function () {
     return this._generateFilterOptions(this.get('model.transmissions'), 'drivenWheels');
   }),
 
@@ -87,7 +90,7 @@ export default Controller.extend({
       if (item.get('constructor.modelName') === 'energy') {
         const engineOptions = this.get('engineOptions');
         filter = filter.extend({
-          isActive: EmberObject.computed('engineOptions.@each.isActive', function () {
+          isActive: computed('engineOptions.@each.isActive', function () {
             return this.get('engineOptions').isEvery('isActive', true);
           }),
           engineOptions: ArrayProxy.create({
