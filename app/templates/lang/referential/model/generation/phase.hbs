@@ -11,7 +11,7 @@
       <div class="m-portlet__body informations-portlet">
         <div class="row">
           <div class="col-3">
-            <h6 class="m--margin-bottom-15">Finitions</h6>
+            <h6 class="m--margin-bottom-20 font-weight-bold">Finitions</h6>
             <div class="versions-filters m-checkbox-list">
               {{#each trimLevelOptions as | filter |}}
                 <label class="m-checkbox">
@@ -27,9 +27,42 @@
             </div>
           </div>
           <div class="col-3">
-            <h6 class="m--margin-bottom-15">Engines</h6>
+            <h6 class="m--margin-bottom-20 font-weight-bold">Engines</h6>
+            <ul class="versions-filters vertical-list">
+              {{#each energyOptions as | energyOption |}}
+                <li class="m--margin-bottom-30">
+                  <label {{action "toggleEnergy" energyOption}}
+                    class="m-checkbox"
+                  >
+                    {{input
+                      id=energyOption.inputId
+                      type="checkbox"
+                      checked=energyOption.isActive
+                    }}
+                    <span></span>
+                    <p class="font-weight-normal m--marginless">{{energyOption.name}}</p>
+                  </label>
+                  <div class="m-checkbox-list m--padding-left-30">
+                    {{#each energyOption.engineOptions as | filter |}}
+                      <label class="m-checkbox">
+                        {{input
+                          id=filter.inputId
+                          type="checkbox"
+                          checked=filter.isActive
+                        }}
+                        <span></span>
+                        {{filter.name}}
+                      </label>
+                    {{/each}}
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+          <div class="col-3">
+            <h6 class="m--margin-bottom-20 font-weight-bold">Gearboxes</h6>
             <div class="versions-filters m-checkbox-list">
-              {{#each enginesOptions as | filter |}}
+              {{#each gearboxOptions as | filter |}}
                 <label class="m-checkbox">
                   {{input
                     id=filter.inputId
@@ -43,25 +76,9 @@
             </div>
           </div>
           <div class="col-3">
-            <h6 class="m--margin-bottom-15">Gearboxes</h6>
+            <h6 class="m--margin-bottom-20 font-weight-bold">Transmissions</h6>
             <div class="versions-filters m-checkbox-list">
-              {{#each gearboxesOptions as | filter |}}
-                <label class="m-checkbox">
-                  {{input
-                    id=filter.inputId
-                    type="checkbox"
-                    checked=filter.isActive
-                  }}
-                  <span></span>
-                  {{filter.name}}
-                </label>
-              {{/each}}
-            </div>
-          </div>
-          <div class="col-3">
-            <h6 class="m--margin-bottom-15">Transmissions</h6>
-            <div class="versions-filters m-checkbox-list">
-              {{#each transmissionsOptions as | filter |}}
+              {{#each transmissionOptions as | filter |}}
                 <label class="m-checkbox">
                   {{input
                     id=filter.inputId

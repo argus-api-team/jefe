@@ -1,14 +1,25 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import EmberObject from '@ember/object';
+import ArrayProxy from '@ember/array/proxy';
 
 export default Controller.extend({
 
-  filteredVersion: computed(
+  actions: {
+    toggleEnergy(energyOption) {
+      if (!energyOption.isActive) {
+        energyOption.engineOptions.setEach('isActive', true);
+      } else {
+        energyOption.engineOptions.setEach('isActive', false);
+      }
+    },
+  },
+
+  filteredVersion: EmberObject.computed(
     'model.versions',
     'trimLevelOptions.@each.isActive',
-    'gearboxesOptions.@each.isActive',
-    'transmissionsOptions.@each.isActive',
-    'enginesOptions.@each.isActive',
+    'gearboxOptions.@each.isActive',
+    'transmissionOptions.@each.isActive',
+    'engineOptions.@each.isActive',
     function () {
       const versionsArray = this.get('model.versions');
       const filters = [
@@ -18,15 +29,15 @@ export default Controller.extend({
         },
         {
           filteredProp: 'lastEngine.content.id',
-          activesFilters: this.get('enginesOptions').filterBy('isActive', true),
+          activesFilters: this.get('engineOptions').filterBy('isActive', true),
         },
         {
           filteredProp: 'gearbox',
-          activesFilters: this.get('gearboxesOptions').filterBy('isActive', true),
+          activesFilters: this.get('gearboxOptions').filterBy('isActive', true),
         },
         {
           filteredProp: 'lastTransmission.content.id',
-          activesFilters: this.get('transmissionsOptions').filterBy('isActive', true),
+          activesFilters: this.get('transmissionOptions').filterBy('isActive', true),
         },
       ];
       return versionsArray.filter((version) => {
@@ -42,34 +53,49 @@ export default Controller.extend({
     },
   ),
 
-  trimLevelOptions: computed('model.trimLevels', function () {
-    return this._generateFilterOptions(this.get('model.trimLevels'), 'trimLevel');
+  trimLevelOptions: EmberObject.computed('model.trimLevels', function () {
+    return this._generateFilterOptions(this.get('model.trimLevels'), 'name');
   }),
-  enginesOptions: computed('model.engines', function () {
+  engineOptions: EmberObject.computed('model.engines', function () {
     return this._generateFilterOptions(this.get('model.engines'), 'marketName', 'standardEmission');
   }),
-  gearboxesOptions: computed('model.gearboxes', function () {
+  energyOptions: EmberObject.computed('model.energies', 'engineOptions', function () {
+    return this._generateFilterOptions(this.get('model.energies'), 'name');
+  }),
+  gearboxOptions: EmberObject.computed('model.gearboxes', function () {
     return this._generateFilterOptions(this.get('model.gearboxes'), 'name');
   }),
-  transmissionsOptions: computed('model.transmissions', function () {
+
+  transmissionOptions: EmberObject.computed('model.transmissions', function () {
     return this._generateFilterOptions(this.get('model.transmissions'), 'drivenWheels');
   }),
+
   _generateFilterOptions(array, primaryProp, secondaryProp) {
     return array.map((item) => {
-      const isTrimLevel = primaryProp === 'trimLevel';
-      let filterName;
-      if (isTrimLevel) {
-        filterName = item;
-      } else {
-        filterName = secondaryProp ? `${item.get(primaryProp)} -- ${item.get(secondaryProp)}` : item.get(primaryProp);
-      }
-      const filter = {
-        id: isTrimLevel ? item : item.get('id'),
-        name: isTrimLevel ? item : filterName,
-        inputId: isTrimLevel ? item : `${filterName}-${item.get('id')}`,
+      const filterName = secondaryProp ? `${item.get(primaryProp)} -- ${item.get(secondaryProp)}` : item.get(primaryProp);
+      let filter = EmberObject.extend({
+        id: item.get('id'),
+        name: filterName,
+        inputId: `${item.get(primaryProp)}-${item.get('id')}`,
         isActive: false,
-      };
-      return filter;
+      });
+      if (item.get('constructor.modelName') === 'engine') {
+        filter = filter.extend({
+          energyId: item.belongsTo('energy').id(),
+        });
+      }
+      if (item.get('constructor.modelName') === 'energy') {
+        const engineOptions = this.get('engineOptions');
+        filter = filter.extend({
+          isActive: EmberObject.computed('engineOptions.@each.isActive', function () {
+            return this.get('engineOptions').isEvery('isActive', true);
+          }),
+          engineOptions: ArrayProxy.create({
+            content: engineOptions.filter(engineOption => engineOption.get('energyId') === item.get('id')),
+          }),
+        });
+      }
+      return filter.create();
     }).sortBy('name');
   },
 });
