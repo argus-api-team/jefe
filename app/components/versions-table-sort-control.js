@@ -18,7 +18,6 @@ export default Component.extend({
         this.set('sortProperty', property);
       }
     },
-
   },
   _changeSortOrder() {
     const sortOrder = this.get('sortOrder');
