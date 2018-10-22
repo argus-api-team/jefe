@@ -94,12 +94,13 @@ export default Controller.extend({
   }),
 
   transmissionOptions: computed('model.transmissions', function () {
-    return this._generateFilterOptions(this.get('model.transmissions'), 'drivenWheels', null, 'transmissions');
+    return this._generateFilterOptions(this.get('model.transmissions'), 'drivenWheels', 'marketingName', 'transmissions');
   }),
 
   _generateFilterOptions(array, primaryProp, secondaryProp, queryParamName) {
     return array.map((item) => {
-      const filterName = secondaryProp ? `${item.get(primaryProp)} -- ${item.get(secondaryProp)}` : item.get(primaryProp);
+      const secondaryPropValue = secondaryProp ? item.get(secondaryProp) : null;
+      const filterName = secondaryPropValue ? `${item.get(primaryProp)} -- ${secondaryPropValue}` : item.get(primaryProp);
       const filterIsActive = queryParamName ? this.get(queryParamName).indexOf(item.get('id')) !== -1 : false;
       let filter = EmberObject.extend({
         id: item.get('id'),

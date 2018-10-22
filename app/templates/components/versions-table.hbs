@@ -71,10 +71,11 @@
             <div class="col">
               {{version.gearbox.name}}
               <br>
-              {{if
-                version.lastTransmission.content
-                version.lastTransmission.content.drivenWheels
-              }}
+              {{#if version.lastTransmission.content.marketingName}}
+                {{version.lastTransmission.content.drivenWheels}} -- {{version.lastTransmission.content.marketingName}}
+              {{else}}
+                {{version.lastTransmission.content.drivenWheels}}
+              {{/if}}
             </div>
           {{/link-to}}
         </li>
