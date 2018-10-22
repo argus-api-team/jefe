@@ -19,8 +19,7 @@ export default Route.extend({
       },
       page: { size: 500 },
     }).then((versions) => {
-      model.versions = versions;
-      model.versions.pushObjects(versions);
+      model.versions.pushObjects(versions.toArray());
       model.trimLevels.pushObjects(this._getTrimLevels(versions));
       return hash({
         engines: all(model.versions.mapBy('lastEngine')),

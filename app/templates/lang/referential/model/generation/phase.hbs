@@ -14,7 +14,7 @@
             <h6 class="m--margin-bottom-20 font-weight-bold">Finitions</h6>
             <div class="versions-filters m-checkbox-list">
               {{#each trimLevelOptions as | filter |}}
-                <label class="m-checkbox">
+                <label class="m-checkbox" {{action "toggleFilter" filter "trimLevels"}}>
                   {{input
                     id=filter.name
                     type="checkbox"
@@ -44,7 +44,9 @@
                   </label>
                   <div class="m-checkbox-list m--padding-left-30">
                     {{#each energyOption.engineOptions as | filter |}}
-                      <label class="m-checkbox">
+                      <label {{action "toggleFilter" filter "engines"}}
+                        class="m-checkbox"
+                      >
                         {{input
                           id=filter.inputId
                           type="checkbox"
@@ -63,7 +65,9 @@
             <h6 class="m--margin-bottom-20 font-weight-bold">Gearboxes</h6>
             <div class="versions-filters m-checkbox-list">
               {{#each gearboxOptions as | filter |}}
-                <label class="m-checkbox">
+                <label {{action "toggleFilter" filter "gearboxes"}}
+                  class="m-checkbox"
+                >
                   {{input
                     id=filter.inputId
                     type="checkbox"
@@ -79,7 +83,9 @@
             <h6 class="m--margin-bottom-20 font-weight-bold">Transmissions</h6>
             <div class="versions-filters m-checkbox-list">
               {{#each transmissionOptions as | filter |}}
-                <label class="m-checkbox">
+                <label {{action "toggleFilter" filter "transmissions"}}
+                  class="m-checkbox"
+                >
                   {{input
                     id=filter.inputId
                     type="checkbox"
@@ -98,6 +104,10 @@
 </div>
 <div class="row">
   <div class="col-12">
-    {{versions-table versionsArray=filteredVersion}}
+    {{versions-table
+      versionsArray=filteredVersion
+      sortProperty=sortBy
+      sortOrder=order
+    }}
   </div>
 </div>

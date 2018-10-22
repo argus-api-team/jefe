@@ -4,13 +4,37 @@ import EmberObject from '@ember/object'; // eslint-disable-line import/no-duplic
 import ArrayProxy from '@ember/array/proxy';
 
 export default Controller.extend({
+  queryParams: Object.freeze(['engines', 'trimLevels', 'gearboxes', 'transmissions', 'sortBy', 'order']),
+  init() {
+    this._super(...arguments);
+    const queryParams = this.get('queryParams');
+    this.set('order', this.get('order') ? this.get('order') : 'desc');
+    queryParams.forEach((queryParam) => {
+      if (!this.get(queryParam)) {
+        this.set(queryParam, []);
+      }
+    });
+  },
 
   actions: {
     toggleEnergy(energyOption) {
+      const engineOptions = energyOption.get('engineOptions');
+      const enginesIds = engineOptions.mapBy('id');
+      const queryParam = this.get('engines');
+      queryParam.removeObjects(enginesIds);
       if (!energyOption.isActive) {
-        energyOption.engineOptions.setEach('isActive', true);
+        engineOptions.setEach('isActive', true);
+        queryParam.pushObjects(enginesIds);
       } else {
-        energyOption.engineOptions.setEach('isActive', false);
+        engineOptions.setEach('isActive', false);
+      }
+    },
+    toggleFilter(filterOption, queryParam) {
+      filterOption.toggleProperty('isActive');
+      if (filterOption.get('isActive')) {
+        this.get(queryParam).pushObject(filterOption.get('id'));
+      } else {
+        this.get(queryParam).removeObject(filterOption.get('id'));
       }
     },
   },
@@ -55,32 +79,33 @@ export default Controller.extend({
   ),
 
   trimLevelOptions: computed('model.trimLevels', function () {
-    return this._generateFilterOptions(this.get('model.trimLevels'), 'name');
+    return this._generateFilterOptions(this.get('model.trimLevels'), 'name', null, 'trimLevels');
   }),
 
   engineOptions: computed('model.engines', function () {
-    return this._generateFilterOptions(this.get('model.engines'), 'marketName', 'standardEmission');
+    return this._generateFilterOptions(this.get('model.engines'), 'marketName', 'standardEmission', 'engines');
   }),
   energyOptions: computed('model.energies', 'engineOptions', function () {
     return this._generateFilterOptions(this.get('model.energies'), 'name');
   }),
 
   gearboxOptions: computed('model.gearboxes', function () {
-    return this._generateFilterOptions(this.get('model.gearboxes'), 'name');
+    return this._generateFilterOptions(this.get('model.gearboxes'), 'name', null, 'gearboxes');
   }),
 
   transmissionOptions: computed('model.transmissions', function () {
-    return this._generateFilterOptions(this.get('model.transmissions'), 'drivenWheels');
+    return this._generateFilterOptions(this.get('model.transmissions'), 'drivenWheels', null, 'transmissions');
   }),
 
-  _generateFilterOptions(array, primaryProp, secondaryProp) {
+  _generateFilterOptions(array, primaryProp, secondaryProp, queryParamName) {
     return array.map((item) => {
       const filterName = secondaryProp ? `${item.get(primaryProp)} -- ${item.get(secondaryProp)}` : item.get(primaryProp);
+      const filterIsActive = queryParamName ? this.get(queryParamName).indexOf(item.get('id')) !== -1 : false;
       let filter = EmberObject.extend({
         id: item.get('id'),
         name: filterName,
         inputId: `${item.get(primaryProp)}-${item.get('id')}`,
-        isActive: false,
+        isActive: filterIsActive,
       });
       if (item.get('constructor.modelName') === 'engine') {
         filter = filter.extend({
