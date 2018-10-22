@@ -13,18 +13,18 @@ export default Component.extend({
   actions: {
     changeSortProperties(property) {
       if (this.get('sortProperty') === property) {
-        this._changeSortOrder();
+        this.send('changeSortOrder');
       } else {
         this.set('sortProperty', property);
       }
     },
-  },
-  _changeSortOrder() {
-    const sortOrder = this.get('sortOrder');
-    if (sortOrder === 'asc') {
-      this.set('sortOrder', 'desc');
-    } else {
-      this.set('sortOrder', 'asc');
-    }
+    changeSortOrder() {
+      const sortOrder = this.get('sortOrder');
+      if (sortOrder === 'asc') {
+        this.set('sortOrder', 'desc');
+      } else {
+        this.set('sortOrder', 'asc');
+      }
+    },
   },
 });

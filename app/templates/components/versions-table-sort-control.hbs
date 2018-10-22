@@ -10,12 +10,14 @@
   {{/each}}
 </div>
 {{#if activeProperty}}
-  <div
-    class="sort-param-button pull-right col-auto"
-  >
-    <i
-      class="m-nav__link-icon m--icon-font-size-lg3 la {{if isDesc "la-sort-desc" "la-sort-asc"}}"
+  <div class="pull-right col-auto">
+    <button {{action "changeSortOrder"}}
+      class="sort-param-button "
     >
-    </i>
+      <i
+        class="m-nav__link-icon m--icon-font-size-lg3 la {{if isDesc "la-sort-desc" "la-sort-asc"}}"
+      >
+      </i>
+    </button>
   </div>
 {{/if}}
