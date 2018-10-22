@@ -1,14 +1,11 @@
 .sort-param-button {
-  border: 0;
-  background: $white;
-}
-
-.sort-param-name {
   display: block;
   margin-bottom: 5px;
+  padding: 5px 0;
+  border: 0;
+  background: $white;
   color: array-get($m--typography-colors, light, regular, base);
   text-align: left;
-
 
   &:first-child {
     margin-top: 10px;

@@ -1,17 +1,21 @@
-<button {{action "changeSortProperty"}}
-  class="sort-param-button col"
+<div
+  class="col"
 >
   {{#each sortOptions as |sortOption|}}
-    <span class="sort-param-name {{if sortOption.isActive "is-active"}}">{{sortOption.name}}</span>
+    <button {{action "changeSortProperties" sortOption.property}}
+      class="sort-param-button {{if sortOption.isActive "is-active"}}"
+    >
+      {{sortOption.name}}
+    </button>
   {{/each}}
-</button>
+</div>
 {{#if activeProperty}}
-  <button {{action "changeSortOrder"}}
+  <div
     class="sort-param-button pull-right col-auto"
   >
     <i
       class="m-nav__link-icon m--icon-font-size-lg3 la {{if isDesc "la-sort-desc" "la-sort-asc"}}"
     >
     </i>
-  </button>
+  </div>
 {{/if}}

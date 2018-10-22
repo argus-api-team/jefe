@@ -11,24 +11,21 @@ export default Component.extend({
     return sortOptions.isAny('isActive', true);
   }),
   actions: {
-    changeSortProperty() {
-      const sortOptions = this.get('sortOptions');
-      const sortOptionsStatus = sortOptions.mapBy('isActive');
-      const indexOfActive = sortOptionsStatus.indexOf(true);
-      const isLastOptions = indexOfActive === sortOptions.length - 1;
-      if (indexOfActive === -1 || isLastOptions) {
-        this.set('sortProperty', sortOptions[0].property);
-        return;
-      }
-      this.set('sortProperty', sortOptions[indexOfActive + 1].property);
-    },
-    changeSortOrder() {
-      const sortOrder = this.get('sortOrder');
-      if (sortOrder === 'asc') {
-        this.set('sortOrder', 'desc');
+    changeSortProperties(property) {
+      if (this.get('sortProperty') === property) {
+        this._changeSortOrder();
       } else {
-        this.set('sortOrder', 'asc');
+        this.set('sortProperty', property);
       }
     },
+
+  },
+  _changeSortOrder() {
+    const sortOrder = this.get('sortOrder');
+    if (sortOrder === 'asc') {
+      this.set('sortOrder', 'desc');
+    } else {
+      this.set('sortOrder', 'asc');
+    }
   },
 });
