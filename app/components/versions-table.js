@@ -31,6 +31,7 @@ export default Component.extend({
         option: 'finishes',
         properties: [
           'trimLevel',
+          'name',
           'lastPeriod.content.priceIncludingVat',
         ],
         isActive: sortBy === 'finishes',
@@ -43,6 +44,7 @@ export default Component.extend({
           'lastEngine.content.dinHorsepower',
           'lastEngine.content.standardEmission',
           'lastEngine.content.marketName',
+          'lastPeriod.content.priceIncludingVat'
         ],
         isActive: sortBy === 'engines',
       },
