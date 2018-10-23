@@ -44,7 +44,7 @@ export default Component.extend({
           'lastEngine.content.dinHorsepower',
           'lastEngine.content.standardEmission',
           'lastEngine.content.marketName',
-          'lastPeriod.content.priceIncludingVat'
+          'lastPeriod.content.priceIncludingVat',
         ],
         isActive: sortBy === 'engines',
       },

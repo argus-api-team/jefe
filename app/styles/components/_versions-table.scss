@@ -1,36 +1,39 @@
+.sort-params {
+  height: 60px;
+}
+
 .sort-param-button {
-  display: block;
-  margin-bottom: 5px;
-  padding: 5px 0;
+  position: relative;
+  height: 100%;
   border: 0;
   background: $white;
   color: array-get($m--typography-colors, light, regular, base);
+  line-height: 22px;
   text-align: left;
-
-  &:first-child {
-    margin-top: 10px;
-  }
-
-  &:last-child {
-    margin-bottom: 10px;
-  }
 
   &.is-active {
     font-weight: 600;
   }
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+
+    .la {
+      text-decoration: none;
+    }
+  }
 }
 
 .versions-table__item {
-
-  .versions-table__content {
-    background: $odd-list-background;
-    color: array-get($m--typography-colors, light, regular, base);
-  }
+  padding: 0 2.2rem;
+  background: $odd-list-background;
 
   &:nth-child(even) {
+    background: $even-list-background;
+  }
 
-    .versions-table__content {
-      background: $even-list-background;
-    }
+  .versions-table__content {
+    color: array-get($m--typography-colors, light, regular, base);
   }
 }

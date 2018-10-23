@@ -1,7 +1,7 @@
 <div class="m-portlet">
   <div class="m-portlet__head versions-table__header">
     <div class="m-portlet__head-caption">
-      <div class="row align-items-center">
+      <div class="row align-items-center sort-params">
         {{#each sortOptions as |sortOption|}}
           {{versions-table-sort-control
             classNames="col"
@@ -13,59 +13,57 @@
       </div>
     </div>
   </div>
-  <div class="m-portlet__body">
-    <ul class="vertical-list versions-list">
-      {{#each sortedVersions as |version|}}
-        <li class="vertical-list__item versions-table__item">
-          {{#link-to
-            "lang.referential.vehicle"
-            version.id
-            class="row m--padding-top-20 m--padding-bottom-20 align-items-center versions-table__content"
-          }}
-            <div class="col">{{version.id}}</div>
-            <div class="col">
-              <span class="font-weight-bold">{{version.trimLevel}}</span>
-              <br>
-              <span>{{version.name}}</span>
-            </div>
-            <div class="col">
-              {{#if version.lastEngine.content}}
-                <span class="font-weight-bold">{{version.lastEngine.content.marketName}} - {{version.lastEngine.content.standardEmission}}</span>
-              {{/if}}
-              <br>
-              <span>
-                {{version.energy.name}}
-                -
-                {{if
-                  version.lastEngine.content
-                  version.lastEngine.content.dinHorsepower
-                }}
-                {{t "techData.units.hp"}}
-              </span>
-            </div>
-            <div class="col">
-              <span>{{version.gearbox.name}}</span>
-              <br>
-              {{#if version.lastTransmission.content.marketingName}}
-                <span>{{version.lastTransmission.content.drivenWheels}} - {{version.lastTransmission.content.marketingName}}</span>
-              {{else}}
-                <span>{{version.lastTransmission.content.drivenWheels}}</span>
-              {{/if}}
-            </div>
-            <div class="col">
-              <span>{{version.startDate}}</span>
-              <br>
-              <span>{{version.endDate}}</span>
-            </div>
-            <div class="col">
-              <span class="font-weight-bold">{{version.lastPeriod.content.priceIncludingVat}} €</span>
-              <br>
-              <span>{{version.lastPeriod.content.priceExcludingVat}} €</span>
-            </div>
-          {{/link-to}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+  <ul class="vertical-list versions-list">
+    {{#each sortedVersions as |version|}}
+      <li class="vertical-list__item versions-table__item">
+        {{#link-to
+          "lang.referential.vehicle"
+          version.id
+          class="row m--padding-top-20 m--padding-bottom-20 align-items-center versions-table__content"
+        }}
+          <div class="col">{{version.id}}</div>
+          <div class="col">
+            <span class="font-weight-bold">{{version.trimLevel}}</span>
+            <br>
+            <span>{{version.name}}</span>
+          </div>
+          <div class="col">
+            {{#if version.lastEngine.content}}
+              <span class="font-weight-bold">{{version.lastEngine.content.marketName}} - {{version.lastEngine.content.standardEmission}}</span>
+            {{/if}}
+            <br>
+            <span>
+              {{version.energy.name}}
+              -
+              {{if
+                version.lastEngine.content
+                version.lastEngine.content.dinHorsepower
+              }}
+              {{t "techData.units.hp"}}
+            </span>
+          </div>
+          <div class="col">
+            <span>{{version.gearbox.name}}</span>
+            <br>
+            {{#if version.lastTransmission.content.marketingName}}
+              <span>{{version.lastTransmission.content.drivenWheels}} - {{version.lastTransmission.content.marketingName}}</span>
+            {{else}}
+              <span>{{version.lastTransmission.content.drivenWheels}}</span>
+            {{/if}}
+          </div>
+          <div class="col">
+            <span>{{version.startDate}}</span>
+            <br>
+            <span>{{version.endDate}}</span>
+          </div>
+          <div class="col">
+            <span class="font-weight-bold">{{version.lastPeriod.content.priceIncludingVat}} €</span>
+            <br>
+            <span>{{version.lastPeriod.content.priceExcludingVat}} €</span>
+          </div>
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
 </div>
 {{yield}}
