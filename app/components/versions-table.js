@@ -4,92 +4,74 @@ import { sort } from '@ember/object/computed';
 
 export default Component.extend({
 
-  sortProperty: '',
-  sortOrder: 'desc',
+  sortBy: '',
+  sortOrder: 'asc',
 
-  versionSorting: computed('sortProperty', 'sortOrder', function () {
-    const sortProperty = this.get('sortProperty');
+  versionSorting: computed('sortOptions.@each.isActive', 'sortOrder', function () {
+    const sortOption = this.get('sortOptions').findBy('isActive', true);
     const sortOrder = this.get('sortOrder');
-    if (sortProperty) {
-      return [`${sortProperty}:${sortOrder}`, `id:${sortOrder}`];
+    if (sortOption) {
+      return sortOption.properties.map(sortProperty => `${sortProperty}:${sortOrder}`);
     }
-    return [`id:${sortOrder}`];
+    return ['id:desc'];
   }),
 
   sortedVersions: sort('versionsArray', 'versionSorting'),
-
-  idSorting: computed('sortProperty', function () {
-    const sortProperty = this.get('sortProperty');
+  sortOptions: computed('sortBy', function () {
+    const sortBy = this.get('sortBy');
     return [
       {
         name: 'Id',
-        property: 'id',
-        isActive: sortProperty === 'id',
-      },
-    ];
-  }),
-  nameSorting: computed('sortProperty', function () {
-    const sortProperty = this.get('sortProperty');
-    return [
-      {
-        name: 'Name',
-        property: 'name',
-        isActive: sortProperty === 'name',
+        option: 'id',
+        properties: ['id'],
+        isActive: sortBy === 'id',
       },
       {
-        name: 'Finitions',
-        property: 'trimLevel',
-        isActive: sortProperty === 'trimLevel',
-      },
-    ];
-  }),
-  dateSorting: computed('sortProperty', function () {
-    const sortProperty = this.get('sortProperty');
-    return [
-      {
-        name: 'startDate',
-        property: 'startDate',
-        isActive: sortProperty === 'startDate',
-      },
-      {
-        name: 'endDate',
-        property: 'endDate',
-        isActive: sortProperty === 'endDate',
-      },
-    ];
-  }),
-  engineSorting: computed('sortProperty', function () {
-    const sortProperty = this.get('sortProperty');
-    return [
-      {
-        name: 'Energy',
-        property: 'energy.name',
-        isActive: sortProperty === 'energy.name',
+        name: 'Finishes',
+        option: 'finishes',
+        properties: [
+          'trimLevel',
+          'lastPeriod.content.priceIncludingVat',
+        ],
+        isActive: sortBy === 'finishes',
       },
       {
         name: 'Engine',
-        property: 'lastEngine.content.marketName',
-        isActive: sortProperty === 'lastEngine.content.marketName',
+        option: 'engines',
+        properties: [
+          'lastEngine.content.energy.name',
+          'lastEngine.content.dinHorsepower',
+          'lastEngine.content.standardEmission',
+          'lastEngine.content.marketName',
+        ],
+        isActive: sortBy === 'engines',
       },
       {
-        name: 'Power',
-        property: 'lastEngine.content.dinHorsepower',
-        isActive: sortProperty === 'lastEngine.content.dinHorsepower',
-      },
-    ];
-  }),
-  driveSorting: computed('sortProperty', function () {
-    const sortProperty = this.get('sortProperty');
-    return [
-      {
-        name: 'Gearbox',
-        property: 'gearbox.numberOfGears',
-        isActive: sortProperty === 'gearbox.numberOfGears',
+        name: 'Tranmission',
+        option: 'transmissions',
+        properties: [
+          'gearbox.name',
+          'lastTransmission.content.drivenWheels',
+        ],
+        isActive: sortBy === 'transmissions',
       },
       {
-        name: 'Transmission',
-        property: 'version.lastTransmission.content.drivenWheels',
-        isActive: sortProperty === 'version.lastTransmission.content.drivenWheels',
+        name: 'Date',
+        option: 'date',
+        properties: [
+          'startDate',
+          'endDate',
+        ],
+        isActive: sortBy === 'date',
+      },
+      {
+        name: 'Price',
+        option: 'price',
+        properties: [
+          'lastPeriod.content.priceIncludingVat',
+          'name',
+        ],
+        isActive: sortBy === 'price',
       },
     ];
   }),

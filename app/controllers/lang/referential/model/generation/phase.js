@@ -4,11 +4,11 @@ import EmberObject from '@ember/object'; // eslint-disable-line import/no-duplic
 import ArrayProxy from '@ember/array/proxy';
 
 export default Controller.extend({
-  queryParams: Object.freeze(['engines', 'trimLevels', 'gearboxes', 'transmissions', 'sortBy', 'order']),
+  queryParams: Object.freeze(['engines', 'trimLevels', 'gearboxes', 'transmissions', 'sortBy', 'sortOrder']),
   init() {
     this._super(...arguments);
     const queryParams = this.get('queryParams');
-    this.set('order', this.get('order') ? this.get('order') : 'desc');
+    this.set('sortOrder', this.get('sortOrder') ? this.get('sortOrder') : 'asc');
     queryParams.forEach((queryParam) => {
       if (!this.get(queryParam)) {
         this.set(queryParam, []);

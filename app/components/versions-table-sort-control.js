@@ -6,16 +6,16 @@ export default Component.extend({
   isDesc: computed('sortOrder', function () {
     return this.get('sortOrder') === 'desc';
   }),
-  activeProperty: computed('sortOptions.@each.isActive', function () {
-    const sortOptions = this.get('sortOptions');
-    return sortOptions.isAny('isActive', true);
+  activeProperty: computed('sortOption.isActive', function () {
+    const sortOption = this.get('sortOption');
+    return sortOption.isActive;
   }),
   actions: {
-    changeSortProperties(property) {
-      if (this.get('sortProperty') === property) {
+    changeSortProperties(option) {
+      if (this.get('sortBy') === option) {
         this.send('changeSortOrder');
       } else {
-        this.set('sortProperty', property);
+        this.set('sortBy', option);
       }
     },
     changeSortOrder() {

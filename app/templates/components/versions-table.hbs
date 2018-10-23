@@ -2,80 +2,65 @@
   <div class="m-portlet__head versions-table__header">
     <div class="m-portlet__head-caption">
       <div class="row align-items-center">
-        {{versions-table-sort-control
-          classNames="col"
-          sortOptions=idSorting
-          sortProperty=sortProperty
-          sortOrder=sortOrder
-        }}
-        {{versions-table-sort-control
-          classNames="col"
-          sortOptions=nameSorting
-          sortProperty=sortProperty
-          sortOrder=sortOrder
-        }}
-        {{versions-table-sort-control
-          classNames="col"
-          sortOptions=dateSorting
-          sortProperty=sortProperty
-          sortOrder=sortOrder
-        }}
-        {{versions-table-sort-control
-          classNames="col"
-          sortOptions=engineSorting
-          sortProperty=sortProperty
-          sortOrder=sortOrder
-        }}
-        {{versions-table-sort-control
-          classNames="col"
-          sortOptions=driveSorting
-          sortProperty=sortProperty
-          sortOrder=sortOrder
-        }}
+        {{#each sortOptions as |sortOption|}}
+          {{versions-table-sort-control
+            classNames="col"
+            sortOption=sortOption
+            sortBy=sortBy
+            sortOrder=sortOrder
+          }}
+        {{/each}}
       </div>
     </div>
   </div>
   <div class="m-portlet__body">
-    <ul class="vertical-list">
+    <ul class="vertical-list versions-list">
       {{#each sortedVersions as |version|}}
-        <li class="vertical-list__item">
+        <li class="vertical-list__item versions-table__item">
           {{#link-to
             "lang.referential.vehicle"
             version.id
-            class="row m--padding-top-20 m--padding-bottom-20 align-items-center"
+            class="row m--padding-top-20 m--padding-bottom-20 align-items-center versions-table__content"
           }}
             <div class="col">{{version.id}}</div>
             <div class="col">
-              {{version.name}}
+              <span class="font-weight-bold">{{version.trimLevel}}</span>
               <br>
-              {{version.trimLevel}}
+              <span>{{version.name}}</span>
             </div>
             <div class="col">
-              {{version.startDate}}
-              <br>
-              {{version.endDate}}
-            </div>
-            <div class="col">
-              {{version.energy.name}}
-              <br>
               {{#if version.lastEngine.content}}
-                {{version.lastEngine.content.marketName}} - {{version.lastEngine.content.standardEmission}}
+                <span class="font-weight-bold">{{version.lastEngine.content.marketName}} - {{version.lastEngine.content.standardEmission}}</span>
               {{/if}}
               <br>
-              {{if
-                version.lastEngine.content
-                version.lastEngine.content.dinHorsepower
-              }}
-              {{t "techData.units.hp"}}
+              <span>
+                {{version.energy.name}}
+                -
+                {{if
+                  version.lastEngine.content
+                  version.lastEngine.content.dinHorsepower
+                }}
+                {{t "techData.units.hp"}}
+              </span>
             </div>
             <div class="col">
-              {{version.gearbox.name}}
+              <span>{{version.gearbox.name}}</span>
               <br>
               {{#if version.lastTransmission.content.marketingName}}
-                {{version.lastTransmission.content.drivenWheels}} -- {{version.lastTransmission.content.marketingName}}
+                <span>{{version.lastTransmission.content.drivenWheels}} - {{version.lastTransmission.content.marketingName}}</span>
               {{else}}
-                {{version.lastTransmission.content.drivenWheels}}
+                <span>{{version.lastTransmission.content.drivenWheels}}</span>
               {{/if}}
+            </div>
+            <div class="col">
+              <span>{{version.startDate}}</span>
+              <br>
+              <span>{{version.endDate}}</span>
+            </div>
+            <div class="col">
+              <span class="font-weight-bold">{{version.lastPeriod.content.priceIncludingVat}} €</span>
+              <br>
+              <span>{{version.lastPeriod.content.priceExcludingVat}} €</span>
             </div>
           {{/link-to}}
         </li>

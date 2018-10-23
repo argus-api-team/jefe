@@ -19,3 +19,18 @@
     font-weight: 600;
   }
 }
+
+.versions-table__item {
+
+  .versions-table__content {
+    background: $odd-list-background;
+    color: array-get($m--typography-colors, light, regular, base);
+  }
+
+  &:nth-child(even) {
+
+    .versions-table__content {
+      background: $even-list-background;
+    }
+  }
+}

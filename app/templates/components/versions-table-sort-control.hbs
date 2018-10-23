@@ -1,13 +1,11 @@
 <div
   class="col"
 >
-  {{#each sortOptions as |sortOption|}}
-    <button {{action "changeSortProperties" sortOption.property}}
-      class="sort-param-button {{if sortOption.isActive "is-active"}}"
-    >
-      {{sortOption.name}}
-    </button>
-  {{/each}}
+  <button {{action "changeSortProperties" sortOption.option}}
+    class="sort-param-button {{if sortOption.isActive "is-active"}}"
+  >
+    {{sortOption.name}}
+  </button>
 </div>
 {{#if activeProperty}}
   <div class="pull-right col-auto">
