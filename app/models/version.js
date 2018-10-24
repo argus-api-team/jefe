@@ -43,8 +43,8 @@ export default DS.Model.extend(DisplayDateMixin, {
     return DS.PromiseObject.create({
       promise: this.get('periods')
         .then((periods) => {
-          const periodsArray = periods.toArray().sortBy('startDate');
-          return periodsArray.objectAt(periodsArray.length - 1);
+          const periodsArray = periods.toArray().sortBy('id');
+          return periodsArray.lastObject;
         }),
     });
   }),
