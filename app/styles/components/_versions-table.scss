@@ -11,13 +11,21 @@
   line-height: 22px;
   text-align: left;
 
+  .la {
+    position: relative;
+    top: 3px;
+  }
+
   &.is-active {
     font-weight: 600;
   }
 
   &:hover {
-    text-decoration: underline;
     cursor: pointer;
+
+    .sort-param-button__text {
+      text-decoration: underline;
+    }
 
     .la {
       text-decoration: none;
@@ -26,6 +34,7 @@
 }
 
 .versions-table__item {
+  position: relative;
   padding: 0 2.2rem;
   background: $odd-list-background;
 
@@ -35,5 +44,30 @@
 
   .versions-table__content {
     color: array-get($m--typography-colors, light, regular, base);
+    text-decoration: none;
+  }
+
+  &::after {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -1px;
+    width: 5px;
+    background: array-get($m--state-colors, brand, base);
+  }
+
+  &:hover {
+    z-index: 1;
+    outline: 1px solid array-get($m--state-colors, brand, base);
+
+    .versions-table__content {
+      color: array-get($m--state-colors, brand, base);
+    }
+
+    &::after {
+      display: block;
+    }
   }
 }
