@@ -4,7 +4,7 @@ import EmberObject from '@ember/object'; // eslint-disable-line import/no-duplic
 import ArrayProxy from '@ember/array/proxy';
 
 export default Controller.extend({
-  queryParams: Object.freeze(['engines', 'trimLevels', 'gearboxes', 'transmissions', 'sortBy', 'sortOrder']),
+  queryParams: Object.freeze(['engines', 'energies', 'trimLevels', 'gearboxes', 'transmissions', 'sortBy', 'sortOrder']),
   init() {
     this._super(...arguments);
     const queryParams = this.get('queryParams');
@@ -19,6 +19,10 @@ export default Controller.extend({
   actions: {
     toggleEnergy(energyOption) {
       const engineOptions = energyOption.get('engineOptions');
+      if (!engineOptions) {
+        this.send('toggleFilter', energyOption, 'energies');
+        return;
+      }
       const enginesIds = engineOptions.mapBy('id');
       const queryParam = this.get('engines');
       queryParam.removeObjects(enginesIds);
@@ -45,6 +49,7 @@ export default Controller.extend({
     'gearboxOptions.@each.isActive',
     'transmissionOptions.@each.isActive',
     'engineOptions.@each.isActive',
+    'energyOptions.@each.isActive',
     function () {
       const versionsArray = this.get('model.versions');
       const filters = [
@@ -53,24 +58,36 @@ export default Controller.extend({
           activesFilters: this.get('trimLevelOptions').filterBy('isActive', true),
         },
         {
-          filteredProp: 'lastEngine.content.id',
-          activesFilters: this.get('engineOptions').filterBy('isActive', true),
-        },
-        {
           filteredProp: 'gearbox',
           activesFilters: this.get('gearboxOptions').filterBy('isActive', true),
+          isBelongTo: true,
         },
         {
           filteredProp: 'lastTransmission.content.id',
           activesFilters: this.get('transmissionOptions').filterBy('isActive', true),
         },
       ];
+      if (this.get('engineOptions.length')) {
+        filters.pushObject({
+          filteredProp: 'lastEngine.content.id',
+          activesFilters: this.get('engineOptions').filterBy('isActive', true),
+        });
+      } else {
+        filters.pushObject({
+          filteredProp: 'energy',
+          activesFilters: this.get('energyOptions').filterBy('isActive', true),
+          isBelongTo: true,
+        });
+      }
       return versionsArray.filter((version) => {
         let displayVersion = true;
         filters.forEach((filter) => {
           if (filter.activesFilters.length && displayVersion) {
-            const versionFilteredProp = filter.filteredProp === 'gearbox' ? version.belongsTo(filter.filteredProp).id() : version.get(filter.filteredProp);
-            displayVersion = filter.activesFilters.isAny('id', versionFilteredProp);
+            if (filter.isBelongTo) {
+              displayVersion = filter.activesFilters.isAny('id', version.belongsTo(filter.filteredProp).id());
+            } else {
+              displayVersion = filter.activesFilters.isAny('id', version.get(filter.filteredProp));
+            }
           }
         });
         return displayVersion;
@@ -86,7 +103,7 @@ export default Controller.extend({
     return this._generateFilterOptions(this.get('model.engines'), 'marketName', 'standardEmission', 'engines');
   }),
   energyOptions: computed('model.energies', 'engineOptions', function () {
-    return this._generateFilterOptions(this.get('model.energies'), 'name');
+    return this._generateFilterOptions(this.get('model.energies'), 'name', null, 'energies');
   }),
 
   gearboxOptions: computed('model.gearboxes', function () {
@@ -115,14 +132,16 @@ export default Controller.extend({
       }
       if (item.get('constructor.modelName') === 'energy') {
         const engineOptions = this.get('engineOptions');
-        filter = filter.extend({
-          isActive: computed('engineOptions.@each.isActive', function () {
-            return this.get('engineOptions').isEvery('isActive', true);
-          }),
-          engineOptions: ArrayProxy.create({
-            content: engineOptions.filter(engineOption => engineOption.get('energyId') === item.get('id')),
-          }),
-        });
+        if (engineOptions.length) {
+          filter = filter.extend({
+            isActive: computed('engineOptions.@each.isActive', function () {
+              return this.get('engineOptions').isEvery('isActive', true);
+            }),
+            engineOptions: ArrayProxy.create({
+              content: engineOptions.filter(engineOption => engineOption.get('energyId') === item.get('id')),
+            }),
+          });
+        }
       }
       return filter.create();
     }).sortBy('name');

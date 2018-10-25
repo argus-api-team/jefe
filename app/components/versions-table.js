@@ -40,7 +40,7 @@ export default Component.extend({
         name: 'Engine',
         option: 'engines',
         properties: [
-          'lastEngine.content.energy.name',
+          'energy.name',
           'lastEngine.content.dinHorsepower',
           'lastEngine.content.standardEmission',
           'lastEngine.content.marketName',

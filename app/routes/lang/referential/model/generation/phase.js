@@ -35,6 +35,7 @@ export default Route.extend({
       return model;
     });
   },
+
   renderTemplate(controller, model) {
     this.render('lang.referential.model.generation.phase', {
       into: 'lang.referential.model',
@@ -42,12 +43,14 @@ export default Route.extend({
       model,
     });
   },
+
   includedRelationship: Object.freeze([
     'periods.engine.energy',
     'periods.transmission',
     'energy',
     'gearbox',
   ]),
+
   _getTrimLevels(versions) {
     const trimLevels = versions.mapBy('trimLevel').uniq().without(null);
     return trimLevels.map(trimLevel => EmberObject.create({
