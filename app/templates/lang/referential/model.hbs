@@ -34,6 +34,20 @@
             </span>
           {{/link-to}}
         </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to
+            "lang.referential.model"
+            model.id
+            class="m-nav__link m-nav__link--icon"
+          }}
+            <span class="m-nav__link-text">
+              {{model.name}}
+            </span>
+          {{/link-to}}
+        </li>
       </ul>
     </div>
   </div>

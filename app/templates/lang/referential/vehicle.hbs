@@ -48,6 +48,51 @@
             </span>
           {{/link-to}}
         </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to
+            "lang.referential.model.generation"
+            model.vehicle.submodel.id
+            model.vehicle.generation.id
+            class="m-nav__link m-nav__link--icon"
+          }}
+            <span class="m-nav__link-text">
+              {{t "modelTimeline.generation"}} {{model.vehicle.generation.name}}
+            </span>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to
+            "lang.referential.model.generation.phase"
+            model.vehicle.submodel.id
+            model.vehicle.generation.id
+            model.vehicle.phase.id
+            class="m-nav__link m-nav__link--icon"
+          }}
+            <span class="m-nav__link-text">
+              {{t "modelTimeline.phase"}} {{model.vehicle.phase.name}}
+            </span>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to
+            "lang.referential.vehicle"
+            model.vehicle.id
+            class="m-nav__link m-nav__link--icon"
+          }}
+            <span class="m-nav__link-text">
+              {{model.vehicle.name}}
+            </span>
+          {{/link-to}}
+        </li>
       </ul>
     </div>
   </div>
