@@ -126,7 +126,7 @@ export default {
     labels: {
       id: 'id',
       finishes: 'Finishes',
-      engine: 'Engines',
+      engines: 'Engines',
       energies: 'Energies',
       transmissions: 'Transmissions',
       date: 'Date',
