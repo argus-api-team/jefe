@@ -10,27 +10,29 @@
       </div>
       <div class="m-portlet__body informations-portlet">
         <div class="row">
-          <div class="col-3">
-            <h6 class="m--margin-bottom-20 font-weight-bold">Finitions</h6>
-            <div class="versions-filters m-checkbox-list">
-              {{#each trimLevelOptions as | filter |}}
-                <label class="m-checkbox" {{action "toggleFilter" filter "trimLevels"}}>
-                  {{input
-                    id=filter.name
-                    type="checkbox"
-                    checked=filter.isActive
-                  }}
-                  <span></span>
-                  {{filter.name}}
-                </label>
-              {{/each}}
+          {{#if trimLevelOptions.length}}
+            <div class="col-3">
+              <h6 class="m--margin-bottom-20 font-weight-bold">Finitions</h6>
+              <div class="versions-filters m-checkbox-list">
+                {{#each trimLevelOptions as | filter |}}
+                  <label class="m-checkbox" {{action "toggleFilter" filter "trimLevels"}}>
+                    {{input
+                      id=filter.name
+                      type="checkbox"
+                      checked=filter.isActive
+                    }}
+                    <span></span>
+                    {{filter.name}}
+                  </label>
+                {{/each}}
+              </div>
             </div>
-          </div>
+          {{/if}}
           <div class="col-3">
             <h6 class="m--margin-bottom-20 font-weight-bold">Engines</h6>
             <ul class="versions-filters vertical-list">
               {{#each energyOptions as | energyOption |}}
-                <li class="m--margin-bottom-30">
+                <li class={{if energyOption.engineOptions.length "m--margin-bottom-30" ""}}>
                   <label {{action "toggleEnergy" energyOption}}
                     class="m-checkbox"
                   >
@@ -40,63 +42,73 @@
                       checked=energyOption.isActive
                     }}
                     <span></span>
-                    <p class="font-weight-normal m--marginless">{{energyOption.name}}</p>
+                    <p
+                      class="m--marginless {{if energyOption.engineOptions.length "font-weight-normal" ""}}"
+                    >
+                      {{energyOption.name}}
+                    </p>
                   </label>
-                  <div class="m-checkbox-list m--padding-left-30">
-                    {{#each energyOption.engineOptions as | filter |}}
-                      <label {{action "toggleFilter" filter "engines"}}
-                        class="m-checkbox"
-                      >
-                        {{input
-                          id=filter.inputId
-                          type="checkbox"
-                          checked=filter.isActive
-                        }}
-                        <span></span>
-                        {{filter.name}}
-                      </label>
-                    {{/each}}
-                  </div>
+                  {{#if energyOption.engineOptions.length}}
+                    <div class="m-checkbox-list m--padding-left-30">
+                      {{#each energyOption.engineOptions as | filter |}}
+                        <label {{action "toggleFilter" filter "engines"}}
+                          class="m-checkbox"
+                        >
+                          {{input
+                            id=filter.inputId
+                            type="checkbox"
+                            checked=filter.isActive
+                          }}
+                          <span></span>
+                          {{filter.name}}
+                        </label>
+                      {{/each}}
+                    </div>
+                  {{/if}}
                 </li>
               {{/each}}
             </ul>
           </div>
-          <div class="col-3">
-            <h6 class="m--margin-bottom-20 font-weight-bold">Gearboxes</h6>
-            <div class="versions-filters m-checkbox-list">
-              {{#each gearboxOptions as | filter |}}
-                <label {{action "toggleFilter" filter "gearboxes"}}
-                  class="m-checkbox"
-                >
-                  {{input
-                    id=filter.inputId
-                    type="checkbox"
-                    checked=filter.isActive
-                  }}
-                  <span></span>
-                  {{filter.name}}
-                </label>
-              {{/each}}
+          {{#if gearboxOptions.length}}
+            <div class="col-3">
+              <h6 class="m--margin-bottom-20 font-weight-bold">Gearboxes</h6>
+              <div class="versions-filters m-checkbox-list">
+                {{#each gearboxOptions as | filter |}}
+                  <label {{action "toggleFilter" filter "gearboxes"}}
+                    class="m-checkbox"
+                  >
+                    {{input
+                      id=filter.inputId
+                      type="checkbox"
+                      checked=filter.isActive
+                    }}
+                    <span></span>
+                    {{filter.name}}
+                  </label>
+                {{/each}}
+              </div>
             </div>
-          </div>
-          <div class="col-3">
-            <h6 class="m--margin-bottom-20 font-weight-bold">Transmissions</h6>
-            <div class="versions-filters m-checkbox-list">
-              {{#each transmissionOptions as | filter |}}
-                <label {{action "toggleFilter" filter "transmissions"}}
-                  class="m-checkbox"
-                >
-                  {{input
-                    id=filter.inputId
-                    type="checkbox"
-                    checked=filter.isActive
-                  }}
-                  <span></span>
-                  {{filter.name}}
-                </label>
-              {{/each}}
+          {{/if}}
+          {{#if transmissionOptions.length}}
+            <div class="col-3">
+              <h6 class="m--margin-bottom-20 font-weight-bold">Transmissions</h6>
+              <div class="versions-filters m-checkbox-list">
+                {{#each transmissionOptions as | filter |}}
+                  <label {{action "toggleFilter" filter "transmissions"}}
+                    class="m-checkbox"
+                  >
+                    {{input
+                      id=filter.inputId
+                      type="checkbox"
+                      checked=filter.isActive
+                    }}
+                    <span></span>
+                    {{filter.name}}
+                  </label>
+                {{/each}}
+              </div>
             </div>
-          </div>
+          {{/if}}
         </div>
       </div>
     </div>

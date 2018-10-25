@@ -28,10 +28,10 @@ export default Route.extend({
         transmissions: all(model.versions.mapBy('lastTransmission')),
       });
     }).then((filterable) => {
-      model.engines.pushObjects(filterable.engines.uniq());
-      model.energies.pushObjects(filterable.energies.uniq());
-      model.gearboxes.pushObjects(filterable.gearbox.uniq());
-      model.transmissions.pushObjects(filterable.transmissions.uniq());
+      model.engines.pushObjects(filterable.engines.uniq().without(null));
+      model.energies.pushObjects(filterable.energies.uniq().without(null));
+      model.gearboxes.pushObjects(filterable.gearbox.uniq().without(null));
+      model.transmissions.pushObjects(filterable.transmissions.uniq().without(null));
       return model;
     });
   },
@@ -49,7 +49,7 @@ export default Route.extend({
     'gearbox',
   ]),
   _getTrimLevels(versions) {
-    const trimLevels = versions.mapBy('trimLevel').uniq();
+    const trimLevels = versions.mapBy('trimLevel').uniq().without(null);
     return trimLevels.map(trimLevel => EmberObject.create({
       id: trimLevel,
       name: trimLevel,
@@ -59,8 +59,8 @@ export default Route.extend({
   _getEnergies(versions) {
     return all(versions.mapBy('lastEngine'))
       .then((versionEngines) => {
-        const engines = versionEngines.uniq();
-        return all(engines.mapBy('energy'));
+        const engines = versionEngines.without(null).uniq();
+        return engines.length ? all(engines.mapBy('energy')) : all(versions.mapBy('energy'));
       })
       .then(engineEnergies => engineEnergies.uniq());
   },

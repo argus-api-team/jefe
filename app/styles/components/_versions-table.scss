@@ -52,8 +52,8 @@
     display: none;
     position: absolute;
     top: 0;
-    left: 0;
     bottom: -1px;
+    left: 0;
     width: 5px;
     background: array-get($m--state-colors, brand, base);
   }
