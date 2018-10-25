@@ -11,7 +11,7 @@
       <div class="m-portlet__body informations-portlet">
         <div class="row">
           {{#if trimLevelOptions.length}}
-            <div class="col-3">
+            <div class="col-12 col-md-6 col-lg-3">
               <h6 class="m--margin-bottom-20 font-weight-bold">{{t "versionsTable.filters.finishes"}}</h6>
               <div class="versions-filters m-checkbox-list">
                 {{#each trimLevelOptions as | filter |}}
@@ -28,7 +28,7 @@
               </div>
             </div>
           {{/if}}
-          <div class="col-3">
+          <div class="col-12 col-md-6 col-lg-3 {{if (media "isMobile") 'm--margin-top-30'}}">
             <h6 class="m--margin-bottom-20 font-weight-bold">
               {{if
                 model.engines.length
@@ -76,7 +76,7 @@
             </ul>
           </div>
           {{#if gearboxOptions.length}}
-            <div class="col-3">
+            <div class="col-12 col-md-6 col-lg-3 {{if (media "isMobile") 'm--margin-top-30'}}">
               <h6 class="m--margin-bottom-20 font-weight-bold">{{t "versionsTable.filters.gearboxes"}}</h6>
               <div class="versions-filters m-checkbox-list">
                 {{#each gearboxOptions as | filter |}}
@@ -96,7 +96,7 @@
             </div>
           {{/if}}
           {{#if transmissionOptions.length}}
-            <div class="col-3">
+            <div class="col-12 col-md-6 col-lg-3 {{if (media "isMobile") 'm--margin-top-30'}}">
               <h6 class="m--margin-bottom-20 font-weight-bold">{{t "versionsTable.filters.transmissions"}}</h6>
               <div class="versions-filters m-checkbox-list">
                 {{#each transmissionOptions as | filter |}}

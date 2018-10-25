@@ -54,33 +54,64 @@
           </div>
           <div class="col">
             {{#if version.lastEngine.content}}
-              <span class="font-weight-bold">{{version.lastEngine.content.marketName}}</span>
-              {{#if version.lastEngine.content.standardEmission}}
-                <span class="font-weight-bold"> - {{version.lastEngine.content.standardEmission}}</span>
+              {{#if (media "isMobile")}}
+                <span class="font-weight-bold">{{version.lastEngine.content.marketName}}</span>
+                {{#if version.lastEngine.content.standardEmission}}
+                  <br>
+                  <span class="font-weight-bold">{{version.lastEngine.content.standardEmission}}</span>
+                {{/if}}
+                <span>
+                  {{version.energy.name}}
+                  <br>
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.dinHorsepower
+                  }}
+                  {{t "techData.units.hp"}}
+                </span>
+                <br>
+                <span>
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.fiscalHorsepower
+                  }}
+                  {{t "techData.units.cv"}}
+                  <br>
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.id
+                  }}
+                </span>
+              {{else}}
+                <span class="font-weight-bold">{{version.lastEngine.content.marketName}}</span>
+                {{#if version.lastEngine.content.standardEmission}}
+                  <span class="font-weight-bold"> - {{version.lastEngine.content.standardEmission}}</span>
+                {{/if}}
+                <br>
+                <span>
+                  {{version.energy.name}}
+                  -
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.dinHorsepower
+                  }}
+                  {{t "techData.units.hp"}}
+                </span>
+                <br>
+                <span>
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.id
+                  }}
+                  -
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.fiscalHorsepower
+                  }}
+                  {{t "techData.units.cv"}}
+                </span>
               {{/if}}
-              <br>
-              <span>
-                {{version.energy.name}}
-                -
-                {{if
-                  version.lastEngine.content
-                  version.lastEngine.content.dinHorsepower
-                }}
-                {{t "techData.units.hp"}}
-              </span>
-              <br>
-              <span>
-                {{if
-                  version.lastEngine.content
-                  version.lastEngine.content.id
-                }}
-                -
-                {{if
-                  version.lastEngine.content
-                  version.lastEngine.content.fiscalHorsepower
-                }}
-                {{t "techData.units.cv"}}
-              </span>
+
             {{else}}
               <span class="font-weight-bold">{{version.energy.name}}</span>
             {{/if}}
