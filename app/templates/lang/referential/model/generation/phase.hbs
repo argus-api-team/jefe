@@ -4,7 +4,7 @@
       <div class="m-portlet__head">
         <div class="m-portlet__head-caption">
           <div class="m-portlet__head-title">
-            <h3 class="m-portlet__head-text">Filters</h3>
+            <h3 class="m-portlet__head-text">{{t "versionsTable.filters.title"}}</h3>
           </div>
         </div>
       </div>
@@ -12,7 +12,7 @@
         <div class="row">
           {{#if trimLevelOptions.length}}
             <div class="col-3">
-              <h6 class="m--margin-bottom-20 font-weight-bold">Finitions</h6>
+              <h6 class="m--margin-bottom-20 font-weight-bold">{{t "versionsTable.filters.finishes"}}</h6>
               <div class="versions-filters m-checkbox-list">
                 {{#each trimLevelOptions as | filter |}}
                   <label class="m-checkbox" {{action "toggleFilter" filter "trimLevels"}}>
@@ -29,7 +29,13 @@
             </div>
           {{/if}}
           <div class="col-3">
-            <h6 class="m--margin-bottom-20 font-weight-bold">Engines</h6>
+            <h6 class="m--margin-bottom-20 font-weight-bold">
+              {{if
+                model.engines.length
+                (t "versionsTable.filters.engines")
+                (t "versionsTable.filters.energies")
+              }}
+            </h6>
             <ul class="versions-filters vertical-list">
               {{#each energyOptions as | energyOption |}}
                 <li class={{if energyOption.engineOptions.length "m--margin-bottom-30" ""}}>
@@ -71,7 +77,7 @@
           </div>
           {{#if gearboxOptions.length}}
             <div class="col-3">
-              <h6 class="m--margin-bottom-20 font-weight-bold">Gearboxes</h6>
+              <h6 class="m--margin-bottom-20 font-weight-bold">{{t "versionsTable.filters.gearboxes"}}</h6>
               <div class="versions-filters m-checkbox-list">
                 {{#each gearboxOptions as | filter |}}
                   <label {{action "toggleFilter" filter "gearboxes"}}
@@ -91,7 +97,7 @@
           {{/if}}
           {{#if transmissionOptions.length}}
             <div class="col-3">
-              <h6 class="m--margin-bottom-20 font-weight-bold">Transmissions</h6>
+              <h6 class="m--margin-bottom-20 font-weight-bold">{{t "versionsTable.filters.transmissions"}}</h6>
               <div class="versions-filters m-checkbox-list">
                 {{#each transmissionOptions as | filter |}}
                   <label {{action "toggleFilter" filter "transmissions"}}
@@ -120,6 +126,7 @@
       versionsArray=filteredVersion
       sortBy=sortBy
       sortOrder=sortOrder
+      enginesLength=model.engines.length
     }}
   </div>
 </div>

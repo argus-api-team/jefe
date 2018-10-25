@@ -105,12 +105,33 @@ export default {
   },
 
   modelTimeline: {
-    title: 'Chronologie du modèle',
+    title: 'Modèle',
     informations: 'Informations',
     index: 'Index',
     generation: 'Génération',
     phase: 'Phase',
-    today: 'Aujourd\'hui',
+    generations: 'Générations',
+    phases: 'Phases',
+  },
+
+  versionsTable: {
+    filters: {
+      title: 'Filtres',
+      finishes: 'Finitions',
+      engines: 'Moteurs',
+      energies: 'Energies',
+      gearboxes: 'Boite de vitesses',
+      transmissions: 'Transmissions',
+    },
+    labels: {
+      id: 'id',
+      finishes: 'Finitions',
+      engine: 'Moteurs',
+      energies: 'Energies',
+      transmissions: 'Transmissions',
+      date: 'Date',
+      price: 'Prix',
+    },
   },
 
   vehicleSheet: {

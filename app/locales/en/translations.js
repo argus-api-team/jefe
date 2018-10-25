@@ -105,12 +105,33 @@ export default {
   },
 
   modelTimeline: {
-    title: 'Model timeline',
+    title: 'Model',
     informations: 'Informations',
     index: 'Index',
     generation: 'Generation',
     phase: 'Phase',
-    today: 'Today',
+    generations: 'Generations',
+    phases: 'Phases',
+  },
+
+  versionsTable: {
+    filters: {
+      title: 'Filters',
+      finishes: 'Finishes',
+      engines: 'Engines',
+      energies: 'Energies',
+      gearboxes: 'Gearboxes',
+      transmissions: 'Transmissions',
+    },
+    labels: {
+      id: 'id',
+      finishes: 'Finishes',
+      engine: 'Engines',
+      energies: 'Energies',
+      transmissions: 'Transmissions',
+      date: 'Date',
+      price: 'Price',
+    },
   },
 
   vehicleSheet: {

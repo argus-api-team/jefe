@@ -17,17 +17,19 @@ export default Component.extend({
   }),
 
   sortedVersions: sort('versionsArray', 'versionSorting'),
-  sortOptions: computed('sortBy', function () {
+  sortOptions: computed('sortBy', 'enginesLength', function () {
     const sortBy = this.get('sortBy');
+    const i18n = this.get('i18n');
+    const enginesLength = this.get('enginesLength');
     return [
       {
-        name: 'Id',
+        name: i18n.t('versionsTable.labels.id'),
         option: 'id',
         properties: ['id'],
         isActive: sortBy === 'id',
       },
       {
-        name: 'Finishes',
+        name: i18n.t('versionsTable.labels.finishes'),
         option: 'finishes',
         properties: [
           'trimLevel',
@@ -37,7 +39,7 @@ export default Component.extend({
         isActive: sortBy === 'finishes',
       },
       {
-        name: 'Engine',
+        name: enginesLength ? i18n.t('versionsTable.labels.engines') : i18n.t('versionsTable.labels.energies'),
         option: 'engines',
         properties: [
           'energy.name',
@@ -49,7 +51,7 @@ export default Component.extend({
         isActive: sortBy === 'engines',
       },
       {
-        name: 'Tranmission',
+        name: i18n.t('versionsTable.labels.transmissions'),
         option: 'transmissions',
         properties: [
           'gearbox.name',
@@ -58,7 +60,7 @@ export default Component.extend({
         isActive: sortBy === 'transmissions',
       },
       {
-        name: 'Date',
+        name: i18n.t('versionsTable.labels.date'),
         option: 'date',
         properties: [
           'startDate',
@@ -67,7 +69,7 @@ export default Component.extend({
         isActive: sortBy === 'date',
       },
       {
-        name: 'Price',
+        name: i18n.t('versionsTable.labels.price'),
         option: 'price',
         properties: [
           'lastPeriod.content.priceIncludingVat',

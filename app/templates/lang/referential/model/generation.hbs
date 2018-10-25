@@ -2,7 +2,7 @@
   <div class="m-portlet__head">
     <div class="m-portlet__head-caption">
       <div class="m-portlet__head-title">
-        <h3 class="m-portlet__head-text">Phases</h3>
+        <h3 class="m-portlet__head-text">{{t "modelTimeline.phases"}}</h3>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
             class="list-item-content"
           }}
             <section class="infos">
-              Phase {{phase.name}}
+              {{t "modelTimeline.phase"}} {{phase.name}}
             </section>
           {{/link-to}}
         </li>

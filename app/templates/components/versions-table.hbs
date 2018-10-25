@@ -67,11 +67,11 @@
           </div>
           <div class="col">
             {{#if version.lastPeriod.content.priceExcludingVat}}
-              <span class="font-weight-bold">{{version.lastPeriod.content.priceIncludingVat}} €</span>
+              <span class="font-weight-bold">{{version.lastPeriod.content.priceIncludingVat}} {{t "application.application"}}</span>
               <br>
             {{/if}}
             {{#if version.lastPeriod.content.priceExcludingVat}}
-              <span>{{version.lastPeriod.content.priceExcludingVat}} €</span>
+              <span>{{version.lastPeriod.content.priceExcludingVat}} {{t "application.currency"}}</span>
             {{/if}}
           </div>
         {{/link-to}}
