@@ -25,7 +25,7 @@ export default {
       description: 'Find a vehicule in Argus database.',
     },
     referential: {
-      title: 'Referential',
+      title: 'Catalog ®',
       description: 'Explore the Argus vehicles database.',
       button: 'Browse',
     },
@@ -35,7 +35,7 @@ export default {
       button: 'Find',
     },
     quote: {
-      title: 'Argus Quote',
+      title: 'Argus Quote ®',
       description: ' Get Argus quote and others maket values of a vehicle. ',
       button: 'Estimate',
     },

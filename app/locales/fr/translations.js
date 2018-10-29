@@ -25,7 +25,7 @@ export default {
       description: 'Rechercher un véhicule dans le Référentiel® Argus.',
     },
     referential: {
-      title: 'Referential',
+      title: 'Référentiel ®',
       description: 'Explorer la base de véhciules de l\'Argus.',
       button: 'Naviguer',
     },
@@ -35,7 +35,7 @@ export default {
       button: 'Trouver',
     },
     quote: {
-      title: 'La Cote Argus',
+      title: 'La Cote Argus ®',
       description: 'La Cote Argus® et les Valeurs Argus de marché.',
       button: 'Estimer',
     },
