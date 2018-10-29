@@ -23,12 +23,6 @@ export default Component.extend({
     const enginesLength = this.get('enginesLength');
     return [
       {
-        name: i18n.t('versionsTable.labels.id'),
-        option: 'id',
-        properties: ['id'],
-        isActive: sortBy === 'id',
-      },
-      {
         name: i18n.t('versionsTable.labels.finishes'),
         option: 'finishes',
         properties: [
@@ -76,6 +70,12 @@ export default Component.extend({
           'name',
         ],
         isActive: sortBy === 'price',
+      },
+      {
+        name: i18n.t('versionsTable.labels.id'),
+        option: 'id',
+        properties: ['id'],
+        isActive: sortBy === 'id',
       },
     ];
   }),

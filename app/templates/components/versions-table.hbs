@@ -1,7 +1,7 @@
 <div class="m-portlet">
   <div class="m-portlet__head versions-table__header">
     <div class="m-portlet__head-caption">
-      <div class="row align-items-center sort-params">
+      <div class="row sort-params">
         {{#each sortOptions as |sortOption|}}
           {{versions-table-sort-control
             classNames="col"
@@ -21,28 +21,6 @@
           version.id
           class="row m--padding-top-20 m--padding-bottom-20 align-items-top versions-table__content"
         }}
-          <div class="col">
-            <span class="version-item__id">{{version.id}}</span>
-            {{#if version.quotable}}
-              <br>
-              {{#link-to
-                "lang.quote.valorize.vehicle-identification"
-                (query-params oid=version.id)
-                class="btn btn-primary btn-sm m--margin-top-5"
-              }}
-                {{t "valorization.index.valorize"}}
-              {{/link-to}}
-            {{else if version.prevarable}}
-              <br>
-              {{#link-to
-                "lang.quote.valorize.vehicle-identification"
-                (query-params oid=version.id)
-                class="btn btn-primary btn-sm m--margin-top-5"
-              }}
-                {{t "valorization.index.valorize"}}
-              {{/link-to}}
-            {{/if}}
-          </div>
           <div class="col">
             {{#if version.trimLevel}}
               <span class="font-weight-bold">{{version.trimLevel}}</span>
@@ -140,6 +118,28 @@
             {{/if}}
             {{#if version.lastPeriod.content.priceExcludingVat}}
               <span>{{version.lastPeriod.content.priceExcludingVat}} {{t "application.currency"}}</span>
+            {{/if}}
+          </div>
+          <div class="col">
+            <span class="version-item__id">{{version.id}}</span>
+            {{#if version.quotable}}
+              <br>
+              {{#link-to
+                "lang.quote.valorize.vehicle-identification"
+                (query-params oid=version.id)
+                class="btn btn-primary btn-sm m--margin-top-5"
+              }}
+                {{t "valorization.index.valorize"}}
+              {{/link-to}}
+            {{else if version.prevarable}}
+              <br>
+              {{#link-to
+                "lang.quote.valorize.vehicle-identification"
+                (query-params oid=version.id)
+                class="btn btn-primary btn-sm m--margin-top-5"
+              }}
+                {{t "valorization.index.valorize"}}
+              {{/link-to}}
             {{/if}}
           </div>
         {{/link-to}}

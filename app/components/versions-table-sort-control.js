@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   tagName: 'button',
-  classNames: ['col', 'sort-param-button', 'align-items-center'],
+  classNames: ['col', 'sort-param-button'],
   classNameBindings: ['sortOption.isActive'],
   isDesc: computed('sortOrder', function () {
     return this.get('sortOrder') === 'desc';
