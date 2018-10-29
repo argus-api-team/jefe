@@ -8,12 +8,12 @@
   border: 0;
   background: $white;
   color: array-get($m--typography-colors, light, regular, base);
-  line-height: 22px;
+  line-height: 60px;
   text-align: left;
 
   .la {
     position: relative;
-    top: 3px;
+    top: 4px;
   }
 
   &.is-active {
@@ -70,15 +70,32 @@
       display: block;
     }
   }
-
-  // .col {
-  //   &:last-child {
-  //     text-align: right;
-  //   }
-  // }
 }
 
-.version-item__id {
+.version-action-id {
+  height: 100%;
+}
+
+.version-item__id__text {
   font-family: 'Share Tech Mono';
   font-size: 13px;
+}
+
+.versions-header__date,
+.version-item__date {
+  flex: 0 0 90px;
+  max-width: 90px;
+}
+
+.versions-header__price,
+.version-item__price {
+  flex: 0 0 100px;
+  max-width: 100px;
+}
+
+
+.versions-header__id,
+.version-item__id {
+  flex: 0 0 95px;
+  max-width: 95px;
 }

@@ -2,9 +2,9 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-  tagName: 'button',
-  classNames: ['col', 'sort-param-button'],
-  classNameBindings: ['sortOption.isActive'],
+  tagName: 'div',
+  classNames: ['col'],
+  // classNameBindings: ['sortOption.isActive'],
   isDesc: computed('sortOrder', function () {
     return this.get('sortOrder') === 'desc';
   }),
@@ -12,15 +12,15 @@ export default Component.extend({
     const sortOption = this.get('sortOption');
     return sortOption.isActive;
   }),
-  click() {
-    const { option } = this.get('sortOption');
-    if (this.get('sortBy') === option) {
-      this.send('changeSortOrder');
-    } else {
-      this.set('sortBy', option);
-    }
-  },
   actions: {
+    changeProperty() {
+      const { option } = this.get('sortOption');
+      if (this.get('sortBy') === option) {
+        this.send('changeSortOrder');
+      } else {
+        this.set('sortBy', option);
+      }
+    },
     changeSortOrder() {
       const sortOrder = this.get('sortOrder');
       if (sortOrder === 'asc') {

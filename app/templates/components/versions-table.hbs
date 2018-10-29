@@ -4,7 +4,7 @@
       <div class="row sort-params">
         {{#each sortOptions as |sortOption|}}
           {{versions-table-sort-control
-            classNames="col"
+            classNames=sortOption.classNames
             sortOption=sortOption
             sortBy=sortBy
             sortOrder=sortOrder
@@ -100,18 +100,18 @@
               <span>{{version.gearbox.name}}</span>
               <br>
             {{/if}}
+            <span>{{version.lastTransmission.content.drivenWheels}}</span>
             {{#if version.lastTransmission.content.marketingName}}
-              <span>{{version.lastTransmission.content.drivenWheels}} - {{version.lastTransmission.content.marketingName}}</span>
-            {{else}}
-              <span>{{version.lastTransmission.content.drivenWheels}}</span>
+              <br>
+              <span>{{version.lastTransmission.content.marketingName}}</span>
             {{/if}}
           </div>
-          <div class="col">
+          <div class="col version-item__date">
             <span>{{version.startDate}}</span>
             <br>
             <span>{{version.endDate}}</span>
           </div>
-          <div class="col">
+          <div class="col version-item__price text-right">
             {{#if version.lastPeriod.content.priceExcludingVat}}
               <span class="font-weight-bold">{{version.lastPeriod.content.priceIncludingVat}} {{t "application.currency"}}</span>
               <br>
@@ -120,8 +120,8 @@
               <span>{{version.lastPeriod.content.priceExcludingVat}} {{t "application.currency"}}</span>
             {{/if}}
           </div>
-          <div class="col">
-            <span class="version-item__id">{{version.id}}</span>
+          <div class="col version-item__id">
+            <span class="version-item__id__text">{{version.id}}</span>
             {{#if version.quotable}}
               <br>
               {{#link-to
