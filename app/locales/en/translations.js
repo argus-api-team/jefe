@@ -128,6 +128,7 @@ export default {
       finishes: 'Finishes',
       engines: 'Engines',
       energies: 'Energies',
+      gearboxes: 'Gearboxes',
       transmissions: 'Transmissions',
       date: 'Date',
       price: 'Price',

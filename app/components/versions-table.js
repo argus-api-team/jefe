@@ -47,12 +47,25 @@ export default Component.extend({
         isActive: sortBy === 'engines',
       },
       {
-        name: i18n.t('versionsTable.labels.transmissions'),
-        option: 'transmissions',
+        name: i18n.t('versionsTable.labels.gearboxes'),
+        option: 'gearboxes',
         class: '',
         properties: [
           'gearbox.name',
           'lastTransmission.content.drivenWheels',
+          'lastPeriod.content.priceIncludingVat',
+        ],
+        isActive: sortBy === 'gearboxes',
+      },
+      {
+        name: i18n.t('versionsTable.labels.transmissions'),
+        option: 'transmissions',
+        class: '',
+        wideOnly: true,
+        properties: [
+          'lastTransmission.content.drivenWheels',
+          'gearbox.name',
+          'lastPeriod.content.priceIncludingVat',
         ],
         isActive: sortBy === 'transmissions',
       },

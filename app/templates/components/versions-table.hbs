@@ -3,12 +3,23 @@
     <div class="m-portlet__head-caption">
       <div class="row sort-params">
         {{#each sortOptions as |sortOption|}}
-          {{versions-table-sort-control
-            classNames=sortOption.class
-            sortOption=sortOption
-            sortBy=sortBy
-            sortOrder=sortOrder
-          }}
+          {{#if sortOption.wideOnly}}
+            {{#if (media "isWide") }}
+              {{versions-table-sort-control
+                classNames=sortOption.class
+                sortOption=sortOption
+                sortBy=sortBy
+                sortOrder=sortOrder
+              }}
+            {{/if}}
+          {{else}}
+            {{versions-table-sort-control
+              classNames=sortOption.class
+              sortOption=sortOption
+              sortBy=sortBy
+              sortOrder=sortOrder
+            }}
+          {{/if}}
         {{/each}}
       </div>
     </div>
@@ -105,15 +116,37 @@
           </div>
           <div class="col">
             {{#if version.gearbox}}
-              <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.gearbox.name}}</span>
-              <br>
+              <span
+                class="{{if (media "isDesktop") "text-nowrap"}} {{if (media "isWide") "font-weight-bold"}}"
+              >
+                {{version.gearbox.name}}
+              </span>
+              {{#if version.gearbox.marketingName}}
+                {{#if (media "isWide") }}
+                  <br>
+                  <span
+                    class="text-nowrap"
+                  >
+                    {{version.gearbox.marketingName}}
+                  </span>
+                  {{/if}}
+              {{/if}}
             {{/if}}
-            <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.drivenWheels}}</span>
-            {{#if version.lastTransmission.content.marketingName}}
+            {{! template-lint-disable }}  {{! Linter disable to manage responsive}}
+            {{#unless (media "isWide") }}
               <br>
-              <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.marketingName}}</span>
-            {{/if}}
+              <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.drivenWheels}}</span>
+            {{/unless}}
           </div>
+          {{#if (media "isWide") }}
+            <div class="col">
+              <span class="text-nowrap font-weight-bold">{{version.lastTransmission.content.drivenWheels}}</span>
+              {{#if version.lastTransmission.content.marketingName}}
+                <br>
+                <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.marketingName}}</span>
+              {{/if}}
+            </div>
+          {{/if}}
           <div class="col version-item__date">
             <span>{{version.startDate}}</span>
             <br>

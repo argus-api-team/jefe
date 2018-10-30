@@ -3,4 +3,5 @@ export default {
   tablet: '(min-width: 768px) and (max-width: 991px)',
   desktop: '(min-width: 992px)',
   jumbo: '(min-width: 1201px)',
+  wide: '(min-width: 1401px)',
 };
