@@ -21,7 +21,7 @@
           version.id
           class="row m--padding-top-20 m--padding-bottom-20 align-items-top versions-table__content"
         }}
-          <div class="col col-xl-5">
+          <div class="col col-xl-4">
             {{#if version.trimLevel}}
               <span class="font-weight-bold">{{version.trimLevel}}</span>
               <br>
@@ -39,8 +39,10 @@
                   <span class="font-weight-bold">{{version.lastEngine.content.standardEmission}}</span>
                 {{/if}}
                 <span>
-                  {{version.energy.name}}
-                  <br>
+                  {{version.energy.masterName}}
+                </span>
+                <br>
+                <span class="text-nowrap">
                   {{if
                     version.lastEngine.content
                     version.lastEngine.content.dinHorsepower
@@ -48,13 +50,15 @@
                   {{t "techData.units.hp"}}
                 </span>
                 <br>
-                <span>
+                <span class="text-nowrap">
                   {{if
                     version.lastEngine.content
                     version.lastEngine.content.fiscalHorsepower
                   }}
                   {{t "techData.units.cv"}}
-                  <br>
+                </span>
+                <br>
+                <span class="text-nowrap">
                   {{if
                     version.lastEngine.content
                     version.lastEngine.content.id
@@ -67,13 +71,16 @@
                 {{/if}}
                 <br>
                 <span>
-                  {{version.energy.name}}
+                  {{version.energy.masterName}}
+
                   -
-                  {{if
-                    version.lastEngine.content
-                    version.lastEngine.content.dinHorsepower
-                  }}
-                  {{t "techData.units.hp"}}
+                  <span class="text-nowrap">
+                    {{if
+                      version.lastEngine.content
+                      version.lastEngine.content.dinHorsepower
+                    }}
+                    {{t "techData.units.hp"}}
+                  </span>
                 </span>
                 <br>
                 <span>
@@ -82,11 +89,13 @@
                     version.lastEngine.content.id
                   }}
                   -
-                  {{if
-                    version.lastEngine.content
-                    version.lastEngine.content.fiscalHorsepower
-                  }}
-                  {{t "techData.units.cv"}}
+                  <span class="text-nowrap">
+                    {{if
+                      version.lastEngine.content
+                      version.lastEngine.content.fiscalHorsepower
+                    }}
+                    {{t "techData.units.cv"}}
+                  </span>
                 </span>
               {{/if}}
             {{else}}
@@ -96,13 +105,13 @@
           </div>
           <div class="col">
             {{#if version.gearbox}}
-              <span>{{version.gearbox.name}}</span>
+              <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.gearbox.name}}</span>
               <br>
             {{/if}}
-            <span>{{version.lastTransmission.content.drivenWheels}}</span>
+            <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.drivenWheels}}</span>
             {{#if version.lastTransmission.content.marketingName}}
               <br>
-              <span>{{version.lastTransmission.content.marketingName}}</span>
+              <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.marketingName}}</span>
             {{/if}}
           </div>
           <div class="col version-item__date">
@@ -112,11 +121,11 @@
           </div>
           <div class="col version-item__price text-right">
             {{#if version.lastPeriod.content.priceExcludingVat}}
-              <span class="font-weight-bold">{{version.lastPeriod.content.priceIncludingVat}} {{t "application.currency"}}</span>
+              <span class="font-weight-bold text-nowrap">{{version.lastPeriod.content.priceIncludingVat}} {{t "application.currency"}}</span>
               <br>
             {{/if}}
             {{#if version.lastPeriod.content.priceExcludingVat}}
-              <span>{{version.lastPeriod.content.priceExcludingVat}} {{t "application.currency"}}</span>
+              <span class="text-nowrap">{{version.lastPeriod.content.priceExcludingVat}} {{t "application.currency"}}</span>
             {{/if}}
           </div>
           <div class="col version-item__id">

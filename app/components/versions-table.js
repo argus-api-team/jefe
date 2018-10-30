@@ -25,7 +25,7 @@ export default Component.extend({
       {
         name: i18n.t('versionsTable.labels.finishes'),
         option: 'finishes',
-        class: 'col-xl-5',
+        class: 'col-xl-4',
         properties: [
           'trimLevel',
           'name',
