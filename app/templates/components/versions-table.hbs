@@ -4,7 +4,7 @@
       <div class="row sort-params">
         {{#each sortOptions as |sortOption|}}
           {{versions-table-sort-control
-            classNames=sortOption.classNames
+            classNames=sortOption.class
             sortOption=sortOption
             sortBy=sortBy
             sortOrder=sortOrder
@@ -21,7 +21,7 @@
           version.id
           class="row m--padding-top-20 m--padding-bottom-20 align-items-top versions-table__content"
         }}
-          <div class="col">
+          <div class="col col-xl-5">
             {{#if version.trimLevel}}
               <span class="font-weight-bold">{{version.trimLevel}}</span>
               <br>
@@ -89,7 +89,6 @@
                   {{t "techData.units.cv"}}
                 </span>
               {{/if}}
-
             {{else}}
               <span class="font-weight-bold">{{version.energy.name}}</span>
             {{/if}}

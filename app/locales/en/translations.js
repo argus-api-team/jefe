@@ -350,7 +350,7 @@ export default {
       cx: 'cx',
       rpm: 'rpm',
       nm: 'Nm',
-      cv: 'hp',
+      cv: 'cv',
       m: 'm',
       degree: 'degree',
       sec: 'sec',

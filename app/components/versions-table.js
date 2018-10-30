@@ -25,7 +25,7 @@ export default Component.extend({
       {
         name: i18n.t('versionsTable.labels.finishes'),
         option: 'finishes',
-        classNames: '',
+        class: 'col-xl-5',
         properties: [
           'trimLevel',
           'name',
@@ -36,7 +36,7 @@ export default Component.extend({
       {
         name: enginesLength ? i18n.t('versionsTable.labels.engines') : i18n.t('versionsTable.labels.energies'),
         option: 'engines',
-        classNames: '',
+        class: '',
         properties: [
           'energy.name',
           'lastEngine.content.dinHorsepower',
@@ -49,7 +49,7 @@ export default Component.extend({
       {
         name: i18n.t('versionsTable.labels.transmissions'),
         option: 'transmissions',
-        classNames: '',
+        class: '',
         properties: [
           'gearbox.name',
           'lastTransmission.content.drivenWheels',
@@ -59,7 +59,7 @@ export default Component.extend({
       {
         name: i18n.t('versionsTable.labels.date'),
         option: 'date',
-        classNames: 'versions-header__date',
+        class: 'versions-header__date',
         properties: [
           'startDate',
           'endDate',
@@ -69,7 +69,7 @@ export default Component.extend({
       {
         name: i18n.t('versionsTable.labels.price'),
         option: 'price',
-        classNames: 'versions-header__price',
+        class: 'versions-header__price',
         properties: [
           'lastPeriod.content.priceIncludingVat',
           'name',
@@ -79,7 +79,7 @@ export default Component.extend({
       {
         name: i18n.t('versionsTable.labels.id'),
         option: 'id',
-        classNames: 'versions-header__id',
+        class: 'versions-header__id',
         properties: ['id'],
         isActive: sortBy === 'id',
       },
