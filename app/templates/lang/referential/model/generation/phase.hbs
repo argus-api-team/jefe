@@ -42,12 +42,13 @@
               {{#each energyOptions as | energyOption |}}
                 <li class={{if energyOption.engineOptions.length "m--margin-bottom-30" ""}}>
                   <label {{action "toggleEnergy" energyOption}}
-                    class="m-checkbox"
+                    class="m-checkbox {{if energyOption.isIndeterminate "is-indeterminate"}}"
                   >
                     {{input
                       id=energyOption.inputId
                       type="checkbox"
                       checked=energyOption.isActive
+                      indeterminate=energyOption.isIndeterminate
                     }}
                     <span></span>
                     <p

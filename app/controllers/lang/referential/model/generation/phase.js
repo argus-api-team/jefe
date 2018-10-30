@@ -137,6 +137,13 @@ export default Controller.extend({
             isActive: computed('engineOptions.@each.isActive', function () {
               return this.get('engineOptions').isEvery('isActive', true);
             }),
+            isIndeterminate: computed('engineOptions.@each.isActive', 'isActive', function () {
+              const isActive = this.get('isActive');
+              if (isActive) {
+                return false;
+              }
+              return this.get('engineOptions').isAny('isActive', true);
+            }),
             engineOptions: ArrayProxy.create({
               content: engineOptions.filter(engineOption => engineOption.get('energyId') === item.get('id')),
             }),

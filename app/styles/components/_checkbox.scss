@@ -1,0 +1,20 @@
+// sass-lint:disable force-element-nesting, force-pseudo-nesting
+// Disable rules to overide metronic theme
+.m-checkbox {
+  &.is-indeterminate {
+    span::after {
+      content: '';
+      display: block;
+      top: 10%;
+      left: 10%;
+      width: calc(80% - 1px);
+      height: calc(80% - 1px);
+      margin: 0;
+      transform: none;
+      border: 0;
+      border-width: 0;
+      border-radius: 2px;
+      background: $checkbox-color;
+    }
+  }
+}
