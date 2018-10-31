@@ -6,7 +6,7 @@
       content: '';
       display: block;
       top: 10%;
-      left: 10%;
+      left: calc(10% + 1px);
       width: calc(80% - 1px);
       height: calc(80% - 1px);
       margin: 0;
