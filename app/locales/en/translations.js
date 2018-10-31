@@ -115,6 +115,7 @@ export default {
   },
 
   versionsTable: {
+    loading: 'Loading versions',
     filters: {
       title: 'Filters',
       finishes: 'Finishes',

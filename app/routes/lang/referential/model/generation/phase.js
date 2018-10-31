@@ -35,6 +35,18 @@ export default Route.extend({
       return model;
     });
   },
+  actions: {
+    loading(transition) {
+      // This hook is used to trigger loading template render event
+      // To change the loading template see the end of lang/referential/model template
+      const modelController = this.controllerFor('lang.referential.model');
+      modelController.set('loadingVersions', true);
+      transition.promise.finally(() => {
+        modelController.set('loadingVersions', false);
+      });
+      return true;
+    },
+  },
 
   renderTemplate(controller, model) {
     this.render('lang.referential.model.generation.phase', {

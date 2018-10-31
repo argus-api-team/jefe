@@ -115,6 +115,7 @@ export default {
   },
 
   versionsTable: {
+    loading: 'Chargement des versions',
     filters: {
       title: 'Filtres',
       finishes: 'Finitions',

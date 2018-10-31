@@ -106,4 +106,10 @@
     </div>
   </div>
   {{outlet "versions"}}
+  {{#if loadingVersions}}
+    <div class="m--margin-top-30 m--padding-top-30">
+      <div class="m-loader m-loader--brand m-loader--lg m--margin-bottom-30"></div>
+      <h4 class="m--align-center">{{t "versionsTable.loading"}}</h4>
+    </div>
+  {{/if}}
 </div>
