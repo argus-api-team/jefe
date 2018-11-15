@@ -8,15 +8,18 @@
     <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.identity.select.category"}}</label>
     <div class="col-8">
       {{! template-lint-disable }}
+      {{#if categoriesSelection.content}}
       {{#power-select
         options=categoriesSelection
         selected=selectedCategory
         searchField="name"
         enableTime=false
         onchange=(action (mut selectedCategory))
-      as |category|}}
+        as |category|
+      }}
         {{category.name}}
       {{/power-select}}
+      {{/if}}
       {{! template-lint-enable }}
     </div>
   </div>
@@ -32,7 +35,8 @@
         enableTime=false
         disabled=(if selectedCategory false true)
         onchange=(action (mut selectedMake))
-      as |make|}}
+        as |make|
+      }}
         {{make.name}}
       {{/power-select}}
       {{! template-lint-enable }}
@@ -66,7 +70,8 @@
         enableTime=false
         disabled=(if vehicleDate false true)
         onchange=(action (mut selectedPhase))
-      as |phase|}}
+        as |phase|
+      }}
         {{phase.shortNicename}}
       {{/power-select}}
       {{! template-lint-enable }}
@@ -84,7 +89,8 @@
         enableTime=false
         disabled=(if selectedPhase false true)
         onchange=(action (mut selectedVersion))
-      as |version|}}
+        as |version|
+      }}
         {{version.name}}
       {{/power-select}}
       {{! template-lint-enable }}

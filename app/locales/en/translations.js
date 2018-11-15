@@ -118,7 +118,7 @@ export default {
     loading: 'Loading versions',
     filters: {
       title: 'Filters',
-      finishes: 'Finishes',
+      trim: 'Trim',
       engines: 'Engines',
       energies: 'Energies',
       gearboxes: 'Gearboxes',
@@ -126,7 +126,7 @@ export default {
     },
     labels: {
       id: 'id',
-      finishes: 'Finishes',
+      trim: 'Trim',
       engines: 'Engines',
       energies: 'Energies',
       gearboxes: 'Gearboxes',

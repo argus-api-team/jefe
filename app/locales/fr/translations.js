@@ -118,7 +118,7 @@ export default {
     loading: 'Chargement des versions',
     filters: {
       title: 'Filtres',
-      finishes: 'Finitions',
+      trim: 'Finitions',
       engines: 'Moteurs',
       energies: 'Energies',
       gearboxes: 'Boite de vitesses',
@@ -126,7 +126,7 @@ export default {
     },
     labels: {
       id: 'id',
-      finishes: 'Finitions',
+      trim: 'Finitions',
       engines: 'Moteurs',
       energies: 'Energies',
       gearboxes: 'Boite de vitesses',

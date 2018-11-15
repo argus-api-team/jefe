@@ -23,15 +23,15 @@ export default Component.extend({
     const enginesLength = this.get('enginesLength');
     return [
       {
-        name: i18n.t('versionsTable.labels.finishes'),
-        option: 'finishes',
+        name: i18n.t('versionsTable.labels.trim'),
+        option: 'trim',
         class: 'col-xl-4',
         properties: [
           'trimLevel',
           'name',
           'lastPeriod.content.priceIncludingVat',
         ],
-        isActive: sortBy === 'finishes',
+        isActive: sortBy === 'trim',
       },
       {
         name: enginesLength ? i18n.t('versionsTable.labels.engines') : i18n.t('versionsTable.labels.energies'),
