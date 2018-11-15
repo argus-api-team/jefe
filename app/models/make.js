@@ -19,6 +19,6 @@ export default DS.Model.extend(DisplayDateMixin, HasManyQuery.ModelMixin, {
   }),
 
   logoURL: computed('slug', function () {
-    return `//assets.largus.fr/logos/marques/${this.get('slug')}.png`;
+    return `https://assets.largus.fr/logos/marques/${this.get('slug')}.png`;
   }),
 });

@@ -25,7 +25,7 @@ export default {
       description: 'Find a vehicule in Argus database.',
     },
     referential: {
-      title: 'Referential',
+      title: 'Catalog ®',
       description: 'Explore the Argus vehicles database.',
       button: 'Browse',
     },
@@ -35,7 +35,7 @@ export default {
       button: 'Find',
     },
     quote: {
-      title: 'Argus Quote',
+      title: 'Argus Quote ®',
       description: ' Get Argus quote and others maket values of a vehicle. ',
       button: 'Estimate',
     },
@@ -105,12 +105,35 @@ export default {
   },
 
   modelTimeline: {
-    title: 'Model timeline',
+    title: 'Model',
     informations: 'Informations',
     index: 'Index',
     generation: 'Generation',
     phase: 'Phase',
-    today: 'Today',
+    generations: 'Generations',
+    phases: 'Phases',
+  },
+
+  versionsTable: {
+    loading: 'Loading versions',
+    filters: {
+      title: 'Filters',
+      trim: 'Trim',
+      engines: 'Engines',
+      energies: 'Energies',
+      gearboxes: 'Gearboxes',
+      transmissions: 'Transmissions',
+    },
+    labels: {
+      id: 'id',
+      trim: 'Trim',
+      engines: 'Engines',
+      energies: 'Energies',
+      gearboxes: 'Gearboxes',
+      transmissions: 'Transmissions',
+      date: 'Date',
+      price: 'Price',
+    },
   },
 
   vehicleSheet: {
@@ -329,7 +352,7 @@ export default {
       cx: 'cx',
       rpm: 'rpm',
       nm: 'Nm',
-      cv: 'hp',
+      cv: 'cv',
       m: 'm',
       degree: 'degree',
       sec: 'sec',

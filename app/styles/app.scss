@@ -74,6 +74,7 @@
 
 
 //Utils
+@import 'utils/button-reset';
 @import 'utils/variables';
 @import 'utils/mixins';
 @import 'utils/helpers';
@@ -85,6 +86,7 @@
 @import 'layout/page-footer';
 
 //Components
+@import 'components/checkbox';
 @import 'components/logo-img';
 @import 'components/language-selector';
 @import 'components/lists';
@@ -95,6 +97,7 @@
 @import 'components/tech-data';
 @import 'components/wizzard';
 @import 'components/license-plate';
+@import 'components/versions-table';
 
 //Page specific
 @import 'pages/login';

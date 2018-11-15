@@ -1,0 +1,12 @@
+<button {{action "changeProperty"}}
+  class="sort-param-button {{if sortOption.isActive "is-active"}}"
+>
+  <span class="sort-param-button__text">{{sortOption.name}}</span>
+  {{#if activeProperty}}
+    <i
+      class="m--margin-left-10 m-nav__link-icon m--icon-font-size-lg3 la {{if isDesc "la-sort-alpha-desc" "la-sort-alpha-asc"}}"
+    >
+    </i>
+  {{/if}}
+</button>
+

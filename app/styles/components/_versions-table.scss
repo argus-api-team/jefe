@@ -1,0 +1,101 @@
+.sort-params {
+  height: 60px;
+}
+
+.sort-param-button {
+  position: relative;
+  height: 100%;
+  border: 0;
+  background: $white;
+  color: array-get($m--typography-colors, light, regular, base);
+  line-height: 60px;
+  text-align: left;
+
+  .la {
+    position: relative;
+    top: 4px;
+  }
+
+  &.is-active {
+    font-weight: 600;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .sort-param-button__text {
+      text-decoration: underline;
+    }
+
+    .la {
+      text-decoration: none;
+    }
+  }
+}
+
+.versions-table__item {
+  position: relative;
+  padding: 0 2.2rem;
+  background: $odd-list-background;
+
+  &:nth-child(even) {
+    background: $even-list-background;
+  }
+
+  .versions-table__content {
+    color: array-get($m--typography-colors, light, regular, base);
+    text-decoration: none;
+  }
+
+  &::after {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    left: 0;
+    width: 5px;
+    background: array-get($m--state-colors, brand, base);
+  }
+
+  &:hover {
+    z-index: 1;
+    outline: 1px solid array-get($m--state-colors, brand, base);
+
+    .versions-table__content {
+      color: array-get($m--state-colors, brand, base);
+    }
+
+    &::after {
+      display: block;
+    }
+  }
+}
+
+.version-action-id {
+  height: 100%;
+}
+
+.version-item__id__text {
+  font-family: 'Share Tech Mono';
+  font-size: 13px;
+}
+
+.versions-header__date,
+.version-item__date {
+  flex: 0 0 90px;
+  max-width: 90px;
+}
+
+.versions-header__price,
+.version-item__price {
+  flex: 0 0 100px;
+  max-width: 100px;
+}
+
+
+.versions-header__id,
+.version-item__id {
+  flex: 0 0 95px;
+  max-width: 95px;
+}

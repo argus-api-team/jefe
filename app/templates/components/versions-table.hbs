@@ -1,0 +1,191 @@
+<div class="m-portlet">
+  <div class="m-portlet__head versions-table__header">
+    <div class="m-portlet__head-caption">
+      <div class="row sort-params">
+        {{#each sortOptions as |sortOption|}}
+          {{#if sortOption.wideOnly}}
+            {{#if (media "isWide") }}
+              {{versions-table-sort-control
+                classNames=sortOption.class
+                sortOption=sortOption
+                sortBy=sortBy
+                sortOrder=sortOrder
+              }}
+            {{/if}}
+          {{else}}
+            {{versions-table-sort-control
+              classNames=sortOption.class
+              sortOption=sortOption
+              sortBy=sortBy
+              sortOrder=sortOrder
+            }}
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <ul class="vertical-list versions-list">
+    {{#each sortedVersions as |version|}}
+      <li class="vertical-list__item versions-table__item">
+        {{#link-to
+          "lang.referential.vehicle"
+          version.id
+          class="row m--padding-top-20 m--padding-bottom-20 align-items-top versions-table__content"
+        }}
+          <div class="col col-xl-4">
+            {{#if version.trimLevel}}
+              <span class="font-weight-bold">{{version.trimLevel}}</span>
+              <br>
+              <span>{{version.name}}</span>
+            {{else}}
+              <span class="font-weight-bold">{{version.name}}</span>
+            {{/if}}
+          </div>
+          <div class="col">
+            {{#if version.lastEngine.content}}
+              {{#if (media "isMobile")}}
+                <span class="font-weight-bold">{{version.lastEngine.content.marketName}}</span>
+                {{#if version.lastEngine.content.standardEmission}}
+                  <br>
+                  <span class="font-weight-bold">{{version.lastEngine.content.standardEmission}}</span>
+                {{/if}}
+                <span>
+                  {{version.energy.masterName}}
+                </span>
+                <br>
+                <span class="text-nowrap">
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.dinHorsepower
+                  }}
+                  {{t "techData.units.hp"}}
+                </span>
+                <br>
+                <span class="text-nowrap">
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.fiscalHorsepower
+                  }}
+                  {{t "techData.units.cv"}}
+                </span>
+                <br>
+                <span class="text-nowrap">
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.id
+                  }}
+                </span>
+              {{else}}
+                <span class="font-weight-bold">{{version.lastEngine.content.marketName}}</span>
+                {{#if version.lastEngine.content.standardEmission}}
+                  <span class="font-weight-bold"> - {{version.lastEngine.content.standardEmission}}</span>
+                {{/if}}
+                <br>
+                <span>
+                  {{version.energy.masterName}}
+
+                  -
+                  <span class="text-nowrap">
+                    {{if
+                      version.lastEngine.content
+                      version.lastEngine.content.dinHorsepower
+                    }}
+                    {{t "techData.units.hp"}}
+                  </span>
+                </span>
+                <br>
+                <span>
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.id
+                  }}
+                  -
+                  <span class="text-nowrap">
+                    {{if
+                      version.lastEngine.content
+                      version.lastEngine.content.fiscalHorsepower
+                    }}
+                    {{t "techData.units.cv"}}
+                  </span>
+                </span>
+              {{/if}}
+            {{else}}
+              <span class="font-weight-bold">{{version.energy.name}}</span>
+            {{/if}}
+
+          </div>
+          <div class="col">
+            {{#if version.gearbox}}
+              <span
+                class="{{if (media "isDesktop") "text-nowrap"}} {{if (media "isWide") "font-weight-bold"}}"
+              >
+                {{version.gearbox.name}}
+              </span>
+              {{#if version.gearbox.marketingName}}
+                {{#if (media "isWide") }}
+                  <br>
+                  <span
+                    class="text-nowrap"
+                  >
+                    {{version.gearbox.marketingName}}
+                  </span>
+                {{/if}}
+              {{/if}}
+            {{/if}}
+            {{! template-lint-disable }}  {{! Linter disable to manage responsive}}
+            {{#unless (media "isWide") }}
+              <br>
+              <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.drivenWheels}}</span>
+            {{/unless}}
+          </div>
+          {{#if (media "isWide") }}
+            <div class="col">
+              <span class="text-nowrap font-weight-bold">{{version.lastTransmission.content.drivenWheels}}</span>
+              {{#if version.lastTransmission.content.marketingName}}
+                <br>
+                <span class={{if (media "isDesktop") "text-nowrap"}}>{{version.lastTransmission.content.marketingName}}</span>
+              {{/if}}
+            </div>
+          {{/if}}
+          <div class="col version-item__date">
+            <span>{{version.startDate}}</span>
+            <br>
+            <span>{{version.endDate}}</span>
+          </div>
+          <div class="col version-item__price text-right">
+            {{#if version.lastPeriod.content.priceExcludingVat}}
+              <span class="font-weight-bold text-nowrap">{{version.lastPeriod.content.priceIncludingVat}} {{t "application.currency"}}</span>
+              <br>
+            {{/if}}
+            {{#if version.lastPeriod.content.priceExcludingVat}}
+              <span class="text-nowrap">{{version.lastPeriod.content.priceExcludingVat}} {{t "application.currency"}}</span>
+            {{/if}}
+          </div>
+          <div class="col version-item__id">
+            <span class="version-item__id__text">{{version.id}}</span>
+            {{#if version.quotable}}
+              <br>
+              {{#link-to
+                "lang.quote.valorize.vehicle-identification"
+                (query-params oid=version.id)
+                class="btn btn-primary btn-sm m--margin-top-5"
+              }}
+                {{t "valorization.index.valorize"}}
+              {{/link-to}}
+            {{else if version.prevarable}}
+              <br>
+              {{#link-to
+                "lang.quote.valorize.vehicle-identification"
+                (query-params oid=version.id)
+                class="btn btn-primary btn-sm m--margin-top-5"
+              }}
+                {{t "valorization.index.valorize"}}
+              {{/link-to}}
+            {{/if}}
+          </div>
+        {{/link-to}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+{{yield}}

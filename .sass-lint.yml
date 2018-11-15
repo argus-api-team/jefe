@@ -3,6 +3,7 @@ files:
   ignore:
     - 'styles/vendor/**/*.scss'
     - 'styles/metronic-config/**/*.scss'
+    - 'styles/utils/_button-reset.scss'
 
 options:
   formatter: stylish

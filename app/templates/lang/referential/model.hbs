@@ -34,13 +34,27 @@
             </span>
           {{/link-to}}
         </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to
+            "lang.referential.model"
+            model.id
+            class="m-nav__link m-nav__link--icon"
+          }}
+            <span class="m-nav__link-text">
+              {{model.name}}
+            </span>
+          {{/link-to}}
+        </li>
       </ul>
     </div>
   </div>
 </div>
 <div class="m-content">
   <div class="row align-items-stretch">
-    <div class="col-3">
+    <div class="col-12 col-md-4">
       <div class="m-portlet">
         <div class="m-portlet__head">
           <div class="m-portlet__head-caption">
@@ -58,36 +72,44 @@
           <p class="informations-portlet__data">{{model.displayDate}}</p>
         </div>
       </div>
-      {{#sticky-element top=110}}
-        <div class="m-portlet">
-          <div class="m-portlet__head">
-            <div class="m-portlet__head-caption">
-              <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">{{t "modelTimeline.index"}}</h3>
-              </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "modelTimeline.generations"}}</h3>
             </div>
           </div>
-          <div class="m-portlet__body timeline-index">
-            <ul class="generation-list">
-              {{#each model.sortedGenerations as |generation|}}
-                <li>
-                  <a class="anchor-link" href="#generation-{{generation.id}}">{{t "modelTimeline.generation"}} {{generation.name}}</a>
-                  <ul class="phase-list">
-                    {{#each generation.sortedPhases as |phase|}}
-                      <li>
-                        <a class="anchor-link" href="#phase-{{phase.id}}">{{t "modelTimeline.phase"}} {{phase.name}}</a>
-                      </li>
-                    {{/each}}
-                  </ul>
-                </li>
-              {{/each}}
-            </ul>
-          </div>
         </div>
-      {{/sticky-element}}
+        <div class="m-portlet__body informations-portlet">
+          <ul class="vertical-list">
+            {{#each sortedGenerations as |generation|}}
+              <li class="vertical-list__item">
+                {{#link-to
+                  "lang.referential.model.generation"
+                  generation.id
+                  class="list-item-content"
+                }}
+                  <section class="infos">
+                    {{t "modelTimeline.generation"}} {{generation.name}}
+                  </section>
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
     </div>
-    <div class="col-9">
-      {{model-timeline model=model}}
+    <div class="col-12 col-md-4">
+      {{outlet "phases"}}
     </div>
   </div>
+  {{outlet "versions"}}
+  {{#if loadingVersions}}
+    <div class="m--margin-top-30 m--padding-top-30">
+      <div class="m-loader m-loader--brand m-loader--lg m--margin-bottom-30"></div>
+      <h4 class="m--align-center">{{t "versionsTable.loading"}}</h4>
+    </div>
+  {{/if}}
 </div>

@@ -25,7 +25,7 @@ export default {
       description: 'Rechercher un véhicule dans le Référentiel® Argus.',
     },
     referential: {
-      title: 'Referential',
+      title: 'Référentiel ®',
       description: 'Explorer la base de véhciules de l\'Argus.',
       button: 'Naviguer',
     },
@@ -35,7 +35,7 @@ export default {
       button: 'Trouver',
     },
     quote: {
-      title: 'La Cote Argus',
+      title: 'La Cote Argus ®',
       description: 'La Cote Argus® et les Valeurs Argus de marché.',
       button: 'Estimer',
     },
@@ -105,12 +105,35 @@ export default {
   },
 
   modelTimeline: {
-    title: 'Chronologie du modèle',
+    title: 'Modèle',
     informations: 'Informations',
     index: 'Index',
     generation: 'Génération',
     phase: 'Phase',
-    today: 'Aujourd\'hui',
+    generations: 'Générations',
+    phases: 'Phases',
+  },
+
+  versionsTable: {
+    loading: 'Chargement des versions',
+    filters: {
+      title: 'Filtres',
+      trim: 'Finitions',
+      engines: 'Moteurs',
+      energies: 'Energies',
+      gearboxes: 'Boite de vitesses',
+      transmissions: 'Transmissions',
+    },
+    labels: {
+      id: 'id',
+      trim: 'Finitions',
+      engines: 'Moteurs',
+      energies: 'Energies',
+      gearboxes: 'Boite de vitesses',
+      transmissions: 'Transmissions',
+      date: 'Date',
+      price: 'Prix',
+    },
   },
 
   vehicleSheet: {

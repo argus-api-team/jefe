@@ -1,9 +1,9 @@
 <p class="model-name">{{makeModel.name}}</p>
 <ul class="submodel-list">
-  {{#each (await filteredSubmodels) as |submodels|}}
+  {{#each (await filteredSubmodels) as |submodel|}}
     <li class="submodel-list__item">
-      {{#link-to "lang.referential.model" submodels.id class="submodel-link"}}
-        {{submodels.name}}
+      {{#link-to "lang.referential.model" submodel.id class="submodel-link"}}
+        {{submodel.name}}
       {{/link-to}}
     </li>
   {{/each}}

@@ -18,7 +18,8 @@ module.exports = function(environment) {
       }
     },
     googleFonts: [
-      'Roboto:300,400,700&subset=all'
+      'Roboto:300,400,700',
+      'Share+Tech+Mono'
     ],
 
     contentSecurityPolicy: {

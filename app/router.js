@@ -20,14 +20,18 @@ const Router = EmberRouter.extend({
   },
 });
 
-Router.map( function () { // eslint-disable-line
+Router.map(function () { // eslint-disable-line
   this.route('lang', { path: '/:lang' }, function () {
     this.route('login');
 
     this.route('referential', function () {
       this.route('makes', { path: '/' });
       this.route('make', { path: 'make/:id' });
-      this.route('model', { path: 'model/:id' });
+      this.route('model', { path: 'model/:id' }, function () {
+        this.route('generation', { path: 'generation/:generation_id' }, function () {
+          this.route('phase', { path: 'phase/:phase_id' });
+        });
+      });
       this.route('vehicle', { path: 'vehicle/:id' });
     });
 
