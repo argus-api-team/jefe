@@ -8,14 +8,14 @@ $m-config-header: (
 		// Default mode
 		default: (
 			height: (
-				desktop: 80px,
+				desktop: 90px,
 				mobile: 60px
 			),
 			bg-color: #ffffff
 		),
 		// Fixed mode
 		fixed: (		 
-			zindex: 101,
+			zindex: 99,
 			hidable: (			
 				transition-hide: all 0.3s ease 0.5s,
 				transition-show: all 0.3s ease, 

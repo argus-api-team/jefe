@@ -10,14 +10,16 @@
     $m-title-padding: 10px 15px;
 
     // Bootstrap select base
-   .bootstrap-select.btn-group {
+   .bootstrap-select {
         > .dropdown-toggle {
             position: relative;
             outline: none !important;
             padding: array-get($m--forms, input, layout, self, size, default, padding, y) array-get($m--forms, input, layout, self, size, default, padding, x);
             padding-right: array-get($m--forms, input, layout, self, size, default, padding, x) + 0.85rem;
             
-            @include border-radius(array-get($m--forms, input, layout, self, size, default, border-radius), '!important'); 
+            @include rounded {
+                @include border-radius(array-get($m--forms, input, layout, self, size, default, border-radius), '!important'); 
+            }
 
             &:focus {
                 outline: none !important; 
@@ -73,6 +75,10 @@
                             font-size: 0.85rem;
                             right: (array-get($m--forms, input, layout, self, size, default, padding, x));
                             display: inline-block;
+
+                            &:after {
+                                display: none;
+                            }
                         }
                     }
                 }
@@ -113,11 +119,13 @@
         @include opacity(0);
     }
 
-    .m-bootstrap-select.bootstrap-select.btn-group {
+    .m-bootstrap-select.bootstrap-select {
         // input styles
         &.m-bootstrap-select--pill {
             > .dropdown-toggle {
-                @include border-radius(array-get($m--forms, input, layout, self, size, default, pill-radius), '!important'); 
+                @include rounded {
+                    @include border-radius(array-get($m--forms, input, layout, self, size, default, pill-radius), '!important'); 
+                }
             }
         }
 
@@ -134,16 +142,20 @@
             width: auto;
         }
 
-        > .bootstrap-select.btn-group {
+        > .bootstrap-select.dropdown {
             &:first-child > .dropdown-toggle {
-                @include border-top-right-radius(0 !important);
-                @include border-bottom-right-radius(0 !important);
+                @include rounded {
+                    @include border-top-right-radius(0 !important);
+                    @include border-bottom-right-radius(0 !important);
+                }
             }
 
             // the most right             
             &:not(:first-child):last-child > .btn.dropdown-toggle {
-                @include border-top-left-radius(0 !important);
-                @include border-bottom-left-radius(0 !important);
+                @include rounded {
+                    @include border-top-left-radius(0 !important);
+                    @include border-bottom-left-radius(0 !important);
+                }
             }
 
             &:first-child + .input-group-text,
@@ -152,27 +164,31 @@
             }
 
             &:not(:first-child):not(:last-child) > .btn.dropdown-toggle {
-                @include border-top-left-radius(0 !important);
-                @include border-bottom-left-radius(0 !important);
-                @include border-top-right-radius(0 !important);
-                @include border-bottom-right-radius(0 !important);
+                @include rounded {
+                    @include border-top-left-radius(0 !important);
+                    @include border-bottom-left-radius(0 !important);
+                    @include border-top-right-radius(0 !important);
+                    @include border-bottom-right-radius(0 !important);
+                }
             }
         }
 
         //== Pill style
         &.m-input-group--pill {
-            > .bootstrap-select.btn-group {
+            > .bootstrap-select.dropdown {
                 &:not(:first-child):last-child {
                    .btn.dropdown-toggle {
-                        @include border-top-right-radius(array-get($m--forms, input, layout, self, size, default, pill-radius) !important);
-                        @include border-bottom-right-radius(array-get($m--forms, input, layout, self, size, default, pill-radius) !important); 
+                        @include rounded {
+                            @include border-top-right-radius(array-get($m--forms, input, layout, self, size, default, pill-radius) !important);
+                            @include border-bottom-right-radius(array-get($m--forms, input, layout, self, size, default, pill-radius) !important); 
+                        }
                     }
                 }
             }
         }
 
         .input-group-btn:not(:first-child) > .btn:first-child, 
-        .input-group-btn:not(:first-child) > .btn-group:first-child {
+        .input-group-btn:not(:first-child) > .dropdown:first-child {
             margin-left: 0;
         }
     }
@@ -181,14 +197,21 @@
 //== Component Skin
 @mixin m-build-component--select-skin($skin) {
     // Bootstrap select base
-   .bootstrap-select.btn-group {
+   .bootstrap-select {
         // dropdown button
         > .dropdown-toggle {
-            &.btn-default,
+            &.btn-light,
             &.btn-secondary {
                 background-color: transparent;
                 color: array-get($m--forms, input, skins, $skin, default, color, default);
+                border-color: array-get($m--forms, input, skins, $skin, default, border, default);
                 @include shadow(none);
+
+                &:focus,
+                &.active {
+                    background-color: transparent;
+                    border-color: array-get($m--forms, input, skins, $skin, default, border, focus);
+                }
 
                 &.disabled,
                 &:disabled {
@@ -216,8 +239,7 @@
         // menu shown state
         &.show {
             > .dropdown-toggle {
-
-                &.btn-default,
+                &.btn-light,
                 &.btn-secondary {
                     border-color: array-get($m--forms, input, skins, $skin, solid, border, focus) !important;
                     @include shadow(none);
@@ -278,6 +300,20 @@
                     border-bottom: 1px solid get-color($skin, panel, '-');
                 }
 
+                &.active:not(.selected) {
+                    > a {
+                        background: get-state-color(primary, base);
+
+                        .text {
+                            color: get-state-color(primary, inverse);
+                        }
+
+                        span.check-mark {
+                            color: get-state-color(primary, inverse);
+                        }
+                    }
+                }
+
                 &.no-results {
                     color: get-color($skin, regular);
                 }
@@ -296,7 +332,7 @@
     }
 
     // Bootstrap select component
-    .m-bootstrap-select.bootstrap-select.btn-group {
+    .m-bootstrap-select.bootstrap-select {
         // input styles
         &.m-bootstrap-select--air {
             > .dropdown-toggle {
@@ -316,12 +352,12 @@
 //== Component Validation State
 @mixin m-build-component--select-validation-state($state, $color) {
     .m-form.m-form--state .has-#{$state} {
-        .bootstrap-select.btn-group > {
+        .bootstrap-select > {
             .btn.btn-secondary,
-            .btn.btn-default {
+            .btn.btn-light {
                 border-color: $color;
 
-                &:hover {
+                &:focus {
                     border-color: $color;
                 }
             }

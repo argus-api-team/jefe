@@ -67,7 +67,7 @@
 		//== Page Date Range Picker
 		.m-subheader__daterange {
 			display: inline-block;
-			@include border-radius(2rem);
+			border-radius: 2rem;
 			padding: 5px;
 			cursor: pointer;
 			background: #fff;

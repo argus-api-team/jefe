@@ -21,7 +21,7 @@
 @import 'vendor/framework/components/general/config';
 
 //== 3: Bootstrap Include
-@import 'vendor/framework/vendors/bootstrap/metronic-bootstrap';
+@import 'vendor/framework/vendors/bootstrap/bootstrap';
 
 //== 4: Framework Components
 @import 'vendor/framework/include';
@@ -81,7 +81,6 @@
 
 //Layout
 @import 'layout/page-wrapper';
-
 @import 'layout/page-header';
 @import 'layout/page-footer';
 
