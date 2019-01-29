@@ -77,7 +77,7 @@ export default Component.extend({
     return periodsStartDates;
   }),
 
-  selectedPeriodObserver: observer('selectedPeriod', function () {
+  selectedPeriodObserver: observer('selectedPeriod', function () {    // eslint-disable-line
     this.updateSelectedPoint();
   }),
 

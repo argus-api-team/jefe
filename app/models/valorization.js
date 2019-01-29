@@ -90,7 +90,7 @@ export default DS.Model.extend(Validations, {
   showSummaryGaragePart: computed.or('garageMakes', 'geolocalisation'),
 
   // Observer to handle some events
-  resetOptions: observer('version', function () {
+  resetOptions: observer('version', function () {  // eslint-disable-line
     this.set('features', []);
   }),
 
