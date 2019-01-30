@@ -1,4 +1,5 @@
 .sort-params {
+  flex-wrap: nowrap;
   height: 60px;
 }
 
@@ -29,6 +30,16 @@
 
     .la {
       text-decoration: none;
+    }
+  }
+}
+
+.versions-table {
+  .versions-table__header {
+    display: block;
+
+    .m-portlet__head-caption { // Metronic rule overwriting
+      display: block;
     }
   }
 }

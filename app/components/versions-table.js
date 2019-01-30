@@ -4,6 +4,8 @@ import { sort } from '@ember/object/computed';
 
 export default Component.extend({
 
+  classNames: ['versions-table'],
+
   sortBy: '',
   sortOrder: 'asc',
 

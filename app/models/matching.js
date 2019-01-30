@@ -36,7 +36,8 @@ export default DS.Model.extend(Validations, {
     const isOldLicenseNumberFormat = this.get('oldLicenseNumberFormat').test(licensePlateNumber);
     if (isCurrentLicenseNumberFormat) {
       return `${licensePlateNumber.slice(0, 2)}-${licensePlateNumber.slice(2, 5)}-${licensePlateNumber.slice(5, 7)}`;
-    } else if (isOldLicenseNumberFormat) {
+    }
+    if (isOldLicenseNumberFormat) {
       return this._formatOldRegisration(licensePlateNumber);
     }
     return this.get('registration').toUpperCase();
