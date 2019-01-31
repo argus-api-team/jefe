@@ -14,7 +14,7 @@ const Validations = buildValidations({
 });
 
 export default DS.Model.extend(Validations, {
-  i18n: service(),
+  intl: service(),
 
   isSearching: false,
 

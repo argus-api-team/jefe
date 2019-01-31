@@ -1,7 +1,10 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
   letter: 'a',
+
+  intl: service(),
 
   didUpdateAttrs() {
     this._removeListNavForReRender();
@@ -15,7 +18,7 @@ export default Component.extend({
       initLetter: context.get('letter'),
       allText: 'ALL',
       includeNums: false,
-      noMatchText: context.get('i18n').t('makeList.noMatching'),
+      noMatchText: context.get('intl').t('makeList.noMatching'),
       onClick(letter) {
         context.updateLetter(letter);
       },

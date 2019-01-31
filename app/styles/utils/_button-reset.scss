@@ -33,3 +33,10 @@ button:focus {outline:0;}
   -moz-user-select: none;
   -ms-user-select: none;
 }
+
+
+
+
+.ember-power-select-trigger {
+  text-align: left; // prevent power select side effect
+}

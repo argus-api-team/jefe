@@ -7,7 +7,7 @@ export default Route.extend({
   },
 
   _selectLang() {
-    const { allowedLocales, defaultLocale } = config.i18n;
+    const { allowedLocales, defaultLocale } = config.intl;
     let setLanguage = defaultLocale;
     if (navigator.languages) {
       navigator.languages.some((lang) => {

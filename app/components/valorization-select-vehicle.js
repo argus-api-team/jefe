@@ -8,7 +8,7 @@ import VehicleSelectionlMixin from '../mixins/vehicle-selection';
 
 export default Component.extend(VehicleSelectionlMixin, {
   store: service(),
-  i18n: service(),
+  intl: service(),
 
   tagName: 'form',
   classNames: ['row'],
