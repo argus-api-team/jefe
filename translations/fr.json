@@ -1,0 +1,514 @@
+{
+  "application": {
+    "home": "Tableau de bord",
+    "moreInfo": "En savoir plus",
+    "noDate": "Pas de date disponible.",
+    "pending": "Chargement des données",
+    "yes": "Oui",
+    "no": "Non",
+    "validate": "Valider",
+    "datePlaceholder": "Sélectionnez une date",
+    "dateFormat": "DD/MM/YYYY",
+    "currency": "€",
+    "argusGroup": "Groupe Argus",
+    "copy": "2018 &copy; Jefe par",
+    "name": "Jefe",
+    "gen": "Gén.",
+    "ph": "Pe."
+  },
+  "index": {
+    "header": "Les possibilités de l'API",
+    "subheader": "présentation",
+    "search": {
+      "title": "Recherche de véhicule",
+      "description": "Rechercher un véhicule dans le Référentiel® Argus."
+    },
+    "referential": {
+      "title": "Référentiel ®",
+      "description": "Explorer la base de véhciules de l'Argus.",
+      "button": "Naviguer"
+    },
+    "licensePlate": {
+      "title": "Chercher par immatriculation",
+      "description": "Trouver un véhicule avec son numéro d'immatriculation.",
+      "button": "Trouver"
+    },
+    "quote": {
+      "title": "La Cote Argus ®",
+      "description": "La Cote Argus® et les Valeurs Argus de marché.",
+      "button": "Estimer"
+    },
+    "dashboard": {
+      "topMakes": "Marques populaires",
+      "topVehicles": "Véhicules populaires",
+      "latestVehicles": "Derniers véhicules"
+    }
+  },
+  "login": {
+    "title": {
+      "signIn": "Identifiez-vous"
+    },
+    "form": {
+      "applicationId": "Clé de l'application",
+      "applicationSecret": "Clé secrète de l'application",
+      "username": "Nom d'utilisateur",
+      "password": "Mot de passe",
+      "isRemembered": "Mémoriser ?"
+    },
+    "button": {
+      "signIn": "Me connecter"
+    },
+    "isLoging": "Connection en cours"
+  },
+  "pageHeader": {
+    "myProfile": "Mon Profil",
+    "signOut": "Se déconnecter"
+  },
+  "makeList": {
+    "title": "Liste des marques",
+    "displayDateSince": "Depuis {startDate}",
+    "displayDateWithEnd": "De {startDate} à {endDate}",
+    "noMatching": "Aucun élément trouvé pour cette lettre."
+  },
+  "makeSheet": {
+    "title": "Fiche marque",
+    "informations": {
+      "title": "Informations",
+      "quote": "Position cote: "
+    },
+    "topVehicles": "Véhicules populaires",
+    "latestVehicles": "Derniers véhicules",
+    "filters": {
+      "title": "Filtres",
+      "models": "Modèles: ",
+      "submodels": "Sous-modèles: ",
+      "production": "En production"
+    },
+    "models": {
+      "title": "Modèles et sous-modèles"
+    },
+    "sorting": {
+      "title": "Trier",
+      "property": "Propriété",
+      "name": "Nom",
+      "start": "Date de début",
+      "end": "Date de fin",
+      "order": "Ordre",
+      "asc": "Ascendant",
+      "desc": "Descendant"
+    }
+  },
+  "modelTimeline": {
+    "title": "Modèle",
+    "informations": "Informations",
+    "index": "Index",
+    "generation": "Génération",
+    "phase": "Phase",
+    "generations": "Générations",
+    "phases": "Phases"
+  },
+  "versionsTable": {
+    "loading": "Chargement des versions",
+    "filters": {
+      "title": "Filtres",
+      "trim": "Finitions",
+      "engines": "Moteurs",
+      "energies": "Energies",
+      "gearboxes": "Boite de vitesses",
+      "transmissions": "Transmissions"
+    },
+    "labels": {
+      "id": "id",
+      "trim": "Finitions",
+      "engines": "Moteurs",
+      "energies": "Energies",
+      "gearboxes": "Boite de vitesses",
+      "transmissions": "Transmissions",
+      "date": "Date",
+      "price": "Prix"
+    }
+  },
+  "vehicleSheet": {
+    "title": "Fiche véhicule",
+    "identity": "Identité du véhicule",
+    "priceAndQuote": {
+      "title": "Prix et cote",
+      "priceEvolution": {
+        "title": "Évolution du prix",
+        "legend": "Prix TTC"
+      },
+      "quote": {
+        "title": "Cote",
+        "quotable": "Cotable",
+        "first": "Première cote",
+        "prevarable": "Prevarable"
+      }
+    },
+    "specsBlock": {
+      "dimensions": "Dimensions et poids",
+      "technical": "Spécifications technique",
+      "performance": "Performances et consommation",
+      "stdEquipments": "Équipements de série",
+      "optEquipments": "Équipements optionnels",
+      "stdPacks": "Packs de série",
+      "optPacks": "Packs optionnels"
+    },
+    "equipmentsLabels": {
+      "manRef": "Ref. marque",
+      "name": "Nom",
+      "category": "Catégory",
+      "priceHT": "Prix HT",
+      "priceTTC": "Prix TTC"
+    },
+    "equipments": "Équipements",
+    "argusId": "Id Argus"
+  },
+  "licensePlate": {
+    "form": {
+      "title": "Plaque d'immatriculation",
+      "label": "Entrer un numéro d'immatriculation",
+      "description": "Immatriculation",
+      "notValid": "Le numéro d'immatriculation n'est pas valide",
+      "imgAlt": "Plaque d'immatriculation française"
+    },
+    "previous": "Recherches précédentes",
+    "result": {
+      "title": "Resultat de la recherche",
+      "registration": "Certificat d'immatriculation",
+      "blank": "Rechercher un véhcule avec son numero d'immatriculation, ou sélectionner une recherche antérieure",
+      "candidates": {
+        "title": "Candidats",
+        "searching": "Recherche de candidats",
+        "notFound": "Pas de candidat"
+      }
+    },
+    "registration": {
+      "title": "Certificat d'immatriculation",
+      "number": "Immatriculation",
+      "firstDate": "Première immatriculation",
+      "date": "Date du certificat",
+      "vinCode": "Code vin",
+      "fiscalPower": "Puissance fiscale",
+      "carbonEmission": "Emission de carbon"
+    }
+  },
+  "prices": {
+    "ttc": "TTC",
+    "ht": "HT"
+  },
+  "valorization": {
+    "offers": {
+      "extended": "Valeur Agrus de marché",
+      "custom": "Cote Argus personnalisée",
+      "residual": "Valeur Argus résiduellee",
+      "pastStock": "Cote à date passée et prix du neuf",
+      "past": "Cote à date passée",
+      "tradein": "Valeur de reprise"
+    },
+    "index": {
+      "title": "Historique de valorisation",
+      "valorize": "Valoriser",
+      "labels": {
+        "offer": "Offre",
+        "vehicle": "Véhicule",
+        "release": "MEC",
+        "date": "Date",
+        "mileage": "Kilométrage",
+        "value": "Valeur"
+      }
+    },
+    "wizzard": {
+      "title": "Calcuer une valeur Argus",
+      "identity": {
+        "title": "1. Selection d'un véhicule",
+        "select": {
+          "title": "Selectionner un vehicule",
+          "subtitle": "Sélection du véhicule",
+          "category": "Catégorie",
+          "make": "Marque",
+          "date": "Date",
+          "model": "Modèle",
+          "version": "Version",
+          "preview": {
+            "title": "Prévisualisation du véhicule",
+            "category": "Sélectionnez un catégorie",
+            "make": "Sélectionnez un marque",
+            "date": "Sélectionnez une date",
+            "model": "Sélectionnez un modèle",
+            "version": "Sélectionnez une version"
+          }
+        },
+        "argusId": {
+          "title": "Chercher par OID Argus",
+          "form": {
+            "title": "Formulaire de recherche",
+            "oid": "OID Argus",
+            "date": "Date"
+          },
+          "preview": {
+            "title": "Résultat de la recherche",
+            "noOID": "Veuillez entrer un OID Argus",
+            "noMatch": "Aucune version ne correspond à votre OID Argus",
+            "pending": "Recherche en cours"
+          }
+        }
+      },
+      "offer": {
+        "title": "2. Sélection de l'offre",
+        "extended": {
+          "description": "Calculer la cote et les valeurs de marché de votre véhicule"
+        },
+        "custom": {
+          "description": "Calculer la cote de votre véhciule"
+        },
+        "residual": {
+          "description": "Calculer la valeur Argus prévisionnelle de votre véhicule"
+        },
+        "pastStock": {
+          "description": "Calculer la cote de votre véhicule à une date passée avec le prix du neuf inclus"
+        },
+        "past": {
+          "description": "Calculer la cote de votre véhicule à une date passée"
+        },
+        "exhange": {
+          "description": "Ajouter une description"
+        },
+        "vehicle": "Véhicule valorisé"
+      },
+      "criteria": {
+        "title": "3. Définition des critères",
+        "usage": {
+          "title": "Utilisation du véhicule",
+          "mileage": "Kilométrage",
+          "date": "Date",
+          "calculatedFor": "Date cotation",
+          "returnedAt": "Date de retour"
+        },
+        "options": {
+          "title": "Options du véhicule"
+        },
+        "garage": {
+          "title": "Votre garage",
+          "makes": "Marques",
+          "zipcode": "Code postal"
+        },
+        "summary": {
+          "title": "Résumé de la valorisation",
+          "offer": "Véhicule et offre"
+        },
+        "valorize": "Valoriser"
+      }
+    },
+    "values": {
+      "title": "Valeurs",
+      "computing": "Calcul des valeurs en cours",
+      "initial": "Prix du neuf",
+      "infos": {
+        "title": "Valorisation",
+        "identification": "Identifiation du véhicule",
+        "usage": "Utilisation du véhicule",
+        "options": "Options du véhicule",
+        "garage": "Votre garage",
+        "specs": "Fiche technique"
+      },
+      "custom": {
+        "title": "Cote Argus Personnalisée ®",
+        "pastTitle": "Cote Argus à date passée",
+        "standardValue": "Cours Argus Moyen®: ",
+        "bodyInfluence": "Influence de la carrosserie",
+        "releaseInfluence": "Influence de la date de mise en circulation: ",
+        "optionsInfluence": "Influence des options ",
+        "mileageInfluence": "Influence du kilométrage"
+      },
+      "refurbishment": "Remise en état",
+      "displayeValues": "Valeur Argus Annonces ®",
+      "customerValue": "Valeur Argus Transactions® à particuliers",
+      "proValue": "Valeur Argus Transactions® à professionnels",
+      "residual": "Valeur résiduelle",
+      "exchangeValue": "Valeur de reprise"
+    }
+  },
+  "techData": {
+    "notSpecified": "Non spécifié",
+    "units": {
+      "liter": "L",
+      "cc": "cm³",
+      "mm": "mm",
+      "kg": "kg",
+      "kw": "kW",
+      "hp": "ch",
+      "cx": "cx",
+      "rpm": "tr/min",
+      "nm": "Nm",
+      "cv": "CV",
+      "m": "m",
+      "degree": "degré",
+      "sec": "sec",
+      "kph": "km/h",
+      "l100km": "L/100km",
+      "km": "km",
+      "gpkm": "g/km"
+    },
+    "dimensions": {
+      "title": "Dimensions",
+      "length": "Longueur",
+      "width": "Largeur",
+      "height": "Hauteur",
+      "heightIncludingRoofRails": "Hauteur avec barres de toit",
+      "wheelBase": "Empattement",
+      "fuelTank": "Réservoir",
+      "frontOverhang": "Porte à faux avant",
+      "rearOverhang": "Porte à faux arrière",
+      "frontTrack": "Voies avant",
+      "rearTrack": "Voies arrière",
+      "dragCoefficent": "Coefficient d'aérodynamisme"
+    },
+    "tyre": {
+      "title": "Pneumatiques",
+      "wheelType": "Matériau des jantes",
+      "tyreType": "Type de pneumatiques",
+      "front": "Taille des roues avant",
+      "rear": "Taille des roues arrière",
+      "sparewheelType": "Roue de secours"
+    },
+    "weight": {
+      "title": "Poids",
+      "kerbweight": "Poids à vide",
+      "kerbweightIncludingDriver": "Poids à vide avec chauffeur",
+      "grossVehicleRating": "PTAC",
+      "grossCombinedRating": "PTRA",
+      "payload": " Charge utile",
+      "unbrakedTrailer": "Poids tracté non freiné"
+    },
+    "habitability": {
+      "title": "Habitabilité",
+      "numberOfPlaces": "Nombre de places",
+      "numberOfDoors": "Nombre de portes"
+    },
+    "boot": {
+      "title": "Coffre",
+      "capacity": "Capacité",
+      "minimumCapacity": "Capacité minimale",
+      "maximumCapacity": "Capacité maximale",
+      "maximumLength": "Longueur maximale",
+      "usableLength": "Longueur utilisable",
+      "usableWidth": "Largeur utilisable",
+      "loadStillHeight": "Hauteur de seuil de chargement",
+      "thirdRowCapacity": "Capacité de la troisième rangée"
+    },
+    "energy": {
+      "title": "Énergie",
+      "name": "Nom",
+      "code": "Code",
+      "masterId": "Master id",
+      "masterName": "Master name",
+      "masterCode": "Master code",
+      "legacyId": "Legacy id"
+    },
+    "engine": {
+      "title": "Moteur",
+      "marketName": "Nom",
+      "powerMarketName": "Puissance commercial",
+      "fullNicename": "Nom complet",
+      "acronym": "Acronyme",
+      "layout": "Disposition",
+      "configuration": "Architecture",
+      "supply": "Aspiration",
+      "injectionSystem": "Alimentation",
+      "literCapacity": "Cylindrée en litre",
+      "cubicCapacity": "Cylindrée en cc",
+      "dinHorsepower": "Puissance en chevaux",
+      "kilowatt": "Puissance en kilowatt",
+      "maxPowerRpm": "Au régime de",
+      "torque": "Couple",
+      "maxTorqueRpm": "Au régime de",
+      "numberOfValves": "Nombre de soupapes",
+      "boreAndStroke": "Alésage/course",
+      "compressionRatio": "Rapport volumétrique",
+      "emission": "Norme anti-pollution",
+      "fiscalHorsepower": "Puissance fiscale"
+    },
+    "gearbox": {
+      "title": "Boîte de vitesses",
+      "name": "Nom",
+      "marketingName": "Nom commercial",
+      "subtype": "Type",
+      "numberOfGears": "Nombre de vitesses",
+      "code": "Code",
+      "legacyId": "Legacy id"
+    },
+    "transmission": {
+      "title": "Transmission",
+      "marketingName": "Nom commercial",
+      "drivenWheels": "Mode de transmission",
+      "numberOfGears": "Nombre de vitesses"
+    },
+    "platform": {
+      "title": "Châssis",
+      "chassisType": "Type",
+      "chassisMaterial": "Matériau",
+      "powerSteering": "Direction assistée",
+      "powerSteeringAssistance": "Type de direction",
+      "powerSteeringType": "Type de direction",
+      "turningCircleBetweenKerbs": "Diamètre de braquage (trottoir)",
+      "turningCircleWallToWall": "Diamètre de braquage (mur)",
+      "steeringWheelLockToLockTurns": "Rotation du volant",
+      "frontSuspension": "Type de suspension avant",
+      "rearSuspensionType": "Type de suspension arrière"
+    },
+    "performance": {
+      "title": "Performances",
+      "maximumSpeed": "Vitesse maximale",
+      "da0100kph": "0 à 100 km/h",
+      "da01000m": "1000 mètres DA"
+    },
+    "consumption": {
+      "title": "Consommation",
+      "urbanFuel": " Cycle urbain",
+      "extraUrbanFuel": "Extra urbain",
+      "combinedFuel": "Mixte",
+      "electricRange": "Autonomie électrique",
+      "co2EmissionLevel": "Emission de CO2",
+      "carbonMonoxide": "Emission de CO",
+      "nitrousOxyde": "Nox emission",
+      "particulateMatter": "Emission de particules",
+      "totalHydrocarbons": "Emission totale"
+    }
+  },
+  "errors": {
+    "description": "Ce champ",
+    "inclusion": "{description} n'est pas présent dans la liste",
+    "exclusion": "{description} est réservé",
+    "invalid": "{description} est invalide",
+    "confirmation": "{description} ne correspond {on}",
+    "accepted": "{description} doit être accepté",
+    "empty": "{description} ne peux pas être vide",
+    "blank": "{description} est obligatoire",
+    "present": "{description} doit être vide",
+    "collection": "{description} doit être une collection",
+    "singular": "{description} ne peut pas être une collection",
+    "tooLong": "{description} est trop long (ne doit pas dépassé les {max} caractères)",
+    "tooShort": "{description} est trop court (doit dépassé les {min} caractères)",
+    "before": "{description} doit être avant {before}",
+    "after": "{description} doit être après {after}",
+    "wrongDateFormat": "{description} doit être au format {format}",
+    "wrongLength": "{description} la longueur est fausse (devrait être {is} caractères)",
+    "notANumber": "{description} doit être un nombre",
+    "notAnInteger": "{description} doit être un entier",
+    "greaterThan": "{description} doit être plus grand {gt}",
+    "greaterThanOrEqualTo": "{description} doit être supérieur ou égale à {gte}",
+    "equalTo": "{description} doit être égale à {is}",
+    "lessThan": "{description} doit être inférieur à {lt}",
+    "lessThanOrEqualTo": "{description} doit être inférieur ou égale à {lte}",
+    "otherThan": "{description} doit être autre que {value}",
+    "odd": "{description} doit être impair",
+    "even": "{description} doit être pair",
+    "positive": "{description} doit être positif",
+    "date": "{description} doit être une date valide",
+    "onOrAfter": "{description} doit être devant {onOrAfter}",
+    "onOrBefore": "{description} doit être après {onOrBefore}",
+    "email": "{description} doit être une adresse email valide",
+    "phone": "{description} doit être un numéro de téléphone valide",
+    "url": "{description} doit être une URL valide"
+  }
+}

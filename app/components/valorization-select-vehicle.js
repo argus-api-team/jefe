@@ -8,7 +8,7 @@ import VehicleSelectionlMixin from '../mixins/vehicle-selection';
 
 export default Component.extend(VehicleSelectionlMixin, {
   store: service(),
-  i18n: service(),
+  intl: service(),
 
   tagName: 'form',
   classNames: ['row'],
@@ -113,19 +113,19 @@ export default Component.extend(VehicleSelectionlMixin, {
   },
 
   // Input Resets
-  resetSelectedMake: observer('selectedCategory', function () {
+  resetSelectedMake: observer('selectedCategory', function () { // eslint-disable-line
     this.set('selectedMake', null);
   }),
 
-  resetVehicleDate: observer('selectedMake', function () {
+  resetVehicleDate: observer('selectedMake', function () { // eslint-disable-line
     this.set('vehicleDate', null);
   }),
 
-  resetSelectePhase: observer('vehicleDate', function () {
+  resetSelectePhase: observer('vehicleDate', function () { // eslint-disable-line
     this.set('selectedPhase', null);
   }),
 
-  resetSelectedVersion: observer('selectedPhase', function () {
+  resetSelectedVersion: observer('selectedPhase', function () { // eslint-disable-line
     this.set('selectedVersion', null);
   }),
 

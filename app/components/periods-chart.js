@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 import c3 from 'c3';
 
 export default Component.extend({
-  i18n: service(),
+  intl: service(),
   didInsertElement() {
     this._initChart();
   },
@@ -64,8 +64,8 @@ export default Component.extend({
   periodsPrices: computed('periods', function () {
     const periods = this.get('periods');
     const periodsPrices = periods.mapBy('priceIncludingVat');
-    const i18n = this.get('i18n');
-    const graphLegend = i18n.t('vehicleSheet.priceAndQuote.priceEvolution.legend').string;
+    const intl = this.get('intl');
+    const graphLegend = intl.t('vehicleSheet.priceAndQuote.priceEvolution.legend');
     periodsPrices.unshift(graphLegend);
     return periodsPrices;
   }),
@@ -77,7 +77,7 @@ export default Component.extend({
     return periodsStartDates;
   }),
 
-  selectedPeriodObserver: observer('selectedPeriod', function () {
+  selectedPeriodObserver: observer('selectedPeriod', function () {    // eslint-disable-line
     this.updateSelectedPoint();
   }),
 
@@ -86,8 +86,8 @@ export default Component.extend({
     const selectedPeriod = this.get('selectedPeriod');
     const chart = this.get('chart');
     const indexOfSelectedPeriod = periods.indexOf(selectedPeriod);
-    const i18n = this.get('i18n');
-    const graphLegend = i18n.t('vehicleSheet.priceAndQuote.priceEvolution.legend').string;
+    const intl = this.get('intl');
+    const graphLegend = intl.t('vehicleSheet.priceAndQuote.priceEvolution.legend');
     chart.select([graphLegend], [indexOfSelectedPeriod], true);
   },
 

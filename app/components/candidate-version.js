@@ -23,7 +23,8 @@ export default Component.extend({
     const candidateFrequency = this.get('candidateFrequency');
     if (candidateFrequency > 50) {
       return 'm--bg-success';
-    } else if (candidateFrequency > 20) {
+    }
+    if (candidateFrequency > 20) {
       return 'm--bg-warning';
     }
     return 'm--bg-danger';

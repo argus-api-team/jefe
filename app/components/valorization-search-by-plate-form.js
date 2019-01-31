@@ -8,7 +8,7 @@ export default Component.extend({
 
   selectedVersion: null,
 
-  resetSelectedVehicle: observer('matchingRecord', function () {
+  resetSelectedVehicle: observer('matchingRecord', function () {    // eslint-disable-line
     this.set('selectedVersion', null);
   }),
 

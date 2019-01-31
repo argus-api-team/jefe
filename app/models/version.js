@@ -61,4 +61,3 @@ export default DS.Model.extend(DisplayDateMixin, {
     });
   }),
 });
-

@@ -10,7 +10,7 @@
 @import "variables";
 
 //3:== Bootstrap
-@import "bootstrap";
+@import "./node_modules/bootstrap/scss/bootstrap";
 
 //4:== Extend Bootstrap
 @import "extend";

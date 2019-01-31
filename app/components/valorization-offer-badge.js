@@ -42,7 +42,7 @@ export default Component.extend({
       case 'part-exchange-value':
         return {
           name: 'Valeur de reprise',
-          tKey: 'valorization.offers.exchange',
+          tKey: 'valorization.offers.tradein',
           classNames: 'm--bg-success',
         };
       default:

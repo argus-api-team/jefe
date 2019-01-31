@@ -5,29 +5,29 @@ import { inject as service } from '@ember/service';
 import moment from 'moment';
 
 export default Mixin.create({
-  i18n: service(),
+  intl: service(),
 
-  displayDate: computed('startDate', 'endDate', 'i18n.locale', function () {
+  displayDate: computed('startDate', 'endDate', 'intl.locale', function () {
     const format = 'MMMM YYYY';
     return this.getDisplayDate(format);
   }),
 
-  displayDateCompact: computed('startDate', 'endDate', 'i18n.locale', function () {
+  displayDateCompact: computed('startDate', 'endDate', 'intl.locale', function () {
     const format = 'MMM YYYY';
     return this.getDisplayDate(format);
   }),
 
 
   getDisplayDate(format) {
-    moment.locale(this.get('i18n.locale'));
+    moment.locale(this.get('intl.locale'));
     const formatedStartDate = moment(this.get('startDate')).format(format);
     if (isEmpty(this.get('endDate'))) {
-      return this.get('i18n').t('makeList.displayDateSince', {
+      return this.get('intl').t('makeList.displayDateSince', {
         startDate: formatedStartDate.toLowerCase(),
       });
     }
     const formatedEndDate = moment(this.get('endDate')).format(format);
-    return this.get('i18n').t('makeList.displayDateWithEnd', {
+    return this.get('intl').t('makeList.displayDateWithEnd', {
       startDate: formatedStartDate.toLowerCase(),
       endDate: formatedEndDate.toLowerCase(),
     });

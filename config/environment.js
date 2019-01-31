@@ -27,7 +27,7 @@ module.exports = function(environment) {
       'style-src': "'self' fonts.googleapis.com"
     },
 
-    i18n: {
+    intl: {
       defaultLocale: 'en',
       allowedLocales: ['en', 'fr']
     },

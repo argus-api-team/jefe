@@ -1,8 +1,13 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+
+  classNames: ['versions-table'],
+
+  intl: service(),
 
   sortBy: '',
   sortOrder: 'asc',
@@ -19,11 +24,11 @@ export default Component.extend({
   sortedVersions: sort('versionsArray', 'versionSorting'),
   sortOptions: computed('sortBy', 'enginesLength', function () {
     const sortBy = this.get('sortBy');
-    const i18n = this.get('i18n');
+    const intl = this.get('intl');
     const enginesLength = this.get('enginesLength');
     return [
       {
-        name: i18n.t('versionsTable.labels.trim'),
+        name: intl.t('versionsTable.labels.trim'),
         option: 'trim',
         class: 'col-xl-4',
         properties: [
@@ -34,7 +39,7 @@ export default Component.extend({
         isActive: sortBy === 'trim',
       },
       {
-        name: enginesLength ? i18n.t('versionsTable.labels.engines') : i18n.t('versionsTable.labels.energies'),
+        name: enginesLength ? intl.t('versionsTable.labels.engines') : intl.t('versionsTable.labels.energies'),
         option: 'engines',
         class: '',
         properties: [
@@ -47,7 +52,7 @@ export default Component.extend({
         isActive: sortBy === 'engines',
       },
       {
-        name: i18n.t('versionsTable.labels.gearboxes'),
+        name: intl.t('versionsTable.labels.gearboxes'),
         option: 'gearboxes',
         class: '',
         properties: [
@@ -58,7 +63,7 @@ export default Component.extend({
         isActive: sortBy === 'gearboxes',
       },
       {
-        name: i18n.t('versionsTable.labels.transmissions'),
+        name: intl.t('versionsTable.labels.transmissions'),
         option: 'transmissions',
         class: '',
         wideOnly: true,
@@ -70,7 +75,7 @@ export default Component.extend({
         isActive: sortBy === 'transmissions',
       },
       {
-        name: i18n.t('versionsTable.labels.date'),
+        name: intl.t('versionsTable.labels.date'),
         option: 'date',
         class: 'versions-header__date',
         properties: [
@@ -80,7 +85,7 @@ export default Component.extend({
         isActive: sortBy === 'date',
       },
       {
-        name: i18n.t('versionsTable.labels.price'),
+        name: intl.t('versionsTable.labels.price'),
         option: 'price',
         class: 'versions-header__price',
         properties: [
@@ -90,7 +95,7 @@ export default Component.extend({
         isActive: sortBy === 'price',
       },
       {
-        name: i18n.t('versionsTable.labels.id'),
+        name: intl.t('versionsTable.labels.id'),
         option: 'id',
         class: 'versions-header__id',
         properties: ['id'],
