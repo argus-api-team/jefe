@@ -29,8 +29,11 @@ export default Component.extend({
   _getVehiclePeriod(version, vehicleDate) {
     return version.get('periods')
       .then(periods => periods.find((currentPeriod) => {
-        const periodStartDate = currentPeriod.get('startDate');
-        const periodEndDate = currentPeriod.get('endDate');
+        const periodStartDate = moment(currentPeriod.get('startDate'));
+        const periodEndDate = moment(currentPeriod.get('endDate'));
+        if(!currentPeriod.get('endDate')) {
+          return moment(vehicleDate).isAfter(periodStartDate)
+        }
         return moment(vehicleDate).isAfter(periodStartDate) && moment(vehicleDate).isBefore(periodEndDate); // eslint-disable-line
       }));
   },
