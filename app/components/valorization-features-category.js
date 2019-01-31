@@ -3,6 +3,7 @@ import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { filter } from 'rsvp';
 import DS from 'ember-data';
+import moment from 'moment';
 
 export default Component.extend({
   store: service(),
@@ -31,8 +32,8 @@ export default Component.extend({
       .then(periods => periods.find((currentPeriod) => {
         const periodStartDate = moment(currentPeriod.get('startDate'));
         const periodEndDate = moment(currentPeriod.get('endDate'));
-        if(!currentPeriod.get('endDate')) {
-          return moment(vehicleDate).isAfter(periodStartDate)
+        if (!currentPeriod.get('endDate')) {
+          return moment(vehicleDate).isAfter(periodStartDate);
         }
         return moment(vehicleDate).isAfter(periodStartDate) && moment(vehicleDate).isBefore(periodEndDate); // eslint-disable-line
       }));
