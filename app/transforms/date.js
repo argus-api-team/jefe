@@ -4,7 +4,8 @@ import moment from 'moment';
 export default DS.Transform.extend({
   deserialize(serialized) {
     if (serialized) {
-      return moment(serialized).format('YYYY-MM-DD');
+      const date = new Date(serialized);
+      return moment(date).format('YYYY-MM-DD');
     }
     return serialized;
   },

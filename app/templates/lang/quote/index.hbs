@@ -50,9 +50,9 @@
           </div>
         </li>
         {{#each model as |valorization|}}
-          {{#unless valorization.isAutovisual}}
+          {{#if valorization.isDisplayed}}
             {{valorization-item valorization=valorization largeMode=largeMode}}
-          {{/unless}}
+          {{/if}}
         {{/each}}
         {{infinity-loader
           infinityModel=model

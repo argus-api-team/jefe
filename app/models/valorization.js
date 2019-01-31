@@ -30,6 +30,7 @@ export default DS.Model.extend(Validations, {
   mileage: DS.attr('number'),
   releasedAt: DS.attr('date'),
   businessTarget: DS.attr('string'),
+  originCountry: DS.attr('string'),
   // Custom, Past, exchange
   calculatedFor: DS.attr('date'),
 
@@ -137,5 +138,20 @@ export default DS.Model.extend(Validations, {
       }).then(version => version)
         .catch(() => null),
     });
+  }),
+
+  isFrench: computed('originCountry', function () {
+    const originCountry = this.get('originCountry');
+    if (!originCountry) {
+      return true;
+    }
+    if (originCountry === 'Fr') {
+      return true;
+    }
+    return false;
+  }),
+
+  isDisplayed: computed('isFrench', 'isAutovisual', function () {
+    return this.get('isFrench') && !this.get('isAutovisual');
   }),
 });
