@@ -1,0 +1,283 @@
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h1 class="m-subheader__title m-subheader__title--separator">
+        {{t "makeSheet.title"}}
+      </h1>
+      <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+        <li class="m-nav__item m-nav__item--home">
+          {{#link-to "data-set" class="m-nav__link m-nav__link--icon"}}
+            <i class="m-nav__link-icon la la-home"></i>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to "data-set.referential" class="m-nav__link m-nav__link--icon"}}
+            <span class="m-nav__link-text">
+              {{t "index.referential.title"}}
+            </span>
+          {{/link-to}}
+        </li>
+        <li class="m-nav__separator">
+          -
+        </li>
+        <li class="m-nav__item">
+          {{#link-to
+            "data-set.referential.make"
+            model.make.id
+            class="m-nav__link m-nav__link--icon"
+          }}
+            <span class="m-nav__link-text">
+              {{model.make.name}}
+            </span>
+          {{/link-to}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="m-content">
+  <div class="row align-items-stretch">
+    <div class="col-4">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "makeSheet.informations.title"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body informations-portlet">
+          <div class="logo-container text-center">
+            {{logo-img url=model.make.logoURL className="make-logo"}}
+          </div>
+          <h4 class="informations-portlet__title">{{model.make.name}}</h4>
+          <p class="informations-portlet__data">{{model.make.displayDate}}</p>
+          <p class="informations-portlet__data">{{t "makeSheet.informations.quote"}}{{model.make.positionQuote}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col-6">
+          <div class="m-portlet">
+            <div class="m-portlet__head">
+              <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                  <h3 class="m-portlet__head-text">{{t "makeSheet.topVehicles"}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+              <ul class="vertical-list">
+                {{#each model.topMakeVehicles as |vehicle|}}
+                  <li class="vertical-list__item">
+                    {{#link-to "data-set.referential.vehicle" vehicle.id class="list-item-content"}}
+                      <section class="infos">
+                        <h5>{{vehicle.submodel.fullNicename}}</h5>
+                        <p class="list-datetime">{{vehicle.name}}</p>
+                      </section>
+                    {{/link-to}}
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="m-portlet">
+            <div class="m-portlet__head">
+              <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                  <h3 class="m-portlet__head-text">{{t "makeSheet.latestVehicles"}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+              <ul class="vertical-list">
+                {{#each model.latestMakeVehicles as |vehicle|}}
+                  <li class="vertical-list__item">
+                    {{#link-to "data-set.referential.vehicle" vehicle.id class="list-item-content"}}
+                      <section class="infos">
+                        <h5>{{vehicle.submodel.fullNicename}}</h5>
+                        <p class="list-datetime">{{vehicle.name}}</p>
+                      </section>
+                    {{/link-to}}
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      {{#sticky-element top=110 bottom=0}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">{{t "makeSheet.filters.title"}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            <div class="m-form__group form-group categories-filter">
+              <span class="m-switch">
+                <label>
+                  {{input
+                    id="production_filter"
+                    type="checkbox"
+                    checked=productionFilter
+                    name=(t "makeSheet.filters.production")
+                  }}
+                  <span for="production_filter"></span>
+                </label>
+              </span>
+              <label class="form-label" for="production_filter">
+                {{t "makeSheet.filters.production"}}
+              </label>
+            </div>
+            {{#each model.make.categories as |category|}}
+              <div class="m-form__group form-group categories-filter">
+                <span class="m-switch">
+                  <label>
+                    {{input
+                      id=category.categoryInputId
+                      type="checkbox"
+                      checked=category.showCategory
+                      name=category.name
+                    }}
+                    <span for={{category.categoryInputId}}></span>
+                  </label>
+                </span>
+                <label class="form-label" for={{category.categoryInputId}}>
+                  {{category.name}}
+                </label>
+              </div>
+            {{/each}}
+          </div>
+          <div class="m-portlet__foot m--text-right">
+            <p class="m--align-right">{{t "makeSheet.filters.models"}} <span class="m--font-bold">{{filteredModels.length}}</span></p>
+            <p class="m--align-right m--marginless">{{t "makeSheet.filters.submodels"}} <span class="m--font-bold">{{filteredSubmodels.length}}</span></p>
+          </div>
+        </div>
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">{{t "makeSheet.sorting.title"}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            <h5 class="m--margin-bottom-15">{{t "makeSheet.sorting.property"}}</h5>
+            <div class="m-form__group form-group categories-filter">
+              <span class="m-switch">
+                <label>
+                  {{radio-button
+                    id="sort-name"
+                    value="name"
+                    groupValue=sortProperty
+                  }}
+                  <span for="sort-name"></span>
+                </label>
+              </span>
+              <label class="form-label" for="sort-name">
+                {{t "makeSheet.sorting.name"}}
+              </label>
+            </div>
+            <div class="m-form__group form-group categories-filter">
+              <span class="m-switch">
+                <label>
+                  {{radio-button
+                    id="sort-start-date"
+                    value="startDate"
+                    groupValue=sortProperty
+                  }}
+                  <span for="sort-start-date"></span>
+                </label>
+              </span>
+              <label class="form-label" for="sort-start-date">
+                {{t "makeSheet.sorting.start"}}
+              </label>
+            </div>
+            <div class="m-form__group form-group categories-filter">
+              <span class="m-switch">
+                <label>
+                  {{radio-button
+                    id="sort-end-date"
+                    value="endDate"
+                    groupValue=sortProperty
+                  }}
+                  <span for="sort-end-date"></span>
+                </label>
+              </span>
+              <label class="form-label" for="sort-end-date">
+                {{t "makeSheet.sorting.end"}}
+              </label>
+            </div>
+            <h5 class="m--margin-bottom-15 m--margin-top-30">{{t "makeSheet.sorting.order"}}</h5>
+            <div class="m-form__group form-group categories-filter">
+              <span class="m-switch">
+                <label>
+                  {{radio-button
+                    id="sort-asc"
+                    value="asc"
+                    groupValue=sortOrder
+                  }}
+                  <span for="sort-asc"></span>
+                </label>
+              </span>
+              <label class="form-label" for="sort-asc">
+                {{t "makeSheet.sorting.asc"}}
+              </label>
+            </div>
+            <div class="m-form__group form-group categories-filter">
+              <span class="m-switch">
+                <label>
+                  {{radio-button
+                    id="sort-desc"
+                    value="desc"
+                    groupValue=sortOrder
+                  }}
+                  <span for="sort-desc"></span>
+                </label>
+              </span>
+              <label class="form-label" for="sort-desc">
+                {{t "makeSheet.sorting.desc"}}
+              </label>
+            </div>
+          </div>
+        </div>
+      {{/sticky-element}}
+    </div>
+    <div class="col-8">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "makeSheet.models.title"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <ul class="model-list">
+            {{#each sortedModels as |makeModel|}}
+              {{model-line
+                makeModel=makeModel
+                productionFilter=productionFilter
+                filteredSubmodelsArrays=filteredSubmodelsArrays
+              }}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

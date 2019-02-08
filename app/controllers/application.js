@@ -3,6 +3,6 @@ import { computed } from '@ember/object';
 
 export default Controller.extend({
   inApp: computed('currentPath', function () {
-    return this.get('currentPath').indexOf('lang') === 0;
+    return this.get('currentPath').indexOf('data-set') === 0;
   }),
 });

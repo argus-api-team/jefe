@@ -28,7 +28,7 @@
     {{#each sortedVersions as |version|}}
       <li class="vertical-list__item versions-table__item">
         {{#link-to
-          "lang.referential.vehicle"
+          "data-set.referential.vehicle"
           version.id
           class="row m--padding-top-20 m--padding-bottom-20 align-items-top versions-table__content"
         }}
@@ -166,7 +166,7 @@
             {{#if version.quotable}}
               <br>
               {{#link-to
-                "lang.quote.valorize.vehicle-identification"
+                "data-set.quote.valorize.vehicle-identification"
                 (query-params oid=version.id)
                 class="btn btn-primary btn-sm m--margin-top-5"
               }}
@@ -175,7 +175,7 @@
             {{else if version.prevarable}}
               <br>
               {{#link-to
-                "lang.quote.valorize.vehicle-identification"
+                "data-set.quote.valorize.vehicle-identification"
                 (query-params oid=version.id)
                 class="btn btn-primary btn-sm m--margin-top-5"
               }}

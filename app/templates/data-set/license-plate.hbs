@@ -1,0 +1,68 @@
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h1 class="m-subheader__title m-subheader__title--separator">
+        {{t "index.licensePlate.title"}}
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="m-content">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-6">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "licensePlate.form.title"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <p>{{t "licensePlate.form.label"}}</p>
+          {{license-plate-form refreshModel=(route-action "refreshModel")}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-12">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "licensePlate.previous"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+          <ul class="vertical-list license-plate-list">
+            {{#each model as |matching|}}
+              <li class="vertical-list__item">
+                {{#link-to "data-set.license-plate.matching" matching.id class="list-item-content"}}
+                  <section class="infos">
+                    <h5 class="m--marginless license-plate-list__registration">{{matching.formatedRegistration}}</h5>
+                  </section>
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-8 col-12">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "licensePlate.result.title"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          {{outlet}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

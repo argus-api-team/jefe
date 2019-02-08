@@ -1,0 +1,292 @@
+<div class="m-content">
+  <div class="m-wizard m-wizard--2 m-wizard--success">
+    <div class="m-portlet__padding-x">
+    </div>
+    <div class="m-wizard__head">
+      <div class="m-wizard__progress">
+        <div class="progress">
+          {{! template-lint-disable }}
+          <div
+            class="progress-bar"
+            role="progressbar"
+            aria-valuenow="100"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style="width: 100%"
+          >
+          {{! template-lint-enable }}
+          </div>
+        </div>
+      </div>
+      <div class="m-wizard__nav">
+        <div class="m-wizard__steps">
+          <div class="m-wizard__step m-wizard__step--done">
+            {{#link-to
+              "data-set.quote.valorize.vehicle-identification"
+              class="m-wizard__step-number"
+            }}
+              <span>
+                <i class="la la-automobile"></i>
+              </span>
+            {{/link-to}}
+            <div class="m-wizard__step-info">
+              <div class="m-wizard__step-title">
+                {{t "valorization.wizzard.identity.title"}}
+              </div>
+            </div>
+          </div>
+          <div class="m-wizard__step m-wizard__step--done">
+            {{#link-to
+              "data-set.quote.valorize.offer"
+              class="m-wizard__step-number"
+            }}
+              <span>
+                <i class="la la-bar-chart"></i>
+              </span>
+            {{/link-to}}
+            <div class="m-wizard__step-info">
+              <div class="m-wizard__step-title">
+                {{t "valorization.wizzard.offer.title"}}
+              </div>
+            </div>
+          </div>
+          <div class="m-wizard__step m-wizard__step--current">
+            {{#link-to "data-set.quote.valorize.criteria" class="m-wizard__step-number"}}
+              <span>
+                <i class="fa flaticon-layers"></i>
+              </span>
+            {{/link-to}}
+            <div class="m-wizard__step-info">
+              <div class="m-wizard__step-title">
+                {{t "valorization.wizzard.criteria.title"}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-xl-7">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.usage.title"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              {{#validated-form-group
+                label=(t "valorization.wizzard.criteria.usage.mileage")
+                isValid=(v-get model.valorization "mileage" "isValid")
+                errorMessage=(v-get model.valorization "mileage" "message")
+                forceShowErrorMessage=showErrorMessages
+                required=true
+              }}
+                {{input
+                  value=model.valorization.mileage
+                  class="form-control"
+                }}
+                <div class="input-group-append">
+                  <span class="input-group-text">{{t "techData.units.km"}}</span>
+                </div>
+              {{/validated-form-group}}
+            </div>
+            {{#unless model.valorization.isExtended}}
+              <div class="col-12 col-md-6">
+                {{#validated-form-group
+                  label=(if model.valorization.isPrevar (t "valorization.wizzard.criteria.usage.returnedAt") (t "valorization.wizzard.criteria.usage.calculatedFor"))
+                  isValid=(if model.valorization.isPrevar (v-get model.valorization "returnedAt" "isValid") (v-get model.valorization "calculatedFor" "isValid"))
+                  errorMessage=(if model.valorization.isPrevar (v-get model.valorization "returnedAt" "message") (v-get model.valorization "calculatedFor" "message"))
+                  forceShowErrorMessage=showErrorMessages
+                  required=(if model.valorization.isPrevar true (if model.valorization.needCalculatedFor true false))
+                }}
+                  {{date-picker
+                    buttonClasses="btn btn-primary"
+                    availableYearOffset=15
+                    value=(if model.valorization.isPrevar model.valorization.returnedAt model.valorization.calculatedFor)
+                    minDate=(if model.valorization.isPrevar (moment))
+                    maxDate=(unless model.valorization.isPrevar (moment))
+                    placeholder=(t "application.datePlaceholder")
+                    action=(if model.valorization.isPrevar (action (mut model.valorization.returnedAt)) (action (mut model.valorization.calculatedFor)))
+                  }}
+                {{/validated-form-group}}
+              </div>
+            {{/unless}}
+          </div>
+        </div>
+      </div>
+      {{#if model.valorization.isExtended}}
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.garage.title"}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="form-group m-form__group row align-items-center">
+                  <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</label>
+                  <div class="col-8">
+                    {{! template-lint-disable }}
+                    {{#power-select-multiple
+                      options=model.makes
+                      selected=garageMakes
+                      searchField="name"
+                      enableTime=false
+                      onchange=(action (mut garageMakes))
+                    as |make|}}
+                      {{make.name}}
+                    {{/power-select-multiple}}
+                    {{! template-lint-enable }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="form-group m-form__group row align-items-center">
+                  <label class="col-4 col-form-label text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</label>
+                  <div class="col-8">
+                    {{input value=model.valorization.geolocalisation class="form-control"}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/if}}
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.options.title"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          {{#each model.featureCategories as |featureCategory|}}
+            {{valorization-features-category
+              category=featureCategory
+              valorization=model.valorization
+              vehicleVersion=model.valorization.version
+            }}
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-xl-5">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "valorization.wizzard.criteria.summary.title"}}</h3>
+            </div>
+          </div>
+          <div class="m-portlet__head-tools">
+            {{valorization-offer-badge offer=model.valorization.offer}}
+          </div>
+        </div>
+        <div class="m-portlet__body">
+          <div class="section-header m--margin-bottom-15">
+            <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.summary.offer"}}</h4>
+            <div class="section-header__separator"><hr></div>
+          </div>
+          <div class="valorization-card m--clearfix">
+            <div class="vehicle-infos">
+              <h5 class="h6"> {{model.valorization.version.make.name}} - {{model.valorization.version.submodel.name}}</h5>
+              <p class="m--margin-bottom-5">{{t "application.gen"}} {{model.valorization.version.generation.name}} {{t "application.ph"}} {{model.valorization.version.phase.name}} - {{moment-format model.valorization.releasedAt "DD/MM/YYYY"}}</p>
+              <p class="m--marginless">{{model.valorization.version.name}}</p>
+            </div>
+            <div class="vehicle-make-logo">
+              {{logo-img
+                url=model.valorization.version.make.logoURL
+                className="thumbnail make-logo"
+              }}
+            </div>
+          </div>
+          {{#if showSummaryUsage}}
+            <div class="section-header m--margin-bottom-15 m--margin-top-30">
+              <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.usage.title"}}</h4>
+              <div class="section-header__separator"><hr></div>
+            </div>
+            <div class="row">
+              {{#if model.valorization.mileage}}
+                <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.mileage"}}</dt>
+                <dd class="col-3">{{model.valorization.mileage}} {{t "techData.units.km"}}</dd>
+              {{/if}}
+              {{#unless model.valorization.isExtended}}
+                {{#if model.valorization.isPrevar}}
+                  {{#if model.valorization.returnedAt}}
+                    <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
+                    <dd class="col-3">{{moment-format model.valorization.returnedAt "YYYY-MM-DD"}}</dd>
+                  {{/if}}
+                {{else}}
+                  {{#if model.valorization.calculatedFor}}
+                    <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.usage.date"}}</dt>
+                    <dd class="col-3">{{moment-format model.valorization.calculatedFor "YYYY-MM-DD"}}</dd>
+                  {{/if}}
+                {{/if}}
+              {{/unless}}
+            </div>
+          {{/if}}
+          {{#if model.valorization.isExtended}}
+            {{#if showSummaryGaragePart}}
+              <div class="section-header m--margin-bottom-15 m--margin-top-30">
+                <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.garage.title"}}</h4>
+                <div class="section-header__separator"><hr></div>
+              </div>
+              <div class="row">
+                {{#if garageMakes.length}}
+                  <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.makes"}}</dt>
+                  <dd class="col-3">
+                    <ul>
+                      {{#each garageMakes as |make|}}
+                        <li>
+                          {{make.name}}
+                        </li>
+                      {{/each}}
+                    </ul>
+                  </dd>
+                {{/if}}
+                {{#if model.valorization.geolocalisation}}
+                  <dt class="col-3 text-right">{{t "valorization.wizzard.criteria.garage.zipcode"}}</dt>
+                  <dd class="col-3">{{model.valorization.geolocalisation}}</dd>
+                {{/if}}
+              </div>
+            {{/if}}
+          {{/if}}
+          {{#if model.valorization.features.length}}
+            <div class="section-header m--margin-bottom-15 m--margin-top-30">
+              <h4 class="m--marginless section-header__title m--padding-right-15">{{t "valorization.wizzard.criteria.options.title"}}</h4>
+              <div class="section-header__separator"><hr></div>
+            </div>
+            <ul>
+              {{#each model.valorization.features as |feature|}}
+                <li class="clearfix m--margin-bottom-5 ">
+                  <div class="selected-feature">
+                    <span class="selected-feature__name">{{feature.name}}</span>
+                    <span class="pull-right selected-feature__price">{{feature.priceIncludingVat}} {{t "application.currency"}}</span>
+                  </div>
+                </li>
+              {{/each}}
+            </ul>
+          {{/if}}
+          <div class="btn-container text-right m--margin-top-30">
+            <button {{action "validateForm"}}
+              class="btn btn-primary"
+              disabled={{v-get model.valorization "isInvalid"}}
+              type="button"
+            >
+              {{t "valorization.wizzard.criteria.valorize"}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

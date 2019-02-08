@@ -21,7 +21,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function () { // eslint-disable-line
-  this.route('lang', { path: '/:lang' }, function () {
+  this.route('login');
+  this.route('data-set', { path: '/:data_set' }, function () {
     this.route('referential', function () {
       this.route('makes', { path: '/' });
       this.route('make', { path: 'make/:id' });
@@ -32,11 +33,9 @@ Router.map(function () { // eslint-disable-line
       });
       this.route('vehicle', { path: 'vehicle/:id' });
     });
-
     this.route('license-plate', function () {
       this.route('matching', { path: '/:id' });
     });
-
     this.route('quote', function () {
       this.route('valorize', function () {
         this.route('vehicle-identification', { path: '/' });
@@ -46,7 +45,6 @@ Router.map(function () { // eslint-disable-line
       this.route('valorization', { path: 'valorization/:id' });
     });
   });
-  this.route('login');
 });
 
 export default Router;

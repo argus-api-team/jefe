@@ -22,7 +22,7 @@ export default Component.extend({
       matchingRecord.get('registrationCard').then((registrationCard) => {
         const firstRegistrationDate = registrationCard.get('firstRegistrationDate');
         valorizationRecord.set('releasedAt', firstRegistrationDate);
-        router.transitionTo('lang.quote.valorize.offer');
+        router.transitionTo('data-set.quote.valorize.offer');
       });
     },
   },

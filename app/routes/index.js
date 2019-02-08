@@ -8,7 +8,7 @@ export default Route.extend({
   beforeModel() {
     const session = this.get('session');
     if (session.get('isAuthenticated')) {
-      this.transitionTo('lang', { lang: this.get('controller.lang') });
+      this.transitionTo('data-set', { data_set: 'fr' });
     } else {
       this.transitionTo('login');
     }

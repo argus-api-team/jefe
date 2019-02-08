@@ -5,7 +5,7 @@
         <div
           class="m-stack__item m-stack__item--middle m-stack__item--center m-brand__logo"
         >
-          {{#link-to "lang.index" class="m-brand__logo-wrapper"}}
+          {{#link-to "data-set.index" class="m-brand__logo-wrapper"}}
             <img
               src="/assets/logos/Jefe_logo_small.png"
               alt={{t "application.name"}}
@@ -64,7 +64,7 @@
                         <ul class="flag-list">
                           {{#each locales as |lang|}}
                             <li>
-                              {{#link-to "lang" lang }}
+                              {{#link-to "data-set" lang }}
                                 <img src="/assets/flags/{{lang}}_small.png" class="flag"  alt={{lang}}>
                               {{/link-to}}
                             </li>
