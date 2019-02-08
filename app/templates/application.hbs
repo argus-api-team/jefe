@@ -1,6 +1,4 @@
-{{#if isLogin}}
-  {{outlet}}
-{{else}}
+{{#if inApp}}
   <div class="page-wrapper m-grid m-grid--hor m-grid--root m-page">
     {{page-header}}
     <div
@@ -27,4 +25,6 @@
   >
     <i class="la la-arrow-up"></i>
   </div>
+{{else}}
+  {{outlet}}
 {{/if}}

@@ -22,8 +22,6 @@ const Router = EmberRouter.extend({
 
 Router.map(function () { // eslint-disable-line
   this.route('lang', { path: '/:lang' }, function () {
-    this.route('login');
-
     this.route('referential', function () {
       this.route('makes', { path: '/' });
       this.route('make', { path: 'make/:id' });
@@ -48,6 +46,7 @@ Router.map(function () { // eslint-disable-line
       this.route('valorization', { path: 'valorization/:id' });
     });
   });
+  this.route('login');
 });
 
 export default Router;
