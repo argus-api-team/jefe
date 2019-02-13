@@ -5,7 +5,8 @@ import mLayout from 'metronic-layout';
 
 export default Component.extend({
   intl: service(),
-  session: service('session'),
+  session: service(),
+  userProfile: service(),
 
   tagName: 'header',
   classNames: ['m-grid__item', ' m-header'],

@@ -30,4 +30,8 @@ export default Service.extend({
     return null;
   }),
 
+  isCrossCountry: computed('userScope', function () {
+    return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
+  }),
+
 });
