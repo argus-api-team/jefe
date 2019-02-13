@@ -1,0 +1,28 @@
+.referential-choices {
+  list-style-type: none;
+  padding:0;
+}
+
+
+
+
+.referential-choice {
+  border: solid 2px transparent;
+  border-radius: 2px;
+  padding: 5px;
+  transition: border-color .2s;
+
+  &.is-active {
+    border-color: #5867dd;
+  }
+
+  &:hover {
+    border-color: gray;
+    cursor: pointer;
+  }
+
+  .referential-choice__img {
+    width: 100%;
+    border-radius: 2px;
+  }
+}
