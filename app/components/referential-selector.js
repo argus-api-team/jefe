@@ -6,62 +6,153 @@ export default Component.extend({
     'm-nav__item',
     'm-topbar__notifications',
     'm-topbar__notifications--img',
-    'm-dropdown m-dropdown--large',
+    'm-dropdown',
+    'm-dropdown--large',
     'm-dropdown--header-bg-fill',
     'm-dropdown--arrow',
     'm-dropdown--align-right',
     'm-dropdown--mobile-full-width',
-    'referential-selector'
+    'referential-selector',
   ],
 
   attributeBindings: ['data-dropdown-toggle', ' m-dropdown-persistent'],
 
-  countries: Object.freeze([
+  actions: {
+    changeOriginCountry(country) {
+      if (country.langs.length === 1) {
+        this.changeReferential(country, country.langs[0]);
+      } else {
+        this.set('pendingCountry', country);
+      }
+      return false;
+    },
+
+    chooseLang(country, choosenLang) {
+      this.changeReferential(country, choosenLang);
+    },
+
+    resetPendingCountry() {
+      this.set('pendingCountry', null);
+    },
+  },
+
+  changeReferential(country, lang) {
+    console.log('changeReferential');
+    console.log(country);
+    console.log(lang);
+    this.send('resetPendingCountry');
+  },
+
+  pendingCountry: null,
+
+  RSIReferentials: Object.freeze([
     {
       label: 'France',
-      apiPrefix: 'fr/fr',
+      countryPrefix: 'fr',
+      flag: 'fr',
+      langs: [
+        {
+          label: 'Français',
+          langPrefix: 'fr',
+          flag: 'fr',
+        },
+      ],
     },
     {
       label: 'Maroc',
-      apiPrefix: 'ma/fr',
+      countryPrefix: 'ma',
+      flag: 'ma',
+      langs: [
+        {
+          label: 'Français',
+          langPrefix: 'fr',
+          flag: 'ma',
+        },
+      ],
     },
     {
-      label: 'Côte d\'ivoir',
-      apiPrefix: 'ci/fr',
+      label: 'Côte d\'ivoire',
+      countryPrefix: 'ci',
+      flag: 'ci',
+      langs: [
+        {
+          label: 'Français',
+          langPrefix: 'fr',
+          flag: 'ci',
+        },
+      ],
     },
-    {
-      label: 'Espagne - Anglais',
-      apiPrefix: 'es/en',
-    },
-    {
-      label: 'Espagne - Espagnol',
-      apiPrefix: 'es/es',
-    },
-    {
-      label: 'Portugal - Anglais',
-      apiPrefix: 'pt/en',
-    },
-    {
-      label: 'Portugal - Portuguais',
-      apiPrefix: 'pt/pt',
-    },
-    {
-      label: 'Roumanie - Anglais',
-      apiPrefix: 'ro/en',
-    },
-    {
-      label: 'Roumanie - Roumain',
-      apiPrefix: 'ro/ro',
-    },
-    {
-      label: 'Belgique - Anglais',
-      apiPrefix: 'be/en',
-    },
-    {
-      label: 'Belgique - Fr',
-      apiPrefix: 'be/fr',
-    },
-
-
   ]),
+
+  JatoReferentials: Object.freeze([
+    {
+      label: 'Belgique',
+      apiPrefix: 'be',
+      flag: 'be',
+      langs: [
+        {
+          label: 'Anglais',
+          langPrefix: 'en',
+          flag: 'gb',
+        },
+        {
+          label: 'Français',
+          langPrefix: 'fr',
+          flag: 'fr',
+        },
+      ],
+    },
+    {
+      label: 'Espagne',
+      countryPrefix: 'es',
+      flag: 'es',
+      langs: [
+        {
+          label: 'Anglais',
+          langPrefix: 'en',
+          flag: 'gb',
+        },
+        {
+          label: 'Espagnol',
+          langPrefix: 'es',
+          flag: 'es',
+        },
+      ],
+    },
+    {
+      label: 'Portugal',
+      countryPrefix: 'pt',
+      flag: 'pt',
+      langs: [
+        {
+          label: 'Anglais',
+          langPrefix: 'en',
+          flag: 'gb',
+        },
+        {
+          label: 'Portugais',
+          langPrefix: 'pt',
+          flag: 'pt',
+        },
+      ],
+    },
+    {
+      label: 'Roumanie',
+      countryPrefix: 'ro',
+      flag: 'ro',
+      langs: [
+        {
+          label: 'Anglais',
+          langPrefix: 'en',
+          flag: 'gb',
+        },
+        {
+          label: 'Roumain',
+          langPrefix: 'ro',
+          flag: 'ro',
+        },
+      ],
+    },
+  ]),
+
 });

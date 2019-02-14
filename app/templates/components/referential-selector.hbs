@@ -11,57 +11,62 @@
   <div class="m-dropdown__inner">
     <div class="m-dropdown__header m--align-center" style="background: #7f55dd">
       <span class="m-dropdown__header-title">Referentials</span>
-      <span class="m-dropdown__header-subtitle">Choose a referential country</span>
+      <span class="m-dropdown__header-subtitle">
+        {{#if pendingCountry}}
+          Choose the data language
+        {{else}}
+          Choose a referential country
+        {{/if}}
+      </span>
     </div>
     <div class="m-dropdown__body">
-      <div class="m-dropdown__content">
-        <h4>1. Provider</h4>
-        <ul class="row align-items-center referential-choices">
-          <li class="col m--margin-bottom-20">
-            <div class="referential-choice text-center is-active">
-              <img class="referential-choice__img" src="/assets/logos/groupe-argus.jpg" alt="RSI" title="RSI">
-            </div>
+      <div class="m-dropdown__content referential-selector__content">
+        <div class="countries {{if pendingCountry "translate-left"}}">
+          <h4>RSI</h4>
+          <ul class="vertical-list">
+            {{#each RSIReferentials as |country|}}
+              <li class="vertical-list__item">
+                <button class="media referential-choice" {{action "changeOriginCountry" country preventDefault=true}}>
+                  <img src="/assets/flags/{{country.flag}}.png" alt={{country.label}} title={{country.label}} class="align-self-center mr-3 referential-choice__img">
+                  <div class="media-body align-self-center">
+                    <span>{{country.label}}</span>
+                  </div>
+                </button>
+              </li>
+            {{/each}}
+          </ul>
+          <h4 class="m--margin-top-30">Jato</h4>
+          <ul class="vertical-list">
+            {{#each JatoReferentials as |country|}}
+              <li class="vertical-list__item">
+                <button class="media referential-choice" {{action "changeOriginCountry" country preventDefault=true}}>
+                  <img src="/assets/flags/{{country.flag}}.png" alt={{country.label}} title={{country.label}} class="align-self-center mr-3 referential-choice__img">
+                  <div class="media-body align-self-center">
+                    <span>{{country.label}}</span>
+                  </div>
+                </button>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
 
-          </li>
-          <li class="col m--margin-bottom-20">
-            <div class="referential-choice text-center">
-              <img class="referential-choice__img" src="/assets/logos/jato.png" alt="JATO" title="JATO">
-            </div>
-          </li>
-        </ul>
-        <h4 class="m--margin-top-10 m--margin-bottom-10">2. Country</h4>
-        <ul class="row align-items-center referential-choices">
-          <li class="col m--margin-bottom-20">
-            <div class="referential-choice text-center is-active">
-              <img class="referential-choice__img" src="/assets/flags/fr.png" alt="France" title="France">
-            </div>
+        <div class="country-languages {{if pendingCountry "translate-left"}}">
+          <button class="btn btn-secondary m--margin-bottom-15" {{action "resetPendingCountry"}}><i class="la la-arrow-left m--margin-right-5"></i>Countries</button>
+          <h4>Languages</h4>
+          <ul class="vertical-list">
+            {{#each pendingCountry.langs as |lang|}}
+              <li class="vertical-list__item">
+                <button class="media referential-choice" {{action "chooseLang" pendingCountry lang preventDefault=true}}>
+                  <img src="/assets/flags/{{lang.flag}}.png" alt={{lang.label}} title={{lang.label}} class="align-self-center mr-3 referential-choice__img">
+                  <div class="media-body align-self-center">
+                    <span>{{lang.label}}</span>
+                  </div>
+                </button>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
 
-          </li>
-          <li class="col m--margin-bottom-20">
-            <div class="referential-choice text-center">
-              <img class="referential-choice__img" src="/assets/flags/ma.png" alt="Maroc" title="Maroc">
-            </div>
-          </li>
-
-          <li class="col m--margin-bottom-20">
-            <div class="referential-choice text-center">
-              <img class="referential-choice__img" src="/assets/flags/ci.png" alt="Côte d'ivoire" title="Côte d'ivoire">
-            </div>
-          </li>
-        </ul>
-        <h4 class="m--margin-top-10 m--margin-bottom-10">3. Language</h4>
-        <ul class="row align-items-center referential-choices">
-          <li class="col m--margin-bottom-20">
-            <div class="referential-choice text-center is-active">
-              <img class="referential-choice__img" src="/assets/flags/fr.png" alt="Francais" title="Francais">
-            </div>
-          </li>
-          <li class="col m--margin-bottom-20">
-            <div class="referential-choice text-center">
-              <img class="referential-choice__img" src="/assets/flags/gb.png" alt="Anglais" title="Anglais">
-            </div>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
