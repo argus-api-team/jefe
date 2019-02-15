@@ -24,7 +24,7 @@
         <div class="countries {{if pendingCountry "translate-left"}}">
           <h4>RSI</h4>
           <ul class="vertical-list">
-            {{#each RSIReferentials as |country|}}
+            {{#each localizedReferentials.RSIReferentials as |country|}}
               <li class="vertical-list__item">
                 <button class="media referential-choice" {{action "changeOriginCountry" country preventDefault=true}}>
                   <img src="/assets/flags/{{country.flag}}.png" alt={{country.label}} title={{country.label}} class="align-self-center mr-3 referential-choice__img">
@@ -37,7 +37,7 @@
           </ul>
           <h4 class="m--margin-top-30">Jato</h4>
           <ul class="vertical-list">
-            {{#each JatoReferentials as |country|}}
+            {{#each localizedReferentials.JatoReferentials as |country|}}
               <li class="vertical-list__item">
                 <button class="media referential-choice" {{action "changeOriginCountry" country preventDefault=true}}>
                   <img src="/assets/flags/{{country.flag}}.png" alt={{country.label}} title={{country.label}} class="align-self-center mr-3 referential-choice__img">
