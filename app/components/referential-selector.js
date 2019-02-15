@@ -1,6 +1,9 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
+  router: service(),
+
   tagName: 'li',
   classNames: [
     'm-nav__item',
@@ -37,9 +40,9 @@ export default Component.extend({
   },
 
   changeReferential(country, lang) {
-    console.log('changeReferential');
-    console.log(country);
-    console.log(lang);
+    const router = this.get('router');
+    const dataSet = `${country.prefix}-${lang.prefix}`;
+    router.transitionTo('data-set', dataSet);
     this.send('resetPendingCountry');
   },
 
@@ -48,36 +51,36 @@ export default Component.extend({
   RSIReferentials: Object.freeze([
     {
       label: 'France',
-      countryPrefix: 'fr',
+      prefix: 'fr',
       flag: 'fr',
       langs: [
         {
           label: 'Français',
-          langPrefix: 'fr',
+          prefix: 'fr',
           flag: 'fr',
         },
       ],
     },
     {
       label: 'Maroc',
-      countryPrefix: 'ma',
+      prefix: 'ma',
       flag: 'ma',
       langs: [
         {
           label: 'Français',
-          langPrefix: 'fr',
+          prefix: 'fr',
           flag: 'ma',
         },
       ],
     },
     {
       label: 'Côte d\'ivoire',
-      countryPrefix: 'ci',
+      prefix: 'ci',
       flag: 'ci',
       langs: [
         {
           label: 'Français',
-          langPrefix: 'fr',
+          prefix: 'fr',
           flag: 'ci',
         },
       ],
@@ -87,68 +90,68 @@ export default Component.extend({
   JatoReferentials: Object.freeze([
     {
       label: 'Belgique',
-      apiPrefix: 'be',
+      prefix: 'be',
       flag: 'be',
       langs: [
         {
           label: 'Anglais',
-          langPrefix: 'en',
+          prefix: 'en',
           flag: 'gb',
         },
         {
           label: 'Français',
-          langPrefix: 'fr',
+          prefix: 'fr',
           flag: 'fr',
         },
       ],
     },
     {
       label: 'Espagne',
-      countryPrefix: 'es',
+      prefix: 'es',
       flag: 'es',
       langs: [
         {
           label: 'Anglais',
-          langPrefix: 'en',
+          prefix: 'en',
           flag: 'gb',
         },
         {
           label: 'Espagnol',
-          langPrefix: 'es',
+          prefix: 'es',
           flag: 'es',
         },
       ],
     },
     {
       label: 'Portugal',
-      countryPrefix: 'pt',
+      prefix: 'pt',
       flag: 'pt',
       langs: [
         {
           label: 'Anglais',
-          langPrefix: 'en',
+          prefix: 'en',
           flag: 'gb',
         },
         {
           label: 'Portugais',
-          langPrefix: 'pt',
+          prefix: 'pt',
           flag: 'pt',
         },
       ],
     },
     {
       label: 'Roumanie',
-      countryPrefix: 'ro',
+      prefix: 'ro',
       flag: 'ro',
       langs: [
         {
           label: 'Anglais',
-          langPrefix: 'en',
+          prefix: 'en',
           flag: 'gb',
         },
         {
           label: 'Roumain',
-          langPrefix: 'ro',
+          prefix: 'ro',
           flag: 'ro',
         },
       ],

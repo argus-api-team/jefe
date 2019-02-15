@@ -33,7 +33,7 @@ export default Component.extend({
       this.set('isLogingIn', true);
       this.get('session').authenticate('authenticator:oauth2', applicationId, applicationSecret, username, password)
         .then(() => {
-          this.get('router').transitionTo('data-set', { data_set: 'fr' });
+          this.get('router').transitionTo('index');
         })
         .catch((reason) => {
           this.set('errorMessage', reason.error);
