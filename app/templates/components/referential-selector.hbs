@@ -10,19 +10,19 @@
   <span class="m-dropdown__arrow m-dropdown__arrow--right"></span>
   <div class="m-dropdown__inner">
     <div class="m-dropdown__header m--align-center">
-      <span class="m-dropdown__header-title">Referentials</span>
+      <span class="m-dropdown__header-title">{{t "referentialSelector.title"}}</span>
       <span class="m-dropdown__header-subtitle">
         {{#if pendingCountry}}
-          Choose the data language
+          {{t "referentialSelector.chooseCountry"}}
         {{else}}
-          Choose a referential country
+          {{t "referentialSelector.chooseLanguage"}}
         {{/if}}
       </span>
     </div>
     <div class="m-dropdown__body">
       <div class="m-dropdown__content referential-selector__content">
         <div class="countries {{if pendingCountry "translate-left"}}">
-          <h4 class="m--margin-bottom-15">RSI</h4>
+          <h4 class="m--margin-bottom-15">{{t "referentialSelector.rsi"}}</h4>
           <ul class="vertical-list">
             {{#each localizedReferentials.RSIReferentials as |country|}}
               <li class="vertical-list__item">
@@ -35,14 +35,14 @@
               </li>
             {{/each}}
           </ul>
-          <h4 class="m--margin-top-30 m--margin-bottom-15">Jato</h4>
+          <h4 class="m--margin-top-30 m--margin-bottom-15">{{t "referentialSelector.jato"}}</h4>
           <ul class="vertical-list">
             {{#each localizedReferentials.JatoReferentials as |country|}}
               <li class="vertical-list__item">
                 <button class="media referential-choice" {{action "changeOriginCountry" country preventDefault=true}}>
-                  <img src="/assets/flags/{{country.flag}}.png" alt={{country.label}} title={{country.label}} class="align-self-center mr-3 referential-choice__img">
+                  <img src="/assets/flags/{{country.flag}}.png" alt={{t country.labelKey}} title={{t country.labelKey}} class="align-self-center mr-3 referential-choice__img">
                   <div class="media-body align-self-center">
-                    <span>{{country.label}}</span>
+                    <span>{{t country.labelKey}}</span>
                   </div>
                 </button>
               </li>
@@ -51,20 +51,19 @@
         </div>
 
         <div class="country-languages {{if pendingCountry "translate-left"}}">
-          {{!-- <button class="btn btn-secondary m--margin-bottom-15" {{action "resetPendingCountry"}}><i class="la la-arrow-left m--margin-right-5"></i>Countries</button> --}}
           <h4 class="language-selector__title m--margin-bottom-15">
             <button class="m--margin-right-15" {{action "resetPendingCountry"}}>
               <i class="la la-arrow-circle-o-left"></i>
             </button>
-            <span class="language-selector__title__text">Languages</span>
+            <span class="language-selector__title__text">{{t "referentialSelector.languages"}}</span>
           </h4>
           <ul class="vertical-list">
             {{#each pendingCountry.langs as |lang|}}
               <li class="vertical-list__item">
                 <button class="media referential-choice" {{action "chooseLang" pendingCountry lang preventDefault=true}}>
-                  <img src="/assets/flags/{{lang.flag}}.png" alt={{lang.label}} title={{lang.label}} class="align-self-center mr-3 referential-choice__img">
+                  <img src="/assets/flags/{{lang.flag}}.png" alt={{t lang.labelKey}} title={{t lang.labelKey}} class="align-self-center mr-3 referential-choice__img">
                   <div class="media-body align-self-center">
-                    <span>{{lang.label}}</span>
+                    <span>{{t lang.labelKey}}</span>
                   </div>
                 </button>
               </li>

@@ -44,6 +44,30 @@
       "latestVehicles": "Latest vehicles"
     }
   },
+  "referentialSelector": {
+    "title": "Referentials",
+    "chooseCountry": "Choose a referential country",
+    "chooseLanguage": "Choose the data language",
+    "rsi": "RSI",
+    "jato": "JATO",
+    "languages": "Languages",
+    "countries": {
+      "fr": "France",
+      "ma": "Morocco",
+      "ci": "Ivory Coast",
+      "be": "Belgium",
+      "es": "Spain",
+      "pt": "Portugal",
+      "ro": "Romania"
+    },
+    "langs": {
+      "en": "English",
+      "es": "Spanish",
+      "fr": "French",
+      "pt": "Portuguese",
+      "ro": "Romanian"
+    }
+  },
   "login": {
     "title": {
       "signIn": "Sign in"

@@ -44,6 +44,30 @@
       "latestVehicles": "Derniers véhicules"
     }
   },
+  "referentialSelector": {
+    "title": "Référentiels",
+    "chooseCountry": "Choisissez une référentiel national ",
+    "chooseLanguage": "Choisissez la langue des données",
+    "rsi": "RSI",
+    "jato": "JATO",
+    "languages": "Langues",
+    "countries": {
+      "fr": "France",
+      "ma": "Maroc",
+      "ci": "Côte d'ivoire",
+      "be": "Belgique",
+      "es": "Espagne",
+      "pt": "Portugal",
+      "ro": "Roumanie"
+    },
+    "langs": {
+      "en": "Anglais",
+      "es": "Espagnol",
+      "fr": "Français",
+      "pt": "Portugais",
+      "ro": "Roumain"
+    }
+  },
   "login": {
     "title": {
       "signIn": "Identifiez-vous"

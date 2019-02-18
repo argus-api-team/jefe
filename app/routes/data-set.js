@@ -11,11 +11,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
     const dataSetPrefix = dataSet.replace('-', '/');
     const localizedReferentials = this.get('localizedReferentials');
     localizedReferentials.set('dataSetPrefix', dataSetPrefix);
-    // console.log(ApplicationAdapter);
-    // console.log(dataSetPrefix);
-    // ApplicationAdapter.reopen({
-    //   dataSetPrefix,
-    // });
     return params;
   },
 });
