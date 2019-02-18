@@ -2,7 +2,7 @@ import Service from '@ember/service';
 
 export default Service.extend({
 
-  dataSetPrefix: '',
+  activeDataSet: '',
 
   RSIReferentials: Object.freeze([
     {
