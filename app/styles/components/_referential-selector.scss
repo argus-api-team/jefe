@@ -22,6 +22,12 @@
   }
 }
 
+.referential-selector {
+  .m-dropdown__toggle {
+    line-height: 70px;
+    text-transform: uppercase;
+  }
+}
 
 .referential-selector__content {
   position: relative;
