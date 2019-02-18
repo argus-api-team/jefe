@@ -12,7 +12,6 @@ export default Component.extend({
     'm-topbar__notifications--img',
     'm-dropdown',
     'm-dropdown--large',
-    'm-dropdown--header-bg-fill',
     'm-dropdown--arrow',
     'm-dropdown--align-right',
     'm-dropdown--mobile-full-width',

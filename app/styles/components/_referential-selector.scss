@@ -27,6 +27,15 @@
     line-height: 70px;
     text-transform: uppercase;
   }
+
+  .m-dropdown__header {
+    background: array-get($m--state-colors, brand, base);
+    color: array-get($m--typography-colors, dark, regular, base);
+  }
+
+  .m-dropdown__arrow {
+    color: array-get($m--state-colors, brand, base) !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+  }
 }
 
 .referential-selector__content {
