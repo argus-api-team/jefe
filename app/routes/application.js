@@ -11,18 +11,18 @@ export default Route.extend(ApplicationRouteMixin, {
   intl: service(),
 
   beforeModel() {
-    const lang = this._selectLang();
-    this.intl.setLocale(lang); /* array optional */
-    $('html').attr('lang', lang);
+    const locale = this._selectLocale();
+    this.intl.setLocale(locale); /* array optional */
+    $('html').attr('locale', locale);
   },
 
-  _selectLang() {
+  _selectLocale() {
     const { allowedLocales, defaultLocale } = config.intl;
     let setLanguage = defaultLocale;
     if (navigator.languages) {
-      navigator.languages.some((lang) => {
-        if (allowedLocales.indexOf(lang) > -1) {
-          setLanguage = lang;
+      navigator.languages.some((locale) => {
+        if (allowedLocales.indexOf(locale) > -1) {
+          setLanguage = locale;
           return true;
         }
         return false;

@@ -22,5 +22,8 @@ export default Component.extend({
     invalidateSession() {
       this.get('session').invalidate();
     },
+    updateLocale(locale) {
+      this.intl.setLocale(locale);
+    },
   },
 });

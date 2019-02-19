@@ -68,11 +68,11 @@
                         data-mobile-max-height="200"
                       >
                         <ul class="flag-list">
-                          {{#each locales as |lang|}}
+                          {{#each locales as |locale|}}
                             <li>
-                              {{#link-to "data-set" lang }}
-                                <img src="/assets/flags/{{lang}}_small.png" class="flag"  alt={{lang}}>
-                              {{/link-to}}
+                              <button {{action "updateLocale" locale}}>
+                                <img src="/assets/flags/{{locale}}_small.png" class="flag" alt={{locale}}>
+                              </button>
                             </li>
                           {{/each}}
                         </ul>
