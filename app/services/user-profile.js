@@ -4,6 +4,13 @@ import { computed } from '@ember/object';
 
 export default Service.extend({
   session: service(),
+  userSettings: service(),
+
+  userPreference: null,
+
+  init() {
+    this._super(...arguments);
+  },
 
   userToken: computed('session.isAuthenticated', function () {
     const session = this.get('session');

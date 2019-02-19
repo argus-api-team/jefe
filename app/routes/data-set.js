@@ -5,6 +5,11 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   localizedReferentials: service(),
+  userSettings: service(),
+
+  beforeModel() {
+    this.get('userSettings');
+  },
 
   model(params) {
     const dataSet = params.data_set;
