@@ -8,6 +8,16 @@ export default Service.extend({
     return this.get('dataSetPrefix') === 'fr/fr';
   }),
 
+
+  isRsiReferential: computed('dataSetPrefix', 'RsiPrefixes', function () {
+    return this.get('RsiPrefixes').includes(this.get('dataSetPrefix'));
+  }),
+  RsiPrefixes: Object.freeze([
+    'fr/fr',
+    'ma/fr',
+    'ci/fr',
+  ]),
+
   RSIReferentials: Object.freeze([
     {
       label: 'France',
