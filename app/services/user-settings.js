@@ -53,7 +53,6 @@ export default Service.extend({
    * Handle User locale setting
    */
 
-
   _setUserLocal() {
     const { locale } = this.userSettings;
     this.intl.setLocale(locale);
