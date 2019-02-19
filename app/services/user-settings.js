@@ -9,6 +9,7 @@ export default Service.extend({
   init() {
     this._super(...arguments);
     this._loadUserSettings();
+    this._initStorageListerner();
   },
 
   userSettings: null,
@@ -46,6 +47,23 @@ export default Service.extend({
     };
     localStorage.setItem(`${userId}-settings`, JSON.stringify(userSettings));
     this.set('userSettings', userSettings);
+  },
+
+  /**
+   * Tabs Synchronisation
+   */
+
+  _initStorageListerner() {
+    window.addEventListener('storage', (e) => {
+      const userProfile = this.get('userProfile');
+      const userId = userProfile.get('userId');
+      if (!userId) {
+        return;
+      }
+      if (e.key === `${userId}-settings`) {
+        this._loadUserSettings();
+      }
+    });
   },
 
 
