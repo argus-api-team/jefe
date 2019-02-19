@@ -31,6 +31,7 @@ export default DS.Model.extend(Validations, {
   releasedAt: DS.attr('date'),
   businessTarget: DS.attr('string'),
   originCountry: DS.attr('string'),
+  fromCountryOfOrigin: DS.attr('boolean'),
   // Custom, Past, exchange
   calculatedFor: DS.attr('date'),
 

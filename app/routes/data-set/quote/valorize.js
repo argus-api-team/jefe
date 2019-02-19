@@ -5,6 +5,8 @@ export default Route.extend({
   model() {
     return this.store.createRecord('valorization', {
       businessTarget: 'btoc',
+      fromCountryOfOrigin: false,
+      originCountry: "FR"
     });
   },
   unloadIncompleteValorizeRecord: on('deactivate', function () {
