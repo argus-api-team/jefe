@@ -7,8 +7,8 @@
   width: 100%;
   padding: 5px;
   transition: background .2s, color .2s;
+  color: array-get($m--typography-colors, light, regular, base);
   text-align: left;
-
 
   .referential-choice__img {
     width: 50px;
@@ -18,6 +18,7 @@
   &:hover {
     background: array-get($m--state-colors, primary, base);
     color: array-get($m--typography-colors, dark, regular, base);
+    text-decoration: none;
     cursor: pointer;
   }
 }
