@@ -5,6 +5,7 @@ import mLayout from 'metronic-layout';
 
 export default Component.extend({
   router: service(),
+  localizedReferentials: service(),
   elementId: 'm_aside_left',
   classNames: ['page-sidebar-wrapper', 'm-grid__item', 'm-aside-left', 'm-aside-left--skin-dark'],
   activeSideMenuClass: 'm-menu__item--expanded m-menu__item--active',

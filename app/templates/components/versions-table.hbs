@@ -163,24 +163,26 @@
           </div>
           <div class="col version-item__id">
             <span class="version-item__id__text">{{version.id}}</span>
-            {{#if version.quotable}}
-              <br>
-              {{#link-to
-                "data-set.quote.valorize.vehicle-identification"
-                (query-params oid=version.id)
-                class="btn btn-primary btn-sm m--margin-top-5"
-              }}
-                {{t "valorization.index.valorize"}}
-              {{/link-to}}
-            {{else if version.prevarable}}
-              <br>
-              {{#link-to
-                "data-set.quote.valorize.vehicle-identification"
-                (query-params oid=version.id)
-                class="btn btn-primary btn-sm m--margin-top-5"
-              }}
-                {{t "valorization.index.valorize"}}
-              {{/link-to}}
+            {{#if localizedReferentials.isFrenchReferential}}
+              {{#if version.quotable}}
+                <br>
+                {{#link-to
+                  "data-set.quote.valorize.vehicle-identification"
+                  (query-params oid=version.id)
+                  class="btn btn-primary btn-sm m--margin-top-5"
+                }}
+                  {{t "valorization.index.valorize"}}
+                {{/link-to}}
+              {{else if version.prevarable}}
+                <br>
+                {{#link-to
+                  "data-set.quote.valorize.vehicle-identification"
+                  (query-params oid=version.id)
+                  class="btn btn-primary btn-sm m--margin-top-5"
+                }}
+                  {{t "valorization.index.valorize"}}
+                {{/link-to}}
+              {{/if}}
             {{/if}}
           </div>
         {{/link-to}}

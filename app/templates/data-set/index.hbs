@@ -10,7 +10,7 @@
 <div class="m-content">
   <div class="row m--margin-bottom-30">
 
-    <div class="col-md-4 col-12">
+    <div class="{{if localizedReferentials.isFrenchReferential "col-md-4"}} col-12">
       <div class="m-portlet card text-center">
         <div class="card-icon text-danger">
           <i class="la la-car"></i>
@@ -25,36 +25,38 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 col-12">
-      <div class="m-portlet card text-center">
-        <div class="card-icon text-info">
-          <i class="la la-search"></i>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">{{t "index.licensePlate.title"}}</h3>
-          {{t "index.licensePlate.description"}}
-          <hr>
-          {{#link-to "data-set.license-plate" class="btn btn-primary"}}
-            {{t "index.licensePlate.button"}}
-          {{/link-to}}
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 col-12">
-      <div class="m-portlet card text-center">
-        <div class="card-icon text-success">
-          <i class="la la-bar-chart"></i>
-        </div>
-        <div class="card-body">
-          <h3 class="card-title">{{t "index.quote.title"}}</h3>
-          {{t "index.quote.description"}}
-          <hr>
-          {{#link-to "data-set.quote" class="btn btn-primary"}}
-            {{t "index.quote.button"}}
-          {{/link-to}}
+    {{#if localizedReferentials.isFrenchReferential}}
+      <div class="col-md-4 col-12">
+        <div class="m-portlet card text-center">
+          <div class="card-icon text-info">
+            <i class="la la-search"></i>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">{{t "index.licensePlate.title"}}</h3>
+            {{t "index.licensePlate.description"}}
+            <hr>
+            {{#link-to "data-set.license-plate" class="btn btn-primary"}}
+              {{t "index.licensePlate.button"}}
+            {{/link-to}}
+          </div>
         </div>
       </div>
-    </div>
+      <div class="col-md-4 col-12">
+        <div class="m-portlet card text-center">
+          <div class="card-icon text-success">
+            <i class="la la-bar-chart"></i>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">{{t "index.quote.title"}}</h3>
+            {{t "index.quote.description"}}
+            <hr>
+            {{#link-to "data-set.quote" class="btn btn-primary"}}
+              {{t "index.quote.button"}}
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
+    {{/if}}
 
   </div>
   <div class="row">

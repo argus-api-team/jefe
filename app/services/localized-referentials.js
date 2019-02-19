@@ -1,8 +1,12 @@
 import Service from '@ember/service';
+import { computed } from '@ember/object';
 
 export default Service.extend({
 
   dataSetPrefix: '',
+  isFrenchReferential: computed('dataSetPrefix', function () {
+    return this.get('dataSetPrefix') === 'fr/fr';
+  }),
 
   RSIReferentials: Object.freeze([
     {

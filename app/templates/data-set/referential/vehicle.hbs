@@ -186,16 +186,20 @@
                 </div>
               </div>
             </div>
-            <hr class="m--margin-top-15 m--margin-bottom-15">
-            <div class="text-right m--margin-top-25">
-              {{#link-to
-                "data-set.quote.valorize.vehicle-identification"
-                (query-params oid=model.vehicle.id)
-                class="btn btn-primary"
-              }}
-                {{t "valorization.index.valorize"}}
-              {{/link-to}}
-            </div>
+            {{#if localizedReferentials.isFrenchReferential}}
+              {{#if model.quotable}}
+                <hr class="m--margin-top-15 m--margin-bottom-15">
+                <div class="text-right m--margin-top-25">
+                  {{#link-to
+                    "data-set.quote.valorize.vehicle-identification"
+                    (query-params oid=model.vehicle.id)
+                    class="btn btn-primary"
+                  }}
+                    {{t "valorization.index.valorize"}}
+                  {{/link-to}}
+                </div>
+              {{/if}}
+            {{/if}}
           </div>
         </div>
       {{/sticky-element}}

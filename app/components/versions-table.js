@@ -7,6 +7,7 @@ export default Component.extend({
 
   classNames: ['versions-table'],
 
+  localizedReferentials: service(),
   intl: service(),
 
   sortBy: '',
