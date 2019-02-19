@@ -7,6 +7,7 @@ export default Component.extend({
 
   intl: service(),
   session: service(),
+  userProfile: service(),
   userSettings: service(),
 
   tagName: 'header',

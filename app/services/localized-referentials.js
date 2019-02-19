@@ -8,6 +8,7 @@ export default Service.extend({
     {
       label: 'France',
       labelKey: 'referentialSelector.countries.fr',
+      defautPrefix: 'fr-fr',
       prefix: 'fr',
       flag: 'fr',
       langs: [
@@ -21,6 +22,7 @@ export default Service.extend({
     {
       label: 'Maroc',
       labelKey: 'referentialSelector.countries.ma',
+      defautPrefix: 'ma-fr',
       prefix: 'ma',
       flag: 'ma',
       langs: [
@@ -34,6 +36,7 @@ export default Service.extend({
     {
       label: 'Côte d\'ivoire',
       labelKey: 'referentialSelector.countries.ci',
+      defautPrefix: 'ci-fr',
       prefix: 'ci',
       flag: 'ci',
       langs: [
@@ -50,6 +53,7 @@ export default Service.extend({
     {
       label: 'Belgique',
       labelKey: 'referentialSelector.countries.be',
+      defautPrefix: 'be-en',
       prefix: 'be',
       flag: 'be',
       langs: [
@@ -70,6 +74,7 @@ export default Service.extend({
     {
       label: 'Espagne',
       labelKey: 'referentialSelector.countries.es',
+      defautPrefix: 'es-en',
       prefix: 'es',
       flag: 'es',
       langs: [
@@ -90,6 +95,7 @@ export default Service.extend({
     {
       label: 'Portugal',
       labelKey: 'referentialSelector.countries.pt',
+      defautPrefix: 'pt-en',
       prefix: 'pt',
       flag: 'pt',
       langs: [
@@ -110,6 +116,7 @@ export default Service.extend({
     {
       label: 'Roumanie',
       labelKey: 'referentialSelector.countries.ro',
+      defautPrefix: 'ro-en',
       prefix: 'ro',
       flag: 'ro',
       langs: [
