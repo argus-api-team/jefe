@@ -14,7 +14,8 @@
     "copy": "2018 © Jefe par",
     "name": "Jefe",
     "gen": "Gén.",
-    "ph": "Pe."
+    "ph": "Pe.",
+    "date": "Date"
   },
   "index": {
     "header": "Les possibilités de l'API",

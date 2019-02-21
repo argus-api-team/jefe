@@ -5,6 +5,9 @@
         <h3 class="m-portlet__head-text">{{t "modelTimeline.phases"}}</h3>
       </div>
     </div>
+    <div class="m-portlet__head-tools">
+      <span>{{t "application.date"}}</span>
+    </div>
   </div>
   <div class="m-portlet__body informations-portlet">
     <ul class="vertical-list">
@@ -18,6 +21,9 @@
             <section class="infos">
               {{t "modelTimeline.phase"}} {{phase.name}}
             </section>
+            <span class="digit-date">
+              {{phase.displayDateDigit}}
+            </span>
           {{/link-to}}
         </li>
       {{/each}}

@@ -62,31 +62,31 @@
     <div class="col-8">
       <div class="row">
         {{#if localizedReferentials.isRsiReferential}}
-        <div class="col-6">
-          <div class="m-portlet">
-            <div class="m-portlet__head">
-              <div class="m-portlet__head-caption">
-                <div class="m-portlet__head-title">
-                  <h3 class="m-portlet__head-text">{{t "makeSheet.topVehicles"}}</h3>
+          <div class="col-6">
+            <div class="m-portlet">
+              <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                  <div class="m-portlet__head-title">
+                    <h3 class="m-portlet__head-text">{{t "makeSheet.topVehicles"}}</h3>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
-              <ul class="vertical-list">
-                {{#each model.topMakeVehicles as |vehicle|}}
-                  <li class="vertical-list__item">
-                    {{#link-to "data-set.referential.vehicle" vehicle.id class="list-item-content"}}
-                      <section class="infos">
-                        <h5>{{vehicle.submodel.fullNicename}}</h5>
-                        <p class="list-datetime">{{vehicle.name}}</p>
-                      </section>
-                    {{/link-to}}
-                  </li>
-                {{/each}}
-              </ul>
+              <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+                <ul class="vertical-list">
+                  {{#each model.topMakeVehicles as |vehicle|}}
+                    <li class="vertical-list__item">
+                      {{#link-to "data-set.referential.vehicle" vehicle.id class="list-item-content"}}
+                        <section class="infos">
+                          <h5>{{vehicle.submodel.fullNicename}}</h5>
+                          <p class="list-datetime">{{vehicle.name}}</p>
+                        </section>
+                      {{/link-to}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
         {{/if}}
         <div class={{if localizedReferentials.isRsiReferential "col-6" "col-12"}}>
           <div class="m-portlet">
