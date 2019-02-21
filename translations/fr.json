@@ -130,7 +130,8 @@
     "generation": "Génération",
     "phase": "Phase",
     "generations": "Générations",
-    "phases": "Phases"
+    "phases": "Phases",
+    "versions": "Versions"
   },
   "versionsTable": {
     "loading": "Chargement des versions",

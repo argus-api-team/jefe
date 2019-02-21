@@ -77,6 +77,12 @@
       font-size: 11px;
     }
 
+    &:hover {
+      .digit-date {
+        color: array-get($m--state-colors, primary, base);
+      }
+    }
+
     &.active {
       background: array-get($m--state-colors, primary, base);
       color: $white;
@@ -89,12 +95,6 @@
     &.is-selected {
       background: array-get($m--state-colors, primary, base);
       color: $white;
-    }
-
-    &:hover {
-      .digit-date {
-        color: array-get($m--state-colors, primary, base);
-      }
     }
 
     &.is-selectable {
