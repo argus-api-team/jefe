@@ -61,6 +61,7 @@
     </div>
     <div class="col-8">
       <div class="row">
+        {{#if localizedReferentials.isRsiReferential}}
         <div class="col-6">
           <div class="m-portlet">
             <div class="m-portlet__head">
@@ -86,7 +87,8 @@
             </div>
           </div>
         </div>
-        <div class="col-6">
+        {{/if}}
+        <div class={{if localizedReferentials.isRsiReferential "col-6" "col-12"}}>
           <div class="m-portlet">
             <div class="m-portlet__head">
               <div class="m-portlet__head-caption">
