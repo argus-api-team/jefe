@@ -46,8 +46,8 @@
   },
   "referentialSelector": {
     "title": "Référentiels",
-    "chooseCountry": "Choisissez une référentiel national ",
-    "chooseLanguage": "Choisissez la langue des données",
+    "chooseCountry": "Choisissez un jeu de données.",
+    "chooseLanguage": "Choisissez la langue du catalogue",
     "rsi": "RSI",
     "jato": "JATO",
     "languages": "Langues",
