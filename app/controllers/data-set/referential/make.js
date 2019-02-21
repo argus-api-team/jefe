@@ -3,9 +3,10 @@ import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
 import { filter } from 'rsvp';
 import DS from 'ember-data';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-
+  localizedReferentials:service(),
   filteredCategories: computed('model.make.categories.@each.showCategory', function () {
     const categories = this.get('model.make.categories');
     return categories.filterBy('showCategory');
