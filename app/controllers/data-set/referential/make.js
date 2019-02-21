@@ -6,7 +6,7 @@ import DS from 'ember-data';
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
-  localizedReferentials:service(),
+  localizedReferentials: service(),
   filteredCategories: computed('model.make.categories.@each.showCategory', function () {
     const categories = this.get('model.make.categories');
     return categories.filterBy('showCategory');
