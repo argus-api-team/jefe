@@ -49,6 +49,7 @@
                   <br>
                   <span class="font-weight-bold">{{version.lastEngine.content.standardEmission}}</span>
                 {{/if}}
+                <br>
                 <span>
                   {{version.energy.masterName}}
                 </span>
@@ -69,7 +70,7 @@
                   {{t "techData.units.cv"}}
                 </span>
                 <br>
-                <span class="text-nowrap">
+                <span class="text-nowrap version-item__id__text">
                   {{if
                     version.lastEngine.content
                     version.lastEngine.content.id
@@ -92,13 +93,6 @@
                     }}
                     {{t "techData.units.hp"}}
                   </span>
-                </span>
-                <br>
-                <span>
-                  {{if
-                    version.lastEngine.content
-                    version.lastEngine.content.id
-                  }}
                   -
                   <span class="text-nowrap">
                     {{if
@@ -107,6 +101,13 @@
                     }}
                     {{t "techData.units.cv"}}
                   </span>
+                </span>
+                <br>
+                <span class="version-item__id__text text-nowrap">
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.id
+                  }}
                 </span>
               {{/if}}
             {{else}}
@@ -148,9 +149,9 @@
             </div>
           {{/if}}
           <div class="col version-item__date">
-            <span>{{version.startDate}}</span>
+            <span class="text-nowrap">{{version.startDate}}</span>
             <br>
-            <span>{{version.endDate}}</span>
+            <span class="text-nowrap">{{version.endDate}}</span>
           </div>
           <div class="col version-item__price text-right">
             {{#if version.lastPeriod.content.priceExcludingVat}}
