@@ -10,6 +10,6 @@ export default Mixin.create({
     const router = this.get('router');
     valorizationRecord.set('version', version);
     valorizationRecord.set('releasedAt', vehicleDate);
-    router.transitionTo('lang.quote.valorize.offer');
+    router.transitionTo('data-set.quote.valorize.offer');
   },
 });

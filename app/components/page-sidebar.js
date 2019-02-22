@@ -5,6 +5,7 @@ import mLayout from 'metronic-layout';
 
 export default Component.extend({
   router: service(),
+  localizedReferentials: service(),
   elementId: 'm_aside_left',
   classNames: ['page-sidebar-wrapper', 'm-grid__item', 'm-aside-left', 'm-aside-left--skin-dark'],
   activeSideMenuClass: 'm-menu__item--expanded m-menu__item--active',
@@ -19,18 +20,18 @@ export default Component.extend({
   },
 
   homeIsActive: computed('router.currentRouteName', function () {
-    return this.get('router.currentRouteName') === 'lang.index';
+    return this.get('router.currentRouteName') === 'data-set.index';
   }),
 
   referentialIsActive: computed('router.currentRouteName', function () {
-    return this.get('router.currentRouteName').indexOf('lang.referential') === 0;
+    return this.get('router.currentRouteName').indexOf('data-set.referential') === 0;
   }),
 
   quoteIsActive: computed('router.currentRouteName', function () {
-    return this.get('router.currentRouteName').indexOf('lang.quote') === 0;
+    return this.get('router.currentRouteName').indexOf('data-set.quote') === 0;
   }),
 
   licensePlateIsActive: computed('router.currentRouteName', function () {
-    return this.get('router.currentRouteName').indexOf('lang.license-plate') === 0;
+    return this.get('router.currentRouteName').indexOf('data-set.license-plate') === 0;
   }),
 });

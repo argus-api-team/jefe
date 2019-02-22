@@ -4,11 +4,18 @@ import ENV from 'jefe/config/environment';
 import HasManyQuery from 'ember-data-has-many-query';
 import { pluralize } from 'ember-inflector';
 import { isPresent } from '@ember/utils';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 // import Ember from 'ember';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, HasManyQuery.RESTAdapterMixin, {
+  localizedReferentials: service(),
+
   host: ENV.API_URL,
-  namespace: 'specs/2.0',
+  namespace: computed('baseUrl', 'localizedReferentials.dataSetPrefix', function () {
+    const dataSetPrefix = this.get('localizedReferentials').get('dataSetPrefix');
+    return dataSetPrefix ? `${dataSetPrefix}/${this.get('baseUrl')}` : this.get('baseUrl');
+  }),
   coalesceFindRequests: true,
   urlForFindMany(ids, modelName) {
     const endpoint = pluralize(modelName);
@@ -20,4 +27,6 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, HasManyQuery.RESTAdapt
       xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
     }
   },
+
+  baseUrl: 'specs/2.0',
 });

@@ -72,9 +72,24 @@
   border-bottom: 1px solid get-color($m--default-skin, panel);
 
   .list-item-content {
+    .digit-date {
+      color: array-get($m--typography-colors, light, regular, lighten1);
+      font-size: 11px;
+    }
+
+    &:hover {
+      .digit-date {
+        color: array-get($m--state-colors, primary, base);
+      }
+    }
+
     &.active {
       background: array-get($m--state-colors, primary, base);
       color: $white;
+
+      .digit-date {
+        color: array-get($m--typography-colors, dark, regular, base);
+      }
     }
 
     &.is-selected {
@@ -110,8 +125,13 @@
 
   &:hover {
     text-decoration: none;
+
+    .digit-date {
+      color: array-get($m--state-colors, primary, lighten1);
+    }
   }
 
+  // Primary content
   .infos {
     flex: 1;
     order: 2;
@@ -125,6 +145,7 @@
     color: array-get($m--state-colors, primary, base);
   }
 
+  // Left Image
   .logo-img {
     display: flex;
     flex-direction: column;
@@ -141,9 +162,15 @@
     }
   }
 
+  // Right Elements
   .candidate-frequency {
     order: 3;
   }
+
+  .digit-date {
+    order: 3;
+  }
+
 }
 
 .m-portlet__body {

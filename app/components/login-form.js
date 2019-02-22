@@ -2,7 +2,8 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 
 export default Component.extend({
-  session: service('session'),
+  session: service(),
+  router: service(),
 
   tagName: 'form',
   classNames: ['login-form', 'm-portlet'],
@@ -32,7 +33,7 @@ export default Component.extend({
       this.set('isLogingIn', true);
       this.get('session').authenticate('authenticator:oauth2', applicationId, applicationSecret, username, password)
         .then(() => {
-          this.get('controller').transitionToRoute('lang', { lang: this.get('controller.lang') });
+          this.get('router').transitionTo('index');
         })
         .catch((reason) => {
           this.set('errorMessage', reason.error);

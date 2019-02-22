@@ -1,0 +1,32 @@
+<div class="m-portlet">
+  <div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+      <div class="m-portlet__head-title">
+        <h3 class="m-portlet__head-text">{{t "modelTimeline.phases"}}</h3>
+      </div>
+    </div>
+    <div class="m-portlet__head-tools">
+      <span>{{t "application.date"}}</span>
+    </div>
+  </div>
+  <div class="m-portlet__body informations-portlet">
+    <ul class="vertical-list">
+      {{#each sortedPhases as |phase|}}
+        <li class="vertical-list__item">
+          {{#link-to
+            "data-set.referential.model.generation.phase"
+            phase.id
+            class="list-item-content"
+          }}
+            <section class="infos">
+              {{t "modelTimeline.phase"}} {{phase.name}}
+            </section>
+            <span class="digit-date">
+              {{phase.displayDateDigit}}
+            </span>
+          {{/link-to}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

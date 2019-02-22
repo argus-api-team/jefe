@@ -28,7 +28,7 @@
     {{#each sortedVersions as |version|}}
       <li class="vertical-list__item versions-table__item">
         {{#link-to
-          "lang.referential.vehicle"
+          "data-set.referential.vehicle"
           version.id
           class="row m--padding-top-20 m--padding-bottom-20 align-items-top versions-table__content"
         }}
@@ -49,6 +49,7 @@
                   <br>
                   <span class="font-weight-bold">{{version.lastEngine.content.standardEmission}}</span>
                 {{/if}}
+                <br>
                 <span>
                   {{version.energy.masterName}}
                 </span>
@@ -69,7 +70,7 @@
                   {{t "techData.units.cv"}}
                 </span>
                 <br>
-                <span class="text-nowrap">
+                <span class="text-nowrap version-item__id__text">
                   {{if
                     version.lastEngine.content
                     version.lastEngine.content.id
@@ -92,13 +93,6 @@
                     }}
                     {{t "techData.units.hp"}}
                   </span>
-                </span>
-                <br>
-                <span>
-                  {{if
-                    version.lastEngine.content
-                    version.lastEngine.content.id
-                  }}
                   -
                   <span class="text-nowrap">
                     {{if
@@ -107,6 +101,13 @@
                     }}
                     {{t "techData.units.cv"}}
                   </span>
+                </span>
+                <br>
+                <span class="version-item__id__text text-nowrap">
+                  {{if
+                    version.lastEngine.content
+                    version.lastEngine.content.id
+                  }}
                 </span>
               {{/if}}
             {{else}}
@@ -148,9 +149,9 @@
             </div>
           {{/if}}
           <div class="col version-item__date">
-            <span>{{version.startDate}}</span>
+            <span class="text-nowrap">{{version.startDate}}</span>
             <br>
-            <span>{{version.endDate}}</span>
+            <span class="text-nowrap">{{version.endDate}}</span>
           </div>
           <div class="col version-item__price text-right">
             {{#if version.lastPeriod.content.priceExcludingVat}}
@@ -163,24 +164,26 @@
           </div>
           <div class="col version-item__id">
             <span class="version-item__id__text">{{version.id}}</span>
-            {{#if version.quotable}}
-              <br>
-              {{#link-to
-                "lang.quote.valorize.vehicle-identification"
-                (query-params oid=version.id)
-                class="btn btn-primary btn-sm m--margin-top-5"
-              }}
-                {{t "valorization.index.valorize"}}
-              {{/link-to}}
-            {{else if version.prevarable}}
-              <br>
-              {{#link-to
-                "lang.quote.valorize.vehicle-identification"
-                (query-params oid=version.id)
-                class="btn btn-primary btn-sm m--margin-top-5"
-              }}
-                {{t "valorization.index.valorize"}}
-              {{/link-to}}
+            {{#if localizedReferentials.isFrenchReferential}}
+              {{#if version.quotable}}
+                <br>
+                {{#link-to
+                  "data-set.quote.valorize.vehicle-identification"
+                  (query-params oid=version.id)
+                  class="btn btn-primary btn-sm m--margin-top-5"
+                }}
+                  {{t "valorization.index.valorize"}}
+                {{/link-to}}
+              {{else if version.prevarable}}
+                <br>
+                {{#link-to
+                  "data-set.quote.valorize.vehicle-identification"
+                  (query-params oid=version.id)
+                  class="btn btn-primary btn-sm m--margin-top-5"
+                }}
+                  {{t "valorization.index.valorize"}}
+                {{/link-to}}
+              {{/if}}
             {{/if}}
           </div>
         {{/link-to}}

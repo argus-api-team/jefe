@@ -6,6 +6,8 @@ import { singularize } from 'ember-inflector';
 
 export default Service.extend({
   store: service(),
+  userProfile: service(),
+
   init() {
     this._super(...arguments);
     this._setTokenAndChannelId();
@@ -14,9 +16,8 @@ export default Service.extend({
   },
 
   _setTokenAndChannelId() {
-    const token = JSON.parse(localStorage.getItem('ember_simple_auth-session')).authenticated.access_token;
-    this.set('token', token);
-    const userId = JSON.parse(window.atob(token.split('.')[1])).ctx.user.id;
+    const userProfile = this.get('userProfile');
+    const userId = userProfile.get('userId');
     const channelName = `argus-api-${userId}`;
     this.set('channelName', channelName);
   },

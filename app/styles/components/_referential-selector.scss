@@ -1,0 +1,71 @@
+.referential-choices {
+  padding: 0;
+  list-style-type: none;
+}
+
+.referential-choice {
+  width: 100%;
+  padding: 5px;
+  transition: background .2s, color .2s;
+  color: array-get($m--typography-colors, light, regular, base);
+  text-align: left;
+
+  .referential-choice__img {
+    width: 50px;
+    border-radius: 2px;
+  }
+
+  &:hover {
+    background: array-get($m--state-colors, primary, base);
+    color: array-get($m--typography-colors, dark, regular, base);
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.referential-selector {
+  .m-dropdown__toggle {
+    line-height: 70px;
+    text-transform: uppercase;
+  }
+
+  .m-dropdown__header {
+    background: array-get($m--state-colors, brand, base);
+    color: array-get($m--typography-colors, dark, regular, base);
+  }
+
+  .m-dropdown__arrow {
+    color: array-get($m--state-colors, brand, base) !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+  }
+}
+
+.referential-selector__content {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .country-languages {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+  }
+
+  .countries,
+  .country-languages {
+    transition: transform .4s;
+
+    &.translate-left {
+      transform: translate3d(-100%, 0 , 0);
+    }
+  }
+
+  .language-selector__title {
+    display: flex;
+    align-items: center;
+
+    .la {
+      font-size: 32px;
+    }
+  }
+}

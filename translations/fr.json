@@ -11,10 +11,11 @@
     "dateFormat": "DD/MM/YYYY",
     "currency": "€",
     "argusGroup": "Groupe Argus",
-    "copy": "2018 &copy; Jefe par",
+    "copy": "2018 © Jefe par",
     "name": "Jefe",
     "gen": "Gén.",
-    "ph": "Pe."
+    "ph": "Pe.",
+    "date": "Date"
   },
   "index": {
     "header": "Les possibilités de l'API",
@@ -42,6 +43,30 @@
       "topMakes": "Marques populaires",
       "topVehicles": "Véhicules populaires",
       "latestVehicles": "Derniers véhicules"
+    }
+  },
+  "referentialSelector": {
+    "title": "Référentiels",
+    "chooseCountry": "Choisissez un jeu de données.",
+    "chooseLanguage": "Choisissez la langue du catalogue",
+    "rsi": "RSI",
+    "jato": "JATO",
+    "languages": "Langues",
+    "countries": {
+      "fr": "France",
+      "ma": "Maroc",
+      "ci": "Côte d'ivoire",
+      "be": "Belgique",
+      "es": "Espagne",
+      "pt": "Portugal",
+      "ro": "Roumanie"
+    },
+    "langs": {
+      "en": "Anglais",
+      "es": "Espagnol",
+      "fr": "Français",
+      "pt": "Portugais",
+      "ro": "Roumain"
     }
   },
   "login": {
@@ -105,7 +130,8 @@
     "generation": "Génération",
     "phase": "Phase",
     "generations": "Générations",
-    "phases": "Phases"
+    "phases": "Phases",
+    "versions": "Versions"
   },
   "versionsTable": {
     "loading": "Chargement des versions",

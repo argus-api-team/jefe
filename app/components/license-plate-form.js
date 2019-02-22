@@ -57,9 +57,9 @@ export default Component.extend({
       matching.set('isSearching', true);
       this.set('resolvedMatchingRecord', matchingRecord);
       this._initNewMatchingRecord();
-      if (router.isActive('lang.license-plate')) {
+      if (router.isActive('data-set.license-plate')) {
         this.refreshModel();
-        router.transitionTo('lang.license-plate.matching', matchingRecord.get('id'));
+        router.transitionTo('data-set.license-plate.matching', matchingRecord.get('id'));
       }
     });
   },

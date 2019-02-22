@@ -1,0 +1,152 @@
+<div class="m-subheader ">
+  <div class="d-flex align-items-center">
+    <div class="mr-auto">
+      <h1 class="m-subheader__title m-subheader__title--separator">
+        {{t "application.home"}}
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="m-content">
+  <div class="row m--margin-bottom-30">
+
+    <div class="{{if localizedReferentials.isFrenchReferential "col-md-4"}} col-12">
+      <div class="m-portlet card text-center">
+        <div class="card-icon text-danger">
+          <i class="la la-car"></i>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">{{t "index.referential.title"}}</h3>
+          {{t "index.referential.description"}}
+          <hr>
+          {{#link-to "data-set.referential.makes" class="btn btn-primary"}}
+            {{t "index.referential.button"}}
+          {{/link-to}}
+        </div>
+      </div>
+    </div>
+    {{#if localizedReferentials.isFrenchReferential}}
+      <div class="col-md-4 col-12">
+        <div class="m-portlet card text-center">
+          <div class="card-icon text-info">
+            <i class="la la-search"></i>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">{{t "index.licensePlate.title"}}</h3>
+            {{t "index.licensePlate.description"}}
+            <hr>
+            {{#link-to "data-set.license-plate" class="btn btn-primary"}}
+              {{t "index.licensePlate.button"}}
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-12">
+        <div class="m-portlet card text-center">
+          <div class="card-icon text-success">
+            <i class="la la-bar-chart"></i>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">{{t "index.quote.title"}}</h3>
+            {{t "index.quote.description"}}
+            <hr>
+            {{#link-to "data-set.quote" class="btn btn-primary"}}
+              {{t "index.quote.button"}}
+            {{/link-to}}
+          </div>
+        </div>
+      </div>
+    {{/if}}
+
+  </div>
+  <div class="row">
+
+    <div class="col-12 {{if localizedReferentials.isRsiReferential "col-lg-12 col-xl-4" "col-lg-6"}}">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "index.dashboard.topMakes"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+          <ul class="vertical-list">
+            {{#each model.topMakes as |make|}}
+              <li class="vertical-list__item">
+                {{#link-to "data-set.referential.make" make.id class="list-item-content"}}
+                  <section class="infos">
+                    <h5>{{make.name}}</h5>
+                    <p>{{make.displayDate}}</p>
+                  </section>
+                  <div class="logo-img">
+                    {{logo-img url=make.logoURL className="thumbnail make-logo"}}
+                  </div>
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {{#if localizedReferentials.isRsiReferential}}
+      <div class="col-12 col-lg-6 col-xl-4">
+        <div class="m-portlet">
+          <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+              <div class="m-portlet__head-title">
+                <h3 class="m-portlet__head-text">{{t "index.dashboard.topVehicles"}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+            <ul class="vertical-list">
+              {{#each model.topVehicles as |vehicle|}}
+                <li class="vertical-list__item">
+                  {{#link-to "data-set.referential.vehicle" vehicle.id class="list-item-content"}}
+                    <section class="infos">
+                      <h5>{{vehicle.submodel.fullNicename}}</h5>
+                      <p>{{vehicle.name}}</p>
+                    </section>
+                    <div class="logo-img">
+                      {{logo-img url=vehicle.make.logoURL className="thumbnail make-logo"}}
+                    </div>
+                  {{/link-to}}
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="col-12 col-lg-6 {{if localizedReferentials.isRsiReferential "col-xl-4"}}">
+      <div class="m-portlet">
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">{{t "index.dashboard.latestVehicles"}}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="m-portlet__body m--padding-top-5 m--padding-bottom-5">
+          <ul class="vertical-list">
+            {{#each model.latestVehicles as |vehicle|}}
+              <li class="vertical-list__item">
+                {{#link-to "data-set.referential.vehicle" vehicle.id class="list-item-content"}}
+                  <section class="infos">
+                    <h5>{{vehicle.submodel.fullNicename}}</h5>
+                    <p>{{vehicle.name}}</p>
+                  </section>
+                  <div class="logo-img">
+                    {{logo-img url=vehicle.make.logoURL className="thumbnail make-logo"}}
+                  </div>
+                {{/link-to}}
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

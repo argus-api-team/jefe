@@ -4,8 +4,11 @@ import { computed } from '@ember/object';
 import mLayout from 'metronic-layout';
 
 export default Component.extend({
+
   intl: service(),
-  session: service('session'),
+  session: service(),
+  userProfile: service(),
+  userSettings: service(),
 
   tagName: 'header',
   classNames: ['m-grid__item', ' m-header'],
@@ -20,6 +23,10 @@ export default Component.extend({
   actions: {
     invalidateSession() {
       this.get('session').invalidate();
+    },
+    updateLocale(locale) {
+      const userSettings = this.get('userSettings');
+      userSettings.updateUserLocale(locale);
     },
   },
 });

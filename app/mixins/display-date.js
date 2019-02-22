@@ -16,7 +16,15 @@ export default Mixin.create({
     const format = 'MMM YYYY';
     return this.getDisplayDate(format);
   }),
-
+  displayDateDigit: computed('startDate', 'endDate', function () {
+    const format = 'MM/YY';
+    const formatedStartDate = moment(this.get('startDate')).format(format);
+    if (isEmpty(this.get('endDate'))) {
+      return formatedStartDate;
+    }
+    const formatedEndDate = moment(this.get('endDate')).format(format);
+    return `${formatedStartDate} - ${formatedEndDate}`;
+  }),
 
   getDisplayDate(format) {
     moment.locale(this.get('intl.locale'));

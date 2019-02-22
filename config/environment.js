@@ -63,8 +63,9 @@ module.exports = function(environment) {
   };
 
   ENV['ember-simple-auth'] = {
-    routeAfterAuthentication: 'lang',
-    routeIfAlreadyAuthenticated: 'lang'
+    routeAfterAuthentication: 'data-set',
+    routeIfAlreadyAuthenticated: 'data-set',
+    authenticationRoute: 'login',
   };
   if (environment !== 'production') {
     require('dotenv').config();

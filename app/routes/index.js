@@ -1,27 +1,17 @@
 import Route from '@ember/routing/route';
-import config from '../config/environment';
+import { inject as service } from '@ember/service';
+
 
 export default Route.extend({
+  session: service(),
+
   beforeModel() {
-    this.transitionTo('lang', { lang: this._selectLang() });
+    const session = this.get('session');
+    if (session.get('isAuthenticated')) {
+      this.transitionTo('data-set', 'fr-fr');
+    } else {
+      this.transitionTo('login');
+    }
   },
 
-  _selectLang() {
-    const { allowedLocales, defaultLocale } = config.intl;
-    let setLanguage = defaultLocale;
-    if (navigator.languages) {
-      navigator.languages.some((lang) => {
-        if (allowedLocales.indexOf(lang) > -1) {
-          setLanguage = lang;
-          return true;
-        }
-        return false;
-      });
-    } else if (navigator.language) {
-      setLanguage = navigator.language;
-    } else if (navigator.userLanguage) {
-      setLanguage = navigator.userLanguage;
-    }
-    return setLanguage;
-  },
 });
