@@ -13,15 +13,29 @@ build_dev:
 	docker build -t jefe-dev .
 
 start_dev:
-	docker run --rm -ti -v ${DIR}:/app -p ${SERVER_PORT}:${SERVER_PORT} -p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} -p ${TEST_PORT}:${TEST_PORT} ${DOCKER_IMAGE} \
-	bash -c "\
-	ember server"
+	docker run \
+		--rm \
+		-ti \
+		-v ${DIR}:/app \
+		-p ${SERVER_PORT}:${SERVER_PORT} \
+		-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
+		-p ${TEST_PORT}:${TEST_PORT} \
+		${DOCKER_IMAGE} \
+		bash -c \
+			"ember server"
 
 install_deps:
-	docker run --rm -ti -v ${DIR}:/app -p ${SERVER_PORT}:${SERVER_PORT} -p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} -p ${TEST_PORT}:${TEST_PORT} ${DOCKER_IMAGE} \
-	bash -c "\
-	npm i && \
-	bower i"
+	docker run \
+		--rm \
+		-ti \
+		-v ${DIR}:/app \
+		-p ${SERVER_PORT}:${SERVER_PORT} \
+		-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
+		-p ${TEST_PORT}:${TEST_PORT} \
+		${DOCKER_IMAGE} \
+		bash -c \
+			"npm i && \
+			bower i"
 
 clean:
 	rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${BOWER_FOLDER} ${TMP_FOLDER}
