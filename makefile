@@ -39,3 +39,6 @@ install_deps:
 
 clean:
 	rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${BOWER_FOLDER} ${TMP_FOLDER}
+
+inotify_patch:
+	docker run --rm --privileged ${DOCKER_IMAGE} sysctl -w fs.inotify.max_user_watches=524288
