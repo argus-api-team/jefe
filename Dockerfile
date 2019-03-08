@@ -1,5 +1,5 @@
 
-FROM node:10.15.0
+FROM node:10.15.0-slim
 
 ENV APP_USER node
 ENV APP_FOLDER /app
@@ -11,6 +11,13 @@ RUN \
   apt-get update -y && \
   apt-get install -y \
     python-dev \
+    git \
+    libssl-dev \
+    build-essential \
+    autoconf \
+    automake \
+    libtool \
+    pkg-config \
     apt-transport-https \
     gnupg \
     --no-install-recommends && \
@@ -35,11 +42,16 @@ RUN \
 # Clean installation source and package
   apt-get remove -y \
     python-dev \
+    libssl-dev \
+    build-essential \
+    autoconf \
+    automake \
+    libtool \
+    pkg-config \
     apt-transport-https \
     gnupg && \
 # Remove watchman bbuild Dir
   rm -rf watchman
-
 
   RUN \
 # Update NPM
