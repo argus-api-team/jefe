@@ -45,19 +45,19 @@ start_project:
 
 #Clean targets
 clean_project:
-	rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${BOWER_FOLDER} ${TMP_FOLDER}
+	- rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${BOWER_FOLDER} ${TMP_FOLDER}
 
 clean_docker_img:
-	dokcer image rm ${DOCKER_IMAGE}:${DOCKER_IMAGE}
+	- docker image rm ${DOCKER_IMAGE}:${DOCKER_IMAGE}
 
 clean_all:
 	make clean_project
-	make clean DOCKER_IMAGE
+	make clean_docker_img
 
 # Update Targets
 update_docker_img:
-	clean_docker_img
-	build_docker_img
+	make clean_docker_img
+	make build_docker_img
 
 update_project:
 	make clean_project
@@ -69,4 +69,4 @@ update_all:
 
 # Use this, if you have issues with inotify poisoning
 inotify_patch:
-	docker run --rm --privileged ${DOCKER_IMAGE} sysctl -w fs.inotify.max_user_watches=524288
+	docker run --rm --privileged --user root ${DOCKER_IMAGE}:${DOCKER_IMAGE} sysctl -w fs.inotify.max_user_watches=524288

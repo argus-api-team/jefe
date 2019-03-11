@@ -20,6 +20,7 @@ RUN \
     pkg-config \
     apt-transport-https \
     gnupg \
+    procps \
     --no-install-recommends && \
 # Install watchman
   git clone https://github.com/facebook/watchman.git && \
