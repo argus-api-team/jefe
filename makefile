@@ -9,6 +9,7 @@ LIVERELOAD_PORT=7020
 TEST_PORT=7357
 DIR := ${CURDIR}
 
+# Build targets
 build_docker_img:
 	docker build -t ${DOCKER_IMAGE}:${DOCKER_IMAGE} .
 
@@ -29,6 +30,7 @@ install_all:
 	make build_docker_img
 	make install_project
 
+# Runtime targets
 start_project:
 	docker run \
 			--rm \
