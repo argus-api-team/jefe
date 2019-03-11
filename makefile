@@ -9,10 +9,10 @@ LIVERELOAD_PORT=7020
 TEST_PORT=7357
 DIR := ${CURDIR}
 
-build_dev:
+build_docker_img:
 	docker build -t ${DOCKER_IMAGE}:${DOCKER_IMAGE} .
 
-install_deps:
+install_project:
 	docker run \
 			--rm \
 			-ti \
@@ -20,12 +20,16 @@ install_deps:
 			-p ${SERVER_PORT}:${SERVER_PORT} \
 			-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
 			-p ${TEST_PORT}:${TEST_PORT} \
-			${DOCKER_IMAGE} \
+			${DOCKER_IMAGE}:${DOCKER_IMAGE} \
 			bash -c \
 				"npm i && \
 				bower i"
 
-start_dev:
+install_all:
+	make build_docker_img
+	make install_project
+
+start_project:
 	docker run \
 			--rm \
 			-ti \
@@ -33,20 +37,34 @@ start_dev:
 			-p ${SERVER_PORT}:${SERVER_PORT} \
 			-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
 			-p ${TEST_PORT}:${TEST_PORT} \
-			${DOCKER_IMAGE} \
+			${DOCKER_IMAGE}:${DOCKER_IMAGE} \
 			bash -c \
 				"ember server"
 
-clean:
+#Clean targets
+clean_project:
 	rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${BOWER_FOLDER} ${TMP_FOLDER}
 
-inotify_patch:
-	docker run --rm --privileged ${DOCKER_IMAGE} sysctl -w fs.inotify.max_user_watches=524288
+clean_docker_img:
+	dokcer image rm ${DOCKER_IMAGE}:${DOCKER_IMAGE}
 
-install_all:
-	make build_dev
-	make install_deps
+clean_all:
+	make clean_project
+	make clean DOCKER_IMAGE
+
+# Update Targets
+update_docker_img:
+	clean_docker_img
+	build_docker_img
+
+update_project:
+	make clean_project
+	make install_project
 
 update_all:
-	make clean
+	make clean_all
 	make install_all
+
+# Use this, if you have issues with inotify poisoning
+inotify_patch:
+	docker run --rm --privileged ${DOCKER_IMAGE} sysctl -w fs.inotify.max_user_watches=524288
