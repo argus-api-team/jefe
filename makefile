@@ -64,7 +64,6 @@ update_all:
 # Use this, if you have issues with inotify poisoning
 inotify_patch:
 	docker container exec \
-										 --rm \
 										 --privileged \
 										 --user root \
 										 ${CONTAINER_NAME} \
