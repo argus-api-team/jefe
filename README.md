@@ -9,18 +9,17 @@ You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Docker](https://docs.docker.com/install/overview/)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+* [Automake](https://www.gnu.org/software/automake/)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
 * `cd jefe`
-* `npm install`
+* `make install_all`
 
 ## Running / Development
 
-* `ember serve`
+* `make start_dev`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
