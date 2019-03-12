@@ -1,30 +1,26 @@
 # Environment variables to set
-DOCKER_IMAGE=jefe-dev
+DOCKER_IMAGE=jefe
+APP_VERSION=1.0-dev
 DIST_FOLDER=dist
 NODE_FOLDER=node_modules
 BOWER_FOLDER=bower_components
 TMP_FOLDER=tmp
-SERVER_PORT=4200
+APP_PORT=4200
 LIVERELOAD_PORT=7020
 TEST_PORT=7357
 DIR := ${CURDIR}
+CONTAINER_NAME := ${DOCKER_IMAGE}
 
 # Build targets
 build_docker_img:
-	docker build -t ${DOCKER_IMAGE}:${DOCKER_IMAGE} .
+	docker image build -t ${DOCKER_IMAGE}:${APP_VERSION} .
 
 install_project:
-	docker run \
-			--rm \
-			-ti \
-			-v ${DIR}:/app \
-			-p ${SERVER_PORT}:${SERVER_PORT} \
-			-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
-			-p ${TEST_PORT}:${TEST_PORT} \
-			${DOCKER_IMAGE}:${DOCKER_IMAGE} \
-			bash -c \
-				"npm i && \
-				bower i"
+	docker container run \
+										 --rm \
+										 -v ${DIR}:/app \
+										 ${DOCKER_IMAGE}:${APP_VERSION} \
+										 /bin/bash -c "npm i && bower i"
 
 install_all:
 	make build_docker_img
@@ -32,23 +28,21 @@ install_all:
 
 # Runtime targets
 start_project:
-	docker run \
-			--rm \
-			-ti \
-			-v ${DIR}:/app \
-			-p ${SERVER_PORT}:${SERVER_PORT} \
-			-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
-			-p ${TEST_PORT}:${TEST_PORT} \
-			${DOCKER_IMAGE}:${DOCKER_IMAGE} \
-			bash -c \
-				"ember server"
+	docker container run \
+										 --rm \
+										 --name ${CONTAINER_NAME} \
+										 -v ${DIR}:/app \
+										 -p ${APP_PORT}:${APP_PORT} \
+										 -p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
+										 -p ${TEST_PORT}:${TEST_PORT} \
+										 ${DOCKER_IMAGE}:${APP_VERSION}
 
 #Clean targets
 clean_project:
 	- rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${BOWER_FOLDER} ${TMP_FOLDER}
 
 clean_docker_img:
-	- docker image rm ${DOCKER_IMAGE}:${DOCKER_IMAGE}
+	- docker image rm ${DOCKER_IMAGE}:${APP_VERSION}
 
 clean_all:
 	make clean_project
@@ -69,4 +63,9 @@ update_all:
 
 # Use this, if you have issues with inotify poisoning
 inotify_patch:
-	docker run --rm --privileged --user root ${DOCKER_IMAGE}:${DOCKER_IMAGE} sysctl -w fs.inotify.max_user_watches=524288
+	docker container exec \
+										 --rm \
+										 --privileged \
+										 --user root \
+										 ${CONTAINER_NAME} \
+										 sysctl -w fs.inotify.max_user_watches=524288

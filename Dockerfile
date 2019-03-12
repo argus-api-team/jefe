@@ -1,71 +1,68 @@
 
 FROM node:10.15.0-slim
 
-ENV APP_USER node
 ENV APP_FOLDER /app
+ENV APP_USER node
+ENV APP_GROUP node
+ENV BUILD_PACKAGES apt-transport-https \
+                   autoconf \
+                   automake \
+                   build-essential \
+                   gnupg \
+                   libssl-dev \
+                   libtool \
+                   pkg-config \
+                   python-dev
 
-EXPOSE 4200 7020 7357
+# Ember App
+EXPOSE 4200
+# LiveReload
+EXPOSE 7020
+# TestEm
+EXPOSE 7357
+
+COPY . $APP_FOLDER
+
+WORKDIR $APP_FOLDER
 
 RUN \
-# Install watchman build & chrome install dependencies
+  # Install watchman build & chrome install dependencies
   apt-get update -y && \
-  apt-get install -y \
-    python-dev \
+  apt-get install -y --no-install-recommends \
+    $BUILD_PACKAGES \
     git \
-    libssl-dev \
-    build-essential \
-    autoconf \
-    automake \
-    libtool \
-    pkg-config \
-    apt-transport-https \
-    gnupg \
-    procps \
-    --no-install-recommends && \
-# Install watchman
-  git clone https://github.com/facebook/watchman.git && \
-  cd watchman && \
-  git checkout v4.9.0 && \
+    procps && \
+  # Install watchman
+  curl -L https://github.com/facebook/watchman/archive/v4.9.0.tar.gz | tar xzf - && \
+  cd watchman-4.9.0 && \
   ./autogen.sh && \
   ./configure && \
   make && \
   make install && \
-  cd / && \
-# Install chrome for default testem config (as of ember-cli 2.15.0)
+  cd $APP_FOLDER / && \
+  rm -rf watchman-4.9.0 && \
+  # Install chrome for default testem config (as of ember-cli 2.15.0)
   curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-  echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
-  apt-get update && \
-  apt-get install -y \
-      google-chrome-stable \
-      --no-install-recommends && \
-# Tweak chrome to run with --no-sandbox option
+  echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > \
+    /etc/apt/sources.list.d/google-chrome.list && \
+  apt-get update -y && \
+  apt-get install -y --no-install-recommends \
+    google-chrome-stable && \
+  # Tweak chrome to run with --no-sandbox option
   sed -i 's/"$@"/--no-sandbox "$@"/g' /opt/google/chrome/google-chrome && \
-# Clean installation source and package
-  apt-get remove -y \
-    python-dev \
-    libssl-dev \
-    build-essential \
-    autoconf \
-    automake \
-    libtool \
-    pkg-config \
-    apt-transport-https \
-    gnupg && \
-# Remove watchman bbuild Dir
-  rm -rf watchman
+  # Removes build packages
+  apt-get remove -y $BUILD_PACKAGES
 
-  RUN \
-# Update NPM
+RUN \
+  # Update NPM
   npm install -g npm && \
-# Install bower
+  # Install bower
   npm install -g bower@1.8.4 && \
-# Install ember-cli
+  # Install ember-cli
   npm install -g ember-cli@3.6.1 && \
-# Create app folder
-  mkdir $APP_FOLDER && \
-  chown -R node:node $APP_FOLDER
+  chown -R $APP_USER:$APP_GROUP $APP_FOLDER
 
 # Switch to node user
-USER $APP_USER:$APP_USER
+USER $APP_USER:$APP_GROUP
 
-WORKDIR $APP_FOLDER
+CMD ["ember", "s"]
