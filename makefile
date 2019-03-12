@@ -20,7 +20,7 @@ install_project:
 										 --rm \
 										 -v ${DIR}:/app \
 										 ${DOCKER_IMAGE}:${APP_VERSION} \
-										 /bin/bash -c "npm i && bower i"
+										 /bin/sh -c "npm i && bower i"
 
 install_all:
 	make build_docker_img
@@ -68,3 +68,24 @@ inotify_patch:
 										 --user root \
 										 ${CONTAINER_NAME} \
 										 sysctl -w fs.inotify.max_user_watches=524288
+
+run_bash:
+		docker container run \
+										 --rm \
+										 --privileged \
+										 -t \
+										 -i \
+										 -v ${DIR}:/app \
+										 ${DOCKER_IMAGE}:${APP_VERSION} \
+										 /bin/bash
+
+run_bash_root:
+		docker container run \
+										 --rm \
+										 --privileged \
+										 --user root \
+										 -t \
+										 -i \
+										 -v ${DIR}:/app \
+										 ${DOCKER_IMAGE}:${APP_VERSION} \
+										 /bin/bash

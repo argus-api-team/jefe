@@ -1,18 +1,9 @@
 
-FROM node:10.15.0-slim
+FROM node:lts-alpine
 
 ENV APP_FOLDER /app
 ENV APP_USER node
 ENV APP_GROUP node
-ENV BUILD_PACKAGES apt-transport-https \
-                   autoconf \
-                   automake \
-                   build-essential \
-                   gnupg \
-                   libssl-dev \
-                   libtool \
-                   pkg-config \
-                   python-dev
 
 # Ember App
 EXPOSE 4200
@@ -25,39 +16,34 @@ COPY . $APP_FOLDER
 
 WORKDIR $APP_FOLDER
 
-RUN \
-  # Install watchman build & chrome install dependencies
-  apt-get update -y && \
-  apt-get install -y --no-install-recommends \
-    $BUILD_PACKAGES \
-    git \
-    procps && \
-  # Install watchman
-  curl -L https://github.com/facebook/watchman/archive/v4.9.0.tar.gz | tar xzf - && \
-  cd watchman-4.9.0 && \
-  ./autogen.sh && \
-  ./configure && \
-  make && \
-  make install && \
-  cd $APP_FOLDER / && \
-  rm -rf watchman-4.9.0 && \
-  # Install chrome for default testem config (as of ember-cli 2.15.0)
-  curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-  echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > \
-    /etc/apt/sources.list.d/google-chrome.list && \
-  apt-get update -y && \
-  apt-get install -y --no-install-recommends \
-    google-chrome-stable && \
-  # Tweak chrome to run with --no-sandbox option
-  sed -i 's/"$@"/--no-sandbox "$@"/g' /opt/google/chrome/google-chrome && \
-  # Removes build packages
-  apt-get remove -y $BUILD_PACKAGES
+# Install the packages required for watchman to work properly:
+RUN apk add --no-cache \
+                    libressl-dev \
+                    libgcc \
+                    libstdc++ \
+                    git \
+                    bash
+
+RUN cd /usr/lib && \
+    ln -s libcrypto.so libcrypto.so.1.0.0
+
+# Copy the watchman executable binary directly from our image:
+COPY --from=icalialabs/watchman:4.9.0-alpine3.8 /usr/local/bin/watchman* /usr/local/bin/
+
+
+
+# Create the watchman STATEDIR directory:
+RUN mkdir -p /usr/local/var/run/watchman && \
+    touch /usr/local/var/run/watchman/.not-empty && \
+    chown -R $APP_USER:$APP_GROUP /usr/local/var/run/watchman/
+
+WORKDIR $APP_FOLDER
 
 RUN \
   # Update NPM
   npm install -g npm && \
   # Install bower
-  npm install -g bower@1.8.4 && \
+  npm install -g bower && \
   # Install ember-cli
   npm install -g ember-cli@3.6.1 && \
   chown -R $APP_USER:$APP_GROUP $APP_FOLDER
