@@ -17,10 +17,10 @@ build_docker_img:
 
 install_project:
 	docker container run \
-										 --rm \
-										 -v ${DIR}:/app \
-										 ${DOCKER_IMAGE}:${APP_VERSION} \
-										 /bin/sh -c "npm i && bower i"
+										--rm \
+										-v ${DIR}:/app \
+										${DOCKER_IMAGE}:${APP_VERSION} \
+										/bin/sh -c "npm i && bower i"
 
 install_all:
 	make build_docker_img
@@ -29,13 +29,13 @@ install_all:
 # Runtime targets
 start_project:
 	docker container run \
-										 --rm \
-										 --name ${CONTAINER_NAME} \
-										 -v ${DIR}:/app \
-										 -p ${APP_PORT}:${APP_PORT} \
-										 -p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
-										 -p ${TEST_PORT}:${TEST_PORT} \
-										 ${DOCKER_IMAGE}:${APP_VERSION}
+										--rm \
+										--name ${CONTAINER_NAME} \
+										-v ${DIR}:/app \
+										-p ${APP_PORT}:${APP_PORT} \
+										-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
+										-p ${TEST_PORT}:${TEST_PORT} \
+										${DOCKER_IMAGE}:${APP_VERSION}
 
 #Clean targets
 clean_project:
@@ -61,31 +61,28 @@ update_all:
 	make clean_all
 	make install_all
 
-# Use this, if you have issues with inotify poisoning
+# Use this, if you have issues with inotify poisoning on linux systems
 inotify_patch:
-	docker container exec \
-										 --privileged \
-										 --user root \
-										 ${CONTAINER_NAME} \
-										 sysctl -w fs.inotify.max_user_watches=524288
+	echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
+	sudo sysctl -p
 
 run_bash:
-		docker container run \
-										 --rm \
-										 --privileged \
-										 -t \
-										 -i \
-										 -v ${DIR}:/app \
-										 ${DOCKER_IMAGE}:${APP_VERSION} \
-										 /bin/bash
+	docker container run \
+										--rm \
+										--privileged \
+										-t \
+										-i \
+										-v ${DIR}:/app \
+										${DOCKER_IMAGE}:${APP_VERSION} \
+										/bin/bash
 
 run_bash_root:
-		docker container run \
-										 --rm \
-										 --privileged \
-										 --user root \
-										 -t \
-										 -i \
-										 -v ${DIR}:/app \
-										 ${DOCKER_IMAGE}:${APP_VERSION} \
-										 /bin/bash
+	docker container run \
+										--rm \
+										--privileged \
+										--user root \
+										-t \
+										-i \
+										-v ${DIR}:/app \
+										${DOCKER_IMAGE}:${APP_VERSION} \
+										/bin/bash
