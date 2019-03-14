@@ -18,7 +18,7 @@ You will need the following things properly installed on your computer.
 
 To run and enter in the development container use: `make start_cotainer`.
 
-If the development container is already running in other terminal use `make container_shell`.
+If your development container is already running in other terminal use: `make container_shell`.
 
 ## Running / Development
 * `ember s`
