@@ -16,7 +16,7 @@ CONTAINER_NAME := ${DOCKER_IMAGE}
 build_docker_img:
 	docker image build -t ${DOCKER_IMAGE}:${APP_VERSION} .
 
-install_project:
+install_deps:
 	docker container run \
 										--rm \
 										-v ${DIR}:${APP_DIR}:cached \
@@ -27,8 +27,7 @@ install_all:
 	make build_docker_img
 	make install_project
 
-# Runtime targets
-start_project:
+start_container:
 	docker container run \
 										--rm \
 										--name ${CONTAINER_NAME} \
@@ -36,7 +35,12 @@ start_project:
 										-p ${APP_PORT}:${APP_PORT} \
 										-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
 										-p ${TEST_PORT}:${TEST_PORT} \
-										${DOCKER_IMAGE}:${APP_VERSION}
+										-it \
+										${DOCKER_IMAGE}:${APP_VERSION} \
+										/bin/sh
+
+stop_container:
+	docker stop ${CONTAINER_NAME}
 
 #Clean targets
 clean_project:
@@ -67,23 +71,6 @@ inotify_patch:
 	echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 	sudo sysctl -p
 
-run_bash:
-	docker container run \
-										--rm \
-										--privileged \
-										-t \
-										-i \
-										-v ${DIR}:${APP_DIR}:cached \
-										${DOCKER_IMAGE}:${APP_VERSION} \
-										/bin/bash
-
-run_bash_root:
-	docker container run \
-										--rm \
-										--privileged \
-										--user root \
-										-t \
-										-i \
-										-v ${DIR}:${APP_DIR}:cached \
-										${DOCKER_IMAGE}:${APP_VERSION} \
-										/bin/bash
+# Ember Generate Wrapper
+container_shell:
+	docker exec -it ${CONTAINER_NAME} /bin/sh
