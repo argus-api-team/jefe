@@ -9,6 +9,7 @@ APP_PORT=4200
 LIVERELOAD_PORT=7020
 TEST_PORT=7357
 DIR := ${CURDIR}
+APP_DIR = /app
 CONTAINER_NAME := ${DOCKER_IMAGE}
 
 # Build targets
@@ -18,7 +19,7 @@ build_docker_img:
 install_project:
 	docker container run \
 										--rm \
-										-v ${DIR}:/app \
+										-v ${DIR}:${APP_DIR}:cached \
 										${DOCKER_IMAGE}:${APP_VERSION} \
 										/bin/sh -c "npm i && bower i"
 
@@ -31,7 +32,7 @@ start_project:
 	docker container run \
 										--rm \
 										--name ${CONTAINER_NAME} \
-										-v ${DIR}:/app \
+										-v ${DIR}:${APP_DIR}:cached \
 										-p ${APP_PORT}:${APP_PORT} \
 										-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
 										-p ${TEST_PORT}:${TEST_PORT} \
@@ -72,7 +73,7 @@ run_bash:
 										--privileged \
 										-t \
 										-i \
-										-v ${DIR}:/app \
+										-v ${DIR}:${APP_DIR}:cached \
 										${DOCKER_IMAGE}:${APP_VERSION} \
 										/bin/bash
 
@@ -83,6 +84,6 @@ run_bash_root:
 										--user root \
 										-t \
 										-i \
-										-v ${DIR}:/app \
+										-v ${DIR}:${APP_DIR}:cached \
 										${DOCKER_IMAGE}:${APP_VERSION} \
 										/bin/bash
