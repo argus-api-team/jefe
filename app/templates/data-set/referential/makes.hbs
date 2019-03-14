@@ -2,24 +2,30 @@
   <div class="d-flex align-items-center">
     <div class="mr-auto">
       <h1 class="m-subheader__title m-subheader__title--separator">
-        {{t "index.referential.title"}}
+        {{t "index.referential.title"}} - {{t "makeList.title"}}
       </h1>
     </div>
   </div>
 </div>
 <div class="m-content">
-  <div class="m-portlet">
-    <div class="m-portlet__head">
-      <div class="m-portlet__head-caption">
-        <div class="m-portlet__head-title">
-          <h3 class="m-portlet__head-text">{{t "makeList.title"}}</h3>
+  <div class="row">
+    <div class="col-3">
+      <div class="m-portlet">
+      <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+          <div class="m-portlet__head-title">
+            <h3 class="m-portlet__head-text">Fiters</h3>
+          </div>
         </div>
       </div>
+      <div class="m-portlet__body">
+      </div>
     </div>
-    <div class="m-portlet__body">
+    </div>
+    <div class="col-9">
       {{#make-list updateLetter=(action "updateLetter") letter=letter }}
         {{#each model as |make|}}
-          <li class="showroom-make-item grid-list__item clickable">
+          <li class="showroom-make-item grid-list__item clickable" style="background: white;">
             {{#link-to "data-set.referential.make" make.id class="list-item-content"}}
               <section class="infos">
                 <h5 data-role="name">{{make.name}}</h5>
@@ -32,4 +38,6 @@
       {{/make-list}}
     </div>
   </div>
+
+
 </div>
