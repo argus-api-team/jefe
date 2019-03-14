@@ -25,7 +25,7 @@ install_deps:
 
 install_all:
 	make build_docker_img
-	make install_project
+	make install_deps
 
 start_container:
 	docker container run \
@@ -60,7 +60,7 @@ update_docker_img:
 
 update_project:
 	make clean_project
-	make install_project
+	make install_deps
 
 update_all:
 	make clean_all
