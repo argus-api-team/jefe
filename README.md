@@ -1,8 +1,5 @@
 # jefe
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
@@ -17,11 +14,17 @@ You will need the following things properly installed on your computer.
 * `cd jefe`
 * `make install_all`
 
-## Running / Development
+## Enter in container to use Ember-CLI
 
-* `make start_dev`
+To run and enter in the development container use: `make start_cotainer`.
+
+If the development container is already running in other terminal use `make container_shell`.
+
+## Running / Development
+* `ember s`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+
 
 ### Code Generators
 
