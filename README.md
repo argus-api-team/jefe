@@ -54,3 +54,13 @@ Make use of the many generators for code, try `ember help generate` for more det
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+
+## Troubleshooting
+
+### Inotify: Add watch
+
+If you're using Linux you may encounter some issues with inotify.
+In the most of case, inotify reach the watch limit. You can increase it by running the following target:
+
+* `make inotify_add_limit`

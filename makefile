@@ -67,7 +67,7 @@ update_all:
 	make install_all
 
 # Use this, if you have issues with inotify poisoning on linux systems
-inotify_patch:
+inotify_add_limit:
 	echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 	sudo sysctl -p
 
