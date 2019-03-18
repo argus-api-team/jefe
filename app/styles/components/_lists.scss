@@ -2,10 +2,19 @@
   display: grid;
   grid-gap: $gutter;  // sass-lint:disable-line no-misspelled-properties  : Scss linter don't reconize grid-gap
   padding: 0;
-
   list-style-type: none;
-  grid-template-columns: 1fr;
 
+  @media (max-width: $mobile-screen) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: $tablet-screen) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: $large-screen) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .grid-list__item {
@@ -16,7 +25,7 @@
     transition: transform .4s;
 
     &::after,
-    &::before{
+    &::before {
       @include box-shadow(1);
       content: '';
       display: block;

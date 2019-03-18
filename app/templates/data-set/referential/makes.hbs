@@ -9,22 +9,35 @@
 </div>
 <div class="m-content">
   <div class="row">
-    <div class="col-3">
+    <div class="col-12 col-lg-4">
       <div class="m-portlet">
-      <div class="m-portlet__head">
-        <div class="m-portlet__head-caption">
-          <div class="m-portlet__head-title">
-            <h3 class="m-portlet__head-text">Fiters</h3>
+        <div class="m-portlet__head">
+          <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+              <h3 class="m-portlet__head-text">Fiters</h3>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="m-portlet__body">
+        <div class="m-portlet__body">
+          <div class="form-group m-form__group align-items-center">
+            <label class="col-form-label">Search by name</label>
+            {{input
+              value=search
+              name="Search by name"
+              class="form-control m-input"
+            }}
+          </div>
+          <ul>
+            {{#each model.categories as |category|}}
+              <li>{{category.name}}</li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
     </div>
-    </div>
-    <div class="col-9">
-      {{#make-list updateLetter=(action "updateLetter") letter=letter }}
-        {{#each model as |make|}}
+    <div class="col-12 col-lg-8">
+      <ul id="make-list" class="grid-list make-list">
+        {{#each model.makes as |make|}}
           <li class="showroom-make-item grid-list__item clickable" style="background: white;">
             {{#link-to "data-set.referential.make" make.id class="list-item-content"}}
               <section class="infos">
@@ -35,9 +48,7 @@
             {{/link-to}}
           </li>
         {{/each}}
-      {{/make-list}}
+      </ul>
     </div>
   </div>
-
-
 </div>
