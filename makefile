@@ -36,6 +36,7 @@ start_container:
 										-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
 										-p ${TEST_PORT}:${TEST_PORT} \
 										-it \
+										--env-file .env \
 										${DOCKER_IMAGE}:${APP_VERSION} \
 										/bin/sh
 
