@@ -46,7 +46,9 @@
                 <h5 data-role="name">{{make.name}}</h5>
                 <p class="list-datetime">{{make.displayDate}}</p>
               </section>
-              {{logo-img url=make.logoURL className="thumbnail make-logo"}}
+              <div class="logo-img">
+                {{logo-img data-src=make.logoURL}}
+              </div>
             {{/link-to}}
           </li>
         {{/each}}

@@ -40,7 +40,7 @@
           <p class="m--marginless">{{resolvedVersion.name}}</p>
         </div>
         <div class="vehicle-make-logo">
-          {{logo-img url=resolvedVersion.make.logoURL className="thumbnail make-logo"}}
+          {{logo-img data-src=resolvedVersion.make.logoURL className="thumbnail make-logo"}}
         </div>
       {{else}}
         {{#if isSearching}}
@@ -64,4 +64,3 @@
     {{t "application.validate"}}
   </button>
 </div>
-

@@ -2,7 +2,7 @@ import Component from '@ember/component';
 
 export default Component.extend({
   tagName: 'li',
-  classNames: ['vertical-list__item'],
+  classNames: ['vertical-list__item', 'valorization-item'],
   didReceiveAttrs() {
     const valorization = this.get('valorization');
     const returnedAt = valorization.get('returnedAt');

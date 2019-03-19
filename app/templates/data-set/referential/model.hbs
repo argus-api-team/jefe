@@ -65,7 +65,7 @@
         </div>
         <div class="m-portlet__body informations-portlet">
           <div class="logo-container text-center">
-            {{logo-img url=model.make.logoURL className="make-logo"}}
+            {{logo-img data-src=model.make.logoURL className="make-logo"}}
           </div>
           <h4 class="informations-portlet__title">{{model.make.name}}</h4>
           <h5 class="informations-portlet__data">{{model.name}}</h5>
@@ -96,7 +96,7 @@
                 }}
                   <section class="infos">
                     {{t "modelTimeline.generation"}} {{generation.name}}
-                    
+
                   </section>
                   <span class="digit-date">
                     {{generation.displayDateDigit}}
