@@ -1,8 +1,11 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import lozad from 'lozad';
 import $ from 'jquery';
 
+
+const lozadObserver = lozad();
 
 export default Component.extend({
   intl: service(),
@@ -14,18 +17,18 @@ export default Component.extend({
   altText: '',
 
   didRender() {
+    lozadObserver.observe(this);
     this._detectMissingImg();
-  },
-
-  didUpdateAttrs() {
-    this.$().find('img').addClass('lazyload');
   },
 
   _detectMissingImg() {
     const context = this;
     this.$().find('img').on('error', function () {
       $(this).addClass('no-logo');
+      $(this).removeClass('lozad');
       $(this).attr('src', context.get('noLogoUrl'));
+      lozadObserver.observe(context);
     });
   },
+
 });
