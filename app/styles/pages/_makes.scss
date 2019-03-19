@@ -1,3 +1,24 @@
-.showroom-make-item {
+.make-list {
 
+  .showroom-make-item {
+    background: $white;
+  }
+
+  @media (min-width: $large-screen) {
+    .list-item-content {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-end;
+    }
+
+    .logo-img {
+      align-self: center;
+      width: 100%;
+      max-width: 150px;
+      height: 150px;
+      min-height: none;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
 }

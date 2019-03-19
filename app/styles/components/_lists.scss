@@ -13,7 +13,7 @@
   }
 
   @media (min-width: $large-screen) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -164,11 +164,6 @@
     min-height: 80px;
     margin-right: 10px;
     background: $white;
-
-    img {
-      width: 100%;
-      margin-bottom: 0;
-    }
   }
 
   // Right Elements
