@@ -21,7 +21,9 @@ export default Component.extend({
 
   didInsertElement() {
     this.get('element').addEventListener('error', () => {
-      this.set('src', this.get('noLogoUrl'));
+      if (!this.get('isDestroyed')) {
+        this.set('src', this.get('noLogoUrl'));
+      }
     });
   },
 
