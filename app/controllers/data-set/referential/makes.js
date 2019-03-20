@@ -1,12 +1,13 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
-  letter: 'all',
-  queryParams: ['letter'],
+  queryParams: ['searchTerm'],
+  searchTerm: '',
 
-  actions: {
-    updateLetter(letter) {
-      this.set('letter', letter);
-    },
-  },
+  filteredMakes: computed('searchTerm', 'model.makes', function () {
+    const makes = this.get('model.makes');
+    const searchTerm = this.get('searchTerm');
+    return makes.filter(make =>  make.get('name').toLowerCase().indexOf(searchTerm) > -1);
+  }),
 });

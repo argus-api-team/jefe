@@ -23,7 +23,7 @@
             <div class="form-group m-form__group align-items-center">
               <label class="col-form-label">Search by name</label>
               {{input
-                value=search
+                value=searchTerm
                 name="Search by name"
                 class="form-control m-input"
               }}
@@ -39,7 +39,7 @@
     </div>
     <div class="col-12 col-lg-8">
       <ul id="make-list" class="grid-list make-list">
-        {{#each model.makes as |make|}}
+        {{#each filteredMakes as |make|}}
           <li class="showroom-make-item grid-list__item clickable">
             {{#link-to "data-set.referential.make" make.id class="list-item-content"}}
               <section class="infos">
