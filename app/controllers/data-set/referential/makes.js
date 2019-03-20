@@ -1,13 +1,20 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { observer } from '@ember/object';
+import { debounce } from '@ember/runloop';
 
 export default Controller.extend({
   queryParams: ['searchTerm'],
   searchTerm: '',
 
-  filteredMakes: computed('searchTerm', 'model.makes', function () {
+  seachObserver: observer('searchTerm', 'model.makes', function () { // eslint-disable-line
+    debounce(this, this.filterMakes, 500);
+  }),
+
+  filterMakes() {
     const makes = this.get('model.makes');
     const searchTerm = this.get('searchTerm');
-    return makes.filter(make =>  make.get('name').toLowerCase().indexOf(searchTerm) > -1);
-  }),
+    const filteredMakes = makes.filter(make => make.get('name').toLowerCase().indexOf(searchTerm) > -1);
+    this.set('filteredMakes', filteredMakes);
+  },
+
 });
