@@ -168,80 +168,54 @@
           </div>
           <div class="m-portlet__body">
             <h5 class="m--margin-bottom-15">{{t "makeSheet.sorting.property"}}</h5>
-            <div class="m-form__group form-group categories-filter">
-              <span class="m-switch">
-                <label>
-                  {{radio-button
-                    id="sort-name"
-                    value="name"
-                    groupValue=sortProperty
-                  }}
-                  <span for="sort-name"></span>
-                </label>
-              </span>
-              <label class="form-label" for="sort-name">
+            <div class="m-radio-list">
+              <label class="m-radio" for="sort-name">
+                {{radio-button
+                  radioId="sort-name"
+                  value="name"
+                  groupValue=sortProperty
+                }}
                 {{t "makeSheet.sorting.name"}}
+                <span></span>
               </label>
-            </div>
-            <div class="m-form__group form-group categories-filter">
-              <span class="m-switch">
-                <label>
-                  {{radio-button
-                    id="sort-start-date"
-                    value="startDate"
-                    groupValue=sortProperty
-                  }}
-                  <span for="sort-start-date"></span>
-                </label>
-              </span>
-              <label class="form-label" for="sort-start-date">
+              <label class="m-radio" for="sort-start-date">
+                {{radio-button
+                  radioId="sort-start-date"
+                  value="startDate"
+                  groupValue=sortProperty
+                }}
                 {{t "makeSheet.sorting.start"}}
+                <span></span>
               </label>
-            </div>
-            <div class="m-form__group form-group categories-filter">
-              <span class="m-switch">
-                <label>
-                  {{radio-button
-                    id="sort-end-date"
-                    value="endDate"
-                    groupValue=sortProperty
-                  }}
-                  <span for="sort-end-date"></span>
-                </label>
-              </span>
-              <label class="form-label" for="sort-end-date">
+              <label class="m-radio" for="sort-end-date">
+               {{radio-button
+                  radioId="sort-end-date"
+                  value="endDate"
+                  groupValue=sortProperty
+                }}
                 {{t "makeSheet.sorting.end"}}
+                <span></span>
               </label>
             </div>
             <h5 class="m--margin-bottom-15 m--margin-top-30">{{t "makeSheet.sorting.order"}}</h5>
-            <div class="m-form__group form-group categories-filter">
-              <span class="m-switch">
-                <label>
-                  {{radio-button
-                    id="sort-asc"
-                    value="asc"
-                    groupValue=sortOrder
-                  }}
-                  <span for="sort-asc"></span>
-                </label>
-              </span>
-              <label class="form-label" for="sort-asc">
+            <div class="m-radio-list">
+              <label class="m-radio" for="sort-asc">
+                {{radio-button
+                  radioId="sort-asc"
+                  value="asc"
+                  groupValue=sortOrder
+                }}
                 {{t "makeSheet.sorting.asc"}}
+                <span></span>
               </label>
-            </div>
-            <div class="m-form__group form-group categories-filter">
-              <span class="m-switch">
-                <label>
-                  {{radio-button
-                    id="sort-desc"
-                    value="desc"
-                    groupValue=sortOrder
-                  }}
-                  <span for="sort-desc"></span>
-                </label>
-              </span>
-              <label class="form-label" for="sort-desc">
+              <label class="m-radio" for="sort-desc">
+                {{radio-button
+                  radioId="sort-desc"
+                  value="desc"
+                  groupValue=sortOrder
+                }}
                 {{t "makeSheet.sorting.desc"}}
+                <span></span>
               </label>
             </div>
           </div>
