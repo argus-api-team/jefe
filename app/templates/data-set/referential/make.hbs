@@ -128,40 +128,30 @@
             </div>
           </div>
           <div class="m-portlet__body">
-            <div class="m-form__group form-group categories-filter">
-              <span class="m-switch">
-                <label>
-                  {{input
-                    id="production_filter"
-                    type="checkbox"
-                    checked=productionFilter
-                    name=(t "makeSheet.filters.production")
-                  }}
-                  <span for="production_filter"></span>
-                </label>
-              </span>
-              <label class="form-label" for="production_filter">
+            <div class="m-checkbox-list">
+              <label class="m-checkbox" for="production_filter">
+                {{input
+                  id="production_filter"
+                  type="checkbox"
+                  checked=category.showCategory
+                  name=category.name
+                }}
                 {{t "makeSheet.filters.production"}}
+                <span></span>
               </label>
-            </div>
-            {{#each sortedCategories as |category|}}
-              <div class="m-form__group form-group categories-filter">
-                <span class="m-switch">
-                  <label>
-                    {{input
-                      id=category.categoryInputId
-                      type="checkbox"
-                      checked=category.showCategory
-                      name=category.name
-                    }}
-                    <span for={{category.categoryInputId}}></span>
-                  </label>
-                </span>
-                <label class="form-label" for={{category.categoryInputId}}>
+              {{#each sortedCategories as |category|}}
+                <label class="m-checkbox" for={{category.categoryInputId}}>
+                  {{input
+                    id=category.categoryInputId
+                    type="checkbox"
+                    checked=category.showCategory
+                    name=category.name
+                  }}
                   {{category.name}}
+                  <span></span>
                 </label>
-              </div>
-            {{/each}}
+              {{/each}}
+            </div>
           </div>
           <div class="m-portlet__foot m--text-right">
             <p class="m--align-right">{{t "makeSheet.filters.models"}} <span class="m--font-bold">{{filteredModels.length}}</span></p>
