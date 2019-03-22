@@ -10,6 +10,8 @@ ENV BUILD_PACKAGES git \
                    libressl-dev \
                    libstdc++
 ENV EMBER_VERSION 3.6.1
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH=$PATH:/home/node/.npm-global/bin
 
 # Copy pre-built Watchman binary
 COPY --from=icalialabs/watchman:4.9.0-alpine3.8 /usr/local/bin/watchman* /usr/local/bin/
@@ -22,16 +24,16 @@ RUN apk --update add --no-cache $BUILD_PACKAGES && \
     chown -R $APP_USER:$APP_GROUP /usr/local/var/run/watchman/
 
 RUN \
-  # Update NPM
-  npm install -g npm && \
-  # Install bower
-  npm install -g bower && \
-  # Install ember-cli
-  npm install -g ember-cli@$EMBER_VERSION && \
+  # Create App Folder
   mkdir $APP_FOLDER && \
   chown -R $APP_USER:$APP_GROUP $APP_FOLDER
 
 # Switch to node user
 USER $APP_USER:$APP_GROUP
+
+RUN \
+   # Update NPM and install Ember as non-root user
+  npm install -g npm && \
+  npm install -g ember-cli@$EMBER_VERSION
 
 WORKDIR $APP_FOLDER
