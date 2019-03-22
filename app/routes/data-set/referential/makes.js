@@ -9,7 +9,10 @@ export default Route.extend({
         sort: 'name',
         include: 'categories',
       }),
-      categories: this.store.findAll('category'),
+      categories: this.store.query('category', {
+        page: { size: 20 },
+        sort: 'name',
+      }),
     });
   },
 });
