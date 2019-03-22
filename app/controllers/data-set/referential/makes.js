@@ -9,7 +9,10 @@ export default Controller.extend({
 
   filteredCategories: computed('model.categories.@each.showCategory', function () {
     const categories = this.get('model.categories');
-    return categories.filterBy('showCategory');
+    if (categories.isAny('showCategory')) {
+      return categories.filterBy('showCategory');
+    }
+    return categories;
   }),
 
   filteredMakesByCategory: computed('filteredCategories', 'model.makes', function () {
