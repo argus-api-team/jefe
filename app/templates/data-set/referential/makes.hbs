@@ -15,19 +15,21 @@
           <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
               <div class="m-portlet__head-title">
-                <h3 class="m-portlet__head-text">Filters</h3>
+                <h3 class="m-portlet__head-text">{{t "makeList.filters.title"}}</h3>
               </div>
             </div>
           </div>
           <div class="m-portlet__body">
+            <h5 class="m--margin-bottom-15">{{t "makeList.filters.search"}}</h5>
             <div class="form-group m-form__group align-items-center m--margin-bottom-30">
-              <label class="col-form-label">Search by name</label>
+
               {{input
                 value=searchTerm
                 name="Search by name"
                 class="form-control m-input"
               }}
             </div>
+            <h5 class="m--margin-bottom-15">{{t "makeList.filters.categories"}}</h5>
             <div class="m-checkbox-list">
               {{#each model.categories as |category|}}
                 <label class="m-checkbox" for={{category.categoryInputId}}>

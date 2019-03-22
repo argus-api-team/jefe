@@ -93,7 +93,12 @@
     "title": "Make list",
     "displayDateSince": "Since {startDate}",
     "displayDateWithEnd": "From {startDate} to {endDate}",
-    "noMatching": "No matching entries for this letter."
+    "noMatching": "No matching entries for this letter.",
+    "filters": {
+      "title": "Filters",
+      "search": "Search by name",
+      "categories": "Categories"
+    }
   },
   "makeSheet": {
     "title": "Make sheet",

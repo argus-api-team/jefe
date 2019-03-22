@@ -93,7 +93,12 @@
     "title": "Liste des marques",
     "displayDateSince": "Depuis {startDate}",
     "displayDateWithEnd": "De {startDate} à {endDate}",
-    "noMatching": "Aucun élément trouvé pour cette lettre."
+    "noMatching": "Aucun élément trouvé pour cette lettre.",
+    "filters": {
+      "title": "Filtres",
+      "search": "Recherche par nom",
+      "categories": "Catégories"
+    }
   },
   "makeSheet": {
     "title": "Fiche marque",
