@@ -97,7 +97,8 @@
     "filters": {
       "title": "Filters",
       "search": "Search by name",
-      "categories": "Categories"
+      "categories": "Categories",
+      "makes": "Makes: "
     }
   },
   "makeSheet": {

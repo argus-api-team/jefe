@@ -97,7 +97,8 @@
     "filters": {
       "title": "Filtres",
       "search": "Recherche par nom",
-      "categories": "Catégories"
+      "categories": "Catégories",
+      "makes": "Constructeurs: "
     }
   },
   "makeSheet": {

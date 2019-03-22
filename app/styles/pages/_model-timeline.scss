@@ -195,7 +195,9 @@
 .versions-counter {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   line-height: 1;
+
 
   .version-counter__filtered {
     font-size: 16px;
