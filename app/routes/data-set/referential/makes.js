@@ -7,6 +7,7 @@ export default Route.extend({
       makes: this.store.query('make', {
         page: { size: 500 },
         sort: 'name',
+        include: 'categories',
       }),
       categories: this.store.findAll('category'),
     });

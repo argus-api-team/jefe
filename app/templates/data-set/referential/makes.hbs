@@ -28,11 +28,24 @@
                 class="form-control m-input"
               }}
             </div>
-            <ul>
-              {{#each model.categories as |category|}}
-                <li>{{category.name}}</li>
-              {{/each}}
-            </ul>
+            {{#each model.categories as |category|}}
+              <div class="m-form__group form-group categories-filter">
+                <span class="m-switch">
+                  <label>
+                    {{input
+                      id=category.categoryInputId
+                      type="checkbox"
+                      checked=category.showCategory
+                      name=category.name
+                    }}
+                    <span for={{category.categoryInputId}}></span>
+                  </label>
+                </span>
+                <label class="form-label" for={{category.categoryInputId}}>
+                  {{category.name}}
+                </label>
+              </div>
+            {{/each}}
           </div>
         </div>
       {{/sticky-element}}
