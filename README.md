@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/argus-api-team/jefe.svg?branch=master)](https://travis-ci.org/argus-api-team/jefe)
+
 # jefe
 
 ## Prerequisites
