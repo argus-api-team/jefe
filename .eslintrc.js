@@ -35,7 +35,7 @@ module.exports = {
     // node files
     {
       files: [
-
+        'testem.js',
       ],
       parserOptions: {
         sourceType: 'script',
