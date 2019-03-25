@@ -1,28 +1,30 @@
 # jefe
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
-* [Ember CLI](https://ember-cli.com/)
-* [Google Chrome](https://google.com/chrome/)
+* [Docker](https://docs.docker.com/install/overview/)
+* [Automake](https://www.gnu.org/software/automake/)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
 * `cd jefe`
-* `npm install`
+* `make install_all`
+
+## Enter in container to use Ember-CLI
+
+To run and enter in the development container use: `make start_cotainer`.
+
+If your development container is already running in other terminal use: `make container_shell`.
 
 ## Running / Development
-
-* `ember serve`
+* `ember s`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+
 
 ### Code Generators
 
@@ -44,9 +46,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
-
-Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
@@ -55,3 +54,13 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+
+## Troubleshooting
+
+### Inotify: Add watch
+
+If you're using Linux you may encounter some issues with inotify.
+In the most of case, inotify reach the watch limit. You can increase it by running the following target:
+
+* `make inotify_add_limit`
