@@ -24,7 +24,6 @@ RUN apk --update add --no-cache $BUILD_PACKAGES && \
     chown -R $APP_USER:$APP_GROUP /usr/local/var/run/watchman/
 
 RUN \
-  # Create App Folder
   mkdir $APP_FOLDER && \
   chown -R $APP_USER:$APP_GROUP $APP_FOLDER
 
@@ -34,7 +33,6 @@ USER $APP_USER:$APP_GROUP
 RUN \
    # Update NPM and install Ember as non-root user
   npm install -g npm && \
-  npm install -g bower && \
   npm install -g ember-cli@$EMBER_VERSION
 
 WORKDIR $APP_FOLDER

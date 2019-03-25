@@ -3,7 +3,6 @@ DOCKER_IMAGE=jefe
 APP_VERSION=1.0-dev
 DIST_FOLDER=dist
 NODE_FOLDER=node_modules
-BOWER_FOLDER=bower_components
 TMP_FOLDER=tmp
 APP_PORT=4200
 LIVERELOAD_PORT=7020
@@ -21,7 +20,7 @@ install_deps:
 										--rm \
 										-v ${DIR}:${APP_DIR}:cached \
 										${DOCKER_IMAGE}:${APP_VERSION} \
-										/bin/sh -c "npm i && bower i"
+										/bin/sh -c "npm i"
 
 install_all:
 	make build_docker_img
@@ -36,6 +35,7 @@ start_container:
 										-p ${LIVERELOAD_PORT}:${LIVERELOAD_PORT} \
 										-p ${TEST_PORT}:${TEST_PORT} \
 										-it \
+										--env-file .env \
 										${DOCKER_IMAGE}:${APP_VERSION} \
 										/bin/sh
 
@@ -44,7 +44,7 @@ stop_container:
 
 #Clean targets
 clean_project:
-	- rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${BOWER_FOLDER} ${TMP_FOLDER}
+	- rm -rf ${DIST_FOLDER} ${NODE_FOLDER} ${TMP_FOLDER}
 
 clean_docker_img:
 	- docker image rm ${DOCKER_IMAGE}:${APP_VERSION}

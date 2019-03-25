@@ -1,9 +1,0 @@
-{
-  "name": "jefe",
-  "dependencies": {
-    "jquery-listnav": "^2.4.9"
-  },
-  "devDependencies": {
-    "lazysizes": "^3.0.0"
-  }
-}

@@ -1,3 +1,9 @@
+.valorization-item {
+  .list-item-content {
+    padding: 0;
+  }
+}
+
 .valorization-card {
   display: flex;
   position: relative;
@@ -18,7 +24,7 @@
     order: 1;
     width: 80px;
     min-height: 80px;
-    margin-right: 10px;
+    margin-right: 30px;
   }
 
   &.vehicle-preview {

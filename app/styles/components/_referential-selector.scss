@@ -25,8 +25,12 @@
 
 .referential-selector {
   .m-dropdown__toggle {
-    line-height: 70px;
+    padding: 6px 0 !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
     text-transform: uppercase;
+    @media (min-width: $desktop-screen) {
+      padding: 9px 0 !important; // sass-lint:disable-line no-important  :Important is used to override metronic style
+      line-height: 70px;
+    }
   }
 
   .m-dropdown__header {

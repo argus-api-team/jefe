@@ -11,10 +11,12 @@
       <p class="m--marginless">{{valorization.vehicle.content.name}}</p>
     </div>
     <div class="vehicle-make-logo">
-      {{logo-img
-        url=valorization.vehicle.content.make.logoURL
-        className="thumbnail make-logo"
-      }}
+      {{#if valorization.vehicle.content.make.logoURL}}
+        {{logo-img
+          data-src=valorization.vehicle.content.make.logoURL
+          className="thumbnail make-logo"
+        }}
+      {{/if}}
     </div>
   </div>
   {{#if largeMode}}

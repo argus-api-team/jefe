@@ -1,16 +1,18 @@
 import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
 
 export default Route.extend({
-  queryParams: {
-    letter: {
-      replace: true,
-    },
-  },
-
   model() {
-    return this.store.query('make', {
-      page: { size: 500 },
-      sort: 'name',
+    return RSVP.hash({
+      makes: this.store.query('make', {
+        page: { size: 500 },
+        sort: 'name',
+        include: 'categories',
+      }),
+      categories: this.store.query('category', {
+        page: { size: 20 },
+        sort: 'name',
+      }),
     });
   },
 });

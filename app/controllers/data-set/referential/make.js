@@ -7,9 +7,18 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   localizedReferentials: service(),
+
+  sortedCategories: computed('model.make.categories', function () {
+    const categories = this.get('model.make.categories');
+    return categories.sortBy('name');
+  }),
+
   filteredCategories: computed('model.make.categories.@each.showCategory', function () {
     const categories = this.get('model.make.categories');
-    return categories.filterBy('showCategory');
+    if (categories.isAny('showCategory')) {
+      return categories.filterBy('showCategory');
+    }
+    return categories;
   }),
 
   productionFilter: true,
@@ -60,7 +69,6 @@ export default Controller.extend({
   }),
 
   // Models sorting
-
   sortProperty: 'name',
   sortOrder: 'asc',
 

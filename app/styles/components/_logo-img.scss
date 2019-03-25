@@ -1,5 +1,4 @@
-.lazyload {
-  width: 100%;
-  min-height: 55px;
-  background: url('/assets/loader.gif') no-repeat center;
+img {
+  max-width: 100%;
+  height: auto;
 }

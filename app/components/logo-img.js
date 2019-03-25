@@ -1,31 +1,37 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
-import $ from 'jquery';
+import lozad from 'lozad';
 
+const lozadObserver = lozad();
 
 export default Component.extend({
   intl: service(),
   locale: computed.alias('intl.locale'),
-  classNames: ['logo-img'],
+  classNames: ['lozad'],
+  tagName: 'img',
+  attributeBindings: ['src', 'data-src', 'alt', 'title'],
+
   noLogoUrl: computed('intl.locale', function () {
     return `/assets/logos/no_logo_${this.get('locale')}.png`;
   }),
+
   altText: '',
+  src: '/assets/loader64.svg',
+
+  didInsertElement() {
+    this.get('element').addEventListener('error', () => {
+      if (!this.get('isDestroyed')) {
+        this.set('src', this.get('noLogoUrl'));
+      }
+    });
+  },
 
   didRender() {
-    this._detectMissingImg();
+    lozadObserver.observe(this.get('element'));
   },
 
-  didUpdateAttrs() {
-    this.$().find('img').addClass('lazyload');
-  },
-
-  _detectMissingImg() {
-    const context = this;
-    this.$().find('img').on('error', function () {
-      $(this).addClass('no-logo');
-      $(this).attr('src', context.get('noLogoUrl'));
-    });
+  willDestroyElement() {
+    this.get('element').removeEventListener('error', () => {});
   },
 });

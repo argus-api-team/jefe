@@ -2,7 +2,6 @@
   display: grid;
   grid-gap: $gutter;  // sass-lint:disable-line no-misspelled-properties  : Scss linter don't reconize grid-gap
   padding: 0;
-
   list-style-type: none;
 
   @media (max-width: $mobile-screen) {
@@ -13,7 +12,7 @@
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (min-width: $desktop-screen) {
+  @media (min-width: $large-screen) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -25,7 +24,8 @@
   &.clickable {
     transition: transform .4s;
 
-    &::after {
+    &::after,
+    &::before {
       @include box-shadow(1);
       content: '';
       display: block;
@@ -36,11 +36,20 @@
       bottom: 0;
       left: 0;
       transition: opacity .4s;
+      opacity: 1;
+    }
+
+    &::after {
+      @include box-shadow(2);
       opacity: 0;
     }
 
     &:hover {
       transform: translate3d(0, -3px, 0);
+
+      &::before {
+        opacity: 0;
+      }
 
       &::after {
         opacity: 1;
@@ -149,17 +158,13 @@
   .logo-img {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     order: 1;
     width: 80px;
     min-height: 80px;
-    margin-right: 10px;
+    margin-right: 30px;
     background: $white;
-
-    img {
-      width: 100%;
-      margin-bottom: 0;
-    }
   }
 
   // Right Elements

@@ -31,9 +31,11 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import(app.bowerDirectory + '/lazysizes/lazysizes.js');
-  app.import(app.bowerDirectory + '/jquery-listnav/jquery-listnav.js');
-  app.import(app.bowerDirectory + '/jquery-listnav/css/listnav.css');
+  app.import('node_modules/lozad/dist/lozad.js', {
+    using: [
+      { transformation: 'amd', as: 'lozad' }
+    ]
+  });
 
   //Import base script for metronic
   app.import('vendor/metronic/framework/base/util.js');
