@@ -34,6 +34,7 @@ USER $APP_USER:$APP_GROUP
 RUN \
    # Update NPM and install Ember as non-root user
   npm install -g npm && \
+  npm install -g bower && \
   npm install -g ember-cli@$EMBER_VERSION
 
 WORKDIR $APP_FOLDER
