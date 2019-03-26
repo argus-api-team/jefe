@@ -1,20 +1,21 @@
 /* eslint-env node */
+
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
+module.exports = function (defaults) {
+  const app = new EmberApp(defaults, {
     fingerprint: {
-      exclude: ['assets/flags', 'assets/logos']
+      exclude: ['assets/flags', 'assets/logos'],
     },
     sassOptions: {
       includePaths: [
-        'node_modules/bootstrap/scss'
-      ]
+        'node_modules/bootstrap/scss',
+      ],
     },
     'ember-date-components': {
-      'importCSS': false
+      importCSS: false,
     },
   });
 
@@ -33,19 +34,19 @@ module.exports = function(defaults) {
 
   app.import('node_modules/lozad/dist/lozad.js', {
     using: [
-      { transformation: 'amd', as: 'lozad' }
-    ]
+      { transformation: 'amd', as: 'lozad' },
+    ],
   });
 
-  //Import base script for metronic
+  // Import base script for metronic
   app.import('vendor/metronic/framework/base/util.js');
   app.import('vendor/metronic/framework/base/app.js');
 
-  //Import Custom scroll bar plugin for metronic
+  // Import Custom scroll bar plugin for metronic
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css');
   app.import('node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js');
 
-  //Import base needed component for metronic
+  // Import base needed component for metronic
   app.import('vendor/metronic/framework/components/general/header.js');
   app.import('vendor/metronic/framework/components/general/offcanvas.js');
   app.import('vendor/metronic/framework/components/general/menu.js');
@@ -56,8 +57,8 @@ module.exports = function(defaults) {
   // Import init script for metronic layout components
   app.import('vendor/metronic/layout.js');
 
-  //Import c3 with D3 dependency
-  app.import('node_modules/d3/dist/d3.min.js')
+  // Import c3 with D3 dependency
+  app.import('node_modules/d3/dist/d3.min.js');
   app.import('node_modules/c3/c3.min.css');
   app.import('node_modules/c3/c3.min.js');
   app.import('vendor/shims/c3.js');
@@ -65,8 +66,8 @@ module.exports = function(defaults) {
   // Import Ably Module
   app.import('node_modules/ably/browser/static/ably.js', {
     using: [
-      { transformation: 'amd', as: 'ably' }
-    ]
+      { transformation: 'amd', as: 'ably' },
+    ],
   });
 
   return app.toTree();
