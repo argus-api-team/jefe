@@ -7,7 +7,7 @@ sudo: false
 dist: trusty
 
 addons:
-  chromium: stable
+  chrome: stable
 
 cache:
   directories:
@@ -24,4 +24,4 @@ before_install:
 script:
   - npm run lint:hbs
   - npm run lint:js
-  # - npm test   // Disabled testing while setup test env in docker build container
+  - npm test
