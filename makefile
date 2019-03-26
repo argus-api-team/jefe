@@ -9,6 +9,7 @@ LIVERELOAD_PORT=7020
 TEST_PORT=7357
 DIR := ${CURDIR}
 APP_DIR = /app
+SECCOMP := ${DIR}/chrome.json
 CONTAINER_NAME := ${DOCKER_IMAGE}
 
 # Build targets
@@ -36,6 +37,7 @@ start_container:
 										-p ${TEST_PORT}:${TEST_PORT} \
 										-it \
 										--env-file .env \
+										--security-opt seccomp=${SECCOMP}\
 										${DOCKER_IMAGE}:${APP_VERSION} \
 										/bin/sh
 

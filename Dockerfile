@@ -5,7 +5,8 @@ ENV APP_FOLDER /app
 ENV APP_USER node
 ENV APP_GROUP node
 # Packages Watchman requires to work properly
-ENV BUILD_PACKAGES git \
+ENV BUILD_PACKAGES chromium \
+                   git \
                    libgcc \
                    libressl-dev \
                    libstdc++
