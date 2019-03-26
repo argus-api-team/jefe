@@ -1,1 +1,4 @@
+app/vendor/**/*.js
+public/**/*.js
 tests/**/*.js
+vendor/**/*.js
