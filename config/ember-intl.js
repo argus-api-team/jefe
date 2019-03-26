@@ -1,6 +1,8 @@
-/*jshint node:true*/
+/* jshint node:true */
 
-module.exports = function(/* env */) {
+'use strict';
+
+module.exports = function (/* env */) {
   return {
     /**
      * The locales that our application supports.
@@ -89,6 +91,6 @@ module.exports = function(/* env */) {
      * @type {Boolean}
      * @default false
      */
-    stripEmptyTranslations: false
+    stripEmptyTranslations: false,
   };
 };

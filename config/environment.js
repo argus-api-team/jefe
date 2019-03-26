@@ -1,8 +1,11 @@
 /* eslint-env node */
+
 'use strict';
 
-module.exports = function(environment) {
-  let ENV = {
+const dotenv = require('dotenv');
+
+module.exports = function (environment) {
+  const ENV = {
     modulePrefix: 'jefe',
     environment,
     rootURL: '/',
@@ -14,27 +17,27 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
     googleFonts: [
       'Roboto:300,400,700',
-      'Share+Tech+Mono'
+      'Share+Tech+Mono',
     ],
 
     contentSecurityPolicy: {
       'font-src': "'self' fonts.gstatic.com",
-      'style-src': "'self' fonts.googleapis.com"
+      'style-src': "'self' fonts.googleapis.com",
     },
 
     intl: {
       defaultLocale: 'en',
-      allowedLocales: ['en', 'fr']
+      allowedLocales: ['en', 'fr'],
     },
 
     moment: {
       // Full list of locales: https://github.com/moment/moment/tree/2.10.3/locale
-      includeLocales: ['en', 'fr']
+      includeLocales: ['en', 'fr'],
     },
 
     APP: {
@@ -54,10 +57,10 @@ module.exports = function(environment) {
           // trace: environment === 'development',
           trace: false,
           // Ensure development env hits aren't sent to GA
-          sendHitTask: environment !== 'development'
+          sendHitTask: environment !== 'development',
           // Specify Google Analytics plugins
           // require: ['ecommerce']
-        }
+        },
       },
     ],
   };
@@ -68,9 +71,9 @@ module.exports = function(environment) {
     authenticationRoute: 'login',
   };
   if (environment !== 'production') {
-    require('dotenv').config();
+    dotenv.config();
   }
-  //Setup VarEnv
+  // Setup VarEnv
   ENV.API_URL = process.env.API_URL;
   ENV.OAUTH_URL = process.env.OAUTH_URL;
   ENV.ABLY_KEY = process.env.ABLY_KEY;
@@ -97,10 +100,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.isSecureCookie = true
+    ENV.APP.isSecureCookie = true;
   }
-
-
 
   return ENV;
 };
