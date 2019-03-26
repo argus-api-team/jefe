@@ -12,6 +12,7 @@ module.exports = {
   browser_args: {
     Chromium: {
       ci: [
+        process.env.CI ? '--no-sandbox' : null,
         '--headless',
         '--disable-gpu',
         '--disable-dev-shm-usage',

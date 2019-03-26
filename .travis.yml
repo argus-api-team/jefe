@@ -7,7 +7,7 @@ sudo: false
 dist: trusty
 
 addons:
-  chrome: stable
+  chromium: stable
 
 cache:
   directories:
