@@ -21,7 +21,7 @@ export default Controller.extend({
     return categories;
   }),
 
-  productionFilter: true,
+  productionFilter: false,
 
   filteredModels: computed('filteredCategories', 'model.make.models.category', 'productionFilter', function () {
     const makeModels = this.get('model.make.models');
