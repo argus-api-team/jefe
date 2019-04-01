@@ -45,6 +45,7 @@ Router.map(function () { // eslint-disable-line
       this.route('valorization', { path: 'valorization/:id' });
     });
   });
+  this.route('not-found', { path: '/*' });
 });
 
 export default Router;
