@@ -1,8 +1,9 @@
 import Route from '@ember/routing/route';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import EmberObject from '@ember/object';
 import { all, hash } from 'rsvp';
 
-export default Route.extend({
+export default Route.extend(AuthenticatedRouteMixin, {
   model(params) {
     const model = {
       versions: [],

@@ -1,8 +1,9 @@
 import Route from '@ember/routing/route';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import RSVP from 'rsvp';
 import { computed } from '@ember/object';
 
-export default Route.extend({
+export default Route.extend(AuthenticatedRouteMixin, {
   model(params) {
     return RSVP.hash({
       vehicle: this.store.findRecord('version', params.id, {
