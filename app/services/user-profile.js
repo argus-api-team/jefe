@@ -23,7 +23,6 @@ export default Service.extend({
   userScope: computed('userToken', function () {
     const token = this.get('userToken');
     if (token) {
-      console.log(JSON.parse(window.atob(token.split('.')[1])).ctx.scp);
       return JSON.parse(window.atob(token.split('.')[1])).ctx.scp;
     }
     return [];
