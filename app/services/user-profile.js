@@ -37,7 +37,13 @@ export default Service.extend({
     return null;
   }),
 
-  isCrossCountry: computed('userScope', function () {
+  crossCountryScope: computed('userScope', function () {
+    return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
+  }),
+  valorizationScope: computed('userScope', function () {
+    return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
+  }),
+  matchingScope: computed('userScope', function () {
     return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
   }),
 
