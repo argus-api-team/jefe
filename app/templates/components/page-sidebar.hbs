@@ -27,38 +27,42 @@
         </span>
       {{/link-to}}
     </li>
-    
+
     {{#if localizedReferentials.isFrenchReferential}}
-      <li
-        class="m-menu__item  m-menu__item--submenu {{if quoteIsActive activeSideMenuClass}}"
-      >
-        {{#link-to "data-set.quote" class="m-menu__link"}}
-          <span class="m-menu__item-here"></span>
-          <i class="m-menu__link-icon la la-bar-chart"></i>
-          <span class="m-menu__link-title">
-            <span class="m-menu__link-wrap">
-              <span class="m-menu__link-text">
-                {{t "index.quote.title"}}
+    {{#if userProfile.valorizationScope}}
+        <li
+          class="m-menu__item  m-menu__item--submenu {{if quoteIsActive activeSideMenuClass}}"
+        >
+          {{#link-to "data-set.quote" class="m-menu__link"}}
+            <span class="m-menu__item-here"></span>
+            <i class="m-menu__link-icon la la-bar-chart"></i>
+            <span class="m-menu__link-title">
+              <span class="m-menu__link-wrap">
+                <span class="m-menu__link-text">
+                  {{t "index.quote.title"}}
+                </span>
               </span>
             </span>
-          </span>
-        {{/link-to}}
-      </li>
-      <li
-        class="m-menu__item  m-menu__item--submenu {{if licensePlateIsActive activeSideMenuClass}}"
-      >
-        {{#link-to "data-set.license-plate" class="m-menu__link"}}
-          <span class="m-menu__item-here"></span>
-          <i class="m-menu__link-icon la la-search"></i>
-          <span class="m-menu__link-title">
-            <span class="m-menu__link-wrap">
-              <span class="m-menu__link-text">
-                {{t "index.licensePlate.title"}}
+          {{/link-to}}
+        </li>
+      {{/if}}
+      {{#if userProfile.matchingScope}}
+        <li
+          class="m-menu__item  m-menu__item--submenu {{if licensePlateIsActive activeSideMenuClass}}"
+        >
+          {{#link-to "data-set.license-plate" class="m-menu__link"}}
+            <span class="m-menu__item-here"></span>
+            <i class="m-menu__link-icon la la-search"></i>
+            <span class="m-menu__link-title">
+              <span class="m-menu__link-wrap">
+                <span class="m-menu__link-text">
+                  {{t "index.licensePlate.title"}}
+                </span>
               </span>
             </span>
-          </span>
-        {{/link-to}}
-      </li>
+          {{/link-to}}
+        </li>
+      {{/if}}
     {{/if}}
   </ul>
 </div>

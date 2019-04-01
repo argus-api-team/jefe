@@ -23,6 +23,7 @@ export default Service.extend({
   userScope: computed('userToken', function () {
     const token = this.get('userToken');
     if (token) {
+      console.log(JSON.parse(window.atob(token.split('.')[1])).ctx.scp);
       return JSON.parse(window.atob(token.split('.')[1])).ctx.scp;
     }
     return [];
@@ -37,7 +38,13 @@ export default Service.extend({
     return null;
   }),
 
-  isCrossCountry: computed('userScope', function () {
+  crossCountryScope: computed('userScope', function () {
+    return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
+  }),
+  valorizationScope: computed('userScope', function () {
+    return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
+  }),
+  matchingScope: computed('userScope', function () {
     return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
   }),
 
