@@ -542,5 +542,13 @@
     "email": "{description} doit être une adresse email valide",
     "phone": "{description} doit être un numéro de téléphone valide",
     "url": "{description} doit être une URL valide"
+  },
+  "notifications": {
+    "errors": {
+      "notFound": {
+        "title": "Erreur 404",
+        "text": "La page demandé n'existe pas."
+      }
+    }
   }
 }

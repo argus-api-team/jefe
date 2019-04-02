@@ -3,12 +3,14 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
   notify: service('notify'),
+  intl: service('intl'),
   beforeModel() {
+    const intl = this.get('intl');
     this.transitionTo('index');
-    this.get('notify').alert('Page does not exist', {
+    this.get('notify').alert(intl.t('notifications.errors.notFound.text'), {
       type: 'warning',
       icon: 'warning',
-      title: 'Error 404',
+      title: intl.t('notifications.errors.notFound.title'),
     });
   },
 });
