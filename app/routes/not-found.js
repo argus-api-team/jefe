@@ -6,7 +6,6 @@ export default Route.extend({
   beforeModel() {
     this.transitionTo('index');
     this.get('notify').alert('Page does not exist', {
-      closeAfter: 3600000, // or set to null to disable auto-hiding
       type: 'warning',
       icon: 'warning',
       title: 'Error 404',
