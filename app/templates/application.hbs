@@ -3,7 +3,7 @@
   classPrefix="jefe-notify"
   as |message close|
 }}
-  <div class="m-alert alert alert-dismissible alert-{{message.type}} {{if message.icon "m-alert--icon"}}">
+  <div class="m-alert alert alert-dismissible alert-{{message.type}} {{if message.icon "m-alert--icon"}} m--marginless">
     {{#if message.icon}}
       <div class="m-alert__icon">
         <i class="la la-{{message.icon}}"></i>
