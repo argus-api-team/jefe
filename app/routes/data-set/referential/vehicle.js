@@ -12,7 +12,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
       }),
       featureCategories: this.store.findAll('featureCategory'),
     }).catch(() => {
-      this.transitionTo('data-set.index');
+      this.transitionTo('index');
     });
   },
 
