@@ -2,8 +2,8 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 
 export default Route.extend({
-  notify: service('notify'),
-  intl: service('intl'),
+  notify: service(),
+  intl: service(),
   beforeModel() {
     const intl = this.get('intl');
     this.transitionTo('index');

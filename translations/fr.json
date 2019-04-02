@@ -546,8 +546,16 @@
   "notifications": {
     "errors": {
       "notFound": {
-        "title": "Erreur 404",
-        "text": "La page demandé n'existe pas."
+        "title": "Introuvable",
+        "text": "La page demandée n'existe pas."
+      },
+      "permissions": {
+        "title": "Permission refusée",
+        "reasons": {
+          "crossCountry": "Vous n'avez pas accès à ce référentiel.",
+          "matching": "Vous n'avez pas accès au module de recherche par immatriculation.",
+          "quote": "Vous n'avez pas accès au module de valorisation."
+        }
       }
     }
   }

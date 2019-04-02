@@ -546,8 +546,16 @@
   "notifications": {
     "errors": {
       "notFound": {
-        "title": "Error 404",
+        "title": "Not found",
         "text": "The requested page does not exist."
+      },
+      "permissions": {
+        "title": "Permission denied",
+        "reasons": {
+          "crossCountry": "You do not have access to this referential.",
+          "matching": "You do not have access to the registration search module.",
+          "quote": "You do not have access to the valorization module."
+        }
       }
     }
   }

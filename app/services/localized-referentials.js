@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import { computed } from '@ember/object';
+import { union } from '@ember/object/computed';
 
 export default Service.extend({
 
@@ -9,14 +10,26 @@ export default Service.extend({
   }),
 
 
-  isRsiReferential: computed('dataSetPrefix', 'RsiPrefixes', function () {
-    return this.get('RsiPrefixes').includes(this.get('dataSetPrefix'));
+  isRsiReferential: computed('dataSetPrefix', 'rsiPrefixes', function () {
+    return this.get('rsiPrefixes').includes(this.get('dataSetPrefix'));
   }),
-  RsiPrefixes: Object.freeze([
+  rsiPrefixes: Object.freeze([
     'fr/fr',
     'ma/fr',
     'ci/fr',
   ]),
+  jatoPrefixes: Object.freeze([
+    'be/en',
+    'be/fr',
+    'es/en',
+    'es/es',
+    'pt/en',
+    'pt/pt',
+    'ro/en',
+    'ro/ro',
+  ]),
+  availablePrefixes: union('rsiPrefixes', 'jatoPrefixes'),
+
 
   RSIReferentials: Object.freeze([
     {
