@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   userProfile: service(),
+  userSettings: service(),
   notify: service(),
   intl: service(),
 

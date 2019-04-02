@@ -29,6 +29,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
         icon: 'warning',
         title: intl.t('notifications.errors.notFound.title'),
       });
+      return params;
     }
     if (!crossCountryScope && dataSet !== 'fr-fr') {
       dataSetPrefix = 'fr/fr';
@@ -39,6 +40,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
         icon: 'warning',
         title: intl.t('notifications.errors.permissions.title'),
       });
+      return params;
     }
     localizedReferentials.set('dataSetPrefix', dataSetPrefix);
     return params;
