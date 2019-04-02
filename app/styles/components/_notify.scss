@@ -1,0 +1,23 @@
+.jefe-notify {
+  position: fixed;
+  z-index: 99999;
+  top: 110px;
+  right: 10px;
+  background: none;
+
+  .m-alert {
+    padding-right: 40px;
+  }
+
+  .m-alert__close {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+  }
+
+  .callout {
+    position: relative;
+    overflow: hidden;
+    background: none;
+  }
+}
