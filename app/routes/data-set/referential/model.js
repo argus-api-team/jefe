@@ -10,6 +10,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
       meta: {
         filterable: false,
       },
+    }).catch(() => {
+      this.transitionTo('data-set.index');
     });
   },
   includedRelationship: computed('', function () { // eslint-disable-line

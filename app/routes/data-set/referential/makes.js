@@ -14,6 +14,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
         page: { size: 20 },
         sort: 'name',
       }),
+    }).catch(() => {
+      this.transitionTo('data-set.index');
     });
   },
 });
