@@ -10,6 +10,7 @@ import { inject as service } from '@ember/service';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, HasManyQuery.RESTAdapterMixin, {
   localizedReferentials: service(),
+  notify: service('notify'),
 
   host: ENV.API_URL,
   namespace: computed('baseUrl', 'localizedReferentials.dataSetPrefix', function () {
@@ -27,6 +28,15 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, HasManyQuery.RESTAdapt
       xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
     }
   },
+  isInvalid(status, headers, payload) {
+    const notify = this.get('notify');
+    const message = payload.errors[0].detail.message || payload.errors[0].detail;
+    notify.alert(message, {
+      type: 'danger',
+      icon: 'warning',
+      title: payload.errors[0].title,
+    });
+  },
 
-  baseUrl: 'specs/2.0',
+  baseUrl: 'specs/2.0/',
 });

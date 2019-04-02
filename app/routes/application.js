@@ -9,9 +9,14 @@ export default Route.extend(ApplicationRouteMixin, {
   authenticationRoute: 'login',
 
   intl: service(),
+  session: service(),
+  userSettings: service(),
 
   beforeModel() {
-    const locale = this._selectLocale();
+    let locale = this._selectLocale();
+    if (this.session.get('isAuthenticated')) {
+      ({ locale } = this.userSettings.userSettings);
+    }
     this.intl.setLocale(locale); /* array optional */
     $('html').attr('locale', locale);
   },

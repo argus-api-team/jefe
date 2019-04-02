@@ -14,4 +14,12 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
       xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
     }
   },
+  isInvalid(status, headers, payload) {
+    const notify = this.get('notify');
+    notify.alert(payload.errors[0].detail.message, {
+      type: 'danger',
+      icon: 'warning',
+      title: payload.errors[0].title,
+    });
+  },
 });

@@ -542,5 +542,21 @@
     "email": "{description} must be a valid email address",
     "phone": "{description} must be a valid phone number",
     "url": "{description} must be a valid url"
+  },
+  "notifications": {
+    "errors": {
+      "notFound": {
+        "title": "Not found",
+        "text": "The requested page does not exist."
+      },
+      "permissions": {
+        "title": "Permission denied",
+        "reasons": {
+          "crossCountry": "You do not have access to this referential.",
+          "matching": "You do not have access to the registration search module.",
+          "quote": "You do not have access to the valorization module."
+        }
+      }
+    }
   }
 }

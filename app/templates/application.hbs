@@ -1,1 +1,27 @@
 {{outlet}}
+{{#ember-notify
+  classPrefix="jefe-notify"
+  closeAfter=10000
+  as |message close|
+}}
+  <div class="m-alert alert alert-dismissible alert-{{message.type}} {{if message.icon "m-alert--icon"}} m--marginless">
+    {{#if message.icon}}
+      <div class="m-alert__icon">
+        <i class="la la-{{message.icon}}"></i>
+      </div>
+    {{/if}}
+    <div class="m-alert__text {{if message.icon "" "m--padding-right-20"}}">
+      {{#if message.title}}
+        <p class="h5">{{message.title}}</p>
+      {{/if}}
+      <p class="m--marginless ">{{message.text}}</p>
+    </div>
+    {{#if message.icon}}
+      <div class="m-alert__close">
+        <button {{action close}} type="button" class="close" data-close="alert"></button>
+      </div>
+    {{else}}
+      <button {{action close}} type="button" class="close" data-close="alert"></button>
+    {{/if}}
+  </div>
+{{/ember-notify}}

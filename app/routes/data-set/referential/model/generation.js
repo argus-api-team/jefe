@@ -3,7 +3,9 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model(params) {
-    return this.store.peekRecord('generation', params.generation_id);
+    return this.store.peekRecord('generation', params.generation_id).catch(() => {
+      this.transitionTo('index');
+    });
   },
   renderTemplate(controller, model) {
     this.render('data-set.referential.model.generation', {

@@ -1,8 +1,11 @@
 import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import RSVP from 'rsvp';
+import { inject as service } from '@ember/service';
 
 export default Route.extend(AuthenticatedRouteMixin, {
+  notify: service('notify'),
+
   model(params) {
     return RSVP.hash({
       make: this.get('store').findRecord('make', params.id, {
@@ -32,6 +35,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
           'make.id': params.id,
         },
       }),
+    }).catch(() => {
+      this.transitionTo('index');
     });
   },
 });
