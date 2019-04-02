@@ -1,2 +1,19 @@
 {{outlet}}
-{{ember-notify}}
+{{#ember-notify
+  classPrefix="jefe-notify"
+  as |message close|
+}}
+  <div class="m-alert alert alert-{{message.type}}">
+    <div class="m-alert__text">
+      {{message.text}}
+      <ul>
+        {{#each-in message as |key value|}}
+          <li>{{key}}: {{value}}</li>
+        {{/each-in}}
+      </ul>
+    </div>
+    <div class="m-alert__close">
+      <button {{action close}} type="button" class="close" data-close="alert"></button>
+    </div>
+  </div>
+{{/ember-notify}}
