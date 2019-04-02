@@ -1,6 +1,7 @@
 {{outlet}}
 {{#ember-notify
   classPrefix="jefe-notify"
+  closeAfter=10000
   as |message close|
 }}
   <div class="m-alert alert alert-dismissible alert-{{message.type}} {{if message.icon "m-alert--icon"}} m--marginless">
