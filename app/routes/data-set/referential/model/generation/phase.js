@@ -34,9 +34,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
       model.gearboxes.pushObjects(filterable.gearbox.uniq().without(null));
       model.transmissions.pushObjects(filterable.transmissions.uniq().without(null));
       return model;
-    }).catch(() => {
-      this.transitionTo('data-set.index');
-    });
+    })
+      .catch(() => {
+        this.transitionTo('data-set.index');
+      });
   },
   actions: {
     loading(transition) {

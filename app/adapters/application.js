@@ -30,7 +30,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, HasManyQuery.RESTAdapt
   },
   isInvalid(status, headers, payload) {
     const notify = this.get('notify');
-    const message = payload.errors[0].detail.message || payload.errors[0].detail
+    const message = payload.errors[0].detail.message || payload.errors[0].detail;
     notify.alert(message, {
       type: 'danger',
       icon: 'warning',
