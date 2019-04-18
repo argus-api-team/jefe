@@ -60,7 +60,7 @@ In the body it should say: `This reverts commit <hash>.`, where the hash is the 
 ### Type
 Must be one of the following:
 
-* **build**: Changes that affect the build system or external dependencies (example scopes: gem, ruby, config)
+* **build**: Changes that affect the build system or external dependencies (example scopes: config, docker, dependencies)
 * **ci**: Changes to our CI/CD configuration files and scripts (example scopes: Travis, Gitlab)
 * **docs**: Documentation only changes
 * **feat**: A new feature
@@ -75,7 +75,22 @@ The scope should be the name of the area affected (as perceived by the person re
 
 The following is the list of supported scopes:
 
-[TO BE DEFINED]
+* **config**: Changes that affect the project configuration
+* **contributing**: Changes that affect the contributing guidelines
+* **data**: Changes that affect the data handling between the store and APIs (model, adapter, serializer)
+* **dependencies**: Changes that affect the project dependencies or vendors (NPM packages, Addons, metronic)
+* **docker**: Changes that affect production and build docker images
+* **helpers**: Adding new helpers or update existing ones (helpers, mixins, transforms)
+* **integration**: Adding missing integration tests or correcting existing ones
+* **intl**: Adding new translations or update existing ones
+* **license**: Changes that affect the project license
+* **readme**: Changes that affect the project readme
+* **routes**: Adding new route or update existing ones (router, route)
+* **service**: Adding new a service or update existing ones
+* **ui**: Changes that affect the user interface (components, templates, controllers)
+* **unit**: Adding missing unit tests or correcting existing ones
+* **validator**: Adding new a form validator or update existing ones
+
 
 There are currently a few exceptions to the "use package name" rule:
 
