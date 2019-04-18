@@ -28,6 +28,15 @@ RUN \
   mkdir $APP_FOLDER && \
   chown -R $APP_USER:$APP_GROUP $APP_FOLDER
 
+WORKDIR /usr/local/bin
+RUN \
+    wget -P /usr/local/bin https://github.com/git-chglog/git-chglog/releases/download/0.8.0/git-chglog_linux_amd64 && \
+    mv git-chglog_linux_amd64 bingit-chglog && \
+    chmod 755 bingit-chglog
+
+ENV PATH=$PATH:/user/local/bin
+
+WORKDIR $APP_FOLDER
 # Switch to node user
 USER $APP_USER:$APP_GROUP
 
@@ -35,5 +44,3 @@ RUN \
    # Update NPM and install Ember as non-root user
   npm install -g npm && \
   npm install -g ember-cli@$EMBER_VERSION
-
-WORKDIR $APP_FOLDER
