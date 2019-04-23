@@ -30,11 +30,8 @@ RUN \
 
 WORKDIR /usr/local/bin
 RUN \
-    wget -P /usr/local/bin https://github.com/git-chglog/git-chglog/releases/download/0.8.0/git-chglog_linux_amd64 && \
-    mv git-chglog_linux_amd64 bingit-chglog && \
-    chmod 755 bingit-chglog
-
-ENV PATH=$PATH:/user/local/bin
+    wget -P /usr/local/bin -O git-chglog https://github.com/git-chglog/git-chglog/releases/download/0.8.0/git-chglog_linux_amd64 && \
+    chmod 755 git-chglog
 
 WORKDIR $APP_FOLDER
 # Switch to node user
