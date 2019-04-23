@@ -17,6 +17,7 @@ Please note we have a code of conduct, please follow it in all your interactions
    do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ## Commit Message Format
+
 Each commit message consists of a **header**, a **body** and a **footer**.
 The header has a special format that includes a **type**, a **scope** and a **subject**:
 
@@ -54,13 +55,15 @@ The version in our package.json gets copied to the one we publish, and users nee
 ```
 
 ### Revert
+
 If the commit reverts a previous commit, it should begin with `revert: `, followed by the header of the reverted commit.
 In the body it should say: `This reverts commit <hash>.`, where the hash is the SHA of the commit being reverted.
 
 ### Type
+
 Must be one of the following:
 
-* **build**: Changes that affect the build system or external dependencies (example scopes: gem, ruby, config)
+* **build**: Changes that affect the build system or external dependencies (example scopes: config, docker, dependencies)
 * **ci**: Changes to our CI/CD configuration files and scripts (example scopes: Travis, Gitlab)
 * **docs**: Documentation only changes
 * **feat**: A new feature
@@ -71,11 +74,27 @@ Must be one of the following:
 * **test**: Adding missing tests or correcting existing ones
 
 ### Scope
+
 The scope should be the name of the area affected (as perceived by the person reading the changelog generated from commit messages).
 
 The following is the list of supported scopes:
 
-[TO BE DEFINED]
+* **changelog**: Changes that affect the project changelog
+* **config**: Changes that affect the project configuration
+* **contributing**: Changes that affect the contributing guidelines
+* **data**: Changes that affect the data handling between the store and APIs (model, adapter, serializer)
+* **dependencies**: Changes that affect the project dependencies or vendors (NPM packages, Addons, metronic)
+* **docker**: Changes that affect production and build docker images
+* **helpers**: Adding new helpers or update existing ones (helpers, mixins, transforms)
+* **integration**: Adding missing integration tests or correcting existing ones
+* **intl**: Adding new translations or update existing ones
+* **license**: Changes that affect the project license
+* **readme**: Changes that affect the project readme
+* **routes**: Adding new route or update existing ones (router, route)
+* **service**: Adding new a service or update existing ones
+* **ui**: Changes that affect the user interface (components, templates, controllers)
+* **unit**: Adding missing unit tests or correcting existing ones
+* **validator**: Adding new a form validator or update existing ones
 
 There are currently a few exceptions to the "use package name" rule:
 
@@ -85,6 +104,7 @@ There are currently a few exceptions to the "use package name" rule:
   specific package (e.g. `docs: fix typo in tutorial`).
 
 ### Subject
+
 The subject contains a succinct description of the change:
 
 * use the imperative, present tense: "change" not "changed" nor "changes"
@@ -92,10 +112,12 @@ The subject contains a succinct description of the change:
 * no dot (.) at the end
 
 ### Body
+
 Just as in the **subject**, use the imperative, present tense: "change" not "changed" nor "changes".
 The body should include the motivation for the change and contrast this with previous behavior.
 
 ### Footer
+
 The footer should contain any information about **Breaking Changes** and is also the place to
 reference GitHub issues that this commit **Closes**.
 
