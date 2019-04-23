@@ -1,11 +1,49 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v0.2.0"></a>
+## [v0.2.0] - 2019-04-23
+### Build
+- **docker:** install git-chglog in build image to generate CHANGELOG.md [#bf14752](https://github.com/argus-api-team/jefe/commit/bf14752) - Anthony
+
 ### Docs
 - add git-chglog configuration [#5e2088a](https://github.com/argus-api-team/jefe/commit/5e2088a) - Mickael Palma
+- add contributing guidlines [#0c0c4f7](https://github.com/argus-api-team/jefe/commit/0c0c4f7) - Mickael Palma
+- **changelog:** add CHANGELOG.md [#8b2c52f](https://github.com/argus-api-team/jefe/commit/8b2c52f) - Mickael Palma
+- **contributing:** Fix linter error [#e010304](https://github.com/argus-api-team/jefe/commit/e010304) - Anthony Mangano
+- **contributing:** add scopes to CONTRIBUTING.md [#40c3d3c](https://github.com/argus-api-team/jefe/commit/40c3d3c) - Anthony
+- **contributing:** add changelog scope [#3811ecc](https://github.com/argus-api-team/jefe/commit/3811ecc) - Anthony Mangano
+- **docker:** finalize git-chglog installation in jefe image's Dockerfile [#c8ba9a3](https://github.com/argus-api-team/jefe/commit/c8ba9a3) - Anthony Mangano
+- **license:** Add LICENSE file with MIT License [#dddade8](https://github.com/argus-api-team/jefe/commit/dddade8) - Anthony
+
+### Pull Requests
+- Merge pull request [#23](https://github.com/argus-api-team/jefe/issues/23) from argus-api-team/impr-error-management
+- Merge pull request [#21](https://github.com/argus-api-team/jefe/issues/21) from argus-api-team/session-timeout-impr
+- Merge pull request [#22](https://github.com/argus-api-team/jefe/issues/22) from argus-api-team/impr-scope-management
+- Merge pull request [#20](https://github.com/argus-api-team/jefe/issues/20) from argus-api-team/Fix-models-filters
+- Merge pull request [#19](https://github.com/argus-api-team/jefe/issues/19) from argus-api-team/docker-tests
+- Merge pull request [#18](https://github.com/argus-api-team/jefe/issues/18) from argus-api-team/fix-travis
+- Merge pull request [#17](https://github.com/argus-api-team/jefe/issues/17) from argus-api-team/makes-view-impr
+- Merge pull request [#16](https://github.com/argus-api-team/jefe/issues/16) from argus-api-team/docker-init
+- Merge pull request [#15](https://github.com/argus-api-team/jefe/issues/15) from argus-api-team/international_scope
+- Merge pull request [#14](https://github.com/argus-api-team/jefe/issues/14) from argus-api-team/hotfix
+- Merge pull request [#13](https://github.com/argus-api-team/jefe/issues/13) from argus-api-team/LTS-update
+- Merge pull request [#12](https://github.com/argus-api-team/jefe/issues/12) from argus-api-team/versions-display
+- Merge pull request [#11](https://github.com/argus-api-team/jefe/issues/11) from argus-api-team/improvement
+- Merge pull request [#10](https://github.com/argus-api-team/jefe/issues/10) from argus-api-team/update
+- Merge pull request [#9](https://github.com/argus-api-team/jefe/issues/9) from argus-api-team/optimization
+- Merge pull request [#8](https://github.com/argus-api-team/jefe/issues/8) from argus-api-team/valorization
+- Merge pull request [#7](https://github.com/argus-api-team/jefe/issues/7) from argus-api-team/search-by-plate
+- Merge pull request [#6](https://github.com/argus-api-team/jefe/issues/6) from argus-api-team/revert-ember-update
+- Merge pull request [#5](https://github.com/argus-api-team/jefe/issues/5) from argus-api-team/update-ember-3.1
+- Merge pull request [#4](https://github.com/argus-api-team/jefe/issues/4) from argus-api-team/jefe-new-design
+- Merge pull request [#3](https://github.com/argus-api-team/jefe/issues/3) from argus-api-team/update-metronic-assets
+- Merge pull request [#2](https://github.com/argus-api-team/jefe/issues/2) from argus-api-team/showroom
 
 
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.0...HEAD
+[v0.2.0]: https://github.com/argus-api-team/jefe/compare/v0.1.0...v0.2.0
