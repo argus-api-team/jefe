@@ -79,6 +79,7 @@ The scope should be the name of the area affected (as perceived by the person re
 
 The following is the list of supported scopes:
 
+* **changelog**: Changes that affect the project changelog
 * **config**: Changes that affect the project configuration
 * **contributing**: Changes that affect the contributing guidelines
 * **data**: Changes that affect the data handling between the store and APIs (model, adapter, serializer)
