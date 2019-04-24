@@ -2,6 +2,18 @@
 ## [Unreleased]
 
 
+<a name="v0.2.1"></a>
+## [v0.2.1] - 2019-04-24
+### Docs
+- **changelog:** update CHANGELOG.md [#49b2cff](https://github.com/argus-api-team/jefe/commit/49b2cff) - Anthony Mangano
+
+### Fix
+- **route:** fixe generation route model method [#f7d8e1a](https://github.com/argus-api-team/jefe/commit/f7d8e1a) - Anthony Mangano
+
+### Pull Requests
+- Merge pull request [#24](https://github.com/argus-api-team/jefe/issues/24) from argus-api-team/doc-contributing-license
+
+
 <a name="v0.2.0"></a>
 ## [v0.2.0] - 2019-04-23
 ### Build
@@ -45,5 +57,6 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.1...HEAD
+[v0.2.1]: https://github.com/argus-api-team/jefe/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/argus-api-team/jefe/compare/v0.1.0...v0.2.0
