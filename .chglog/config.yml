@@ -5,18 +5,44 @@ info:
   repository_url: https://github.com/argus-api-team/jefe
 options:
   commits:
-    # filters:
-    #   Type:
-    #     - feat
-    #     - fix
-    #     - perf
-    #     - refactor
+    filters:
+      Type:
+        - build
+        - ci
+        - docs
+        - feat
+        - fix
+        - perf
+        - refactor
+        - style
+        - test
+      Scope:
+        - config
+        - contributing
+        - data
+        - dependencies
+        - docker
+        - helpers
+        - integration
+        - intl
+        - license
+        - readme
+        - routes
+        - service
+        - ui
+        - unit
+        - validator
   commit_groups:
-    # title_maps:
-    #   feat: Features
-    #   fix: Bug Fixes
-    #   perf: Performance Improvements
-    #   refactor: Code Refactoring
+    title_maps:
+      build: Build
+      ci: Continuous integration
+      docs: Documentation
+      feat: Features
+      fix: Bug Fixes
+      perf: Performance Improvements
+      refactor: Code Refactoring
+      style: Coding style
+      test: Test
   header:
     pattern: "^(\\w*)(?:\\(([\\w\\$\\.\\-\\*\\s]*)\\))?\\:\\s(.*)$"
     pattern_maps:

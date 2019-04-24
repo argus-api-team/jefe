@@ -1,15 +1,12 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Documentation
+- **contributing:** Remove changelog scope duplication [#8e02140](https://github.com/argus-api-team/jefe/commit/8e02140) - Anthony Mangano
+
 
 <a name="v0.2.1"></a>
 ## [v0.2.1] - 2019-04-24
-### Docs
-- **changelog:** update CHANGELOG.md [#49b2cff](https://github.com/argus-api-team/jefe/commit/49b2cff) - Anthony Mangano
-
-### Fix
-- **route:** fixe generation route model method [#f7d8e1a](https://github.com/argus-api-team/jefe/commit/f7d8e1a) - Anthony Mangano
-
 ### Pull Requests
 - Merge pull request [#24](https://github.com/argus-api-team/jefe/issues/24) from argus-api-team/doc-contributing-license
 
@@ -19,13 +16,10 @@
 ### Build
 - **docker:** install git-chglog in build image to generate CHANGELOG.md [#bf14752](https://github.com/argus-api-team/jefe/commit/bf14752) - Anthony
 
-### Docs
-- add git-chglog configuration [#5e2088a](https://github.com/argus-api-team/jefe/commit/5e2088a) - Mickael Palma
-- add contributing guidlines [#0c0c4f7](https://github.com/argus-api-team/jefe/commit/0c0c4f7) - Mickael Palma
-- **changelog:** add CHANGELOG.md [#8b2c52f](https://github.com/argus-api-team/jefe/commit/8b2c52f) - Mickael Palma
+### Documentation
+- **contributing:** add changelog scope [#3811ecc](https://github.com/argus-api-team/jefe/commit/3811ecc) - Anthony Mangano
 - **contributing:** Fix linter error [#e010304](https://github.com/argus-api-team/jefe/commit/e010304) - Anthony Mangano
 - **contributing:** add scopes to CONTRIBUTING.md [#40c3d3c](https://github.com/argus-api-team/jefe/commit/40c3d3c) - Anthony
-- **contributing:** add changelog scope [#3811ecc](https://github.com/argus-api-team/jefe/commit/3811ecc) - Anthony Mangano
 - **docker:** finalize git-chglog installation in jefe image's Dockerfile [#c8ba9a3](https://github.com/argus-api-team/jefe/commit/c8ba9a3) - Anthony Mangano
 - **license:** Add LICENSE file with MIT License [#dddade8](https://github.com/argus-api-team/jefe/commit/dddade8) - Anthony
 
