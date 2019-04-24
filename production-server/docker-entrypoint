@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+# For debugging
+[[ "${DEBUG}" = 'true' ]] && set -o xtrace
+
+NGINX_TEMPLATE_FILE=${APP_FOLDER}/nginx.conf.tpl
+NGINX_CONFIGURATION_FILE=${APP_FOLDER}/nginx.conf
+
+INDEX_HTML=${APP_FOLDER}/index.html
+
+_encode() {
+    # urlencode <string>
+    local LANG=C
+    local length="${#1}"
+    for (( i = 0; i < length; i++ )); do
+        local c="${1:i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+        esac
+    done
+}
+
+_generate_configuration_file () {
+  local template_file=${1:-}
+  local configuration_file=${2:-}
+  local env_to_substitute='$PORT $APP_FOLDER'
+
+  if [[ -e "${template_file}" ]]; then
+    envsubst "${env_to_substitute}" < "${template_file}" > "${configuration_file}"
+  else
+    printf "The file $configuration_file doesn't exist" >&2
+  fi
+}
+
+_substract_index_var_env () {
+  local index_html=${1:-}
+
+  sed -i "s|__API_URL|$(_encode $API_URL)|" ${index_html}
+  sed -i "s|__OAUTH_URL|$(_encode $OAUTH_URL)|" ${index_html}
+  sed -i "s|__ABLY_KEY|$(_encode $ABLY_KEY)|" ${index_html}
+}
+
+_generate_configuration_file ${NGINX_TEMPLATE_FILE} ${NGINX_CONFIGURATION_FILE}
+_substract_index_var_env ${INDEX_HTML}
+
+first_argument=${1:-};
+
+if [[ "${first_argument}" = 'nginx' ]]; then
+  shift
+  remaining_arguments=${@:-}
+
+  exec $(which nginx) -c ${NGINX_CONFIGURATION_FILE} ${remaining_arguments}
+else
+  exec "$@"
+fi
