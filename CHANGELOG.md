@@ -1,8 +1,15 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v0.2.2"></a>
+## [v0.2.2] - 2019-04-24
 ### Documentation
+- **config:** configure git-chglog config.yml file [#84892cb](https://github.com/argus-api-team/jefe/commit/84892cb) - Anthony Mangano
 - **contributing:** Remove changelog scope duplication [#8e02140](https://github.com/argus-api-team/jefe/commit/8e02140) - Anthony Mangano
+
+### Pull Requests
+- Merge pull request [#25](https://github.com/argus-api-team/jefe/issues/25) from argus-api-team/fix-referential
 
 
 <a name="v0.2.1"></a>
@@ -51,6 +58,7 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.2...HEAD
+[v0.2.2]: https://github.com/argus-api-team/jefe/compare/v0.2.1...v0.2.2
 [v0.2.1]: https://github.com/argus-api-team/jefe/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/argus-api-team/jefe/compare/v0.1.0...v0.2.0
