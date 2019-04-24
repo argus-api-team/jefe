@@ -2,6 +2,15 @@
 ## [Unreleased]
 
 
+<a name="v0.2.3"></a>
+## [v0.2.3] - 2019-04-24
+### Build
+- **docker:** Create docker production image [#0865601](https://github.com/argus-api-team/jefe/commit/0865601) - Anthony
+
+### Pull Requests
+- Merge pull request [#26](https://github.com/argus-api-team/jefe/issues/26) from argus-api-team/changelog-optimization
+
+
 <a name="v0.2.2"></a>
 ## [v0.2.2] - 2019-04-24
 ### Documentation
@@ -58,7 +67,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.3...HEAD
+[v0.2.3]: https://github.com/argus-api-team/jefe/compare/v0.2.2...v0.2.3
 [v0.2.2]: https://github.com/argus-api-team/jefe/compare/v0.2.1...v0.2.2
 [v0.2.1]: https://github.com/argus-api-team/jefe/compare/v0.2.0...v0.2.1
 [v0.2.0]: https://github.com/argus-api-team/jefe/compare/v0.1.0...v0.2.0
