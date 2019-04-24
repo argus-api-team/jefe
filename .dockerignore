@@ -2,6 +2,11 @@
 .gitignore
 README.md
 
+# Build and dependencies folders
+dist
+node_modules
+tmp
+
 #
 # OS X
 #
