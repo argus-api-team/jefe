@@ -2,6 +2,15 @@
 ## [Unreleased]
 
 
+<a name="v0.2.4"></a>
+## [v0.2.4] - 2019-05-02
+### Build
+- **config:** Setup HTTPS on dev server [#a41b517](https://github.com/argus-api-team/jefe/commit/a41b517) - Anthony Mangano
+
+### Pull Requests
+- Merge pull request [#27](https://github.com/argus-api-team/jefe/issues/27) from argus-api-team/docker-production-img
+
+
 <a name="v0.2.3"></a>
 ## [v0.2.3] - 2019-04-24
 ### Build
@@ -67,7 +76,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.3...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.4...HEAD
+[v0.2.4]: https://github.com/argus-api-team/jefe/compare/v0.2.3...v0.2.4
 [v0.2.3]: https://github.com/argus-api-team/jefe/compare/v0.2.2...v0.2.3
 [v0.2.2]: https://github.com/argus-api-team/jefe/compare/v0.2.1...v0.2.2
 [v0.2.1]: https://github.com/argus-api-team/jefe/compare/v0.2.0...v0.2.1
