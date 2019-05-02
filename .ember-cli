@@ -5,5 +5,8 @@
 
     Setting `disableAnalytics` to true will prevent any data from being sent.
   */
-  "disableAnalytics": false
+  "disableAnalytics": false,
+  "ssl": true,
+  "ssl-key": "./dev-cert/dev-selfsigned.key",
+  "ssl-cert": "./dev-cert/dev-selfsigned.crt"
 }
