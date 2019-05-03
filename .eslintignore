@@ -1,6 +1,30 @@
-app/vendor/**/*.js
-dist/**/*.js
-public/**/*.js
-tests/**/*.js
-tmp/**/*.js
-vendor/**/*.js
+# app/vendor/**/*.js
+# dist/**/*.js
+# public/**/*.js
+# tests/**/*.js
+# tmp/**/*.js
+# vendor/**/*.js
+
+# unconventional js
+blueprints/*/files/
+vendor/
+public/
+
+# compiled output
+dist/
+tmp/
+
+# dependencies
+bower_components/
+
+# misc
+coverage/
+
+
+# ember-try
+.node_modules.ember-try/
+bower.json.ember-try
+package.json.ember-try
+
+# Don't lint test code until test are writen
+tests/

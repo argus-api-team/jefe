@@ -10,7 +10,7 @@ ENV BUILD_PACKAGES chromium \
                    libgcc \
                    libressl-dev \
                    libstdc++
-ENV EMBER_VERSION 3.6.1
+ENV EMBER_CLI_VERSION 3.8.2
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin
 
@@ -40,4 +40,4 @@ USER $APP_USER:$APP_GROUP
 RUN \
    # Update NPM and install Ember as non-root user
   npm install -g npm && \
-  npm install -g ember-cli@$EMBER_VERSION
+  npm install -g ember-cli@$EMBER_CLI_VERSION
