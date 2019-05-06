@@ -7,9 +7,11 @@ const Router = EmberRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL,
   metrics: service(),
-  didTransition() {
+  init() {
     this._super(...arguments);
-    this._trackPage();
+    this.on('routeDidChange', () => {
+      this._trackPage();
+    });
   },
   _trackPage() {
     scheduleOnce('afterRender', this, () => {

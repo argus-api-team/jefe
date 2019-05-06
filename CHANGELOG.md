@@ -2,6 +2,19 @@
 ## [Unreleased]
 
 
+<a name="v0.2.5"></a>
+## [v0.2.5] - 2019-05-06
+### Bug Fixes
+- **routes:** Fix didTransition deprecation [#53177a9](https://github.com/argus-api-team/jefe/commit/53177a9) - Anthony Mangano
+
+### Build
+- **config:** Remove useless comment in .eslintignore [#a6ee785](https://github.com/argus-api-team/jefe/commit/a6ee785) - Anthony Mangano
+- **dependencies:** Update EmberJS from 3.4LTS to 3.8LTS [#48f6f24](https://github.com/argus-api-team/jefe/commit/48f6f24) - Anthony Mangano
+
+### Pull Requests
+- Merge pull request [#28](https://github.com/argus-api-team/jefe/issues/28) from argus-api-team/https-setup
+
+
 <a name="v0.2.4"></a>
 ## [v0.2.4] - 2019-05-02
 ### Build
@@ -76,7 +89,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.4...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.5...HEAD
+[v0.2.5]: https://github.com/argus-api-team/jefe/compare/v0.2.4...v0.2.5
 [v0.2.4]: https://github.com/argus-api-team/jefe/compare/v0.2.3...v0.2.4
 [v0.2.3]: https://github.com/argus-api-team/jefe/compare/v0.2.2...v0.2.3
 [v0.2.2]: https://github.com/argus-api-team/jefe/compare/v0.2.1...v0.2.2
