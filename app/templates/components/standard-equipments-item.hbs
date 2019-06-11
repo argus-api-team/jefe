@@ -1,0 +1,11 @@
+<span class="standard-equipments-item__text" data-focus-text={{equipment.name}}>{{equipment.name}}</span>
+<button id={{targetId}} class="m--margin-left-15">
+  <i class="standard-equipments-item__icon la la-info-circle {{if showTrigger "show"}}"></i>
+</button>
+{{ember-popover
+  event="click"
+  text="tooltipText"
+  targetId=targetId
+  onShow=(action 'focusEquipment')
+  onHide=(action 'blurEquipment')
+}}

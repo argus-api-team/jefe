@@ -8,9 +8,9 @@
       display: inline-block;
       position: relative;
       top: -2px;
-      width: 2.5em;
+      width: 2em;
       margin-top: -2px;
-      margin-left: -2.5em;
+      margin-left: -2em;
     }
   }
 }
@@ -30,7 +30,8 @@
     font-size: 2rem;
   }
 
-  &:hover {
+  &:hover,
+  &.focus {
 
     .standard-equipments-item__text {
       font-size: 1.2rem;

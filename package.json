@@ -72,6 +72,7 @@
     "ember-source": "~3.8.0",
     "ember-star-rating": "https://github.com/anthony-mangano-argus/ember-star-rating/tarball/00da9909fd375c6d59470c7c84e49507a589d756",
     "ember-sticky-element": "^0.2.1",
+    "ember-tooltips": "^3.3.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-ember": "^6.4.1",

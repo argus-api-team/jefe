@@ -12,10 +12,10 @@
     </div>
     <ul class="row categery-standard-equipments-list m--margin-bottom-30">
       {{#each filteredEquipments.content as |equipment|}}
-        <li class="col-12 col-xl-6 standard-equipments-item">
-          <span class="standard-equipments-item__text" data-focus-text={{equipment.name}}>{{equipment.name}}</span>
-          <i class="standard-equipments-item__icon la la-info-circle m--margin-left-15 la-2x"></i>
-        </li>
+        {{standard-equipments-item
+          equipment=equipment
+          class="col-12 col-xl-6"
+        }}
       {{/each}}
     </ul>
   {{/if}}
