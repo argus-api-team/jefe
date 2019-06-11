@@ -1,0 +1,50 @@
+.categery-standard-equipments-list {
+  list-style-type: none;
+
+  .standard-equipments-item {
+
+    &::before {
+      content: '\25EF';
+      display: inline-block;
+      position: relative;
+      top: -2px;
+      width: 2.5em;
+      margin-top: -2px;
+      margin-left: -2.5em;
+    }
+  }
+}
+
+.standard-equipments-item {
+
+  .standard-equipments-item__text {
+    font-size: 1.1rem;
+    line-height: 24px;
+  }
+
+  .standard-equipments-item__icon {
+    position: relative;
+    top: 4px;
+    opacity: 0;
+    color: array-get($m--state-colors, info, base);
+    font-size: 2rem;
+  }
+
+  &:hover {
+
+    .standard-equipments-item__text {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    .standard-equipments-item__icon {
+      opacity: 1;
+    }
+
+    &::before {
+      content: '\2B24';
+    }
+  }
+
+
+}
