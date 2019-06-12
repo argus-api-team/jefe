@@ -1,11 +1,37 @@
-<span class="standard-equipments-item__text" data-focus-text={{equipment.name}}>{{equipment.name}}</span>
-<button id={{targetId}} class="m--margin-left-15">
-  <i class="standard-equipments-item__icon la la-info-circle {{if showTrigger "show"}}"></i>
+<button id={{targetId}}  {{action (action "toggleModal")}} class="m--margin-right-10 equipment-info-button">
+  <i class="
+    standard-equipments-item__icon
+    standard-equipments-item__idle-icon
+    la la-circle
+    {{if showTrigger "show"}}
+  "></i>
+  <i class="
+    standard-equipments-item__icon
+    standard-equipments-item__focus-icon
+    la
+    la-info-circle
+    {{if showTrigger "show"}}
+  "></i>
 </button>
-{{ember-popover
-  event="click"
-  text="tooltipText"
-  targetId=targetId
-  onShow=(action 'focusEquipment')
-  onHide=(action 'blurEquipment')
-}}
+<span class="standard-equipments-item__text">{{equipment.name}}</span>
+{{#if isShowingModal}}
+  {{#modal-dialog
+      onClose=(action "toggleModal")
+      targetAttachment="center"
+      translucentOverlay=true
+  }}
+    <h3>Equipment details</h3>
+    <table>
+      <tbody>
+        <tr>
+          <th>ID:</th>
+          <td>{{equipment.id}}</td>
+        </tr>
+        <tr>
+          <th>Name:</th>
+          <td>{{equipment.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+  {{/modal-dialog}}
+{{/if}}
