@@ -72,7 +72,7 @@
 @import 'ember-basic-dropdown';
 @import 'ember-date-components/addon';
 @import 'ember-modal-dialog/ember-modal-structure';
-@import 'ember-modal-dialog/ember-modal-appearance';
+// @import 'ember-modal-dialog/ember-modal-appearance';
 
 
 //Utils
@@ -103,6 +103,8 @@
 @import 'components/versions-table';
 @import 'components/category-standard-equipments';
 @import 'components/tooltip';
+@import 'components/modal';
+
 
 //Page specific
 @import 'pages/login';
