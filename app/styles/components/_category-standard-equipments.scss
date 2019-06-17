@@ -43,11 +43,23 @@
 
   &:hover,
   &.focus {
-
     .standard-equipments-item__text {
       font-size: 1.1rem;
       font-weight: 400;
     }
+
+    .standard-equipments-item__idle-icon {
+      opacity: 0;
+    }
+
+    .standard-equipments-item__focus-icon {
+      opacity: 1;
+    }
+  }
+
+  @media (hover :none) and (pointer: coarse) {
+    padding-top: 10px;
+    padding-bottom: 10px;
 
     .standard-equipments-item__idle-icon {
       opacity: 0;
