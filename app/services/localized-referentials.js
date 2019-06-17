@@ -195,7 +195,7 @@ export default Service.extend({
           labelKey: 'referentialSelector.langs.en',
           prefix: 'en',
           flag: 'gb',
-        }
+        },
       ],
     },
   ]),
