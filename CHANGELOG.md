@@ -2,6 +2,21 @@
 ## [Unreleased]
 
 
+<a name="v0.3.0"></a>
+## [v0.3.0] - 2019-06-17
+### Features
+- **intl:** Translate equipment details modal [#16086d8](https://github.com/argus-api-team/jefe/commit/16086d8) - Anthony Mangano
+- **ui:** set min width to equipment-details-modal [#7d9d190](https://github.com/argus-api-team/jefe/commit/7d9d190) - Anthony Mangano
+- **ui:** Specify style for touchscreen [#4e35a91](https://github.com/argus-api-team/jefe/commit/4e35a91) - Anthony Mangano
+- **ui:** Setup styled equipment modal [#a43e2b0](https://github.com/argus-api-team/jefe/commit/a43e2b0) - Anthony
+- **ui:** Implement modal instead of popover for equipment details [#d8fb799](https://github.com/argus-api-team/jefe/commit/d8fb799) - Anthony Mangano
+- **ui:** Add equipment tooltip interaction [#52fbd1f](https://github.com/argus-api-team/jefe/commit/52fbd1f) - Anthony
+- **ui:** Add hover effect on standard equipments list [#22b2185](https://github.com/argus-api-team/jefe/commit/22b2185) - Anthony
+
+### Pull Requests
+- Merge pull request [#29](https://github.com/argus-api-team/jefe/issues/29) from argus-api-team/update-ember-js
+
+
 <a name="v0.2.5"></a>
 ## [v0.2.5] - 2019-05-06
 ### Bug Fixes
@@ -89,7 +104,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.2.5...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.3.0...HEAD
+[v0.3.0]: https://github.com/argus-api-team/jefe/compare/v0.2.5...v0.3.0
 [v0.2.5]: https://github.com/argus-api-team/jefe/compare/v0.2.4...v0.2.5
 [v0.2.4]: https://github.com/argus-api-team/jefe/compare/v0.2.3...v0.2.4
 [v0.2.3]: https://github.com/argus-api-team/jefe/compare/v0.2.2...v0.2.3

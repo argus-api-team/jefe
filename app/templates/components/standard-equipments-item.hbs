@@ -1,0 +1,45 @@
+<button id={{targetId}}  {{action (action "toggleModal")}} class="m--margin-right-10 equipment-info-button">
+  <i class="
+    standard-equipments-item__icon
+    standard-equipments-item__idle-icon
+    la la-circle
+    {{if showTrigger "show"}}
+  "></i>
+  <i class="
+    standard-equipments-item__icon
+    standard-equipments-item__focus-icon
+    la
+    la-info-circle
+    {{if showTrigger "show"}}
+  "></i>
+</button>
+<span class="standard-equipments-item__text">{{equipment.name}}</span>
+{{#if isShowingModal}}
+  {{#modal-dialog
+      onClose=(action "toggleModal")
+      targetAttachment="center"
+      translucentOverlay=true
+      wrapperClassNames="modal"
+  }}
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{t "vehicleSheet.equipmentsLabels.details"}}</h5>
+        <button {{action (action "toggleModal")}} type="button" class="close m--margin-left-30"></button>
+      </div>
+      <div class="modal-body">
+        <table class="equipment-details-table">
+          <tbody>
+            <tr>
+              <th class="equipment-details-table__label m--padding-5 m--margin-bottom-5 m--margin-rigth:10">{{t "vehicleSheet.equipmentsLabels.id"}} :</th>
+              <td class="m--padding-5 m--margin-bottom-5">{{equipment.id}}</td>
+            </tr>
+            <tr>
+              <th class="equipment-details-table__label m--padding-5 m--margin-bottom-5 m--margin-rigth:10">{{t "vehicleSheet.equipmentsLabels.name"}} :</th>
+              <td class="m--padding-5 m--margin-bottom-5">{{equipment.name}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {{/modal-dialog}}
+{{/if}}

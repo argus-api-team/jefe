@@ -190,7 +190,9 @@
       "name": "Nom",
       "category": "Catégory",
       "priceHT": "Prix HT",
-      "priceTTC": "Prix TTC"
+      "priceTTC": "Prix TTC",
+      "details": "Détails de l'équipement",
+      "id": "ID"
     },
     "equipments": "Équipements",
     "argusId": "Id Argus"

@@ -59,6 +59,7 @@
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-metrics": "https://github.com/poteto/ember-metrics/tarball/1963fc05cbc15c1109b32e7f436962033e61c5f0",
+    "ember-modal-dialog": "^3.0.0-beta.3",
     "ember-moment": "^7.8.0",
     "ember-notify": "^5.2.1",
     "ember-power-select": "^2.3.2",

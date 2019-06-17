@@ -12,7 +12,10 @@
     </div>
     <ul class="row categery-standard-equipments-list m--margin-bottom-30">
       {{#each filteredEquipments.content as |equipment|}}
-        <li class="col-12 col-xl-6">{{equipment.name}}</li>
+        {{standard-equipments-item
+          equipment=equipment
+          class="col-12 col-xl-6"
+        }}
       {{/each}}
     </ul>
   {{/if}}

@@ -1,0 +1,22 @@
+// sass-lint:disable force-element-nesting
+// Disable rules to overide metronic theme
+
+.modal {
+  display: block;
+}
+
+.translucent {
+  display: block;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $modal-overlay-bg;
+}
+
+.modal .modal-content .modal-header .close {
+  font-size: 1.5rem;
+  line-height: 1;
+}
