@@ -27,14 +27,14 @@
         <button {{action (action "toggleModal")}} type="button" class="close m--margin-left-30"></button>
       </div>
       <div class="modal-body">
-        <table>
+        <table class="equipment-details-table">
           <tbody>
             <tr>
-              <th class="m--padding-5 m--margin-bottom-5 m--margin-rigth:10">{{t "vehicleSheet.equipmentsLabels.id"}} :</th>
+              <th class="equipment-details-table__label m--padding-5 m--margin-bottom-5 m--margin-rigth:10">{{t "vehicleSheet.equipmentsLabels.id"}} :</th>
               <td class="m--padding-5 m--margin-bottom-5">{{equipment.id}}</td>
             </tr>
             <tr>
-              <th class="m--padding-5 m--margin-bottom-5 m--margin-rigth:10">{{t "vehicleSheet.equipmentsLabels.name"}} :</th>
+              <th class="equipment-details-table__label m--padding-5 m--margin-bottom-5 m--margin-rigth:10">{{t "vehicleSheet.equipmentsLabels.name"}} :</th>
               <td class="m--padding-5 m--margin-bottom-5">{{equipment.name}}</td>
             </tr>
           </tbody>
