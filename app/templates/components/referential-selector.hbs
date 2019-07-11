@@ -27,9 +27,9 @@
             {{#each localizedReferentials.RSIReferentials as |country|}}
               <li class="vertical-list__item">
                 <a href="/{{country.defautPrefix}}" class="media referential-choice" {{action "changeOriginCountry" country preventDefault=true}}>
-                  <img src="/assets/flags/{{country.flag}}.png" alt={{country.label}} title={{country.label}} class="align-self-center mr-3 referential-choice__img">
+                  <img src="/assets/flags/{{country.flag}}.png" alt={{t country.labelKey}} title={{t country.labelKey}} class="align-self-center mr-3 referential-choice__img">
                   <div class="media-body align-self-center">
-                    <span>{{country.label}}</span>
+                    <span>{{t country.labelKey}}</span>
                   </div>
                 </a>
               </li>

@@ -59,14 +59,19 @@
       "be": "Belgium",
       "es": "Spain",
       "pt": "Portugal",
-      "ro": "Romania"
+      "ro": "Romania",
+      "gb": "United Kingdom",
+      "pl": "Poland",
+      "de": "Germany"
     },
     "langs": {
       "en": "English",
       "es": "Spanish",
       "fr": "French",
       "pt": "Portuguese",
-      "ro": "Romanian"
+      "ro": "Romanian",
+      "de": "German",
+      "pl": "Polish"
     }
   },
   "login": {
