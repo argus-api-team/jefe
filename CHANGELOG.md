@@ -1,6 +1,12 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+### Bug Fixes
+- **service:** Fix lint error on localized-referential service [#8d6bd62](https://github.com/argus-api-team/jefe/commit/8d6bd62) - Anthony Mangano
+
+### Features
+- **data:** add GB, DE and PL referentials [#ead7d3d](https://github.com/argus-api-team/jefe/commit/ead7d3d) - Anthony Mangano
+
 
 <a name="v0.3.0"></a>
 ## [v0.3.0] - 2019-06-17
