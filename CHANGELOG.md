@@ -1,11 +1,18 @@
 <a name="unreleased"></a>
 ## [Unreleased]
 
+
+<a name="v0.4.0"></a>
+## [v0.4.0] - 2019-07-11
 ### Bug Fixes
 - **service:** Fix lint error on localized-referential service [#8d6bd62](https://github.com/argus-api-team/jefe/commit/8d6bd62) - Anthony Mangano
 
 ### Features
 - **data:** add GB, DE and PL referentials [#ead7d3d](https://github.com/argus-api-team/jefe/commit/ead7d3d) - Anthony Mangano
+
+### Pull Requests
+- Merge pull request [#31](https://github.com/argus-api-team/jefe/issues/31) from argus-api-team/add-pl-en-de-referentials
+- Merge pull request [#30](https://github.com/argus-api-team/jefe/issues/30) from argus-api-team/equipments-info-tooltip
 
 
 <a name="v0.3.0"></a>
@@ -110,7 +117,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/argus-api-team/jefe/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/argus-api-team/jefe/compare/v0.2.5...v0.3.0
 [v0.2.5]: https://github.com/argus-api-team/jefe/compare/v0.2.4...v0.2.5
 [v0.2.4]: https://github.com/argus-api-team/jefe/compare/v0.2.3...v0.2.4
