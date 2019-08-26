@@ -18,7 +18,7 @@ export default Service.extend({
     'ma/fr',
     'ci/fr',
   ]),
-  jatoPrefixes: Object.freeze([
+  thirdPartiesPrefixes: Object.freeze([
     'be/en',
     'be/fr',
     'de/en',
@@ -34,7 +34,7 @@ export default Service.extend({
     'pl/pl',
     'bg/bg',
   ]),
-  availablePrefixes: union('rsiPrefixes', 'jatoPrefixes'),
+  availablePrefixes: union('rsiPrefixes', 'thirdPartiesPrefixes'),
 
 
   RSIReferentials: Object.freeze([
@@ -76,7 +76,7 @@ export default Service.extend({
     },
   ]),
 
-  JatoReferentials: Object.freeze([
+  ThirdPartiesReferentials: Object.freeze([
     {
       labelKey: 'referentialSelector.countries.de',
       defautPrefix: 'de-en',
