@@ -50,7 +50,7 @@
     "chooseCountry": "Choose a data set",
     "chooseLanguage": "Choose the catalog language",
     "rsi": "RSI",
-    "jato": "JATO",
+    "thirdParties": "Third parties",
     "languages": "Languages",
     "countries": {
       "fr": "France",
@@ -62,7 +62,8 @@
       "ro": "Romania",
       "gb": "United Kingdom",
       "pl": "Poland",
-      "de": "Germany"
+      "de": "Germany",
+      "bg": "Bulgaria"
     },
     "langs": {
       "en": "English",
@@ -71,7 +72,8 @@
       "pt": "Portuguese",
       "ro": "Romanian",
       "de": "German",
-      "pl": "Polish"
+      "pl": "Polish",
+      "bg": "Bulgarian"
     }
   },
   "login": {

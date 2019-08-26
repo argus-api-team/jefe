@@ -50,7 +50,7 @@
     "chooseCountry": "Choisissez un jeu de données.",
     "chooseLanguage": "Choisissez la langue du catalogue",
     "rsi": "RSI",
-    "jato": "JATO",
+    "thirdParties": "Tiers",
     "languages": "Langues",
     "countries": {
       "fr": "France",
@@ -62,7 +62,8 @@
       "ro": "Roumanie",
       "gb": "Royaume uni",
       "pl": "Pologne",
-      "de": "Allemagne"
+      "de": "Allemagne",
+      "bg": "Bulgarie"
     },
     "langs": {
       "en": "Anglais",
@@ -71,7 +72,8 @@
       "pt": "Portugais",
       "ro": "Roumain",
       "de": "Allemand",
-      "pl": "Polonais"
+      "pl": "Polonais",
+      "bg": "Bulgare"
     }
   },
   "login": {
