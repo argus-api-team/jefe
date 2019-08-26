@@ -32,6 +32,7 @@ export default Service.extend({
     'ro/ro',
     'pl/en',
     'pl/pl',
+    'bg/bg',
   ]),
   availablePrefixes: union('rsiPrefixes', 'jatoPrefixes'),
 
@@ -167,7 +168,6 @@ export default Service.extend({
       ],
     },
     {
-      label: 'Roumanie',
       labelKey: 'referentialSelector.countries.ro',
       defautPrefix: 'ro-en',
       prefix: 'ro',
@@ -195,6 +195,19 @@ export default Service.extend({
           labelKey: 'referentialSelector.langs.en',
           prefix: 'en',
           flag: 'gb',
+        },
+      ],
+    },
+    {
+      labelKey: 'referentialSelector.countries.bg',
+      defautPrefix: 'bg-bg',
+      prefix: 'bg',
+      flag: 'bg',
+      langs: [
+        {
+          labelKey: 'referentialSelector.langs.bg',
+          prefix: 'bg',
+          flag: 'bg',
         },
       ],
     },

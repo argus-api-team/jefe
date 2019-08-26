@@ -62,7 +62,8 @@
       "ro": "Roumanie",
       "gb": "Royaume uni",
       "pl": "Pologne",
-      "de": "Allemagne"
+      "de": "Allemagne",
+      "bg": "Bulgarie"
     },
     "langs": {
       "en": "Anglais",
@@ -71,7 +72,8 @@
       "pt": "Portugais",
       "ro": "Roumain",
       "de": "Allemand",
-      "pl": "Polonais"
+      "pl": "Polonais",
+      "bg": "Bulgare"
     }
   },
   "login": {
