@@ -2,6 +2,15 @@
 ## [Unreleased]
 
 
+<a name="v0.5.0"></a>
+## [v0.5.0] - 2019-08-26
+### Features
+- **data:** add BG referential [#d34a079](https://github.com/argus-api-team/jefe/commit/d34a079) - theo-delaune-argus
+
+### Pull Requests
+- Merge pull request [#32](https://github.com/argus-api-team/jefe/issues/32) from argus-api-team/add-bg-referential
+
+
 <a name="v0.4.0"></a>
 ## [v0.4.0] - 2019-07-11
 ### Bug Fixes
@@ -117,7 +126,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/argus-api-team/jefe/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/argus-api-team/jefe/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/argus-api-team/jefe/compare/v0.2.5...v0.3.0
 [v0.2.5]: https://github.com/argus-api-team/jefe/compare/v0.2.4...v0.2.5
