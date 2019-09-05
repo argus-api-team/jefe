@@ -1,8 +1,7 @@
 import DS from 'ember-data';
 import { computed } from '@ember/object';
-import DisplayDateMixin from '../mixins/display-date';
 
-export default DS.Model.extend(DisplayDateMixin, {
+export default DS.Model.extend({
   name: DS.attr('string'),
   shortNicename: DS.attr('string'),
   fullNicename: DS.attr('string'),
@@ -51,13 +50,13 @@ export default DS.Model.extend(DisplayDateMixin, {
   lastEngine: computed('lastPeriod', function () {
     const lastPeriodPromise = this.get('lastPeriod');
     return DS.PromiseObject.create({
-      promise: lastPeriodPromise.then(lastPeriod => lastPeriod.get('engine')),
+      promise: lastPeriodPromise.then((lastPeriod) => lastPeriod.get('engine')),
     });
   }),
   lastTransmission: computed('lastPeriod', function () {
     const lastPeriodPromise = this.get('lastPeriod');
     return DS.PromiseObject.create({
-      promise: lastPeriodPromise.then(lastPeriod => lastPeriod.get('transmission')),
+      promise: lastPeriodPromise.then((lastPeriod) => lastPeriod.get('transmission')),
     });
   }),
 });

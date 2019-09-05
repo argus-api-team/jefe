@@ -1,7 +1,6 @@
 import DS from 'ember-data';
-import DisplayDateMixin from '../mixins/display-date';
 
-export default DS.Model.extend(DisplayDateMixin, {
+export default DS.Model.extend({
 
   name: DS.attr('string'),
   shortNicename: DS.attr('string'),

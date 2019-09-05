@@ -19,17 +19,17 @@ export default Component.extend({
     const categoryId = this.get('category.id');
     const vehicleDate = valorization.get('releasedAt');
     return valorization.get('version')
-      .then(version => this._getVehiclePeriod(version, vehicleDate))
-      .then(period => period.query('optionalFeatures', {
+      .then((version) => this._getVehiclePeriod(version, vehicleDate))
+      .then((period) => period.query('optionalFeatures', {
         page: { size: 500 },
         include: 'feature-category',
       }))
-      .then(optionalFeatures => this._filterOptionsByCategory(optionalFeatures, categoryId));
+      .then((optionalFeatures) => this._filterOptionsByCategory(optionalFeatures, categoryId));
   },
 
   _getVehiclePeriod(version, vehicleDate) {
     return version.get('periods')
-      .then(periods => periods.find((currentPeriod) => {
+      .then((periods) => periods.find((currentPeriod) => {
         const periodStartDate = moment(currentPeriod.get('startDate'));
         const periodEndDate = moment(currentPeriod.get('endDate'));
         if (!currentPeriod.get('endDate')) {

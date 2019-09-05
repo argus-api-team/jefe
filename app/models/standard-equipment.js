@@ -1,5 +1,4 @@
-import DS from 'ember-data';
-import FeatureModelMixin from '../mixins/feature-model';
+import featureModel from './feature';
 
-export default DS.Model.extend(FeatureModelMixin, {
-});
+
+export default featureModel.extend();

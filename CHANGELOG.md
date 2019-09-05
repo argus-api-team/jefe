@@ -2,6 +2,12 @@
 ## [Unreleased]
 
 
+<a name="v0.5.1"></a>
+## [v0.5.1] - 2019-09-05
+### Build
+- **dependencies:** Update Ember from 3.8 to 3.12 [#c501956](https://github.com/argus-api-team/jefe/commit/c501956) - Anthony Mangano
+
+
 <a name="v0.5.0"></a>
 ## [v0.5.0] - 2019-08-26
 ### Features
@@ -126,7 +132,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.1...HEAD
+[v0.5.1]: https://github.com/argus-api-team/jefe/compare/v0.5.0...v0.5.1
 [v0.5.0]: https://github.com/argus-api-team/jefe/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/argus-api-team/jefe/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/argus-api-team/jefe/compare/v0.2.5...v0.3.0

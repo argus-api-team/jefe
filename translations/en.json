@@ -466,7 +466,7 @@
       "numberOfValves": "Number of valves",
       "boreAndStroke": "Bore/Stroke",
       "compressionRatio": "Compression ratio",
-      "emission": "Anti-pollution standard",
+      "standardEmission": "Anti-pollution standard",
       "fiscalHorsepower": "Fiscal horsepower"
     },
     "gearbox": {

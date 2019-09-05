@@ -1,10 +1,10 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { debounce } from '@ember/runloop';
-import VehicleSelectionlMixin from '../mixins/vehicle-selection';
 
-export default Component.extend(VehicleSelectionlMixin, {
+export default Component.extend({
   store: service(),
+  router: service(),
 
   // Html element properties
   tagName: 'form',
@@ -27,7 +27,12 @@ export default Component.extend(VehicleSelectionlMixin, {
   submit(e) {
     e.preventDefault();
     const resolvedVersion = this.get('resolvedVersion');
-    this.selectVersion(resolvedVersion);
+    const valorizationRecord = this.get('valorizationRecord');
+    const vehicleDate = this.get('vehicleDate');
+    const router = this.get('router');
+    valorizationRecord.set('version', resolvedVersion);
+    valorizationRecord.set('releasedAt', vehicleDate);
+    router.transitionTo('data-set.quote.valorize.offer');
   },
 
   // Methods

@@ -17,7 +17,7 @@ export default Component.extend({
     const sortOption = this.get('sortOptions').findBy('isActive', true);
     const sortOrder = this.get('sortOrder');
     if (sortOption) {
-      return sortOption.properties.map(sortProperty => `${sortProperty}:${sortOrder}`);
+      return sortOption.properties.map((sortProperty) => `${sortProperty}:${sortOrder}`);
     }
     return ['id:desc'];
   }),

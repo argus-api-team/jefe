@@ -125,7 +125,7 @@ export default DS.Model.extend(Validations, {
   }),
   _getSpecificValue(subtype) {
     return DS.PromiseObject.create({
-      promise: this.get('values').then(values => values.findBy('subtype', subtype)),
+      promise: this.get('values').then((values) => values.findBy('subtype', subtype)),
     });
   },
 
@@ -136,7 +136,7 @@ export default DS.Model.extend(Validations, {
     return DS.PromiseObject.create({
       promise: store.findRecord('version', versionId, {
         include: 'make,submodel,generation,phase',
-      }).then(version => version)
+      }).then((version) => version)
         .catch(() => null),
     });
   }),
@@ -146,7 +146,7 @@ export default DS.Model.extend(Validations, {
     if (!originCountry) {
       return true;
     }
-    if (originCountry === 'Fr') {
+    if (originCountry === 'FR') {
       return true;
     }
     return false;

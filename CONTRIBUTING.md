@@ -83,11 +83,13 @@ The following is the list of supported scopes:
 * **contributing**: Changes that affect the contributing guidelines
 * **data**: Changes that affect the data handling between the store and APIs (model, adapter, serializer)
 * **dependencies**: Changes that affect the project dependencies or vendors (NPM packages, Addons, metronic)
+* **deprecations**: Changes that handle deprecations
 * **docker**: Changes that affect production and build docker images
 * **helpers**: Adding new helpers or update existing ones (helpers, mixins, transforms)
 * **integration**: Adding missing integration tests or correcting existing ones
 * **intl**: Adding new translations or update existing ones
 * **license**: Changes that affect the project license
+* **linter**: Changes that affect linter status
 * **readme**: Changes that affect the project readme
 * **routes**: Adding new route or update existing ones (router, route)
 * **service**: Adding new a service or update existing ones

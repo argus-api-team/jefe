@@ -3,15 +3,20 @@ blueprints/*/files/
 vendor/
 public/
 
+# Config files
+config/
+ember-cli-build.js
+
 # compiled output
 dist/
 tmp/
 
 # dependencies
-bower_components/
+node_modules/
 
 # misc
 coverage/
+testem.js
 
 # ember-try
 .node_modules.ember-try/
