@@ -77,7 +77,7 @@
                 {{#link-to "data-set.referential.make" make.id class="list-item-content"}}
                   <section class="infos">
                     <h5>{{make.name}}</h5>
-                    <p>{{make.displayDate}}</p>
+                    <p>{{display-date make.startDate make.endDate}}</p>
                   </section>
                   <div class="logo-img">
                     {{logo-img data-src=make.logoURL className="thumbnail make-logo"}}

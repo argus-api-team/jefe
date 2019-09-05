@@ -4,11 +4,11 @@ import { computed, observer } from '@ember/object';
 import DS from 'ember-data';
 import moment from 'moment';
 import { map } from 'rsvp';
-import VehicleSelectionlMixin from '../mixins/vehicle-selection';
 
-export default Component.extend(VehicleSelectionlMixin, {
+export default Component.extend({
   store: service(),
   intl: service(),
+  router: service(),
 
   tagName: 'form',
   classNames: ['row'],
@@ -26,7 +26,12 @@ export default Component.extend(VehicleSelectionlMixin, {
   submit(e) {
     e.preventDefault();
     const selectedVersion = this.get('selectedVersion');
-    this.selectVersion(selectedVersion);
+    const valorizationRecord = this.get('valorizationRecord');
+    const vehicleDate = this.get('vehicleDate');
+    const router = this.get('router');
+    valorizationRecord.set('version', selectedVersion);
+    valorizationRecord.set('releasedAt', vehicleDate);
+    router.transitionTo('data-set.quote.valorize.offer');
   },
 
   makesSelection: computed('selectedCategory', function () {
@@ -84,11 +89,11 @@ export default Component.extend(VehicleSelectionlMixin, {
       },
       sort: 'name',
     })
-      .then(submodels => map(submodels.toArray(), (submodel => submodel.get('generations'))))
+      .then((submodels) => map(submodels.toArray(), ((submodel) => submodel.get('generations'))))
       .then((generationsPromises) => {
         const generations = this._flattenPromisesArray(generationsPromises);
         const filteredGenerations = this._filterRecordsByDate(vehicleDate, generations);
-        return map(filteredGenerations, (generation => generation.get('phases')));
+        return map(filteredGenerations, ((generation) => generation.get('phases')));
       })
       .then((phasesPromises) => {
         const phases = this._flattenPromisesArray(phasesPromises);
@@ -97,7 +102,7 @@ export default Component.extend(VehicleSelectionlMixin, {
   },
 
   _flattenPromisesArray(promisesResultsArray) {
-    const simplifiedArray = promisesResultsArray.map(promiseResult => promiseResult.toArray());
+    const simplifiedArray = promisesResultsArray.map((promiseResult) => promiseResult.toArray());
     return simplifiedArray.reduce((prev, curr) => prev.concat(curr));
   },
 

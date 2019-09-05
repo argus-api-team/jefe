@@ -145,7 +145,7 @@ export default Controller.extend({
               return this.get('engineOptions').isAny('isActive', true);
             }),
             engineOptions: ArrayProxy.create({
-              content: engineOptions.filter(engineOption => engineOption.get('energyId') === item.get('id')),
+              content: engineOptions.filter((engineOption) => engineOption.get('energyId') === item.get('id')),
             }),
           });
         }

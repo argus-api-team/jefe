@@ -10,7 +10,7 @@ ENV BUILD_PACKAGES chromium \
                    libgcc \
                    libressl-dev \
                    libstdc++
-ENV EMBER_CLI_VERSION 3.8.2
+ENV EMBER_CLI_VERSION 3.12.0
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 ENV PATH=$PATH:/home/node/.npm-global/bin
 

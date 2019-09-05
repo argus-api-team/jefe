@@ -145,7 +145,7 @@
                 selected=selectedPeriod
                 onchange=(action "updateSelectedPeriod")
               as |period|}}
-                {{period.displayDateCompact}}
+                {{display-date period.startDate period.endDate compact=true}}
               {{/power-select}}
               {{! template-lint-enable }}
             </div>
@@ -187,7 +187,7 @@
               </div>
             </div>
             {{#if localizedReferentials.isFrenchReferential}}
-              {{#if model.quotable}}
+              {{#if model.vehicle.quotable}}
                 <hr class="m--margin-top-15 m--margin-bottom-15">
                 <div class="text-right m--margin-top-25">
                   {{#link-to
@@ -503,8 +503,8 @@
                   value=selectedPeriod.engine.compressionRatio
                 }}
                 {{tech-data-row
-                  labelKey="techData.engine.emission"
-                  value=selectedPeriod.engine.emission
+                  labelKey="techData.engine.standardEmission"
+                  value=selectedPeriod.engine.standardEmission
                 }}
                 {{tech-data-row
                   labelKey="techData.engine.fiscalHorsepower"

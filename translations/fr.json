@@ -466,7 +466,7 @@
       "numberOfValves": "Nombre de soupapes",
       "boreAndStroke": "Alésage/course",
       "compressionRatio": "Rapport volumétrique",
-      "emission": "Norme anti-pollution",
+      "standardEmission": "Norme anti-pollution",
       "fiscalHorsepower": "Puissance fiscale"
     },
     "gearbox": {

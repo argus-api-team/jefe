@@ -3,6 +3,7 @@ import ENV from 'jefe/config/environment';
 
 export default OAuth2PasswordGrand.extend({
   serverTokenEndpoint: ENV.OAUTH_URL,
+  sendClientIdAsQueryParam: true,
 
   authenticate(applicationId, applicationSecret, username, password) {
     const applicationAuth = btoa(`${applicationId}:${applicationSecret}`);

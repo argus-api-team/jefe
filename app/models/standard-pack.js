@@ -1,6 +1,4 @@
-import DS from 'ember-data';
-import FeatureModelMixin from '../mixins/feature-model';
+import packModel from './pack';
 
-export default DS.Model.extend(FeatureModelMixin, {
-  equipments: DS.hasMany({ async: true }),
-});
+
+export default packModel.extend();
