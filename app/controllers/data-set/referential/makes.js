@@ -41,7 +41,7 @@ export default Controller.extend({
       return [];
     }
     const searchTerm = this.get('searchTerm');
-    const filteredMakes = makes.filter(make => (make.get('name').toLowerCase().indexOf(searchTerm) > -1));
+    const filteredMakes = makes.filter((make) => (make.get('name').toLowerCase().indexOf(searchTerm) > -1));
     return filteredMakes;
   }),
 

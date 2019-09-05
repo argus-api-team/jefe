@@ -69,7 +69,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
   _getTrimLevels(versions) {
     const trimLevels = versions.mapBy('trimLevel').uniq().without(null);
-    return trimLevels.map(trimLevel => EmberObject.create({
+    return trimLevels.map((trimLevel) => EmberObject.create({
       id: trimLevel,
       name: trimLevel,
     }));
@@ -81,6 +81,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
         const engines = versionEngines.without(null).uniq();
         return engines.length ? all(engines.mapBy('energy')) : all(versions.mapBy('energy'));
       })
-      .then(engineEnergies => engineEnergies.uniq());
+      .then((engineEnergies) => engineEnergies.uniq());
   },
 });

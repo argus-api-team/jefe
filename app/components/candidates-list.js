@@ -18,7 +18,7 @@ export default Component.extend({
     const versionsPromises = this._buildVersionsPromiseArray(candidates);
     return DS.PromiseObject.create({
       promise: all(versionsPromises)
-        .then(versions => this._formatVersionCandidateArray(candidates, versions)),
+        .then((versions) => this._formatVersionCandidateArray(candidates, versions)),
     });
   }),
 
