@@ -36,18 +36,19 @@ export default Route.extend(AuthenticatedRouteMixin, {
       return model;
     })
       .catch(() => {
-        this.transitionTo('index');
+        // Insert debug code here
+      })
+      .finally(() => {
+        const modelController = this.controllerFor('data-set.referential.model');
+        modelController.set('loadingVersions', false);
       });
   },
   actions: {
-    loading(transition) {
+    loading() {
       // This hook is used to trigger loading template render event
       // To change the loading template see the end of lang/referential/model template
       const modelController = this.controllerFor('data-set.referential.model');
       modelController.set('loadingVersions', true);
-      transition.promise.finally(() => {
-        modelController.set('loadingVersions', false);
-      });
       return true;
     },
   },

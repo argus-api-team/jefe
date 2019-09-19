@@ -11,8 +11,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
         reload: true,
       }),
       featureCategories: this.store.findAll('featureCategory'),
-    }).catch(() => {
-      this.transitionTo('index');
     });
   },
 
