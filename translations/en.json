@@ -63,7 +63,8 @@
       "gb": "United Kingdom",
       "pl": "Poland",
       "de": "Germany",
-      "bg": "Bulgaria"
+      "bg": "Bulgaria",
+      "classic": "Classic"
     },
     "langs": {
       "en": "English",
