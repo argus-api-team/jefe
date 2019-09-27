@@ -51,7 +51,7 @@ export default Controller.extend({
     'engineOptions.@each.isActive',
     'energyOptions.@each.isActive',
     function () {
-      const versionsArray = this.get('model.versions');
+      const versionsArray = this.get('model.versions') || [];
       const filters = [
         {
           filteredProp: 'trimLevel',
@@ -96,22 +96,27 @@ export default Controller.extend({
   ),
 
   trimLevelOptions: computed('model.trimLevels', function () {
-    return this._generateFilterOptions(this.get('model.trimLevels'), 'name', null, 'trimLevels');
+    const trimLevels = this.get('model.trimLevels') || [];
+    return this._generateFilterOptions(trimLevels, 'name', null, 'trimLevels');
   }),
 
   engineOptions: computed('model.engines', function () {
-    return this._generateFilterOptions(this.get('model.engines'), 'marketName', 'standardEmission', 'engines');
+    const engines = this.get('model.engines') || [];
+    return this._generateFilterOptions(engines, 'marketName', 'standardEmission', 'engines');
   }),
   energyOptions: computed('model.energies', 'engineOptions', function () {
-    return this._generateFilterOptions(this.get('model.energies'), 'name', null, 'energies');
+    const energies = this.get('model.energies') || [];
+    return this._generateFilterOptions(energies, 'name', null, 'energies');
   }),
 
   gearboxOptions: computed('model.gearboxes', function () {
-    return this._generateFilterOptions(this.get('model.gearboxes'), 'name', null, 'gearboxes');
+    const gearboxes = this.get('model.gearboxes') || [];
+    return this._generateFilterOptions(gearboxes, 'name', null, 'gearboxes');
   }),
 
   transmissionOptions: computed('model.transmissions', function () {
-    return this._generateFilterOptions(this.get('model.transmissions'), 'drivenWheels', 'marketingName', 'transmissions');
+    const transmissions = this.get('model.transmissions') || [];
+    return this._generateFilterOptions(transmissions, 'drivenWheels', 'marketingName', 'transmissions');
   }),
 
   _generateFilterOptions(array, primaryProp, secondaryProp, queryParamName) {

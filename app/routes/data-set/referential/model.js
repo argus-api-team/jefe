@@ -11,7 +11,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
         filterable: false,
       },
     }).catch(() => {
-      this.transitionTo('index');
+      this.transitionTo('data-set.make');
     });
   },
   includedRelationship: computed('', function () { // eslint-disable-line

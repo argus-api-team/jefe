@@ -19,7 +19,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
     const localizedReferentials = this.get('localizedReferentials');
     const availablePrefixes = localizedReferentials.get('availablePrefixes');
     const crossCountryScope = this.get('userProfile.crossCountryScope');
-    let dataSetPrefix = dataSet.replace('-', '/');
+    const regex = /-/gi;
+    let dataSetPrefix = dataSet.replace(regex, '/');
     if (availablePrefixes.indexOf(dataSetPrefix) === -1) {
       dataSetPrefix = 'fr/fr';
       this.transitionTo('data-set', 'fr-fr');

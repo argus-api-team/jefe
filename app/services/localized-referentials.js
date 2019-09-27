@@ -17,6 +17,7 @@ export default Service.extend({
     'fr/fr',
     'ma/fr',
     'ci/fr',
+    'classic/fr/fr',
   ]),
   thirdPartiesPrefixes: Object.freeze([
     'be/en',
@@ -71,6 +72,18 @@ export default Service.extend({
         {
           prefix: 'fr',
           flag: 'ci',
+        },
+      ],
+    },
+    {
+      labelKey: 'referentialSelector.countries.classic',
+      defautPrefix: 'classic-fr',
+      prefix: 'classic-fr',
+      flag: 'fr',
+      langs: [
+        {
+          prefix: 'fr',
+          flag: 'fr',
         },
       ],
     },

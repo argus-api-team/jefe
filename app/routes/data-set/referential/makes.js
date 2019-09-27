@@ -15,7 +15,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
         sort: 'name',
       }),
     }).catch(() => {
-      this.transitionTo('index');
+      this.transitionTo('data-set');
     });
   },
 });

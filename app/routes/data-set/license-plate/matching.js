@@ -6,6 +6,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return this.store.findRecord('matching', params.id, {
       include: 'registration-card,candidates',
       reload: true,
+    }).catch(() => {
+      this.transitionTo('data-set.license-plate');
     });
   },
 });

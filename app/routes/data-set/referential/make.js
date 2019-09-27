@@ -36,7 +36,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
         },
       }),
     }).catch(() => {
-      this.transitionTo('index');
+      this.transitionTo('data-set.makes');
     });
   },
 });
