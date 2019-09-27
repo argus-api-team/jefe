@@ -2,10 +2,20 @@
 ## [Unreleased]
 
 
+<a name="v0.5.2"></a>
+## [v0.5.2] - 2019-09-19
+### Features
+- **data:** Improve route error handling [#ff0461b](https://github.com/argus-api-team/jefe/commit/ff0461b) - Anthony Mangano
+- **data:** Add classic referential [#1e0f502](https://github.com/argus-api-team/jefe/commit/1e0f502) - Anthony Mangano
+
+### Pull Requests
+- Merge pull request [#33](https://github.com/argus-api-team/jefe/issues/33) from argus-api-team/maintenance
+
+
 <a name="v0.5.1"></a>
 ## [v0.5.1] - 2019-09-05
 ### Build
-- **dependencies:** Update Ember from 3.8 to 3.12 [#c501956](https://github.com/argus-api-team/jefe/commit/c501956) - Anthony Mangano
+- **dependencies:** Update Ember from 3.8 to 3.12 [#e7636c2](https://github.com/argus-api-team/jefe/commit/e7636c2) - Anthony Mangano
 
 
 <a name="v0.5.0"></a>
@@ -132,7 +142,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.1...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.2...HEAD
+[v0.5.2]: https://github.com/argus-api-team/jefe/compare/v0.5.1...v0.5.2
 [v0.5.1]: https://github.com/argus-api-team/jefe/compare/v0.5.0...v0.5.1
 [v0.5.0]: https://github.com/argus-api-team/jefe/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/argus-api-team/jefe/compare/v0.3.0...v0.4.0
