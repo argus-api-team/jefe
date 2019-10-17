@@ -2,8 +2,26 @@
 ## [Unreleased]
 
 
+<a name="v0.5.4"></a>
+## [v0.5.4] - 2019-10-17
+### Pull Requests
+- Merge pull request [#35](https://github.com/argus-api-team/jefe/issues/35) from argus-api-team/fix-make-view
+
+
+<a name="v0.5.3"></a>
+## [v0.5.3] - 2019-10-02
+### Bug Fixes
+- **ui:** Fix make display date in make view [#a7ac08e](https://github.com/argus-api-team/jefe/commit/a7ac08e) - Anthony Mangano
+
+### Pull Requests
+- Merge pull request [#34](https://github.com/argus-api-team/jefe/issues/34) from argus-api-team/add-classic-referential
+
+
 <a name="v0.5.2"></a>
 ## [v0.5.2] - 2019-09-19
+### Build
+- **dependencies:** Update Ember from 3.8 to 3.12 [#e7636c2](https://github.com/argus-api-team/jefe/commit/e7636c2) - Anthony Mangano
+
 ### Features
 - **data:** Improve route error handling [#ff0461b](https://github.com/argus-api-team/jefe/commit/ff0461b) - Anthony Mangano
 - **data:** Add classic referential [#1e0f502](https://github.com/argus-api-team/jefe/commit/1e0f502) - Anthony Mangano
@@ -15,7 +33,7 @@
 <a name="v0.5.1"></a>
 ## [v0.5.1] - 2019-09-05
 ### Build
-- **dependencies:** Update Ember from 3.8 to 3.12 [#e7636c2](https://github.com/argus-api-team/jefe/commit/e7636c2) - Anthony Mangano
+- **dependencies:** Update Ember from 3.8 to 3.12 [#c501956](https://github.com/argus-api-team/jefe/commit/c501956) - Anthony Mangano
 
 
 <a name="v0.5.0"></a>
@@ -142,7 +160,9 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.2...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.4...HEAD
+[v0.5.4]: https://github.com/argus-api-team/jefe/compare/v0.5.3...v0.5.4
+[v0.5.3]: https://github.com/argus-api-team/jefe/compare/v0.5.2...v0.5.3
 [v0.5.2]: https://github.com/argus-api-team/jefe/compare/v0.5.1...v0.5.2
 [v0.5.1]: https://github.com/argus-api-team/jefe/compare/v0.5.0...v0.5.1
 [v0.5.0]: https://github.com/argus-api-team/jefe/compare/v0.4.0...v0.5.0
