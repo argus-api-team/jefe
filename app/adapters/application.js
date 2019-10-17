@@ -38,5 +38,5 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, HasManyQuery.RESTAdapt
     });
   },
 
-  baseUrl: 'specs/2.0/',
+  baseUrl: 'specs/2.0',
 });

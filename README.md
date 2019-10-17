@@ -18,7 +18,7 @@ You will need the following things properly installed on your computer.
 
 ## Enter in container to use Ember-CLI
 
-To run and enter in the development container use: `make start_cotainer`.
+To run and enter in the development container use: `make start_container`.
 
 If your development container is already running in other terminal use: `make container_shell`.
 
