@@ -49,6 +49,10 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
+### Deploy on heroku
+
+You must use [emberjs buildpack](https://www.heroku.com/emberjs)
+
 ## Further Reading / Useful Links
 
 * [ember.js](https://emberjs.com/)
