@@ -23,6 +23,7 @@ To run and enter in the development container use: `make start_container`.
 If your development container is already running in other terminal use: `make container_shell`.
 
 ## Running / Development
+
 * `ember s`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
@@ -47,7 +48,6 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember build` (development)
 * `ember build --environment production` (production)
-
 
 ## Further Reading / Useful Links
 
