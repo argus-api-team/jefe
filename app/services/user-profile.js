@@ -41,10 +41,10 @@ export default Service.extend({
     return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
   }),
   valorizationScope: computed('userScope', function () {
-    return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
+    return this.get('userScope').includes('Checkout::V3::ValorizationResource');
   }),
   matchingScope: computed('userScope', function () {
-    return this.get('userScope').includes('Specs::V2::CrossCountryAccess');
+    return this.get('userScope').includes('Checkout::V3::MatchingResource');
   }),
 
 });
