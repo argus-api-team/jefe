@@ -2,6 +2,9 @@
 ## [Unreleased]
 
 
+<a name="v0.5.5"></a>
+## [v0.5.5] - 2020-09-02
+
 <a name="v0.5.4"></a>
 ## [v0.5.4] - 2019-10-17
 ### Pull Requests
@@ -160,7 +163,8 @@
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2019-04-01
 
-[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.4...HEAD
+[Unreleased]: https://github.com/argus-api-team/jefe/compare/v0.5.5...HEAD
+[v0.5.5]: https://github.com/argus-api-team/jefe/compare/v0.5.4...v0.5.5
 [v0.5.4]: https://github.com/argus-api-team/jefe/compare/v0.5.3...v0.5.4
 [v0.5.3]: https://github.com/argus-api-team/jefe/compare/v0.5.2...v0.5.3
 [v0.5.2]: https://github.com/argus-api-team/jefe/compare/v0.5.1...v0.5.2
